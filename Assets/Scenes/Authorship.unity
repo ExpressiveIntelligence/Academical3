@@ -237,6 +237,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brad
       objectReference: {fileID: 0}
+    - target: {fileID: 5037387535711844098, guid: 1b2e0d9c7475240ba8555870eea89324, type: 3}
+      propertyPath: m_uniqueID
+      value: Brad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819863982084542680, guid: 1b2e0d9c7475240ba8555870eea89324, type: 3}
+      propertyPath: m_UID
+      value: Brad
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -294,6 +302,14 @@ PrefabInstance:
     - target: {fileID: 2400217827245822283, guid: 8eb01a63877f84df98e385279fa2409a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: 8eb01a63877f84df98e385279fa2409a, type: 3}
+      propertyPath: m_UID
+      value: Ivy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: 8eb01a63877f84df98e385279fa2409a, type: 3}
+      propertyPath: m_uniqueID
+      value: Ivy
       objectReference: {fileID: 0}
     - target: {fileID: 8729043420659906418, guid: 8eb01a63877f84df98e385279fa2409a, type: 3}
       propertyPath: m_Name
@@ -551,6 +567,14 @@ PrefabInstance:
     - target: {fileID: 2400217827245822283, guid: c1355f58b22924d74b93cd822b17c2f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: c1355f58b22924d74b93cd822b17c2f7, type: 3}
+      propertyPath: m_UID
+      value: Bronislav
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: c1355f58b22924d74b93cd822b17c2f7, type: 3}
+      propertyPath: m_uniqueID
+      value: Bronislav
       objectReference: {fileID: 0}
     - target: {fileID: 8729043420659906418, guid: c1355f58b22924d74b93cd822b17c2f7, type: 3}
       propertyPath: m_Name
