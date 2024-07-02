@@ -171,6 +171,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: 0da31dafff3cb4e2db44db5bf3ebe6f6, type: 3}
+      propertyPath: m_UID
+      value: Praveen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: 0da31dafff3cb4e2db44db5bf3ebe6f6, type: 3}
+      propertyPath: m_uniqueID
+      value: Praveen
+      objectReference: {fileID: 0}
     - target: {fileID: 8729043420659906418, guid: 0da31dafff3cb4e2db44db5bf3ebe6f6, type: 3}
       propertyPath: m_Name
       value: Praveen
@@ -372,6 +380,14 @@ PrefabInstance:
     - target: {fileID: 2400217827245822283, guid: 023fb3e94ef324fe1ae79726ab9458b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: 023fb3e94ef324fe1ae79726ab9458b4, type: 3}
+      propertyPath: m_UID
+      value: Matilda
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: 023fb3e94ef324fe1ae79726ab9458b4, type: 3}
+      propertyPath: m_uniqueID
+      value: Matilda
       objectReference: {fileID: 0}
     - target: {fileID: 8729043420659906418, guid: 023fb3e94ef324fe1ae79726ab9458b4, type: 3}
       propertyPath: m_Name
@@ -638,6 +654,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: 15b5c79cc4e0e421a9d6ae3c4ad2d55a, type: 3}
+      propertyPath: m_UID
+      value: Ned
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: 15b5c79cc4e0e421a9d6ae3c4ad2d55a, type: 3}
+      propertyPath: m_uniqueID
+      value: Ned
+      objectReference: {fileID: 0}
     - target: {fileID: 8729043420659906418, guid: 15b5c79cc4e0e421a9d6ae3c4ad2d55a, type: 3}
       propertyPath: m_Name
       value: Ned
@@ -730,6 +754,14 @@ PrefabInstance:
     - target: {fileID: 2400217827245822283, guid: 2c624dd34d6ba44429c93a1bf55184d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: 2c624dd34d6ba44429c93a1bf55184d4, type: 3}
+      propertyPath: m_UID
+      value: Hendriks
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: 2c624dd34d6ba44429c93a1bf55184d4, type: 3}
+      propertyPath: m_uniqueID
+      value: Hendriks
       objectReference: {fileID: 0}
     - target: {fileID: 8729043420659906418, guid: 2c624dd34d6ba44429c93a1bf55184d4, type: 3}
       propertyPath: m_Name
@@ -1160,6 +1192,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: 02f0c80b6403440a68bf84a3548bcbd7, type: 3}
+      propertyPath: m_UID
+      value: Ayla
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: 02f0c80b6403440a68bf84a3548bcbd7, type: 3}
+      propertyPath: m_uniqueID
+      value: Ayla
+      objectReference: {fileID: 0}
     - target: {fileID: 8729043420659906418, guid: 02f0c80b6403440a68bf84a3548bcbd7, type: 3}
       propertyPath: m_Name
       value: Ayla
@@ -1445,7 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1165db2bee8ed4e828113077a4c2cd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UID: player
+  m_UID: Player
   m_agentSchema: {fileID: 11400000, guid: fcc31d30301b843289b02ffda75a7a24, type: 2}
   m_baseStats: []
   m_baseTraits: []
@@ -1518,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7637924957314695651, guid: 2f603e99545994f3db780c3de37c7262, type: 3}
       propertyPath: m_uniqueID
-      value: player
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7637924957314695651, guid: 2f603e99545994f3db780c3de37c7262, type: 3}
       propertyPath: m_displayName

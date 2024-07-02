@@ -1,6 +1,3 @@
-INCLUDE ./plagiarism2B.ink
-INCLUDE ./plagiarism2G.ink
-
 === start ===
 
 -> breakfast
@@ -117,3 +114,18 @@ Ayla drops the subject and closes her laptop. She can't shake the feeling that m
 Ayla: "No, you're wrong. Even just that one part constitutes plagiarism. I can see that you didn't credit them in the paper. I really don't think we can submit this in good faith!"  
 
 -> END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
