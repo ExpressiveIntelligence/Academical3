@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/LocationSelectionMenu.uss?fileID=7433441132597879392&amp;guid=e21f765b216e141da866f473670c2f9a&amp;type=3#LocationSelectionMenu" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.7); justify-content: space-around;">
+        <ui:ScrollView vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="AlwaysVisible" mode="Horizontal" style="height: 60%; flex-direction: row; align-self: flex-start; justify-content: space-between;">
+            <ui:VisualElement style="flex-grow: 1; height: 600px; flex-direction: row; padding-right: 64px; padding-left: 64px; align-items: stretch; justify-content: flex-start;">
+                <ui:VisualElement class="locationThumb" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; overflow: hidden;" />
+                <ui:VisualElement class="locationThumb" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; overflow: hidden;" />
+                <ui:VisualElement class="locationThumb" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; overflow: hidden;" />
+                <ui:VisualElement class="locationThumb" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; overflow: hidden;" />
+                <ui:VisualElement class="locationThumb" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; overflow: hidden;" />
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
