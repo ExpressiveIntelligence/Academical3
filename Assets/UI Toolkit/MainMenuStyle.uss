@@ -26,3 +26,12 @@
     width: 70%;
     height: 100%;
 }
+
+.unity-slider {
+    font-size: 22px;
+    -unity-font-style: bold;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
