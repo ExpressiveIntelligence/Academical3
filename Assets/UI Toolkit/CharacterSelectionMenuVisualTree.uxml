@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="CharacterCard" src="project://database/Assets/UI%20Toolkit/CharacterCard.uxml?fileID=9197481963319205126&amp;guid=eb8bd3891c39049b7bbf58bf183292fe&amp;type=3#CharacterCard" />
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=ca78c19f1c48f4db4bcca0ff9a98a40d&amp;type=3#MainMenuStyle" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; justify-content: flex-start; align-items: flex-start; background-color: rgb(0, 0, 0); background-image: none; -unity-slice-right: 0; -unity-background-image-tint-color: rgb(0, 0, 0); flex-direction: row;">
+        <ui:VisualElement name="SideNav" class="menuSideNav" style="flex-grow: 1; width: 30%; background-color: rgba(0, 0, 0, 0.76); justify-content: flex-start; align-items: center; padding-top: 64px; padding-bottom: 64px; padding-left: 32px; padding-right: 32px; -unity-background-image-tint-color: rgb(0, 0, 0); height: 100%;">
+            <ui:Label tabindex="-1" text="Academical 3" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="header" style="-unity-text-align: upper-left; font-size: 80px; width: 100%;" />
+            <ui:Label tabindex="-1" text="Character&#10;Selection" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SubTitle" class="subheader" style="width: 100%;" />
+            <ui:VisualElement name="NavButtons" style="flex-grow: 1; justify-content: flex-end; width: 100%; flex-direction: column; align-items: stretch; align-self: stretch;">
+                <ui:Button text="Back to Main Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackBtn" class="menuButton" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="MainContent" class="menuMainContent" style="padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">
+            <ui:ScrollView name="ScrollView" style="background-color: rgba(255, 255, 255, 0.2); width: 100%; height: 100%; padding-top: 0; padding-right: 64px; padding-left: 64px;">
+                <ui:VisualElement name="ContentContainer" style="flex-grow: 1; padding-top: 64px; padding-right: 64px; padding-bottom: 64px; padding-left: 64px;">
+                    <ui:Instance template="CharacterCard" name="CharacterCard" />
+                    <ui:Instance template="CharacterCard" name="CharacterCard" />
+                    <ui:Instance template="CharacterCard" name="CharacterCard" />
+                    <ui:Instance template="CharacterCard" name="CharacterCard" />
+                    <ui:Instance template="CharacterCard" name="CharacterCard" />
+                    <ui:Instance template="CharacterCard" name="CharacterCard" />
+                    <ui:Instance template="CharacterCard" name="CharacterCard" />
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

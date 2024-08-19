@@ -8,11 +8,11 @@
       "hash": "f7a5ed16b93fe2d220d8833a82e0324276cd2d0e"
     },
     "com.shijbey.anansi": {
-      "version": "https://github.com/ShiJbey/Anansi.git?path=/Packages/com.shijbey.anansi#v0.2.0",
+      "version": "https://github.com/ShiJbey/Anansi.git?path=/Packages/com.shijbey.anansi#v0.5.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9d2a9e1af7ad10e9abd1c14400b25c49b8fd78e3"
+      "hash": "43386c106bdc0355bf5e6db6154d3b4cf7e6452d"
     },
     "com.shijbey.tdrs": {
       "version": "https://github.com/ShiJbey/TDRS.git?path=/Packages/com.shijbey.tdrs#v2.0.0",
@@ -173,7 +173,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.18",
+      "version": "2.0.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {

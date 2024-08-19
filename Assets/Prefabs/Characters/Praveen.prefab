@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_displayName: Praveen
-  m_uniqueID: praveen
+  m_uniqueID: Praveen
 --- !u!114 &2749328358828525653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1165db2bee8ed4e828113077a4c2cd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UID: praveen
+  m_UID: Praveen
   m_agentSchema: {fileID: 11400000, guid: 1d1b1f6badf744392ae3d91db6965dea, type: 2}
   m_baseStats: []
   m_baseTraits: []
