@@ -1,11 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/CharacterCard.uss?fileID=7433441132597879392&amp;guid=317463732f2e946638436f1c577741b1&amp;type=3#CharacterCard" />
     <ui:VisualElement name="CharacterCard" class="characterCard" style="margin-bottom: 24px;">
-        <ui:VisualElement name="CardImage" class="cardImage" />
-        <ui:VisualElement name="CardContent" class="cardContent">
-            <ui:Label tabindex="-1" text="Description" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DescriptionLabel" class="cardHeader" />
-            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DescriptionText" class="cardText" style="font-size: 20px;" />
-            <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PlayButton" class="cardPlayBtn" />
+        <ui:VisualElement name="CardImage" class="cardImage" style="width: 25%; min-width: 25%; height: 100%; min-height: 100%;" />
+        <ui:VisualElement name="CardContent" class="cardContent" style="flex-direction: column; align-items: flex-start; justify-content: space-around; align-self: center; height: 100%;">
+            <ui:Label tabindex="-1" text="Description" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DescriptionLabel" class="cardHeader" style="font-size: 40px;" />
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DescriptionText" class="cardText" style="font-size: 36px; flex-wrap: nowrap; flex-grow: 0; height: auto; white-space: normal; text-overflow: ellipsis; width: 100%;" />
+            <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PlayButton" style="font-size: 36px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

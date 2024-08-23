@@ -13,12 +13,6 @@
             <ui:ScrollView name="ScrollView" style="background-color: rgba(255, 255, 255, 0.2); width: 100%; height: 100%; padding-top: 0; padding-right: 64px; padding-left: 64px;">
                 <ui:VisualElement name="ContentContainer" style="flex-grow: 1; padding-top: 64px; padding-right: 64px; padding-bottom: 64px; padding-left: 64px;">
                     <ui:Instance template="CharacterCard" name="CharacterCard" />
-                    <ui:Instance template="CharacterCard" name="CharacterCard" />
-                    <ui:Instance template="CharacterCard" name="CharacterCard" />
-                    <ui:Instance template="CharacterCard" name="CharacterCard" />
-                    <ui:Instance template="CharacterCard" name="CharacterCard" />
-                    <ui:Instance template="CharacterCard" name="CharacterCard" />
-                    <ui:Instance template="CharacterCard" name="CharacterCard" />
                 </ui:VisualElement>
             </ui:ScrollView>
         </ui:VisualElement>

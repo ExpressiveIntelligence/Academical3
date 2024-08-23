@@ -409,6 +409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa904cbb4a4a34954940f4b6bbddf331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Levels:
+  - {fileID: 11400000, guid: 366190f1609664c2e8d45025400a417d, type: 2}
+  - {fileID: 11400000, guid: 05de43b7b089c4e22a903372eb9cd669, type: 2}
+  m_LevelCardVisualTree: {fileID: 9197481963319205126, guid: eb8bd3891c39049b7bbf58bf183292fe, type: 3}
 --- !u!1 &1360410741
 GameObject:
   m_ObjectHideFlags: 0
