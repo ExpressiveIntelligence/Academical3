@@ -36,6 +36,7 @@ namespace Academical
 
 		void OnBackButtonClicked()
 		{
+			AudioManager.PlayDefaultButtonSound();
 			MainMenuUIEvents.HomeScreenShown?.Invoke();
 		}
 
@@ -51,6 +52,7 @@ namespace Academical
 
 			instance.Q<Button>( "PlayButton" ).clicked += () =>
 			{
+				AudioManager.PlayDefaultButtonSound();
 				SceneManager.LoadScene( "Scenes/Authorship" );
 			};
 

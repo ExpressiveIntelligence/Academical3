@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class GameData 
+public class GameData
 {
-    public string playerID;
+	public string playerID;
+	public int musicVolume;
 
-    public GameData()
-    {
-        this.playerID = "tester";
-    }
+	public int sfxVolume;
+
+	public GameData()
+	{
+		this.playerID = "tester";
+	}
 }
-

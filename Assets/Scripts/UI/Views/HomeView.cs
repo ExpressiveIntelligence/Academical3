@@ -46,26 +46,31 @@ namespace Academical
 
 		void OnNewGameButtonClicked()
 		{
+			AudioManager.PlayDefaultButtonSound();
 			MainMenuUIEvents.NewGameScreenShown?.Invoke();
 		}
 
 		void OnLoadGameButtonClicked()
 		{
+			AudioManager.PlayDefaultButtonSound();
 			MainMenuUIEvents.LoadGameScreenShown?.Invoke();
 		}
 
 		void OnSettingsButtonClicked()
 		{
+			AudioManager.PlayDefaultButtonSound();
 			MainMenuUIEvents.SettingsScreenShown?.Invoke();
 		}
 
 		void OnCreditsButtonClicked()
 		{
+			AudioManager.PlayDefaultButtonSound();
 			MainMenuUIEvents.CreditsScreenShown?.Invoke();
 		}
 
 		void OnQuitButtonClicked()
 		{
+			AudioManager.PlayDefaultButtonSound();
 			// Do nothing.
 		}
 	}

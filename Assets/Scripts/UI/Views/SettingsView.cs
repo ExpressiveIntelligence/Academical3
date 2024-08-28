@@ -32,6 +32,7 @@ namespace Academical
 
 		private void BackButtonClick(ClickEvent evt)
 		{
+			AudioManager.PlayDefaultButtonSound();
 			MainMenuUIEvents.HomeScreenShown?.Invoke();
 		}
 	}
