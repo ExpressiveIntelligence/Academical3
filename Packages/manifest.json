@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.inkle.ink-unity-integration": "https://github.com/inkle/ink-unity-integration.git#upm",
-    "com.shijbey.anansi": "https://github.com/ShiJbey/Anansi.git?path=/Packages/com.shijbey.anansi#v0.5.0",
     "com.shijbey.tdrs": "https://github.com/ShiJbey/TDRS.git?path=/Packages/com.shijbey.tdrs#v2.0.0",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.2d": "2.0.0",
