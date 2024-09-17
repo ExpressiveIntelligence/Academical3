@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="HUD__container" style="flex-grow: 1; overflow: hidden; position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+        <ui:VisualElement name="HUD_buttonGroup" style="flex-grow: 1; position: absolute; bottom: 40px; top: auto; right: 0; left: 0; flex-direction: row; justify-content: space-between; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; height: 150px; background-color: rgba(28, 23, 36, 0.91);">
+            <ui:Button text="Choose Action" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HUD__chooseActionButton" style="font-size: 24px;" />
+            <ui:Button text="Choose Location" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HUD__ChooseLocationButton" style="font-size: 24px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

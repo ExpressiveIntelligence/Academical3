@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="DialogueBox__container" style="flex-grow: 1; width: auto; height: auto; background-color: rgba(38, 35, 38, 0.78);">
+        <ui:VisualElement name="DialogueBox__header" style="flex-grow: initial; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; height: initial; flex-direction: row; align-items: center;">
+            <ui:Label tabindex="-1" text="Speaker Name Placeholder" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DialogueBox__speaker" style="color: rgb(255, 255, 255); font-size: 38px; -unity-font-style: bold;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="DialogueBox__body" style="flex-grow: 1; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; font-size: 36px; height: 80%;">
+            <ui:Label tabindex="-1" text="Dialogue Text Placeholder" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DialogueBox__text" style="color: rgb(255, 255, 255); white-space: normal; text-overflow: ellipsis;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="DialogueBox__footer" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-self: auto; align-items: center; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; height: initial;">
+            <ui:Button text="Next" parse-escape-sequences="false" display-tooltip-when-elided="false" name="DialogueBox__advanceButton" style="font-size: 36px; padding-right: 36px; padding-left: 36px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="ChoiceEffectContainer" style="flex-grow: 1; align-items: stretch; justify-content: flex-start; flex-direction: row; margin-bottom: 12px;">
+        <ui:VisualElement name="IconContainer" style="flex-grow: 1; min-width: auto; min-height: auto; width: auto; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; justify-content: flex-start; align-self: auto; align-items: center; max-width: 64px;">
+            <ui:VisualElement name="EffectIcon" style="flex-grow: 1; max-width: none; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UI%20Images/plus_icon_green.png?fileID=2800000&amp;guid=71374b36fbb294eefb1e1498e61232c5&amp;type=3#plus_icon_green&apos;); -unity-background-scale-mode: scale-to-fit; margin-bottom: 0; width: 100%;" />
+        </ui:VisualElement>
+        <ui:Label tabindex="-1" text="Description of the effect" parse-escape-sequences="true" display-tooltip-when-elided="true" name="EffectDescription" style="-unity-text-align: middle-left; color: rgb(255, 255, 255); font-size: 24px;" />
+    </ui:VisualElement>
+</ui:UXML>

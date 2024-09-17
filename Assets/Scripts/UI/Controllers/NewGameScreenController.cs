@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UIElements;
 using System.Linq;
+using UnityEditor.EditorTools;
 
 
 namespace Academical
@@ -13,17 +14,22 @@ namespace Academical
 		[SerializeField]
 		private GameLevelSO[] m_Levels;
 
+		[Tooltip( "Settings regarding audio volume, text speed, and level info." )]
+		[SerializeField] private GameSettingsSO m_GameSettings;
+
 		[SerializeField]
 		private VisualTreeAsset m_LevelCardVisualTree;
 
 		void OnEnable()
 		{
 			MainMenuUIEvents.NewGameScreenShown += OnNewGameScreenShown;
+			GameEvents.LevelSelected += OnLevelSelected;
 		}
 
 		void OnDisable()
 		{
 			MainMenuUIEvents.NewGameScreenShown -= OnNewGameScreenShown;
+			GameEvents.LevelSelected -= OnLevelSelected;
 		}
 
 		void OnNewGameScreenShown()
@@ -32,5 +38,10 @@ namespace Academical
 			NewGameScreenEvents.LevelsUpdated?.Invoke( m_Levels.ToList() );
 		}
 
+		void OnLevelSelected(GameLevelSO levelData)
+		{
+			m_GameSettings.gameLevel = levelData;
+			SceneManager.LoadScene( levelData.Scene );
+		}
 	}
 }

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="DialogueChoiceEffect" src="project://database/Assets/UI%20Toolkit/DialogueChoiceEffect.uxml?fileID=9197481963319205126&amp;guid=c8b91aad340f84e89b0fc4d04e45391c&amp;type=3#DialogueChoiceEffect" />
+    <Style src="project://database/Assets/UI%20Toolkit/USS/DialogueChoiceButton.uss?fileID=7433441132597879392&amp;guid=b349f8ad5603143d9ab15f8b425f8c04&amp;type=3#DialogueChoiceButton" />
+    <ui:Button text="&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" class="choice-button" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgba(72, 72, 72, 0.66); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-bottom: 8px; border-left-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-top-color: rgb(51, 51, 51); border-bottom-color: rgb(51, 51, 51);">
+        <ui:VisualElement name="ButtonContainer" class="choice-button" style="flex-grow: 1; background-color: rgba(4, 0, 13, 0.69); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; border-left-color: rgb(115, 115, 115); border-right-color: rgb(115, 115, 115); border-top-color: rgb(115, 115, 115); border-bottom-color: rgb(115, 115, 115); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; height: initial;">
+            <ui:Label tabindex="-1" text="Choice placeholder text" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ChoiceText" style="color: rgb(255, 255, 255); font-size: 36px; margin-bottom: 8px;" />
+            <ui:Instance template="DialogueChoiceEffect" name="DialogueChoiceEffect" />
+            <ui:Instance template="DialogueChoiceEffect" name="DialogueChoiceEffect" />
+            <ui:Instance template="DialogueChoiceEffect" name="DialogueChoiceEffect" />
+        </ui:VisualElement>
+    </ui:Button>
+</ui:UXML>

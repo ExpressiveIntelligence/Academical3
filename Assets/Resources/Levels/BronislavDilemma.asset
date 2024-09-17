@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9578e4f4f2cff4d71bd441b6a6acca52, type: 3}
-  m_Name: HendricksDilemma
+  m_Name: BronislavDilemma
   m_EditorClassIdentifier: 
-  Title: Play as Hendricks
-  Description: Play from the perspective of Hendricks. Don't all professors have
-    mustaches?
+  Title: Play as Bronislav
+  Description: Play Academical from the perspective of Bronislav, a international
+    graduate student.
   InkScript: {fileID: 4900000, guid: 850a6ce158145424f8f91c06dcfb5fc9, type: 3}
-  Thumbnail: {fileID: 21300000, guid: fab23bc43bc004708872afa397f1dbb7, type: 3}
+  Thumbnail: {fileID: 21300000, guid: ad9954a5f432c4100ac74e9c65e4bc4a, type: 3}
+  Scene: Scenes/Experimental_Shi

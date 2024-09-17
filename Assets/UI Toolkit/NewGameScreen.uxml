@@ -6,7 +6,7 @@
             <ui:Label tabindex="-1" text="Academical 3" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="header" style="-unity-text-align: upper-left; font-size: 80px; width: 100%;" />
             <ui:Label tabindex="-1" text="New Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SubTitle" class="subheader" style="width: 100%;" />
             <ui:VisualElement name="NavButtons" style="flex-grow: 1; justify-content: flex-end; width: 100%; flex-direction: column; align-items: stretch; align-self: stretch;">
-                <ui:Button text="Back to Main Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackBtn" class="menuButton" />
+                <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackBtn" class="menuButton" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="MainContent" class="menuMainContent" style="padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">

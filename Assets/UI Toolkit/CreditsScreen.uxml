@@ -5,9 +5,13 @@
             <ui:Label tabindex="-1" text="Academical 3" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="header" style="-unity-text-align: upper-left; font-size: 80px;" />
             <ui:Label tabindex="-1" text="Credits" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SubTitle" class="subheader" />
             <ui:VisualElement name="NavButtons" style="flex-grow: 1; justify-content: center; width: 438px;">
-                <ui:Button text="Back to Home" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Credits__BackBtn" class="menuButton" />
+                <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Credits__BackBtn" class="menuButton" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1; background-image: none; width: 866px; height: 1081px;" />
+        <ui:VisualElement style="flex-grow: 1; background-image: none; width: 866px; height: 1081px;">
+            <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center; color: rgb(255, 255, 255); font-size: 36px;">
+                <ui:Label tabindex="-1" text="Credits coming soon..." parse-escape-sequences="true" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

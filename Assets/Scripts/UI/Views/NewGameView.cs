@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Academical
@@ -12,9 +11,12 @@ namespace Academical
 		public static VisualTreeAsset LevelCardVisualTree;
 		VisualElement m_levelSelectContainer;
 
+		private List<GameLevelCardView> m_levelCards;
+
 		public NewGameView(VisualElement topElement) : base( topElement )
 		{
 			NewGameScreenEvents.LevelsUpdated += OnLevelsUpdated;
+			m_levelCards = new List<GameLevelCardView>();
 		}
 
 		protected override void SetVisualElements()
@@ -32,6 +34,13 @@ namespace Academical
 		{
 			m_BackButton.clicked -= OnBackButtonClicked;
 			NewGameScreenEvents.LevelsUpdated -= OnLevelsUpdated;
+
+			foreach ( var view in m_levelCards )
+			{
+				view.Dispose();
+			}
+
+			m_levelCards.Clear();
 		}
 
 		void OnBackButtonClicked()
@@ -44,19 +53,12 @@ namespace Academical
 		{
 			TemplateContainer instance = LevelCardVisualTree.Instantiate();
 
-			instance.Q<TextElement>( "DescriptionLabel" ).text = levelData.Title;
+			GameLevelCardView view = new GameLevelCardView( instance, levelData );
 
-			instance.Q<TextElement>( "DescriptionText" ).text = levelData.Description;
+			view.Show();
 
-			instance.Q<VisualElement>( "CardImage" ).style.backgroundImage = new StyleBackground( levelData.Thumbnail );
-
-			instance.Q<Button>( "PlayButton" ).clicked += () =>
-			{
-				AudioManager.PlayDefaultButtonSound();
-				SceneManager.LoadScene( "Scenes/Authorship" );
-			};
-
-			m_levelSelectContainer.Add( instance );
+			m_levelSelectContainer.Add( view.Root );
+			m_levelCards.Add( view );
 		}
 
 		void OnLevelsUpdated(List<GameLevelSO> levels)

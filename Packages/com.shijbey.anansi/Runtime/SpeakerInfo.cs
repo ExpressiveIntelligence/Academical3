@@ -9,7 +9,6 @@ namespace Anansi
 		public SpeakerInfo(string speakerId, string speakerName, string[] tags)
 		{
 			this.SpeakerId = speakerId;
-			this.SpeakerName = speakerName;
 			this.Tags = tags;
 		}
 	}
