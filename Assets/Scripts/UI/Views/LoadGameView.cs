@@ -31,7 +31,7 @@ namespace Academical
 		void OnBackButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuUIEvents.HomeScreenShown?.Invoke();
+			MainMenuUIEvents.LoadGameScreenHidden?.Invoke();
 		}
 	}
 }

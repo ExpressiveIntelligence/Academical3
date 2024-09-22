@@ -38,7 +38,7 @@ namespace Academical
 
 			if ( Input.GetKeyUp( m_ShowChoicesPanelKey ) )
 			{
-				DialogueEvents.ChoicesShown?.Invoke( new List<Anansi.Choice>() );
+				DialogueEvents.ChoicesUpdated?.Invoke( new List<Anansi.Choice>() );
 			}
 
 			if ( Input.GetKeyUp( m_HideAllDialogueUIKey ) )
@@ -71,35 +71,35 @@ namespace Academical
 
 		private void SubscribeToEvents()
 		{
-			DialogueEvents.DialogueStarted += () =>
-			{
-				Debug.Log( "Dialogue Started." );
-			};
+			// DialogueEvents.DialogueStarted += () =>
+			// {
+			// 	Debug.Log( "Dialogue Started." );
+			// };
 
-			DialogueEvents.DialogueAdvanced += () =>
-			{
-				Debug.Log( "Dialogue Advanced." );
-			};
+			// DialogueEvents.DialogueAdvanced += () =>
+			// {
+			// 	Debug.Log( "Dialogue Advanced." );
+			// };
 
-			DialogueEvents.OnNextDialogueLine += (string text) =>
-			{
-				Debug.Log( $"Dialogue Line >> {text}" );
-			};
+			// DialogueEvents.OnNextDialogueLine += (string text) =>
+			// {
+			// 	Debug.Log( $"Dialogue Line >> {text}" );
+			// };
 
-			DialogueEvents.DialogueUIShown += () =>
-			{
-				Debug.Log( "Displaying Text Box" );
-			};
+			// DialogueEvents.DialogueUIShown += () =>
+			// {
+			// 	Debug.Log( "Displaying Text Box" );
+			// };
 
-			DialogueEvents.AdvanceDialogueButtonEnabled += () =>
-			{
-				Debug.Log( "Continue button enabled." );
-			};
+			// DialogueEvents.AdvanceDialogueButtonEnabled += () =>
+			// {
+			// 	Debug.Log( "Continue button enabled." );
+			// };
 
-			DialogueEvents.AdvanceDialogueButtonClicked += () =>
-			{
-				Debug.Log( "Continue button clicked." );
-			};
+			// DialogueEvents.AdvanceDialogueButtonClicked += () =>
+			// {
+			// 	Debug.Log( "Continue button clicked." );
+			// };
 		}
 
 		private void UnSubscribeFromEvents()

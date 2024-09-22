@@ -36,6 +36,8 @@ namespace Academical
 		UIView m_DialogueScreen;
 		UIView m_DialogueHistoryScreen;
 
+		#region Constants
+
 		// Names of UI Element nodes in the UXML tree of the Main Menu document.
 
 		public const string k_MainMenuScreenName = "HomeScreen";
@@ -44,8 +46,10 @@ namespace Academical
 		public const string k_LoadGameScreenName = "LoadGameScreen";
 		public const string k_SaveGameScreenName = "SaveGameScreen";
 		public const string k_CreditsScreenName = "CreditsScreen";
-		public const string k_DialogueScreenName = "GameUI";
+		public const string k_DialogueScreenName = "DialogueScreen";
 		public const string k_DialogueHistoryScreenName = "DialogueHistoryScreen";
+
+		#endregion
 
 		public UIDocument MainMenuDocument => m_UIDocument;
 
@@ -75,6 +79,12 @@ namespace Academical
 			MainMenuUIEvents.NewGameScreenShown += OnScenarioSelectionScreenShown;
 			MainMenuUIEvents.LoadGameScreenShown += OnLoadGameScreenShown;
 			MainMenuUIEvents.CreditsScreenShown += OnCreditsScreenShown;
+			MainMenuUIEvents.DialogueHistoryShown += OnDialogueHistoryScreenShown;
+			MainMenuUIEvents.CreditsScreenHidden += OnCreditScreenHidden;
+			MainMenuUIEvents.NewGameScreenHidden += OnScenarioSelectionScreenHidden;
+			MainMenuUIEvents.DialogueHistoryHidden += OnDialogueHistoryScreenHidden;
+			MainMenuUIEvents.LoadGameScreenHidden += OnLoadGameScreenHidden;
+			MainMenuUIEvents.SettingsScreenHidden += OnSettingsScreenHidden;
 			GameEvents.GameUIShown += OnDialogueScreenShown;
 		}
 
@@ -85,6 +95,12 @@ namespace Academical
 			MainMenuUIEvents.NewGameScreenShown -= OnScenarioSelectionScreenShown;
 			MainMenuUIEvents.LoadGameScreenShown -= OnLoadGameScreenShown;
 			MainMenuUIEvents.CreditsScreenShown -= OnCreditsScreenShown;
+			MainMenuUIEvents.DialogueHistoryShown -= OnDialogueHistoryScreenShown;
+			MainMenuUIEvents.CreditsScreenHidden -= OnCreditScreenHidden;
+			MainMenuUIEvents.NewGameScreenHidden -= OnScenarioSelectionScreenHidden;
+			MainMenuUIEvents.DialogueHistoryHidden -= OnDialogueHistoryScreenHidden;
+			MainMenuUIEvents.LoadGameScreenHidden -= OnLoadGameScreenHidden;
+			MainMenuUIEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
 			GameEvents.GameUIShown -= OnDialogueScreenShown;
 		}
 
@@ -184,7 +200,14 @@ namespace Academical
 
 		void OnLoadGameScreenHidden()
 		{
+			m_LoadGameScreen.Hide();
 
+			if ( m_PreviousView != null )
+			{
+				m_PreviousView.Show();
+				m_CurrentView = m_PreviousView;
+				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
+			}
 		}
 
 		void OnCreditsScreenShown()
@@ -195,7 +218,14 @@ namespace Academical
 
 		void OnCreditScreenHidden()
 		{
+			m_CreditsScreen.Hide();
 
+			if ( m_PreviousView != null )
+			{
+				m_PreviousView.Show();
+				m_CurrentView = m_PreviousView;
+				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
+			}
 		}
 
 		void OnDialogueScreenShown()
@@ -205,12 +235,20 @@ namespace Academical
 
 		void OnDialogueHistoryScreenShown()
 		{
-
+			m_PreviousView = m_CurrentView;
+			m_DialogueHistoryScreen.Show();
 		}
 
 		void OnDialogueHistoryScreenHidden()
 		{
+			m_DialogueHistoryScreen.Hide();
 
+			if ( m_PreviousView != null )
+			{
+				m_PreviousView.Show();
+				m_CurrentView = m_PreviousView;
+				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
+			}
 		}
 	}
 }

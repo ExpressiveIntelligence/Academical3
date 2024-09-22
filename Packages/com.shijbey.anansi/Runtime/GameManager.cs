@@ -108,7 +108,7 @@ namespace Anansi
 				.GetStoryletsWithTags( "location" )
 				.ToDictionary( s => s.ID );
 
-			StartStory();
+			// StartStory();
 		}
 
 		#endregion

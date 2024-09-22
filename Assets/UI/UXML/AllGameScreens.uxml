@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MainMenuScreen" src="project://database/Assets/UI/UXML/MainMenuScreen.uxml?fileID=9197481963319205126&amp;guid=244690744cf8743ff8c1abdfeba8df14&amp;type=3#MainMenuScreen" />
+    <ui:Template name="SettingsMenu" src="project://database/Assets/UI/UXML/SettingsMenu.uxml?fileID=9197481963319205126&amp;guid=d10af062a6d614d47abbf269b3750d9f&amp;type=3#SettingsMenu" />
+    <ui:Template name="LoadGameScreen" src="project://database/Assets/UI/UXML/LoadGameScreen.uxml?fileID=9197481963319205126&amp;guid=c486d99aaf0cd457094b707716fa5965&amp;type=3#LoadGameScreen" />
+    <ui:Template name="CreditsScreen" src="project://database/Assets/UI/UXML/CreditsScreen.uxml?fileID=9197481963319205126&amp;guid=a9b2130efa2df46c3a0c664acf4e588b&amp;type=3#CreditsScreen" />
+    <ui:Template name="NewGameScreen" src="project://database/Assets/UI/UXML/NewGameScreen.uxml?fileID=9197481963319205126&amp;guid=e1370fe2d4fa84d34b35a9de2e2275de&amp;type=3#NewGameScreen" />
+    <ui:Template name="DialogueScreen" src="project://database/Assets/UI/UXML/DialogueScreen.uxml?fileID=9197481963319205126&amp;guid=d96bf5cebd3cd4a9cbb7dffef5385c46&amp;type=3#DialogueScreen" />
+    <ui:VisualElement name="background-tiles" picking-mode="Ignore" class="screen__anchor--center" style="flex-grow: 1; display: flex; position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="background-cursor" picking-mode="Ignore" class="screen__anchor--center" style="flex-grow: 1; position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="background-graphic" picking-mode="Ignore" class="screen__anchor--center" style="flex-grow: 1; position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="ui_container" picking-mode="Ignore" style="flex-grow: 1; position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+        <ui:Instance template="MainMenuScreen" name="HomeScreen" style="display: none; position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+        <ui:Instance template="SettingsMenu" name="SettingsScreen" style="display: none; position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+        <ui:Instance template="NewGameScreen" name="NewGameScreen" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+        <ui:Instance template="LoadGameScreen" name="LoadGameScreen" style="display: none; position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+        <ui:Instance template="CreditsScreen" name="CreditsScreen" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+        <ui:Instance template="DialogueScreen" name="DialogueScreen" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    </ui:VisualElement>
+</ui:UXML>

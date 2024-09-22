@@ -61,12 +61,12 @@ namespace Academical
 
 		private void Start()
 		{
-			GameEvents.GameUIShown?.Invoke();
+			GameEvents.GameHUDShown?.Invoke();
 			SocialEngineController.Instance.Initialize();
 			SocialEngineController.Instance.RegisterAgentsAndRelationships();
 			m_simulationController.Initialize();
 			// m_dialogueManager.OnRegisterExternalFunctions += this.RegisterExternalInkFunctions;
-			// m_dialogueManager.Story.DB = SocialEngineController.Instance.DB;
+			m_dialogueManager.Story.DB = SocialEngineController.Instance.DB;
 			// m_dialogueManager.Initialize();
 
 			this.m_actionStorylets = m_dialogueManager.Story
@@ -77,9 +77,7 @@ namespace Academical
 				.GetStoryletsWithTags( "location" )
 				.ToDictionary( s => s.ID );
 
-			GameEvents.GameUIShown?.Invoke();
-
-			StartStory();
+			// StartStory();
 		}
 
 		/// <summary>

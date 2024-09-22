@@ -39,7 +39,7 @@ namespace Academical
 		private void OnChooseActionButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			GameEvents.PlayerActionsViewShown?.Invoke();
+			GameEvents.ActionSelectModalShown?.Invoke();
 		}
 
 		private void OnViewQuestsButtonClicked()
@@ -51,7 +51,7 @@ namespace Academical
 		private void OnChooseLocationButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			GameEvents.LocationSelectionViewShown?.Invoke();
+			GameEvents.LocationSelectModalShown?.Invoke();
 		}
 	}
 }

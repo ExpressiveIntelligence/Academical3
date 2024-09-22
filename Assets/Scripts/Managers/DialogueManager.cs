@@ -218,16 +218,10 @@ namespace Academical
 				ProcessLineTags();
 				DialogueEvents.OnNextDialogueLine( text );
 
-				if ( Story.HasChoices() )
-				{
-					DialogueEvents.ChoicesShown?.Invoke( FilteredChoices );
-				}
-
 				// Sometimes on navigation, we don't show any text. If this is the case,
 				// do not even show the dialogue panel and try to get another line
 				if ( text == "" )
 				{
-					// Hide();
 					AdvanceDialogue();
 					return;
 				}
@@ -238,7 +232,8 @@ namespace Academical
 			}
 			else if ( Story.CurrentChoices.Count() > 0 )
 			{
-				return;
+				DialogueEvents.ChoicesShown?.Invoke();
+				DialogueEvents.ChoicesUpdated?.Invoke( FilteredChoices );
 			}
 			else
 			{
@@ -261,6 +256,8 @@ namespace Academical
 
 			m_AllChoicesCache.Clear();
 			m_FilteredChoicesCache.Clear();
+
+			AdvanceDialogue();
 		}
 
 		/// <summary>
@@ -314,16 +311,23 @@ namespace Academical
 		private void SubscribeToEvents()
 		{
 			DialogueEvents.DialogueAdvanced += HandleDialogueAdvanced;
+			DialogueEvents.ChoiceSelected += OnChoiceSelected;
 		}
 
 		private void UnsubscribeFromEvents()
 		{
 			DialogueEvents.DialogueAdvanced -= HandleDialogueAdvanced;
+			DialogueEvents.ChoiceSelected -= OnChoiceSelected;
 		}
 
 		private void HandleDialogueAdvanced()
 		{
 			AdvanceDialogue();
+		}
+
+		private void OnChoiceSelected(Choice choice)
+		{
+			ExecuteChoice( choice );
 		}
 
 		#endregion

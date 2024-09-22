@@ -15,5 +15,12 @@ namespace Academical
 		public static Action CreditsScreenShown;
 
 		public static Action<string> CurrentViewChanged;
+
+		public static Action DialogueHistoryShown;
+		public static Action CreditsScreenHidden;
+		public static Action NewGameScreenHidden;
+		public static Action DialogueHistoryHidden;
+		public static Action LoadGameScreenHidden;
+		public static Action SettingsScreenHidden;
 	}
 }

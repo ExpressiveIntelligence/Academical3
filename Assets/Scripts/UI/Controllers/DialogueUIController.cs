@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Text;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Academical
 {
-	public class DialoguePanelController : MonoBehaviour
+	public class DialogueUIController : UIComponent
 	{
 		#region Constants
 
 		/// <summary>
 		/// The base delay time (in seconds) between characters for the type writer effect.
 		/// </summary>
-		public const float k_TypeWriterDelaySeconds = 0.4f;
+		public const float k_TypeWriterDelaySeconds = 0.1f;
 
 		#endregion
 
@@ -29,21 +31,22 @@ namespace Academical
 		private bool m_skipTypewriterEffect = false;
 
 		/// <summary>
-		/// The time delay between displaying the next character during the typewriter effect.
-		/// </summary>
-		[SerializeField]
-		private GameSettingsSO m_GameSettings;
-
-		/// <summary>
-		/// The current choice to select in the dialogue (-1 halts dialogue progression)
-		/// </summary>
-		private int m_userChoiceIndex = -1;
-
-		/// <summary>
 		/// Delay in seconds between showing characters in the GUI.
 		/// </summary>
 		[Header( "Text Display" )]
-		[SerializeField] private float m_TypingSpeed = k_TypeWriterDelaySeconds;
+		// [Range( 0f, 1f )]
+		// [SerializeField] private float m_TextSpeed = 1f;
+		[SerializeField] private float m_TypingDelaySeconds = k_TypeWriterDelaySeconds;
+
+		[Header( "UI Elements" )]
+		[SerializeField]
+		private TMP_Text m_SpeakerName;
+
+		[SerializeField]
+		private TMP_Text m_DialogueText;
+
+		[SerializeField]
+		private Button m_AdvanceDialogueButton;
 
 		#endregion
 
@@ -58,19 +61,9 @@ namespace Academical
 
 		#region Unity Messages
 
-		private void OnEnable()
-		{
-			SubscribeToEvents();
-		}
-
-		private void OnDisable()
-		{
-			UnsubscribeFromEvents();
-		}
-
 		private void Update()
 		{
-			m_TypingSpeed = k_TypeWriterDelaySeconds * (1.0f - m_GameSettings.TextSpeed);
+			// m_TypingDelaySeconds = k_TypeWriterDelaySeconds * (1.0f - m_TextSpeed);
 			if ( Input.GetKeyUp( KeyCode.Space ) )
 			{
 				JumpToEndOfText();
@@ -89,62 +82,70 @@ namespace Academical
 			if ( IsTyping ) m_skipTypewriterEffect = true;
 		}
 
+		public void SetSpeakerName(string name)
+		{
+			m_SpeakerName.text = name;
+		}
+
+		public void SetDialogueText(string text)
+		{
+			m_DialogueText.text = text;
+		}
+
+		public void SetAdvanceDialogueButtonEnabled(bool isEnabled)
+		{
+			if ( isEnabled )
+			{
+				m_AdvanceDialogueButton.gameObject.SetActive( true );
+			}
+			else
+			{
+				m_AdvanceDialogueButton.gameObject.SetActive( false );
+			}
+		}
+
 		#endregion
 
 		#region Private Methods
 
-		private void SubscribeToEvents()
+		protected override void SubscribeToEvents()
 		{
 			DialogueEvents.DialogueStarted += HandleDialogueStarted;
 			DialogueEvents.DialogueEnded += HandleDialogueEnded;
-			DialogueEvents.AdvanceDialogueButtonClicked += HandleAdvanceDialogueButtonClicked;
+			m_AdvanceDialogueButton.onClick.AddListener( HandleAdvanceDialogueButtonClicked );
 			DialogueEvents.OnNextDialogueLine += HandleDialogueLine;
 		}
 
-		private void UnsubscribeFromEvents()
+		protected override void UnsubscribeFromEvents()
 		{
 			DialogueEvents.DialogueStarted -= HandleDialogueStarted;
 			DialogueEvents.DialogueEnded -= HandleDialogueEnded;
-			DialogueEvents.AdvanceDialogueButtonClicked -= HandleAdvanceDialogueButtonClicked;
+			m_AdvanceDialogueButton.onClick.RemoveListener( HandleAdvanceDialogueButtonClicked );
 			DialogueEvents.OnNextDialogueLine -= HandleDialogueLine;
 		}
 
 		private void HandleDialogueStarted()
 		{
-			DialogueEvents.DialogueUIShown?.Invoke();
+			Show();
 		}
 
 		private void HandleDialogueEnded()
 		{
-			DialogueEvents.DialogueUIHidden?.Invoke();
+			Hide();
 		}
 
 		private void HandleAdvanceDialogueButtonClicked()
 		{
+			AudioManager.PlayDefaultButtonSound();
 			DialogueEvents.DialogueAdvanced?.Invoke();
-			DialogueEvents.AdvanceDialogueButtonDisabled?.Invoke();
+			SetAdvanceDialogueButtonEnabled( false );
 		}
 
 		private void HandleDialogueLine(string text)
 		{
-			// if ( m_typingCoroutine != null ) StopCoroutine( m_typingCoroutine );
+			if ( m_typingCoroutine != null ) StopCoroutine( m_typingCoroutine );
 
-			// IsTyping = true;
-
-			// DialogueEvents.AdvanceDialogueButtonDisabled?.Invoke();
-
-			// m_typingCoroutine = StartCoroutine( DisplayTextCoroutine( text ) );
-			DialogueEvents.DialogueTextChanged?.Invoke( text );
-			DialogueEvents.AdvanceDialogueButtonEnabled?.Invoke();
-		}
-
-		/// <summary>
-		/// A callback executed when a choice button is clicked in the choice dialog box
-		/// </summary>
-		/// <param name="choiceIndex"></param>
-		private void HandleChoiceSelection(int choiceIndex)
-		{
-			m_userChoiceIndex = choiceIndex;
+			m_typingCoroutine = StartCoroutine( DisplayTextCoroutine( text ) );
 		}
 
 		/// <summary>
@@ -153,27 +154,31 @@ namespace Academical
 		/// <returns></returns>
 		private IEnumerator DisplayTextCoroutine(string text)
 		{
-			DialogueEvents.AdvanceDialogueButtonDisabled?.Invoke();
+			SetAdvanceDialogueButtonEnabled( false );
 
 			if ( text != "" )
 			{
-				StringBuilder dialogueTextBuffer = new StringBuilder();
-				DialogueEvents.DialogueTextChanged?.Invoke( dialogueTextBuffer.ToString() );
+				IsTyping = true;
+				m_DialogueText.text = text;
+				m_DialogueText.maxVisibleCharacters = 0;
 
-				foreach ( char letter in text.ToCharArray() )
+				for ( int i = 0; i <= text.Length; i++ )
 				{
 					if ( m_skipTypewriterEffect )
 					{
-						DialogueEvents.DialogueTextChanged?.Invoke( text );
-						m_skipTypewriterEffect = false;
 						break;
 					}
 
-					dialogueTextBuffer.Append( letter );
-					DialogueEvents.DialogueTextChanged?.Invoke( dialogueTextBuffer.ToString() );
-					yield return new WaitForSeconds( m_TypingSpeed );
+					m_DialogueText.maxVisibleCharacters = i;
+					yield return new WaitForSeconds( m_TypingDelaySeconds );
 				}
+
+				IsTyping = false;
+				m_skipTypewriterEffect = false;
+				m_DialogueText.maxVisibleCharacters = text.Length;
 			}
+
+			SetAdvanceDialogueButtonEnabled( true );
 
 			// if ( m_DialogueManager.IsWaitingForInput )
 			// {
@@ -210,8 +215,7 @@ namespace Academical
 			// }
 			// else
 			// {
-			DialogueEvents.AdvanceDialogueButtonEnabled?.Invoke();
-			IsTyping = false;
+
 			// }
 		}
 

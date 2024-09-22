@@ -60,7 +60,7 @@ namespace Academical
 
 		private void OnChoiceClicked()
 		{
-			DialogueEvents.ChoiceSelected?.Invoke( m_ChoiceIndex );
+			// DialogueEvents.ChoiceSelected?.Invoke( m_ChoiceIndex );
 		}
 	}
 }

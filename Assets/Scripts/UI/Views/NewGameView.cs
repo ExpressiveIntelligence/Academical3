@@ -46,7 +46,7 @@ namespace Academical
 		void OnBackButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuUIEvents.HomeScreenShown?.Invoke();
+			MainMenuUIEvents.NewGameScreenHidden?.Invoke();
 		}
 
 		void CreateLevelCard(GameLevelSO levelData)

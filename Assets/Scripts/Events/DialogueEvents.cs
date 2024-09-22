@@ -47,7 +47,9 @@ namespace Academical
 		/// <summary>
 		/// Action invoked when dialogue choices are shown on screen.
 		/// </summary>
-		public static Action<List<Choice>> ChoicesShown;
+		public static Action<List<Choice>> ChoicesUpdated;
+
+		public static Action ChoicesShown;
 
 		/// <summary>
 		/// Action invoked when dialogue choices are hidden from the screen.
@@ -57,7 +59,7 @@ namespace Academical
 		/// <summary>
 		/// Action invoked when a choice is selected.
 		/// </summary>
-		public static Action<int> ChoiceSelected;
+		public static Action<Choice> ChoiceSelected;
 
 		/// <summary>
 		/// Action invoked when loading external functions to register with the story.
