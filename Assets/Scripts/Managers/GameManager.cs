@@ -9,6 +9,9 @@ namespace Academical
 	[DefaultExecutionOrder( 2 )]
 	public class GameManager : MonoBehaviour
 	{
+		[SerializeField]
+		private Character m_Player;
+
 		/// <summary>
 		/// Manages the underlying world simulation.
 		/// </summary>
@@ -59,15 +62,28 @@ namespace Academical
 			m_actionStorylets = new Dictionary<string, Storylet>();
 		}
 
+		private void OnEnable()
+		{
+			GameEvents.LocationSelectModalShown += OnLocationSelectModalShown;
+			GameEvents.ActionSelectModalShown += OnActionSelectModalShown;
+			GameEvents.ActionSelected += OnActionSelected;
+		}
+
+		private void OnDisable()
+		{
+			GameEvents.LocationSelectModalShown -= OnLocationSelectModalShown;
+			GameEvents.ActionSelectModalShown -= OnActionSelectModalShown;
+			GameEvents.ActionSelected -= OnActionSelected;
+		}
+
 		private void Start()
 		{
 			GameEvents.GameHUDShown?.Invoke();
 			SocialEngineController.Instance.Initialize();
 			SocialEngineController.Instance.RegisterAgentsAndRelationships();
 			m_simulationController.Initialize();
-			// m_dialogueManager.OnRegisterExternalFunctions += this.RegisterExternalInkFunctions;
 			m_dialogueManager.Story.DB = SocialEngineController.Instance.DB;
-			// m_dialogueManager.Initialize();
+			RegisterExternalInkFunctions( m_dialogueManager.Story.InkStory );
 
 			this.m_actionStorylets = m_dialogueManager.Story
 				.GetStoryletsWithTags( "action" )
@@ -77,7 +93,7 @@ namespace Academical
 				.GetStoryletsWithTags( "location" )
 				.ToDictionary( s => s.ID );
 
-			// StartStory();
+			StartStory();
 		}
 
 		/// <summary>
@@ -89,5 +105,166 @@ namespace Academical
 			m_dialogueManager.RunStorylet( startStorylet );
 		}
 
+		/// <summary>
+		/// Set the player's current location and change the background
+		/// </summary>
+		/// <param name="locationID"></param>
+		/// <param name="tags"></param>
+		public void SetPlayerLocation(string locationID)
+		{
+			Location location = m_simulationController.GetLocation( locationID );
+
+			if ( m_Player.Location != location )
+			{
+				m_simulationController.SetCharacterLocation( m_Player, location );
+				m_dialogueManager.SetBackground(
+					new BackgroundInfo(
+						locationID,
+						new string[]
+						{
+							// Pass the time of day as an optional tag.
+							$"~{m_simulationController.DateTime.TimeOfDay.ToString()}"
+						}
+					)
+				);
+			}
+		}
+
+
+		/// <summary>
+		/// Get a list of all location storylets a player could execute.
+		/// </summary>
+		/// <returns></returns>
+		public List<StoryletInstance> GetEligibleLocationStorylets()
+		{
+			List<StoryletInstance> instances = new List<StoryletInstance>();
+			HashSet<string> eligibleLocations = new HashSet<string>(
+				m_Player.Location.ConnectedLocations.Select( s => s.UniqueID )
+			);
+
+			foreach ( var (uid, storylet) in m_locationStorylets )
+			{
+				// Skip storylets still on cooldown
+				if ( storylet.CooldownTimeRemaining > 0 ) continue;
+
+				// Skip storylets that are not repeatable
+				if ( !storylet.IsRepeatable && storylet.TimesPlayed > 0 ) continue;
+
+				if ( !eligibleLocations.Contains( storylet.ID ) ) continue;
+
+				// Query the social engine database
+				if ( storylet.Precondition != null )
+				{
+					var results = storylet.Precondition.Query.Run( DB );
+
+					if ( !results.Success ) continue;
+
+					if ( results.Bindings.Length > 0 )
+					{
+						foreach ( var bindingDict in results.Bindings )
+						{
+							instances.Add(
+								new StoryletInstance( storylet, bindingDict, storylet.Weight ) );
+						}
+					}
+					else
+					{
+						instances.Add(
+							new StoryletInstance(
+								storylet, new Dictionary<string, object>(), storylet.Weight ) );
+					}
+				}
+				else
+				{
+					instances.Add( new StoryletInstance(
+						storylet,
+						new Dictionary<string, object>(),
+						storylet.Weight
+					) );
+				}
+			}
+
+			return instances;
+		}
+
+		/// <summary>
+		/// Get a list of all action storylets a player could execute.
+		/// </summary>
+		/// <returns></returns>
+		public List<StoryletInstance> GetEligibleActionStorylets()
+		{
+			List<StoryletInstance> instances = new List<StoryletInstance>();
+
+			foreach ( var (uid, storylet) in m_actionStorylets )
+			{
+				// Skip storylets still on cooldown
+				if ( storylet.CooldownTimeRemaining > 0 ) continue;
+
+				// Skip storylets that are not repeatable
+				if ( !storylet.IsRepeatable && storylet.TimesPlayed > 0 ) continue;
+
+				// Query the social engine database
+				if ( storylet.Precondition != null )
+				{
+					var results = storylet.Precondition.Query.Run( DB );
+
+					if ( !results.Success ) continue;
+
+					if ( results.Bindings.Length > 0 )
+					{
+						foreach ( var bindingDict in results.Bindings )
+						{
+							instances.Add(
+								new StoryletInstance( storylet, bindingDict, storylet.Weight ) );
+						}
+					}
+					else
+					{
+						instances.Add(
+							new StoryletInstance(
+								storylet, new Dictionary<string, object>(), storylet.Weight ) );
+					}
+				}
+				else
+				{
+					instances.Add(
+						new StoryletInstance(
+							storylet,
+							new Dictionary<string, object>(),
+							storylet.Weight
+						)
+					);
+				}
+			}
+
+			return instances;
+		}
+
+		private void RegisterExternalInkFunctions(Ink.Runtime.Story story)
+		{
+			story.BindExternalFunction(
+				"SetPlayerLocation",
+				(string locationID) =>
+				{
+					this.SetPlayerLocation( locationID );
+				}
+			);
+		}
+
+		private void OnActionSelectModalShown()
+		{
+			GameEvents.AvailableActionsUpdated?.Invoke( GetEligibleActionStorylets() );
+		}
+
+		private void OnLocationSelectModalShown()
+		{
+			GameEvents.AvailableLocationsUpdated?.Invoke( GetEligibleLocationStorylets() );
+
+		}
+
+		private void OnActionSelected(StoryletInstance action)
+		{
+			m_dialogueManager.RunStoryletInstance( action );
+		}
 	}
 }

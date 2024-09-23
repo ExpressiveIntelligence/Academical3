@@ -80,6 +80,8 @@ namespace Academical
 			GameEvents.GameHUDShown += OnHUDShown;
 			GameEvents.ActionSelectModalShown += OnActionSelectModalShown;
 			GameEvents.LocationSelectModalShown += OnLocationSelectModalShown;
+			GameEvents.ActionSelectModalHidden += OnActionSelectModalHidden;
+			GameEvents.LocationSelectModalHidden += OnLocationSelectModalHidden;
 			DialogueEvents.DialogueStarted += OnDialogueStarted;
 			DialogueEvents.ChoicesShown += OnChoicesShown;
 		}
@@ -91,6 +93,8 @@ namespace Academical
 			GameEvents.GameHUDShown -= OnHUDShown;
 			GameEvents.ActionSelectModalShown -= OnActionSelectModalShown;
 			GameEvents.LocationSelectModalShown -= OnLocationSelectModalShown;
+			GameEvents.ActionSelectModalHidden -= OnActionSelectModalHidden;
+			GameEvents.LocationSelectModalHidden -= OnLocationSelectModalHidden;
 			DialogueEvents.DialogueStarted -= OnDialogueStarted;
 			DialogueEvents.ChoicesShown -= OnChoicesShown;
 		}
@@ -142,6 +146,17 @@ namespace Academical
 		{
 			m_LocationSelectModal.Show();
 		}
+
+		void OnActionSelectModalHidden()
+		{
+			m_ActionSelectModal.Hide();
+		}
+
+		void OnLocationSelectModalHidden()
+		{
+			m_LocationSelectModal.Hide();
+		}
+
 
 		void OnSettingsScreenHidden()
 		{

@@ -45,6 +45,8 @@ namespace Academical
 		private void OnClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
+			GameEvents.ActionSelectModalHidden?.Invoke();
+			GameEvents.LocationSelectModalHidden?.Invoke();
 			GameEvents.ActionSelected?.Invoke( m_Storylet );
 		}
 

@@ -179,7 +179,9 @@ namespace Academical
 		/// </summary>
 		public void EndDialogue()
 		{
+			SetSpeaker( null );
 			DialogueEvents.DialogueEnded?.Invoke();
+			GameEvents.GameHUDShown?.Invoke();
 		}
 
 		/// <summary>

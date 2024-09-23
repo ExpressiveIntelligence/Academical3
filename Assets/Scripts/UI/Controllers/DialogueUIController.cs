@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Text;
+using Anansi;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -90,6 +91,7 @@ namespace Academical
 		public void SetDialogueText(string text)
 		{
 			m_DialogueText.text = text;
+			m_DialogueText.maxVisibleCharacters = text.Length;
 		}
 
 		public void SetAdvanceDialogueButtonEnabled(bool isEnabled)
@@ -114,6 +116,7 @@ namespace Academical
 			DialogueEvents.DialogueEnded += HandleDialogueEnded;
 			m_AdvanceDialogueButton.onClick.AddListener( HandleAdvanceDialogueButtonClicked );
 			DialogueEvents.OnNextDialogueLine += HandleDialogueLine;
+			DialogueEvents.SpeakerChanged += OnSpeakerChanged;
 		}
 
 		protected override void UnsubscribeFromEvents()
@@ -122,6 +125,19 @@ namespace Academical
 			DialogueEvents.DialogueEnded -= HandleDialogueEnded;
 			m_AdvanceDialogueButton.onClick.RemoveListener( HandleAdvanceDialogueButtonClicked );
 			DialogueEvents.OnNextDialogueLine -= HandleDialogueLine;
+			DialogueEvents.SpeakerChanged -= OnSpeakerChanged;
+		}
+
+		private void OnSpeakerChanged(SpeakerInfo info)
+		{
+			if ( info == null )
+			{
+				SetSpeakerName( "" );
+			}
+			else
+			{
+				SetSpeakerName( info.SpeakerName );
+			}
 		}
 
 		private void HandleDialogueStarted()

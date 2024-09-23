@@ -8,8 +8,9 @@ namespace Anansi
 
 		public SpeakerInfo(string speakerId, string speakerName, string[] tags)
 		{
-			this.SpeakerId = speakerId;
-			this.Tags = tags;
+			SpeakerId = speakerId;
+			SpeakerName = speakerName;
+			Tags = tags;
 		}
 	}
 }
