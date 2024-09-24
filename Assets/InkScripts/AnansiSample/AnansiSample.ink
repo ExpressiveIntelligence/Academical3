@@ -151,10 +151,10 @@ Ivy: Hi
 
 Ivy: How are you?
 
-* [Single Use Choice #Choice tag] 
-+ [I'm Okay #Random Tag] 
-+ [I could be better #>> AddTrait player sad] 
-+ [Good. You? #>> AddTrait player happy] 
++ [Let's be friends #>> FireSocialEvent BecomeFriends player Ivy]
++ [I'm Okay #Random Tag]
++ [I could be better #>> AddTrait player sad]
++ [Good. You? #>> AddTrait player happy]
 -
 
 Ivy: Good to hear. See you later.

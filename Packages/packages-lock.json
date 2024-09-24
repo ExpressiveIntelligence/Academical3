@@ -14,11 +14,11 @@
       "dependencies": {}
     },
     "com.shijbey.tdrs": {
-      "version": "https://github.com/ShiJbey/TDRS.git?path=/Packages/com.shijbey.tdrs#v2.0.0",
+      "version": "https://github.com/ShiJbey/TDRS.git?path=/Packages/com.shijbey.tdrs#v2.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "a392188deef1b26787e970581f3aaab18015dcc5"
+      "hash": "d3e9cb05f385c82948cd2ac320d84b00b4590315"
     },
     "com.unity.2d.animation": {
       "version": "9.0.3",

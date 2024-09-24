@@ -2049,7 +2049,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1d1b1f6badf744392ae3d91db6965dea, type: 2}
   m_relationshipSchemas:
   - {fileID: 11400000, guid: 23f8e547a35cf438d941f5502c9135bc, type: 2}
-  m_socialEvents: []
+  m_socialEvents:
+  - {fileID: 11400000, guid: d28c7aa2e5b0c441a86c26915a28285f, type: 2}
   m_socialRules: []
   m_traits:
   - {fileID: 11400000, guid: d8492b2ffcc3c437782d8010fd81df56, type: 2}
@@ -3249,8 +3250,6 @@ GameObject:
   - component: {fileID: 603229840}
   - component: {fileID: 603229839}
   - component: {fileID: 603229838}
-  - component: {fileID: 603229837}
-  - component: {fileID: 603229836}
   - component: {fileID: 603229845}
   m_Layer: 0
   m_Name: DialogueManager
@@ -3274,34 +3273,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &603229836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603229834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da311efb16b45440db4de305d241d70c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectName: DecrementStat
-  m_EffectIcon: {fileID: 21300000, guid: c487ff096b188429d8b7b970d21afd2a, type: 3}
---- !u!114 &603229837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603229834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0751ce04f39f84f89b97dd3d4e37b2a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectName: DecrementRelationshipStat
-  m_EffectIcon: {fileID: 21300000, guid: c487ff096b188429d8b7b970d21afd2a, type: 3}
 --- !u!114 &603229838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3436,8 +3407,6 @@ MonoBehaviour:
   - {fileID: 603229840}
   - {fileID: 603229839}
   - {fileID: 603229838}
-  - {fileID: 603229837}
-  - {fileID: 603229836}
 --- !u!1 &607877067
 GameObject:
   m_ObjectHideFlags: 0
