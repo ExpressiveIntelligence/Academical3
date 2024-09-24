@@ -36,7 +36,7 @@ namespace Academical
 				m_Context.socialEngine.State.TraitLibrary.Traits[m_TraitId].DisplayName
 			);
 
-			return $"{m_Character.DisplayName} loses the {traitName} trait, if present.";
+			return $"{m_Character.DisplayName} loses the {traitName} trait (if present).";
 		}
 
 		public Sprite GetIcon()
