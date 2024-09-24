@@ -549,6 +549,172 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58742707}
   m_CullTransparentMesh: 1
+--- !u!1 &82646411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 82646412}
+  - component: {fileID: 82646413}
+  - component: {fileID: 82646414}
+  - component: {fileID: 82646416}
+  - component: {fileID: 82646415}
+  - component: {fileID: 82646417}
+  - component: {fileID: 82646421}
+  - component: {fileID: 82646420}
+  - component: {fileID: 82646419}
+  - component: {fileID: 82646418}
+  m_Layer: 0
+  m_Name: ChoiceEffectFactories
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &82646412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1075693840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82646413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefafda23dbee486890eb01b9b90b62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: AddTrait
+  m_EffectIcon: {fileID: 21300000, guid: 71374b36fbb294eefb1e1498e61232c5, type: 3}
+--- !u!114 &82646414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5c265eeeb3e48df9544face4ad479b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: FireSocialEvent
+  m_EffectIcon: {fileID: 21300000, guid: 793f649fca6094581a017e9874b7e91a, type: 3}
+--- !u!114 &82646415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3290743f6a4584a92ba0509fdcd0054e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: RemoveRelationshipTrait
+  m_EffectIcon: {fileID: 21300000, guid: c487ff096b188429d8b7b970d21afd2a, type: 3}
+--- !u!114 &82646416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a777c2100dd044b37ba4ccef7ec1ca1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: RemoveTrait
+  m_EffectIcon: {fileID: 21300000, guid: c487ff096b188429d8b7b970d21afd2a, type: 3}
+--- !u!114 &82646417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e55e6a576344783b8509da9ede74ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: AddRelationshipTrait
+  m_EffectIcon: {fileID: 21300000, guid: 71374b36fbb294eefb1e1498e61232c5, type: 3}
+--- !u!114 &82646418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da311efb16b45440db4de305d241d70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: DecrementStat
+  m_EffectIcon: {fileID: 21300000, guid: c487ff096b188429d8b7b970d21afd2a, type: 3}
+--- !u!114 &82646419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751ce04f39f84f89b97dd3d4e37b2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: DecrementRelationshipStat
+  m_EffectIcon: {fileID: 21300000, guid: c487ff096b188429d8b7b970d21afd2a, type: 3}
+--- !u!114 &82646420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc09d77beef34de9847d7178e546aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: IncrementRelationshipStat
+  m_EffectIcon: {fileID: 21300000, guid: 71374b36fbb294eefb1e1498e61232c5, type: 3}
+--- !u!114 &82646421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82646411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96118119007334201b5e43019d64147f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: IncrementStat
+  m_EffectIcon: {fileID: 21300000, guid: 71374b36fbb294eefb1e1498e61232c5, type: 3}
 --- !u!1 &83115090
 GameObject:
   m_ObjectHideFlags: 0
@@ -5418,7 +5584,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 82646412}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1075693841
@@ -5433,6 +5600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2735f3d1afb8549ab8ab5f702f5a0a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Player: {fileID: 0}
   m_simulationController: {fileID: 369746412}
   m_socialEngine: {fileID: 369746416}
   m_dialogueManager: {fileID: 1075693843}

@@ -30,6 +30,10 @@ namespace Academical
 
 		public static Action DialogueHistoryScreenHidden;
 
+		public static Action<Choice> ChoiceTooltipShown;
+
+		public static Action ChoiceTooltipHidden;
+
 		public static Action<StoryletInstance> LocationSelected;
 
 		public static Action<StoryletInstance> ActionSelected;

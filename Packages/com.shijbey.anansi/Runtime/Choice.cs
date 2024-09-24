@@ -12,7 +12,7 @@ namespace Anansi
 		public List<string> Tags { get; }
 		public Ink.Runtime.Choice InkChoice { get; }
 		public StoryletInstance StoryletInstance { get; }
-		public List<ChoiceEffect> Effects { get; }
+		public List<IChoiceEffect> Effects { get; }
 
 		public Choice(Ink.Runtime.Choice inkChoice)
 		{
@@ -21,7 +21,7 @@ namespace Anansi
 			Tags = inkChoice.tags != null ? new List<string>( inkChoice.tags ) : new List<string>();
 			InkChoice = inkChoice;
 			StoryletInstance = null;
-			Effects = new List<ChoiceEffect>();
+			Effects = new List<IChoiceEffect>();
 		}
 
 		public Choice(
@@ -36,7 +36,7 @@ namespace Anansi
 			Tags = new List<string>( tags );
 			InkChoice = null;
 			StoryletInstance = storyletInstance;
-			Effects = new List<ChoiceEffect>();
+			Effects = new List<IChoiceEffect>();
 		}
 	}
 }

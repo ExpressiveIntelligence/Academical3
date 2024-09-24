@@ -2,10 +2,12 @@ using UnityEngine;
 using Anansi;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 namespace Academical
 {
-	public class DialogueChoiceButton : UIComponent
+	[RequireComponent( typeof( EventTrigger ) )]
+	public class DialogueChoiceButton : UIComponent, IPointerEnterHandler, IPointerExitHandler
 	{
 		#region Fields
 
@@ -51,24 +53,24 @@ namespace Academical
 			DialogueEvents.ChoiceSelected?.Invoke( m_ChoiceData );
 		}
 
-		private void OnMouseEnter()
+		public void OnPointerEnter(PointerEventData data)
 		{
 			ShowTooltip();
 		}
 
-		private void OnMouseExit()
+		public void OnPointerExit(PointerEventData data)
 		{
 			HideTooltip();
 		}
 
 		private void ShowTooltip()
 		{
-
+			GameEvents.ChoiceTooltipShown?.Invoke( m_ChoiceData );
 		}
 
 		private void HideTooltip()
 		{
-
+			GameEvents.ChoiceTooltipHidden();
 		}
 
 		#endregion

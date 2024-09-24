@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Anansi;
+using TDRS;
 using UnityEngine;
 
 namespace Academical
@@ -26,6 +27,11 @@ namespace Academical
 		/// </summary>
 		[SerializeField]
 		private ChoiceFilteringStrategyBase m_ChoiceFilteringStrategy;
+
+		[SerializeField]
+		private ChoiceEffectFactory[] m_ChoiceEffectFactories;
+
+		private Dictionary<string, ChoiceEffectFactory> m_ChoiceEffectFactoryMap;
 
 		/// <summary>
 		/// Cache of choices filtered from the m_AllChoicesCache.
@@ -111,6 +117,42 @@ namespace Academical
 				if ( m_AllChoicesCache.Count == 0 )
 				{
 					m_AllChoicesCache = new List<Choice>( m_story.CurrentChoices );
+					Regex rg = new Regex( @"^>>\s*(\w+)([\s+\w+]*)$" );
+
+					foreach ( var choice in m_AllChoicesCache )
+					{
+						foreach ( string tag in choice.Tags )
+						{
+							Match match = rg.Match( tag.Trim() );
+
+							if ( !match.Success )
+							{
+								continue;
+							}
+
+							// If it is then break into args
+							Group effectNameGroup = match.Groups[1];
+							Group effectArgsGroup = match.Groups[2];
+
+							string effectName = effectNameGroup.ToString().Trim();
+							string[] args = effectArgsGroup.ToString().Trim().Split( " " );
+
+							// Get the proper factory from the factory map
+							var factory = m_ChoiceEffectFactoryMap[effectName];
+
+							// Create a new effect instance and add it to the choice's effect list
+							var effect = factory.CreateEffect(
+								new ChoiceEffectContext(
+									SocialEngineController.Instance,
+									m_simulationController,
+									m_story,
+									args
+								)
+							);
+
+							choice.Effects.Add( effect );
+						}
+					}
 				}
 
 				return m_AllChoicesCache;
@@ -155,6 +197,16 @@ namespace Academical
 		#endregion
 
 		#region Public Methods
+
+		public void Initialize()
+		{
+			RegisterExternalInkFunctions();
+			m_ChoiceEffectFactoryMap = new Dictionary<string, ChoiceEffectFactory>();
+			foreach ( var factory in m_ChoiceEffectFactories )
+			{
+				m_ChoiceEffectFactoryMap[factory.EffectName] = factory;
+			}
+		}
 
 		/// <summary>
 		/// Set the story that the manager uses.

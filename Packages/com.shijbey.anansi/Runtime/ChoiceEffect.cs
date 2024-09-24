@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Anansi
 {
-	public class ChoiceEffect : IChoiceEffect
+	public abstract class ChoiceEffect : IChoiceEffect
 	{
 		/// <summary>
 		/// Get the description for this effect.
