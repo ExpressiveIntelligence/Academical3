@@ -10,5 +10,6 @@ namespace Academical
 		public string Description;
 		public TextAsset InkScript;
 		public Sprite Thumbnail;
+		public string Scene;
 	}
 }
