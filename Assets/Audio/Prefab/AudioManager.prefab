@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MainAudioMixer: {fileID: 24100000, guid: 6dcf3171d61d946a188b11f8b28a2222, type: 2}
-  m_DefaultButtonSound: {fileID: 0}
+  m_DefaultButtonSound: {fileID: 8300000, guid: 98eeb8baae30143f3a36ab768c37aef6, type: 3}
   m_SuccessSound: {fileID: 0}
   m_NotificationSound: {fileID: 0}
   m_FailureSound: {fileID: 0}

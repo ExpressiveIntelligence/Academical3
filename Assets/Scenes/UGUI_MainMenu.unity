@@ -883,6 +883,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2502505976510881397, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1676066066}
+    - targetCorrespondingSourceObject: {fileID: 2502505976510881397, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1676066067}
   m_SourcePrefab: {fileID: 100100000, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
 --- !u!224 &288413361 stripped
 RectTransform:
@@ -2385,7 +2388,7 @@ PrefabInstance:
       addedObject: {fileID: 1392318275}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2502505976510881397, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 2009266029}
   m_SourcePrefab: {fileID: 100100000, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
 --- !u!224 &1135307300 stripped
@@ -3213,6 +3216,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2502505976510881397, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1800728442}
+    - targetCorrespondingSourceObject: {fileID: 2502505976510881397, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1800728443}
   m_SourcePrefab: {fileID: 100100000, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
 --- !u!224 &1284000274 stripped
 RectTransform:
@@ -3263,6 +3269,18 @@ MonoBehaviour:
   m_SettingsButton: {fileID: 1920996171}
   m_CreditsButton: {fileID: 1920996170}
   m_ExitButton: {fileID: 1920996169}
+--- !u!225 &1289537969
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289537966}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1293893396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,6 +4312,18 @@ MonoBehaviour:
   m_BGMVolumeValueLabel: {fileID: 436033729}
   m_SFXVolumeSlider: {fileID: 1371724027}
   m_SFXVolumeValueLabel: {fileID: 22925042}
+--- !u!225 &1676066067
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676066065}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1683982318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,6 +4704,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HideOnAwake: 0
   m_BackButton: {fileID: 1284000276}
+--- !u!225 &1800728443
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800728441}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1833311390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5106,6 +5148,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2502505976510881397, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1289537968}
+    - targetCorrespondingSourceObject: {fileID: 2502505976510881397, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1289537969}
   m_SourcePrefab: {fileID: 100100000, guid: b13b268cb66b6497f939b8dcb6b622f0, type: 3}
 --- !u!114 &1920996169 stripped
 MonoBehaviour:
