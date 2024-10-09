@@ -1,4 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="DialogueScreen" src="project://database/Assets/UI/UXML/DialogueScreen.uxml?fileID=9197481963319205126&amp;guid=d96bf5cebd3cd4a9cbb7dffef5385c46&amp;type=3#DialogueScreen" />
-    <ui:Instance template="DialogueScreen" name="DialogueScreen" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
-</ui:UXML>

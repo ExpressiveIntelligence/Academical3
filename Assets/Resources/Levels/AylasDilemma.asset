@@ -16,4 +16,4 @@ MonoBehaviour:
   Description: Play from the perspective of Ayla.
   InkScript: {fileID: 4900000, guid: 850a6ce158145424f8f91c06dcfb5fc9, type: 3}
   Thumbnail: {fileID: 21300000, guid: d58855a6bdaaf4fe29fd477ce1e18538, type: 3}
-  Scene: Scenes/Plaigarism
+  Scene: Scenes/Game

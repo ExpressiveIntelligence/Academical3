@@ -1,6 +1,0 @@
-.choice-button:hover {
-    background-color: rgb(200, 200, 200);
-}
-
-.choice-button {
-}

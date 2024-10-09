@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="DialogueToolbar__container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.87); align-items: center; flex-direction: row; flex-wrap: wrap; justify-content: center;">
-        <ui:Button text="History" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DialogueToolbar__historyButton" style="font-size: 24px;" />
-        <ui:Button text="Save" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DialogueToolbar__saveButton" style="font-size: 24px;" />
-        <ui:Button text="Load" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DialogueToolbar__loadButton" enable-rich-text="true" style="font-size: 24px;" />
-        <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DialogueToolbar__quitButton" enable-rich-text="true" style="font-size: 24px;" />
-    </ui:VisualElement>
-</ui:UXML>
