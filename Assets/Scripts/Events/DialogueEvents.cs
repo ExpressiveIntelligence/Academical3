@@ -78,7 +78,22 @@ namespace Academical
 
 		public static Action DialogueAdvanced;
 
-		public static Action<string> SpeakerNameChanged;
+		/// <summary>
+		/// Action invoked when ShowCharacter() is called.
+		/// </summary>
+		public static Action<string, string, string> CharacterShown;
+
+		/// <summary>
+		/// Action invoked when SetCharacterSprite() is called in Ink.
+		/// </summary>
+		public static Action<string, string> CharacterSpriteChanged;
+
+		/// <summary>
+		/// Action invoked when HideCharacter() is called in Ink.
+		/// </summary>
+		public static Action<string> CharacterHidden;
+
+		public static Action AllCharactersHidden;
 
 		public static Action<string> DialogueTextChanged;
 	}
