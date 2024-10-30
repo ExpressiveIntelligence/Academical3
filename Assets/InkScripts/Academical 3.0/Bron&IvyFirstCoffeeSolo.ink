@@ -1,3 +1,4 @@
+->cafe
 === cafe ===
 #---
 # choiceLabel: Go to the Cafe.
@@ -12,7 +13,7 @@ After a successful first pitch at the introductory lab meeting, you decide to ca
 
 Ivy: "Hey Bronislav. Happy to see you again."
 
-*["Nice to see you too Ivy. How've you been?"]
+*["Nice to see you too, Ivy. How've you been?"]
 ->IvyCatchesUp
 
 === IvyCatchesUp ===
@@ -111,7 +112,7 @@ Ivy: "Well I have a friend who is struggling to get into grad school right now n
 === Continue ===
 She looks down at her watch. 
 
-"Oh! I actually need to go to a meeting. Thanks for organizing this Bronislav, hope to hear from you again soon." 
+Ivy: "Oh! I actually need to go to a meeting. Thanks for organizing this Bronislav, hope to hear from you again soon." 
 
 She waves goodbye and leaves.
 

@@ -1,4 +1,8 @@
+=== start ===
+#---
+#===
 -> student_cubes
+
 === student_cubes ===
 #---
 # choiceLabel: Go to the student cubicles.
@@ -19,7 +23,7 @@ He extends his hand for you to shake.
 === ShakeHand ===
 Jensen smiles. 
 
-"Likewise. I just wanted to talk to you about your presentation and some feedback I had for it." 
+Jensen: "Likewise. I just wanted to talk to you about your presentation and some feedback I had for it." 
 
 He pulls out a small notebook.
 
@@ -55,6 +59,7 @@ Bronislav: "Could you tell me a little more about what did confuse you, and how 
 ->DONE
 
 === FirstTime ===
+// Jensen is ashamed
 Bronislav: "This has to be your first time at a meeting like this isn't it?" 
 
 You put the pen and notebook back away. Jensen turns away ashamed by you mocking his input.
