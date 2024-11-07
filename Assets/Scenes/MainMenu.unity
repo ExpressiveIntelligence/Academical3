@@ -3547,8 +3547,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Scenarios:
   - {fileID: 11400000, guid: 366190f1609664c2e8d45025400a417d, type: 2}
-  - {fileID: 11400000, guid: 05de43b7b089c4e22a903372eb9cd669, type: 2}
-  - {fileID: 11400000, guid: 07e883769d18441d8ac81db4e69fb662, type: 2}
   m_MainMenu: {fileID: 586882417}
   m_CreditsScreen: {fileID: 1093684854}
   m_SettingsScreen: {fileID: 1264059707}

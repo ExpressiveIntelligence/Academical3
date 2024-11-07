@@ -24,6 +24,7 @@ That being the case, we must ensure that:
 
 */
 
+INCLUDE ./helpers.ink
 INCLUDE ./locations.ink
 INCLUDE ./Bron&IvyFirstCoffeeSolo.ink
 INCLUDE ./Bron&IvyIRBReviewSolo.ink
@@ -31,8 +32,10 @@ INCLUDE ./Bron&JenCoffee.ink
 INCLUDE ./Bron&JenIntroSolo.ink
 
 EXTERNAL DbInsert(statement)
+EXTERNAL DbAssert(statement)
 EXTERNAL ShowCharacter(characterName, location, spriteTags)
 EXTERNAL HideCharacter(characterName)
+EXTERNAL GetOpinion(from, to)
 
 
 // There can be only one "start" storylet. We place it in this

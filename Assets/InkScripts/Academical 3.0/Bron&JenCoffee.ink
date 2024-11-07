@@ -9,22 +9,21 @@
 # repeatable: false
 # tags: action
 # ===
-
-// if positive relationship
-    // if considered ivy's deal
-        //->scenePositiveIvy
-    // else
-    ->scenePositive
-// if neutral relationship
-    // if considered ivy's deal
-        //->sceneNeutralIvy
-    // else
-    //->sceneNeutral
-// if negative relationship
-    // if considered ivy's deal
-        //sceneNegativeIvy
-    // else
-    //->sceneNegative
+~temp jensen_opinion = GetOpinionState("Jensen", "Bronislav")
+{
+    - jensen_opinion >= OpinionState.Good && DbAssert("IvyDealConsidered"):
+        -> scenePositiveIvy
+    - jensen_opinion >= OpinionState.Good:
+        -> scenePositive
+    - jensen_opinion >= OpinionState.Neutral && DbAssert("IvyDealConsidered"):
+        -> sceneNeutralIvy
+    - jensen_opinion >= OpinionState.Neutral:
+        -> sceneNeutral
+    - jensen_opinion < OpinionState.Neutral && DbAssert("IvyDealConsidered"):
+        -> sceneNegative
+    - else:
+        -> sceneNegative
+}
 
 === scenePositive ===
 

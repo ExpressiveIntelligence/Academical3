@@ -117,7 +117,7 @@ namespace Academical
 				if ( m_AllChoicesCache.Count == 0 )
 				{
 					m_AllChoicesCache = new List<Choice>( m_story.CurrentChoices );
-					Regex rg = new Regex( @"^>>\s*(\w+)([\s+\w+]*)$" );
+					Regex rg = new Regex( @"^>>\s*(\w+)([\s+-?\w+]*)$" );
 
 					foreach ( var choice in m_AllChoicesCache )
 					{

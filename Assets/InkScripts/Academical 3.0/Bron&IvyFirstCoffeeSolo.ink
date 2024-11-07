@@ -3,24 +3,26 @@
 # choiceLabel: Have coffee with ivy
 # @query
 # currentLocation!cafe
+# not givenQuidProQuo
 # metJensen
 # @end.
 # repeatable: false
 # tags: action
 #===
+
 -> FirstCoffee
 
 === FirstCoffee ===
-// # SetBackground *Coffee Shop Background*
-After a successful first pitch at the introductory lab meeting, you decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
+
+After a successful presentation at the seminar, you decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
 
 Ivy: "Hey Bronislav. Happy to see you again." {ShowCharacter("Ivy", "left", "")}
 
-*["Nice to see you too, Ivy. How've you been?"]
+*["Nice to see you too, Ivy. How have you been?"]
 ->IvyCatchesUp
 
 === IvyCatchesUp ===
-Ivy: "I've been pretty busy, but keeping up with all of it pretty well. How'd the lab meeting go? Did you meet anyone who could help you on your paper?"
+Ivy: "I've been pretty busy, but keeping up with all of it pretty well. How'd the presentation go? Did you meet anyone who could help you on your paper?"
 
 *["Yes! I talked with someone."]
 ->InterestInPaper
@@ -43,15 +45,13 @@ Bronislav: "His name was Jensen."
 
 Ivy: "That's great to hear! I know Jensen and he's been having some problems getting into grad school. Being on this paper would be great for him."
 
-*["I see a bit of myself in him."]
-// +50 of something here?
+*["I see a bit of myself in him."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50 ]
 ->BronislavSympathizes
 
 *["I wish I could help."]
 ->MoreTime
 
-*["He needs an opportunity more at his level."]
-// -50 of something here?
+*["He needs an opportunity more at his level."  #>> DecrRelationshipStat Ivy Bronislav Opinion -50 ]
 ->TooSoon
 
 === BronislavSympathizes ===

@@ -255,6 +255,16 @@ namespace Academical
 			);
 
 			story.BindExternalFunction(
+				"GetOpinion",
+				(string subject, string target) =>
+				{
+					return this.m_socialEngine.State
+						.GetRelationship( subject, target )
+						.Stats.GetStat( "Opinion" ).Value;
+				}
+			);
+
+			story.BindExternalFunction(
 				"SetCurrentLocation",
 				(string locationId) =>
 				{
