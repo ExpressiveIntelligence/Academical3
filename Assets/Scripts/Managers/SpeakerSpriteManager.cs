@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Anansi;
 using UnityEngine;
 
@@ -14,85 +16,104 @@ namespace Academical
 		#region Fields
 
 		/// <summary>
-		/// The onscreen position of the speaker image.
+		/// The amount of time for characters to slide on and off the screen.
 		/// </summary>
 		[SerializeField]
-		private Vector3 m_onScreenPosition;
+		protected float m_AnimationSpeed = 0.2f;
 
 		/// <summary>
-		/// The offscreen position of the speaker image.
+		/// All the characters in the game.
 		/// </summary>
-		[SerializeField]
-		private Vector3 m_offScreenPosition;
-
-		/// <summary>
-		/// The fade-out duration time in seconds.
-		/// </summary>
-		[SerializeField]
-		protected float m_slideOutSeconds = 0.1f;
-
-		/// <summary>
-		/// The fade-in duration time in seconds.
-		/// </summary>
-		[SerializeField]
-		protected float m_slideInSeconds = 0.1f;
-
-		/// <summary>
-		/// A reference to the Coroutine responsible for fading the background
-		/// when transitioning from one image sprite to another.
-		/// </summary>
-		private Coroutine m_transitionCoroutine = null;
-
-		/// <summary>
-		/// The currently displayed character
-		/// </summary>
-		private Character m_displayedCharacter;
-
-		/// <summary>
-		/// All the characters parented under this object.
-		/// </summary>
-		private Dictionary<string, Character> m_Characters;
-
-		#endregion
-
-		#region Properties
-
-		/// <summary>
-		/// Is the speaker sprite currently hidden
-		/// </summary>
-		public bool IsSpriteHidden { get; private set; }
+		private Dictionary<string, CharacterSprite> m_Characters =
+			new Dictionary<string, CharacterSprite>();
 
 		#endregion
 
 		#region Unity Messages
 
-		private void Awake()
+		private void Start()
 		{
-			m_Characters = new Dictionary<string, Character>();
-			foreach ( var character in GetComponentsInChildren<Character>() )
+			foreach ( var character in GetComponentsInChildren<CharacterSprite>() )
 			{
 				m_Characters[character.UniqueID] = character;
 			}
-		}
-
-		private void Start()
-		{
 			ResetSprites();
 		}
 
 		private void OnEnable()
 		{
-			DialogueEvents.SpeakerChanged += HandleSpeakerChange;
+			DialogueEvents.CharacterShown += ShowCharacter;
+			DialogueEvents.CharacterHidden += HideCharacter;
 		}
 
 		private void OnDisable()
 		{
-			DialogueEvents.SpeakerChanged -= HandleSpeakerChange;
+			DialogueEvents.CharacterShown -= ShowCharacter;
+			DialogueEvents.CharacterHidden -= HideCharacter;
 		}
 
 		#endregion
 
 		#region Public Methods
+
+		public void ShowCharacter(string characterName, string position, string spriteTags)
+		{
+
+			if ( !Enum.TryParse( position.ToUpper(), out CharacterSpritePosition positionEnum ) )
+			{
+				Debug.LogWarning( $"Failed to parse character position to enum: {position}" );
+				return;
+			}
+
+			string[] spriteTagArray = spriteTags.Split( "," ).Select( t => t.Trim() ).ToArray();
+
+			ShowCharacter( characterName, positionEnum, spriteTagArray );
+		}
+
+		public void ShowCharacter(string characterName, CharacterSpritePosition position, string[] spriteTags)
+		{
+			var character = m_Characters[characterName];
+
+			if ( character.IsShowing )
+			{
+				Debug.LogWarning( $"Failed to show character {name}. Character already showing" );
+				return;
+			}
+
+			character.SetSprite( spriteTags );
+			character.Show( position );
+		}
+
+		public void HideCharacter(string name)
+		{
+			var character = m_Characters[name];
+
+			if ( character.IsShowing != true )
+			{
+				Debug.LogWarning( $"Character {name} is not currently shown. Can't hide it." );
+				return;
+			}
+			else
+			{
+				character.Hide();
+			}
+		}
+
+		public void SetCharacterSprite(string characterName, string spriteTags)
+		{
+			CharacterSprite character = m_Characters[characterName];
+
+			if ( character.IsShowing != true )
+			{
+				Debug.LogWarning( $"Character {characterName} is not currently shown. Can't change the mood." );
+				return;
+			}
+			else
+			{
+				string[] spriteTagArray = spriteTags.Split( "," ).Select( t => t.Trim() ).ToArray();
+				character.SetSprite( spriteTagArray );
+			}
+		}
 
 		/// <summary>
 		/// Reset all character sprites to be out of view
@@ -101,146 +122,14 @@ namespace Academical
 		{
 			foreach ( var character in m_Characters.Values )
 			{
-				character.transform.position = m_offScreenPosition;
+				character.Hide();
 			}
-		}
-
-		/// <summary>
-		/// Slide the current speaker into view
-		/// </summary>
-		public void ShowSpeaker()
-		{
-			if ( m_displayedCharacter == null ) return;
-
-			if ( m_transitionCoroutine != null )
-			{
-				StopCoroutine( m_transitionCoroutine );
-			}
-
-			m_transitionCoroutine = StartCoroutine( SlideIn( m_displayedCharacter.transform ) );
-		}
-
-		/// <summary>
-		/// Slide the current speaker out of view
-		/// </summary>
-		public void HideSpeaker()
-		{
-			if ( m_displayedCharacter == null ) return;
-
-			if ( m_transitionCoroutine != null )
-			{
-				StopCoroutine( m_transitionCoroutine );
-			}
-
-			m_transitionCoroutine = StartCoroutine( SlideOut( m_displayedCharacter.transform ) );
-		}
-
-		/// <summary>
-		/// Set the current speaker
-		/// </summary>
-		/// <param name="speakerID"></param>
-		/// <param name="tags"></param>
-		public void SetSpeaker(string speakerID, params string[] tags)
-		{
-			if ( m_transitionCoroutine != null )
-			{
-				StopCoroutine( m_transitionCoroutine );
-			}
-
-			m_transitionCoroutine = StartCoroutine( TransitionSpeaker( speakerID, tags ) );
 		}
 
 		#endregion
 
-		#region Private Coroutine Methods
+		#region Private Methods
 
-		private void HandleSpeakerChange(SpeakerInfo info)
-		{
-			if ( info == null )
-			{
-				HideSpeaker();
-				return;
-			}
-
-			SetSpeaker( info.SpeakerId, info.Tags );
-		}
-
-		/// <summary>
-		/// Slide the character image off the screen and slide the new on to the screen
-		/// </summary>
-		/// <returns></returns>
-		private IEnumerator TransitionSpeaker(string speakerID, params string[] tags)
-		{
-			if ( m_displayedCharacter != null )
-			{
-				if ( m_displayedCharacter.UniqueID == speakerID )
-				{
-					// Only change the speaker animation
-					m_displayedCharacter.SetSprite( tags );
-				}
-				else
-				{
-					// Slide out the old speaker first then set the character
-					yield return SlideOut( m_displayedCharacter.transform );
-
-					m_displayedCharacter = m_Characters[speakerID];
-					m_displayedCharacter.SetSprite( tags );
-				}
-			}
-			else
-			{
-				// There is not a character displayed so set it
-				m_displayedCharacter = m_Characters[speakerID];
-				m_displayedCharacter.SetSprite( tags );
-			}
-
-			yield return SlideIn( m_displayedCharacter.transform );
-		}
-
-		/// <summary>
-		/// Slide a character sprite into the screen
-		/// </summary>
-		/// <returns></returns>
-		private IEnumerator SlideIn(Transform spriteTransform)
-		{
-			Vector3 initialPosition = spriteTransform.position;
-			float elapsedTime = 0f;
-			IsSpriteHidden = false;
-
-			while ( elapsedTime < m_slideInSeconds )
-			{
-				elapsedTime += Time.deltaTime;
-				spriteTransform.position =
-					Vector3.Lerp(
-						initialPosition,
-						m_onScreenPosition,
-						elapsedTime / m_slideOutSeconds );
-				yield return null;
-			}
-		}
-
-		/// <summary>
-		/// Slide a character spite off screen
-		/// </summary>
-		/// <returns></returns>
-		private IEnumerator SlideOut(Transform spriteTransform)
-		{
-			Vector3 initialPosition = spriteTransform.position;
-			float elapsedTime = 0f;
-
-			while ( elapsedTime < m_slideOutSeconds )
-			{
-				elapsedTime += Time.deltaTime;
-				spriteTransform.position =
-					Vector3.Lerp(
-						initialPosition,
-						m_offScreenPosition,
-						elapsedTime / m_slideOutSeconds );
-				yield return null;
-			}
-
-			IsSpriteHidden = true;
-		}
 
 		#endregion
 	}

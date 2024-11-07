@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5413096878765293340}
   - component: {fileID: 7603490838580364354}
   - component: {fileID: 592166175369512013}
+  - component: {fileID: 6755013063314661116}
   m_Layer: 0
   m_Name: Bronislav
   m_TagString: Untagged
@@ -136,3 +137,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6755013063314661116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729043420659906418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae791a2e8e9c04f90974149dd147a962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DisplayName: Bronislav
+  m_UniqueID: Br

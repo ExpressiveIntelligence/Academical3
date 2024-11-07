@@ -489,6 +489,38 @@ namespace Academical
 				}
 			);
 
+			Story.InkStory.BindExternalFunction(
+				"ShowCharacter",
+				(string characterName, string position, string spriteTags) =>
+				{
+					Debug.Log(
+						$"Displaying character {characterName}[tags: {spriteTags}] at {position}."
+					);
+					DialogueEvents.CharacterShown?.Invoke( characterName, position, spriteTags );
+				}
+			);
+
+			Story.InkStory.BindExternalFunction(
+				"HideCharacter",
+				(string characterName) =>
+				{
+					Debug.Log( $"Hiding character {characterName}" );
+					DialogueEvents.CharacterHidden?.Invoke( characterName );
+				}
+			);
+
+			Story.InkStory.BindExternalFunction(
+				"SetCharacterSprite",
+				(string characterName, string spriteTags) =>
+				{
+					Debug.Log(
+						$"Updating character {characterName}'s sprite [tags: {spriteTags}]."
+					);
+					DialogueEvents.CharacterSpriteChanged?.Invoke( characterName, spriteTags );
+				}
+			);
+
+
 			// Load functions from external classes.
 			DialogueEvents.InkStoryLoaded?.Invoke( Story.InkStory );
 		}
