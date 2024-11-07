@@ -28,7 +28,7 @@
 
 === scenePositive ===
 
-Jensen: "Bronislav!"
+Jensen: "Bronislav!" {ShowCharacter("Jensen", "left", "")}
 
 Jensen says as he walks up to you.
 
@@ -145,5 +145,7 @@ You grab your coffee and leave.
 === GetUpAndLeave ===
 
 You abruptly get up and leave after telling Jensen this. He looks deeply ashamed hearing it.
+
+{HideCharacter("Jensen")}
 
 ->DONE

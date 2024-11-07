@@ -14,7 +14,7 @@
 === bron_ivy_irb_review ===
 With your survey approved, you start to pack up and head home to work more on your paper. However, as you start to walk away Ivy flags you down.
 
-Ivy: "Bronislav! Did your survey get accepted?"
+Ivy: "Bronislav! Did your survey get accepted?" {ShowCharacter("Ivy", "left", "")}
 
 *["It did."]
 
@@ -25,7 +25,7 @@ Bronislav: "It sure did. I was just about to go home and start working more on t
 === Proposition ===
 Ivy smiles cheerfully.
 
-"Great to hear. I do have a proposition for you Bronislav."
+Ivy: "Great to hear. I do have a proposition for you Bronislav."
 
 *["What's that?"]
 -> PropInfo
@@ -115,5 +115,7 @@ Ivy packs her stuff up and leaves. As great of an opportunity that would be for 
 
 //If DenyDeal
 Ivy leaves angrily. She is somewhat right, opportunities like that are rare. However, integrity is priceless.
+
+{HideCharacter("Ivy")}
 
 ->DONE

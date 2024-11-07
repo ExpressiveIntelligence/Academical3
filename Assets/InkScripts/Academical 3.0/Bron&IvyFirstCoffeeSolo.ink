@@ -14,7 +14,7 @@
 // # SetBackground *Coffee Shop Background*
 After a successful first pitch at the introductory lab meeting, you decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
 
-Ivy: "Hey Bronislav. Happy to see you again."
+Ivy: "Hey Bronislav. Happy to see you again." {ShowCharacter("Ivy", "left", "")}
 
 *["Nice to see you too, Ivy. How've you been?"]
 ->IvyCatchesUp
@@ -117,7 +117,7 @@ She looks down at her watch.
 
 Ivy: "Oh! I actually need to go to a meeting. Thanks for organizing this Bronislav, hope to hear from you again soon."
 
-She waves goodbye and leaves.
+She waves goodbye and leaves. {HideCharacter("Ivy")}
 
 *[Leave.]
 ->Exit

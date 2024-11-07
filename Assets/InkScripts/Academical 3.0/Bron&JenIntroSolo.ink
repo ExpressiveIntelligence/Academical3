@@ -10,7 +10,7 @@
 # ===
 
 # SetBackground lab
-Jensen: "Bronislav was it? Nice to meet you, my name is Jensen."
+Jensen: "Bronislav was it? Nice to meet you, my name is Jensen." {ShowCharacter("Jensen", "left", "")}
 
 {DbInsert("metJensen")}
 
@@ -50,10 +50,14 @@ Bronislav: "Yes, of course. Thanks for letting me know."
 
 You write down his feedback in your notebook. He smiles happily, and walks off.
 
+{HideCharacter("Jensen")}
+
 ->DONE
 
 === MoreInfo ===
 Bronislav: "Could you tell me a little more about what did confuse you, and how I could present my evidence better?"
+
+{HideCharacter("Jensen")}
 
 ->DONE
 
@@ -62,6 +66,8 @@ Bronislav: "Could you tell me a little more about what did confuse you, and how 
 Bronislav: "This has to be your first time at a meeting like this isn't it?"
 
 You put the pen and notebook back away. Jensen turns away ashamed by you mocking his input.
+
+{HideCharacter("Jensen")}
 
 ->DONE
 

@@ -31,6 +31,8 @@ INCLUDE ./Bron&JenCoffee.ink
 INCLUDE ./Bron&JenIntroSolo.ink
 
 EXTERNAL DbInsert(statement)
+EXTERNAL ShowCharacter(characterName, location, spriteTags)
+EXTERNAL HideCharacter(characterName)
 
 
 // There can be only one "start" storylet. We place it in this
@@ -38,6 +40,8 @@ EXTERNAL DbInsert(statement)
 === start ===
 # ---
 # ===
+
+{ShowCharacter("Bronislav", "right", "")}
 
 -> lecture_hall
 
