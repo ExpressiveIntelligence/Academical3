@@ -366,12 +366,14 @@ namespace Academical
 		{
 			DialogueEvents.DialogueAdvanced += HandleDialogueAdvanced;
 			DialogueEvents.ChoiceSelected += OnChoiceSelected;
+			Story.InkStory.onError += OnInkError;
 		}
 
 		private void UnsubscribeFromEvents()
 		{
 			DialogueEvents.DialogueAdvanced -= HandleDialogueAdvanced;
 			DialogueEvents.ChoiceSelected -= OnChoiceSelected;
+			Story.InkStory.onError -= OnInkError;
 		}
 
 		private void HandleDialogueAdvanced()
@@ -382,6 +384,11 @@ namespace Academical
 		private void OnChoiceSelected(Choice choice)
 		{
 			ExecuteChoice( choice );
+		}
+
+		private void OnInkError(string message, Ink.ErrorType type)
+		{
+			Debug.LogError( message );
 		}
 
 		#endregion

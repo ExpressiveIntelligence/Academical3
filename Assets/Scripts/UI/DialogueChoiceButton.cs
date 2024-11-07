@@ -55,7 +55,10 @@ namespace Academical
 
 		public void OnPointerEnter(PointerEventData data)
 		{
-			ShowTooltip();
+			if ( m_ChoiceData.Effects.Count > 0 )
+			{
+				ShowTooltip();
+			}
 		}
 
 		public void OnPointerExit(PointerEventData data)

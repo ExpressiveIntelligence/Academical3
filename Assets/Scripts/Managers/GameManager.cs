@@ -12,6 +12,8 @@ namespace Academical
 		[SerializeField]
 		private Character m_Player;
 
+		private Location m_CurrentLocation;
+
 		/// <summary>
 		/// Manages the underlying world simulation.
 		/// </summary>
@@ -117,6 +119,7 @@ namespace Academical
 
 			if ( m_Player.Location != location )
 			{
+				m_CurrentLocation = location;
 				m_simulationController.SetCharacterLocation( m_Player, location );
 				m_dialogueManager.SetBackground(
 					new BackgroundInfo(
@@ -140,7 +143,7 @@ namespace Academical
 		{
 			List<StoryletInstance> instances = new List<StoryletInstance>();
 			HashSet<string> eligibleLocations = new HashSet<string>(
-				m_Player.Location.ConnectedLocations.Select( s => s.UniqueID )
+				m_CurrentLocation.ConnectedLocations.Select( s => s.UniqueID )
 			);
 
 			foreach ( var (uid, storylet) in m_locationStorylets )
@@ -248,6 +251,26 @@ namespace Academical
 				(string locationID) =>
 				{
 					this.SetPlayerLocation( locationID );
+				}
+			);
+
+			story.BindExternalFunction(
+				"SetCurrentLocation",
+				(string locationId) =>
+				{
+					Location location = m_simulationController.GetLocation( locationId );
+
+					if ( m_CurrentLocation != location )
+					{
+						m_CurrentLocation = location;
+						DB.Insert( $"currentLocation!{locationId}" );
+						m_dialogueManager.SetBackground(
+							new BackgroundInfo(
+								locationId,
+								new string[0]
+							)
+						);
+					}
 				}
 			);
 		}

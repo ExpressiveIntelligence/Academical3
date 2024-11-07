@@ -1,7 +1,15 @@
-=== start ===
+=== bron_jen_coffee ===
 # ---
+# choiceLabel: Talk to Jensen
+# @query
+# currentLocation!cafe
+# metJensen
+# givenQuidProQuo
+# @end
+# repeatable: false
+# tags: action
 # ===
-// Coffee Shop
+
 // if positive relationship
     // if considered ivy's deal
         //->scenePositiveIvy
@@ -20,7 +28,7 @@
 
 === scenePositive ===
 
-Jensen: "Bronislav!" 
+Jensen: "Bronislav!"
 
 Jensen says as he walks up to you.
 
@@ -44,9 +52,9 @@ Jensen: "I hope my feedback is helping the paper come along well."
 
 === sceneNeutral ===
 
-Jensen walks up to you happily. 
+Jensen walks up to you happily.
 
-Jensen: "Thank you so much for the advice and opportunity for co-authorship Bronislav. Happy I could help." 
+Jensen: "Thank you so much for the advice and opportunity for co-authorship Bronislav. Happy I could help."
 
 *["Keep on hustling."]
 ->KeepOnHustling
@@ -59,7 +67,7 @@ Jensen: "Thank you so much for the advice and opportunity for co-authorship Bron
 
 === sceneNeutralIvy ===
 
-Jensen: "Hey, Bronislav, I was wondering, am I joining the paper?" 
+Jensen: "Hey, Bronislav, I was wondering, am I joining the paper?"
 
 He looks at you with eyes akin to a puppy.
 
@@ -70,7 +78,7 @@ He looks at you with eyes akin to a puppy.
 ->NoIncluded
 
 === sceneNegative ===
-Jensen sits down across the table from you, setting down his coffee and smiling. 
+Jensen sits down across the table from you, setting down his coffee and smiling.
 
 Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that you decided to include me as a co-author on your paper."
 
@@ -85,7 +93,7 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 
 === KeepOnHustling ===
 // + 50 relationshp, Jensen +Hopeful, Bronislav +Bad Advisor
-Bronislav: "Keep on hustling Jensen, as long as you put in the work that you have been you'll go far." 
+Bronislav: "Keep on hustling Jensen, as long as you put in the work that you have been you'll go far."
 
 *[Shake his hand and leave.]
 ->ShakeHandLeave
@@ -108,7 +116,7 @@ Bronislav: "Look Jensen, you seem like a nice guy so I'll just tell you. Ivy off
 
 Bronislav: "Yes, you will be included."
 
-Jensen's expression shifts to a relieved smile. 
+Jensen's expression shifts to a relieved smile.
 
 Jensen: "Oh, I can't thank you enough."
 
@@ -118,7 +126,7 @@ Jensen: "Oh, I can't thank you enough."
 
 Bronislav: "No, your feedback woudln't hold up to review."
 
-His innocent gaze contorts into a naive sadness. 
+His innocent gaze contorts into a naive sadness.
 
 Jensen: "O-Oh, alright. I was really hoping on getting my name on a paper..."
 
@@ -126,9 +134,9 @@ Jensen: "O-Oh, alright. I was really hoping on getting my name on a paper..."
 
 === ShakeHandLeave ===
 
-He shakes your hand with a big smile. 
+He shakes your hand with a big smile.
 
-Jensen: "Of course, glad to have a mentor like you Bronislav." 
+Jensen: "Of course, glad to have a mentor like you Bronislav."
 
 You grab your coffee and leave.
 

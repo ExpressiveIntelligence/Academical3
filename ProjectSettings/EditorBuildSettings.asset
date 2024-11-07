@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 6415d45a7037a42919ef91d1230f43a9
   - enabled: 1
-    path: Assets/Scenes/Authorship.unity
-    guid: 1d9ceebbdc1a8477d8d6320831199652
-  - enabled: 1
-    path: Assets/Scenes/Experimental_Shi.unity
-    guid: 14cc88c4b954d46ca8bb39161f6dac4d
-  - enabled: 1
-    path: Assets/Scenes/Plaigarism.unity
-    guid: ec231d60c09d9469ea4c038b3beccdf0
+    path: Assets/Scenes/Game.unity
+    guid: 133636814bf4e4421a7bd016a8682e72
   m_configObjects: {}
