@@ -16,7 +16,7 @@
 
 After a successful presentation at the seminar, you decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
 
-Ivy: "Hey Bronislav. Happy to see you again." {ShowCharacter("Ivy", "left", "")}
+Ivy: "Hey Bronislav. Good to see you again." {ShowCharacter("Ivy", "left", "")}
 
 *["Nice to see you too, Ivy. How have you been?"]
 ->IvyCatchesUp
@@ -90,7 +90,7 @@ Ivy: "Well ok then, that is fair. At least consider him, ok?"
 -> Continue
 
 === MoreTime ===
-Bronislav: ""As much as I wish I could help right now I just want to keep my options open."
+Bronislav: "As much as I wish I could help right now I just want to keep my options open."
 
 She takes a long sip of her drink.
 
@@ -123,5 +123,9 @@ She waves goodbye and leaves. {HideCharacter("Ivy")}
 ->Exit
 
 === Exit ===
+
+{HideCharacter("Ivy")}
+
+Its getting late. I should go pack my things in my cubicle and go home for the day.
 
 -> DONE

@@ -33,11 +33,11 @@ Today you have the honor of presenting a practice paper talk at the weekly depar
 
 You go to the front of the room and speak for about 45 minutes.
 
-Surprisingly, audience seemed to enjoy your work. A few tough questions. But nothing you couldn't handle.
+Surprisingly, the audience seemed to enjoy your work. A few tough questions, but nothing you couldn't handle.
 
 Afterward, while packing up your laptop, a student approaches you, eager to talk.
 
-Jensen: "Bronislav, right? Nice to meet you. My name is Jensen." {ShowCharacter("Jensen", "left", "")}
+Jensen: "Bronislav, right? Nice to meet you. I'm Jensen." {ShowCharacter("Jensen", "left", "")}
 
 {DbInsert("metJensen")}
 
@@ -128,6 +128,6 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 
 === mention_cafe_with_ivy ===
 
-Glad that's done. I should head over to the cafe to meet Ivy.
+Bronislav: Glad that's done. I should head over to the cafe to meet Ivy.
 
 -> DONE

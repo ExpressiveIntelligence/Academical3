@@ -64,7 +64,8 @@ Ivy: "I can definitely put in a good word for you with him. All you need to do i
 Ivy: "In exchange for putting Jensen on your paper, I can talk to my uncle who works at a research firm who have been looking for a new hire. So, what do you think?"
 
 //If negative relationship
-Ivy: "Add Jensen to that paper Bronislav. Do that and I can talk with my uncle and put in a good word for you."
+//Ivy: "Add Jensen to that paper Bronislav. Do that and I can talk with my uncle and put in a good word for you."
+Ivy: "Add Jensen to the paper and I can put in a good word for you with my uncle.
 
 *["That's it? Of course!"  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50 ]
 ->AcceptingDeal
@@ -87,7 +88,7 @@ Ivy: "Incredible. I'll talk with my uncle ASAP and get back to you about that jo
 ->irb_rev_cont
 
 === Unsure ===
-Bronislav: "Sounds a bit fishy, I'm not quite sure yet. Let me think about it some more."
+Bronislav: "I'm not quite sure yet. Let me think about it some more."
 
 Ivy shakes her head.
 
