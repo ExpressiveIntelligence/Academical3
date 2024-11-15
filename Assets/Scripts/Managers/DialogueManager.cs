@@ -53,6 +53,11 @@ namespace Academical
 		/// </summary>
 		private Dictionary<string, Character> m_Characters;
 
+		/// <summary>
+		/// Will the manager auto advance blank lines.
+		/// </summary>
+		private bool m_AutoAdvanceBlankLines = true;
+
 		#endregion
 
 		#region Properties
@@ -274,7 +279,7 @@ namespace Academical
 
 				// Sometimes on navigation, we don't show any text. If this is the case,
 				// do not even show the dialogue panel and try to get another line
-				if ( text == "" )
+				if ( text == "" && m_AutoAdvanceBlankLines )
 				{
 					AdvanceDialogue();
 					return;
@@ -366,6 +371,7 @@ namespace Academical
 		{
 			DialogueEvents.DialogueAdvanced += HandleDialogueAdvanced;
 			DialogueEvents.ChoiceSelected += OnChoiceSelected;
+			DialogueEvents.OnToggleSkipBlankLines += ToggleAutoAdvanceFunctionLines;
 			Story.InkStory.onError += OnInkError;
 		}
 
@@ -373,7 +379,13 @@ namespace Academical
 		{
 			DialogueEvents.DialogueAdvanced -= HandleDialogueAdvanced;
 			DialogueEvents.ChoiceSelected -= OnChoiceSelected;
+			DialogueEvents.OnToggleSkipBlankLines -= ToggleAutoAdvanceFunctionLines;
 			Story.InkStory.onError -= OnInkError;
+		}
+
+		private void ToggleAutoAdvanceFunctionLines(bool value)
+		{
+			m_AutoAdvanceBlankLines = value;
 		}
 
 		private void HandleDialogueAdvanced()

@@ -61,7 +61,7 @@ namespace Academical
 			Hide();
 		}
 
-		private void OnAvailableLocationsUpdated(List<StoryletInstance> storylets)
+		private void OnAvailableLocationsUpdated(List<LocationStoryletInfo> storylets)
 		{
 			ClearChoices();
 			foreach ( var entry in storylets )
@@ -74,7 +74,25 @@ namespace Academical
 
 				m_ChoiceButtons.Add( choiceButton );
 
-				choiceButton.SetStorylet( entry );
+				if ( entry.hasAuxillaryActivities )
+				{
+					choiceButton.ShowAuxIndicator();
+				}
+				else
+				{
+					choiceButton.HideAuxIndicator();
+				}
+
+				if ( entry.hasRequiredActivities )
+				{
+					choiceButton.ShowRequiredIndicator();
+				}
+				else
+				{
+					choiceButton.HideRequiredIndicator();
+				}
+
+				choiceButton.SetStorylet( entry.storyletInstance );
 			}
 		}
 

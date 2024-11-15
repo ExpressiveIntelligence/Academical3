@@ -22,11 +22,10 @@ Select the "Choose Action" button in the interaction bar to see what actions are
 # ---
 # choiceLabel: Give presentation
 # @query
-# currentLocation!lecture_hall
 # not metJensen
 # @end
 # repeatable: false
-# tags: action
+# tags: action, lecture_hall, required
 # ===
 
 Today you have the honor of presenting a practice paper talk at the weekly department seminar.

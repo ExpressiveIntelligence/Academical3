@@ -12,6 +12,8 @@ namespace Academical
 		[Header( "UI Elements" )]
 		[SerializeField] private Button m_Button;
 		[SerializeField] private TMP_Text m_Text;
+		[SerializeField] private GameObject m_AuxIndicator;
+		[SerializeField] private GameObject m_RequiredIndicator;
 		private StoryletInstance m_Storylet;
 
 		#endregion
@@ -36,6 +38,30 @@ namespace Academical
 		protected override void UnsubscribeFromEvents()
 		{
 			m_Button.onClick.AddListener( OnClicked );
+		}
+
+		#endregion
+
+		#region Public Methods
+
+		public void ShowAuxIndicator()
+		{
+			m_AuxIndicator.SetActive( true );
+		}
+
+		public void HideAuxIndicator()
+		{
+			m_AuxIndicator.SetActive( false );
+		}
+
+		public void ShowRequiredIndicator()
+		{
+			m_RequiredIndicator.SetActive( true );
+		}
+
+		public void HideRequiredIndicator()
+		{
+			m_RequiredIndicator.SetActive( false );
 		}
 
 		#endregion

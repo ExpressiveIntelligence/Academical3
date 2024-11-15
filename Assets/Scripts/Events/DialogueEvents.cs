@@ -96,6 +96,8 @@ namespace Academical
 		public static Action AllCharactersHidden;
 
 		public static Action<string> DialogueTextChanged;
+
+		public static Action<bool> OnToggleSkipBlankLines;
 	}
 
 }

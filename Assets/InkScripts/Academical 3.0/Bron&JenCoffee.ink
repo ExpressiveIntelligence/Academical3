@@ -2,12 +2,11 @@
 # ---
 # choiceLabel: Talk to Jensen
 # @query
-# currentLocation!cafe
 # metJensen
 # givenQuidProQuo
 # @end
 # repeatable: false
-# tags: action
+# tags: action, cafe, auxillary
 # ===
 ~temp jensen_opinion = GetOpinionState("Jensen", "Bronislav")
 {

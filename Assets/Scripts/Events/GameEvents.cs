@@ -38,9 +38,13 @@ namespace Academical
 
 		public static Action<StoryletInstance> ActionSelected;
 
-		public static Action<List<StoryletInstance>> AvailableLocationsUpdated;
+		public static Action<float> OnFadeToBlack;
 
-		public static Action<List<StoryletInstance>> AvailableActionsUpdated;
+		public static Action<float> OnFadeFromBlack;
+
+		public static Action<List<LocationStoryletInfo>> AvailableLocationsUpdated;
+
+		public static Action<List<ActionStoryletInfo>> AvailableActionsUpdated;
 
 		public static Action<List<DialogueHistoryEntry>> DialogueHistoryUpdated;
 	}

@@ -36,6 +36,10 @@ EXTERNAL DbAssert(statement)
 EXTERNAL ShowCharacter(characterName, location, spriteTags)
 EXTERNAL HideCharacter(characterName)
 EXTERNAL GetOpinion(from, to)
+EXTERNAL HasUnseenAuxillaryActions()
+EXTERNAL HasUnseenRequiredActions()
+EXTERNAL FadeToBlack(delay)
+EXTERNAL FadeFromBlack(delay)
 
 
 // There can be only one "start" storylet. We place it in this
@@ -47,5 +51,45 @@ EXTERNAL GetOpinion(from, to)
 {ShowCharacter("Bronislav", "right", "")}
 
 -> lecture_hall
+
+-> DONE
+
+=== go_home ===
+# ---
+# choiceLabel: Go Home
+# repeatable: true
+# tags: action, student_cubes
+# ===
+
+{
+   - HasUnseenRequiredActions():
+      There are still things you must do. Look for locations with unvisited actions.
+   - HasUnseenAuxillaryActions():
+      There are still some things you could do.
+      -> check_advance_day
+   - else:
+      It's been a busy day.
+      -> check_advance_day
+}
+
+-> DONE
+
+=== check_advance_day ===
+
+Do you still want to advance the day?
++ [Yes]
+   -> advance_day
++ [No]
+-
+
+-> DONE
+
+=== advance_day ===
+
+You go home for the day. {FadeToBlack(0)} {HideCharacter("Bronislav")}
+
+New day. New things to do. {FadeFromBlack(1)} {ShowCharacter("Bronislav", "right", "")}
+
+-> DONE
 
 -> DONE

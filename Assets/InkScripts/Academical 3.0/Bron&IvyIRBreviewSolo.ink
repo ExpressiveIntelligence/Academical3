@@ -2,12 +2,11 @@
 #---
 # choiceLabel: Pack to go home.
 # @query
-# currentLocation!student_cubes
 # not givenQuidProQuo
 # metJensen
 # @end
 # repeatable: false
-# tags: action
+# tags: action, student_cubes
 #===
 ->bron_ivy_irb_review
 
