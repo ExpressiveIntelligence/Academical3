@@ -35,18 +35,25 @@ Jensen: "I did like how you presented your information for the first half, but g
 
 He looks at you expectingly.
 
-*["Yes, of course."]
-// +50 of something
+*["Yes, of course." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+// Jensen: +Hopeful
+// Bronislav: +Supportive
+
 ->WriteDown
 
 *["Could you tell me a little more?"]
+// Jensen: +Growth Mindset
+// Bronislav: +Supportive
 ->MoreInfo
 
-*["This has to be your first time at a meeting like this isn't it."]
-// -50 of something
+*["This has to be your first time at a meeting like this isn't it."#>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+// Jensen: +Ashamed
+// Bronislav: +Petty
+
 ->FirstTime
 
 === WriteDown ===
+{ShowCharacter("Jensen", "left", "hopeful")}
 Bronislav: "Yes, of course. Thanks for letting me know." 
 
 You write down his feedback in your notebook. He smiles happily, and walks off.
@@ -59,7 +66,7 @@ Bronislav: "Could you tell me a little more about what did confuse you, and how 
 ->DONE
 
 === FirstTime ===
-// Jensen is ashamed
+{ShowCharacter("Jensen", "left", "ashamed")}
 Bronislav: "This has to be your first time at a meeting like this isn't it?" 
 
 You put the pen and notebook back away. Jensen turns away ashamed by you mocking his input.
