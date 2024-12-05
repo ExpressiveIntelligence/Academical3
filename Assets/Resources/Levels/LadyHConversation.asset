@@ -17,4 +17,4 @@ MonoBehaviour:
     the Ink game, "Overboard!"
   InkScript: {fileID: 4900000, guid: 660cef71577414b6686521509ac3de60, type: 3}
   Thumbnail: {fileID: 21300000, guid: e1b74e286ef25477ba9ea7b53327b8e4, type: 3}
-  Scene: scenes/Game
+  Scene: scenes/Game_Updated

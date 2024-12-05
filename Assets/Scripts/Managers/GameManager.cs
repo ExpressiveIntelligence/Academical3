@@ -12,6 +12,8 @@ namespace Academical
 		[SerializeField]
 		private Character m_Player;
 
+		private Location m_CurrentLocation;
+
 		/// <summary>
 		/// Manages the underlying world simulation.
 		/// </summary>
@@ -117,6 +119,7 @@ namespace Academical
 
 			if ( m_Player.Location != location )
 			{
+				m_CurrentLocation = location;
 				m_simulationController.SetCharacterLocation( m_Player, location );
 				m_dialogueManager.SetBackground(
 					new BackgroundInfo(
@@ -136,27 +139,29 @@ namespace Academical
 		/// Get a list of all location storylets a player could execute.
 		/// </summary>
 		/// <returns></returns>
-		public List<StoryletInstance> GetEligibleLocationStorylets()
+		public List<LocationStoryletInfo> GetEligibleLocationStorylets()
 		{
-			List<StoryletInstance> instances = new List<StoryletInstance>();
-			HashSet<string> eligibleLocations = new HashSet<string>(
-				m_Player.Location.ConnectedLocations.Select( s => s.UniqueID )
-			);
+			List<LocationStoryletInfo> locationInfo = new List<LocationStoryletInfo>();
 
-			foreach ( var (uid, storylet) in m_locationStorylets )
+			foreach ( var location in m_CurrentLocation.ConnectedLocations )
 			{
+				if ( !m_locationStorylets.ContainsKey( location.UniqueID ) ) continue;
+
+				Storylet locationStorylet = m_locationStorylets[location.UniqueID];
+
 				// Skip storylets still on cooldown
-				if ( storylet.CooldownTimeRemaining > 0 ) continue;
+				if ( locationStorylet.CooldownTimeRemaining > 0 ) continue;
 
 				// Skip storylets that are not repeatable
-				if ( !storylet.IsRepeatable && storylet.TimesPlayed > 0 ) continue;
+				if ( !locationStorylet.IsRepeatable && locationStorylet.TimesPlayed > 0 ) continue;
 
-				if ( !eligibleLocations.Contains( storylet.ID ) ) continue;
+				bool hasRequiredActions = LocationHasRequiredActions( location );
+				bool hasAuxillaryActions = LocationHasAuxillaryActions( location );
 
 				// Query the social engine database
-				if ( storylet.Precondition != null )
+				if ( locationStorylet.Precondition != null )
 				{
-					var results = storylet.Precondition.Query.Run( DB );
+					var results = locationStorylet.Precondition.Query.Run( DB );
 
 					if ( !results.Success ) continue;
 
@@ -164,45 +169,144 @@ namespace Academical
 					{
 						foreach ( var bindingDict in results.Bindings )
 						{
-							instances.Add(
-								new StoryletInstance( storylet, bindingDict, storylet.Weight ) );
+							locationInfo.Add(
+								new LocationStoryletInfo(
+									new StoryletInstance(
+										locationStorylet, bindingDict, locationStorylet.Weight )
+								)
+								{
+									hasAuxillaryActivities = hasAuxillaryActions,
+									hasRequiredActivities = hasRequiredActions
+								}
+							);
 						}
 					}
 					else
 					{
-						instances.Add(
-							new StoryletInstance(
-								storylet, new Dictionary<string, object>(), storylet.Weight ) );
+						locationInfo.Add(
+							new LocationStoryletInfo(
+								new StoryletInstance(
+									locationStorylet,
+									new Dictionary<string, object>(),
+									locationStorylet.Weight
+								)
+							)
+							{
+								hasAuxillaryActivities = hasAuxillaryActions,
+								hasRequiredActivities = hasRequiredActions
+							}
+						);
 					}
 				}
 				else
 				{
-					instances.Add( new StoryletInstance(
-						storylet,
-						new Dictionary<string, object>(),
-						storylet.Weight
-					) );
+					locationInfo.Add(
+						new LocationStoryletInfo(
+							new StoryletInstance(
+								locationStorylet,
+								new Dictionary<string, object>(),
+								locationStorylet.Weight
+							)
+						)
+						{
+							hasAuxillaryActivities = hasAuxillaryActions,
+							hasRequiredActivities = hasRequiredActions
+						}
+					);
 				}
 			}
 
-			return instances;
+			return locationInfo;
+		}
+
+		public bool LocationHasAuxillaryActions(Location location)
+		{
+			foreach ( var (_, actionStorylet) in m_actionStorylets )
+			{
+				if ( !actionStorylet.Tags.Contains( location.UniqueID ) ) continue;
+
+				if ( !actionStorylet.Tags.Contains( "auxillary" ) ) continue;
+
+				// Skip storylets still on cooldown
+				if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;
+
+				// Skip storylets that are not repeatable
+				if ( !actionStorylet.IsRepeatable && actionStorylet.TimesPlayed > 0 ) continue;
+
+				// Query the social engine database. If the query passes, then
+				// this action still need to be taken.
+				if ( actionStorylet.Precondition != null )
+				{
+					var results = actionStorylet.Precondition.Query.Run( DB );
+
+					if ( results.Success )
+					{
+						return true;
+					}
+				}
+				else
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		public bool LocationHasRequiredActions(Location location)
+		{
+			foreach ( var (_, actionStorylet) in m_actionStorylets )
+			{
+				if ( !actionStorylet.Tags.Contains( location.UniqueID ) ) continue;
+
+				if ( !actionStorylet.Tags.Contains( "required" ) ) continue;
+
+				// Skip storylets still on cooldown
+				if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;
+
+				// Skip storylets that are not repeatable
+				if ( !actionStorylet.IsRepeatable && actionStorylet.TimesPlayed > 0 ) continue;
+
+				// Query the social engine database. If the query passes, then
+				// this action still need to be taken.
+				if ( actionStorylet.Precondition != null )
+				{
+					var results = actionStorylet.Precondition.Query.Run( DB );
+
+					if ( results.Success )
+					{
+						return true;
+					}
+				}
+				else
+				{
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		/// <summary>
 		/// Get a list of all action storylets a player could execute.
 		/// </summary>
 		/// <returns></returns>
-		public List<StoryletInstance> GetEligibleActionStorylets()
+		public List<ActionStoryletInfo> GetEligibleActionStorylets(Location location)
 		{
-			List<StoryletInstance> instances = new List<StoryletInstance>();
+			List<ActionStoryletInfo> actionInfo = new List<ActionStoryletInfo>();
 
 			foreach ( var (uid, storylet) in m_actionStorylets )
 			{
+				if ( !storylet.Tags.Contains( location.UniqueID ) ) continue;
+
 				// Skip storylets still on cooldown
 				if ( storylet.CooldownTimeRemaining > 0 ) continue;
 
 				// Skip storylets that are not repeatable
 				if ( !storylet.IsRepeatable && storylet.TimesPlayed > 0 ) continue;
+
+				bool isRequired = storylet.Tags.Contains( "required" );
+				bool isAuxillary = storylet.Tags.Contains( "auxillary" );
 
 				// Query the social engine database
 				if ( storylet.Precondition != null )
@@ -215,30 +319,47 @@ namespace Academical
 					{
 						foreach ( var bindingDict in results.Bindings )
 						{
-							instances.Add(
-								new StoryletInstance( storylet, bindingDict, storylet.Weight ) );
+							actionInfo.Add(
+								new ActionStoryletInfo(
+									new StoryletInstance( storylet, bindingDict, storylet.Weight )
+								)
+								{
+									isAuxillaryAction = isAuxillary,
+									isRequiredAction = isRequired
+								}
+							);
 						}
 					}
 					else
 					{
-						instances.Add(
-							new StoryletInstance(
-								storylet, new Dictionary<string, object>(), storylet.Weight ) );
+						actionInfo.Add(
+							new ActionStoryletInfo(
+								new StoryletInstance(
+									storylet, new Dictionary<string, object>(), storylet.Weight )
+							)
+							{
+								isAuxillaryAction = isAuxillary,
+								isRequiredAction = isRequired
+							}
+						);
 					}
 				}
 				else
 				{
-					instances.Add(
-						new StoryletInstance(
-							storylet,
-							new Dictionary<string, object>(),
-							storylet.Weight
+					actionInfo.Add(
+						new ActionStoryletInfo(
+							new StoryletInstance(
+								storylet, new Dictionary<string, object>(), storylet.Weight )
 						)
+						{
+							isAuxillaryAction = isAuxillary,
+							isRequiredAction = isRequired
+						}
 					);
 				}
 			}
 
-			return instances;
+			return actionInfo;
 		}
 
 		private void RegisterExternalInkFunctions(Ink.Runtime.Story story)
@@ -250,11 +371,129 @@ namespace Academical
 					this.SetPlayerLocation( locationID );
 				}
 			);
+
+			story.BindExternalFunction(
+				"GetOpinion",
+				(string subject, string target) =>
+				{
+					return this.m_socialEngine.State
+						.GetRelationship( subject, target )
+						.Stats.GetStat( "Opinion" ).Value;
+				}
+			);
+
+			story.BindExternalFunction(
+				"SetCurrentLocation",
+				(string locationId) =>
+				{
+					Location location = m_simulationController.GetLocation( locationId );
+
+					if ( m_CurrentLocation != location )
+					{
+						m_CurrentLocation = location;
+						DB.Insert( $"currentLocation!{locationId}" );
+						m_dialogueManager.SetBackground(
+							new BackgroundInfo(
+								locationId,
+								new string[0]
+							)
+						);
+					}
+				}
+			);
+
+			story.BindExternalFunction(
+				"HasUnseenAuxillaryActions",
+				() =>
+				{
+					foreach ( var (_, actionStorylet) in m_actionStorylets )
+					{
+						if ( !actionStorylet.Tags.Contains( "auxillary" ) ) continue;
+
+						// Skip storylets still on cooldown
+						if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;
+
+						// Skip storylets that are not repeatable
+						if ( !actionStorylet.IsRepeatable && actionStorylet.TimesPlayed > 0 ) continue;
+
+						// Query the social engine database. If the query passes, then
+						// this action still need to be taken.
+						if ( actionStorylet.Precondition != null )
+						{
+							var results = actionStorylet.Precondition.Query.Run( DB );
+
+							if ( results.Success )
+							{
+								return true;
+							}
+						}
+						else
+						{
+							return true;
+						}
+					}
+
+					return false;
+				}
+			);
+
+			story.BindExternalFunction(
+				"HasUnseenRequiredActions",
+				() =>
+				{
+					foreach ( var (_, actionStorylet) in m_actionStorylets )
+					{
+						if ( !actionStorylet.Tags.Contains( "required" ) ) continue;
+
+						// Skip storylets still on cooldown
+						if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;
+
+						// Skip storylets that are not repeatable
+						if ( !actionStorylet.IsRepeatable && actionStorylet.TimesPlayed > 0 ) continue;
+
+						// Query the social engine database. If the query passes, then
+						// this action still need to be taken.
+						if ( actionStorylet.Precondition != null )
+						{
+							var results = actionStorylet.Precondition.Query.Run( DB );
+
+							if ( results.Success )
+							{
+								return true;
+							}
+						}
+						else
+						{
+							return true;
+						}
+					}
+
+					return false;
+				}
+			);
+
+			story.BindExternalFunction(
+				"FadeToBlack",
+				// Fade the screen to black after a given delay
+				(float delaySeconds) =>
+				{
+					GameEvents.OnFadeToBlack( delaySeconds );
+				}
+			);
+
+			story.BindExternalFunction(
+				"FadeFromBlack",
+				// Fade the screen from black after a given delay
+				(float delaySeconds) =>
+				{
+					GameEvents.OnFadeFromBlack( delaySeconds );
+				}
+			);
 		}
 
 		private void OnActionSelectModalShown()
 		{
-			GameEvents.AvailableActionsUpdated?.Invoke( GetEligibleActionStorylets() );
+			GameEvents.AvailableActionsUpdated?.Invoke( GetEligibleActionStorylets( m_CurrentLocation ) );
 		}
 
 		private void OnLocationSelectModalShown()

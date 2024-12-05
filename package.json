@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "deploy": "gh-pages -d ./Build/Academical3_Web -s '**/*' --nojekyll"
+    },
+    "devDependencies": {
+        "gh-pages": "^6.1.1"
+    }
+}

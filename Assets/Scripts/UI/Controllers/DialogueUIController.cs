@@ -8,15 +8,6 @@ namespace Academical
 {
 	public class DialogueUIController : UIComponent
 	{
-		#region Constants
-
-		/// <summary>
-		/// The base delay time (in seconds) between characters for the type writer effect.
-		/// </summary>
-		public const float k_TypeWriterDelaySeconds = 0.1f;
-
-		#endregion
-
 		#region Fields
 
 		/// <summary>
@@ -36,7 +27,7 @@ namespace Academical
 		[Header( "Text Display" )]
 		// [Range( 0f, 1f )]
 		// [SerializeField] private float m_TextSpeed = 1f;
-		[SerializeField] private float m_TypingDelaySeconds = k_TypeWriterDelaySeconds;
+		[SerializeField] private float m_TypingDelaySeconds;
 
 		[Header( "UI Elements" )]
 		[SerializeField]

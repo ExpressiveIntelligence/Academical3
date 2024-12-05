@@ -1232,11 +1232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749328358828525653, guid: 02f0c80b6403440a68bf84a3548bcbd7, type: 3}
       propertyPath: m_UID
-      value: player
+      value: Ayla
       objectReference: {fileID: 0}
     - target: {fileID: 5124333170962528552, guid: 02f0c80b6403440a68bf84a3548bcbd7, type: 3}
       propertyPath: m_uniqueID
-      value: player
+      value: Ayla
       objectReference: {fileID: 0}
     - target: {fileID: 5413096878765293340, guid: 02f0c80b6403440a68bf84a3548bcbd7, type: 3}
       propertyPath: scheduleXmlFiles.Array.size
@@ -4221,6 +4221,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2749328358828525653, guid: c1355f58b22924d74b93cd822b17c2f7, type: 3}
+      propertyPath: m_UID
+      value: Bronislav
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124333170962528552, guid: c1355f58b22924d74b93cd822b17c2f7, type: 3}
+      propertyPath: m_uniqueID
+      value: Bronislav
+      objectReference: {fileID: 0}
     - target: {fileID: 5413096878765293340, guid: c1355f58b22924d74b93cd822b17c2f7, type: 3}
       propertyPath: scheduleXmlFiles.Array.size
       value: 1
@@ -6774,6 +6782,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863170665}
     m_Modifications:
+    - target: {fileID: 502704854926815298, guid: 94fffc5c8c7f44184891585667852248, type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
     - target: {fileID: 1849553706151841904, guid: 94fffc5c8c7f44184891585667852248, type: 3}
       propertyPath: m_Name
       value: ActionSelectModal
@@ -6951,6 +6963,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863170665}
     m_Modifications:
+    - target: {fileID: 1558524908401697812, guid: 95ef3f02a11404b4dad24f802e5ec596, type: 3}
+      propertyPath: m_TypingDelaySeconds
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6096639520274062326, guid: 95ef3f02a11404b4dad24f802e5ec596, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7392,6 +7408,22 @@ PrefabInstance:
     - target: {fileID: 475484358596840857, guid: 83422a9cfd27c454a85b96075d5fc570, type: 3}
       propertyPath: m_Name
       value: LocationSelectModal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864889399551020296, guid: 83422a9cfd27c454a85b96075d5fc570, type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864889399551020296, guid: 83422a9cfd27c454a85b96075d5fc570, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864889399551020296, guid: 83422a9cfd27c454a85b96075d5fc570, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864889399551020296, guid: 83422a9cfd27c454a85b96075d5fc570, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6651512770617779710, guid: 83422a9cfd27c454a85b96075d5fc570, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7914,10 +7946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fe2daf8b33e46c9a53bdd7fd73f943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_onScreenPosition: {x: 0, y: 0, z: 0}
-  m_offScreenPosition: {x: -1200, y: 0, z: 0}
-  m_slideOutSeconds: 0.1
-  m_slideInSeconds: 0.1
+  m_AnimationSpeed: 0.2
 --- !u!114 &8960797435028378481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7944,7 +7973,7 @@ PrefabInstance:
     - target: {fileID: 2217417534561014643, guid: 0086dd593343d4a928b320bf8385c5c6, type: 3}
       propertyPath: m_InkStoryJson
       value: 
-      objectReference: {fileID: 4900000, guid: d85fa8e2b6500460f98f2e683138ddec, type: 3}
+      objectReference: {fileID: 4900000, guid: 770863f00553b42b69b6cd5d96ff489f, type: 3}
     - target: {fileID: 2217417534561014643, guid: 0086dd593343d4a928b320bf8385c5c6, type: 3}
       propertyPath: m_simulationController
       value: 

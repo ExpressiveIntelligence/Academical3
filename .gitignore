@@ -84,3 +84,8 @@ dist/
 
 **/.antlr
 **/.DS_Store
+
+# !Build/
+# !Build/Academical3_Web/Build
+
+node_modules

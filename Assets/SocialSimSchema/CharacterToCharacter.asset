@@ -15,14 +15,9 @@ MonoBehaviour:
   ownerType: {fileID: 11400000, guid: 1d1b1f6badf744392ae3d91db6965dea, type: 2}
   targetType: {fileID: 11400000, guid: 1d1b1f6badf744392ae3d91db6965dea, type: 2}
   stats:
-  - statName: Friendship
-    baseValue: 0
-    maxValue: 50
-    minValue: 0
-    isDiscrete: 1
-  - statName: Romance
-    baseValue: 0
-    maxValue: 50
+  - statName: Opinion
+    baseValue: 128
+    maxValue: 255
     minValue: 0
     isDiscrete: 1
   traits: []

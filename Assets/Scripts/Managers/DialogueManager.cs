@@ -53,6 +53,11 @@ namespace Academical
 		/// </summary>
 		private Dictionary<string, Character> m_Characters;
 
+		/// <summary>
+		/// Will the manager auto advance blank lines.
+		/// </summary>
+		private bool m_AutoAdvanceBlankLines = true;
+
 		#endregion
 
 		#region Properties
@@ -117,7 +122,7 @@ namespace Academical
 				if ( m_AllChoicesCache.Count == 0 )
 				{
 					m_AllChoicesCache = new List<Choice>( m_story.CurrentChoices );
-					Regex rg = new Regex( @"^>>\s*(\w+)([\s+\w+]*)$" );
+					Regex rg = new Regex( @"^>>\s*(\w+)([\s+-?\w+]*)$" );
 
 					foreach ( var choice in m_AllChoicesCache )
 					{
@@ -274,7 +279,7 @@ namespace Academical
 
 				// Sometimes on navigation, we don't show any text. If this is the case,
 				// do not even show the dialogue panel and try to get another line
-				if ( text == "" )
+				if ( text == "" && m_AutoAdvanceBlankLines )
 				{
 					AdvanceDialogue();
 					return;
@@ -366,12 +371,21 @@ namespace Academical
 		{
 			DialogueEvents.DialogueAdvanced += HandleDialogueAdvanced;
 			DialogueEvents.ChoiceSelected += OnChoiceSelected;
+			DialogueEvents.OnToggleSkipBlankLines += ToggleAutoAdvanceFunctionLines;
+			Story.InkStory.onError += OnInkError;
 		}
 
 		private void UnsubscribeFromEvents()
 		{
 			DialogueEvents.DialogueAdvanced -= HandleDialogueAdvanced;
 			DialogueEvents.ChoiceSelected -= OnChoiceSelected;
+			DialogueEvents.OnToggleSkipBlankLines -= ToggleAutoAdvanceFunctionLines;
+			Story.InkStory.onError -= OnInkError;
+		}
+
+		private void ToggleAutoAdvanceFunctionLines(bool value)
+		{
+			m_AutoAdvanceBlankLines = value;
 		}
 
 		private void HandleDialogueAdvanced()
@@ -382,6 +396,11 @@ namespace Academical
 		private void OnChoiceSelected(Choice choice)
 		{
 			ExecuteChoice( choice );
+		}
+
+		private void OnInkError(string message, Ink.ErrorType type)
+		{
+			Debug.LogError( message );
 		}
 
 		#endregion
@@ -481,6 +500,38 @@ namespace Academical
 					);
 				}
 			);
+
+			Story.InkStory.BindExternalFunction(
+				"ShowCharacter",
+				(string characterName, string position, string spriteTags) =>
+				{
+					Debug.Log(
+						$"Displaying character {characterName}[tags: {spriteTags}] at {position}."
+					);
+					DialogueEvents.CharacterShown?.Invoke( characterName, position, spriteTags );
+				}
+			);
+
+			Story.InkStory.BindExternalFunction(
+				"HideCharacter",
+				(string characterName) =>
+				{
+					Debug.Log( $"Hiding character {characterName}" );
+					DialogueEvents.CharacterHidden?.Invoke( characterName );
+				}
+			);
+
+			Story.InkStory.BindExternalFunction(
+				"SetCharacterSprite",
+				(string characterName, string spriteTags) =>
+				{
+					Debug.Log(
+						$"Updating character {characterName}'s sprite [tags: {spriteTags}]."
+					);
+					DialogueEvents.CharacterSpriteChanged?.Invoke( characterName, spriteTags );
+				}
+			);
+
 
 			// Load functions from external classes.
 			DialogueEvents.InkStoryLoaded?.Invoke( Story.InkStory );

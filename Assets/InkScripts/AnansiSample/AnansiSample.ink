@@ -1,7 +1,8 @@
 // INCLUDE ./EvelynDialogue.ink
 // INCLUDE ./SampleDialogue.ink
 
-
+EXTERNAL ShowCharacter(characterName, location, spriteTags)
+EXTERNAL HideCharacter(characterName)
 EXTERNAL SetPlayerLocation(locationId)
 // EXTERNAL DbInsert(statement)
 // EXTERNAL DbDelete(statement)
@@ -23,6 +24,8 @@ VAR StudentID = 0
 === start ===
 #---
 #===
+
+{ShowCharacter("player", "right", "")}
 
 -> library
 
@@ -94,9 +97,9 @@ VAR StudentID = 0
 # tags: action
 # ===
 
-~speaker = "Brad"
+Brad: Hi {ShowCharacter("Brad", "left", "")}
 
-Brad: Hi
+{HideCharacter("Brad")}
 
 -> DONE
 
@@ -111,9 +114,9 @@ Brad: Hi
 # tags: action
 # ===
 
-~speaker = "Bronislav"
+Bronislav: Hi {ShowCharacter("Bronislav", "left", "")}
 
-Bronislav: Hi
+{HideCharacter("Bronislav")}
 
 -> DONE
 
@@ -128,9 +131,9 @@ Bronislav: Hi
 # tags: action
 # ===
 
-~speaker = "Hendricks"
+Hendricks: Hi {ShowCharacter("Hendricks", "left", "")}
 
-Hendricks: Hi
+{HideCharacter("Hendricks")}
 
 -> DONE
 
@@ -145,9 +148,7 @@ Hendricks: Hi
 # tags: action
 # ===
 
-~speaker = "Ivy"
-
-Ivy: Hi
+Ivy: Hi {ShowCharacter("Ivy", "left", "")} {ShowCharacter("Matilda", "center", "")}
 
 Ivy: How are you?
 
@@ -158,6 +159,8 @@ Ivy: How are you?
 -
 
 Ivy: Good to hear. See you later.
+
+{HideCharacter("Ivy")} {HideCharacter("Matilda")}
 
 -> DONE
 
@@ -172,9 +175,9 @@ Ivy: Good to hear. See you later.
 # tags: action
 # ===
 
-~speaker = "Ned"
+Ned: Hi {ShowCharacter("Ned", "left", "")}
 
-Ned: Hi
+{HideCharacter("Ned")}
 
 -> DONE
 
@@ -189,9 +192,9 @@ Ned: Hi
 # tags: action
 # ===
 
-~speaker = "Matilda"
+Matilda: Hi {ShowCharacter("Matilda", "left", "")}
 
-Matilda: Hi
+{HideCharacter("Matilda")}
 
 -> DONE
 
@@ -206,9 +209,9 @@ Matilda: Hi
 # tags: action
 # ===
 
-~speaker = "Praveen"
+Praveen: Hi {ShowCharacter("Praveen", "left", "")}
 
-Praveen: Hi
+{HideCharacter("Praveen")}
 
 -> DONE
 
