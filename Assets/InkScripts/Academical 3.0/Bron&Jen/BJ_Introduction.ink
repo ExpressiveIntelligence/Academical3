@@ -18,7 +18,7 @@ Select the "Choose Action" button in the interaction bar to see what actions are
 
 -> DONE
 
-=== bron_and_jen_intro ===
+=== BJIntro_bron_and_jen_intro ===
 # ---
 # choiceLabel: Give presentation
 # @query
@@ -45,9 +45,9 @@ He extends his hand for you to shake.
 
 *[Shake his hand.] Bronislav: "Nice to meet you too, Jensen."
 
-->ShakeHand
+->BJIntro_ShakeHand
 
-=== ShakeHand ===
+=== BJIntro_ShakeHand ===
 Jensen smiles.
 
 Jensen: "I just wanted to talk to you about your presentation and some feedback I had for it."
@@ -59,36 +59,43 @@ He pulls out a small notebook.
 // thought process while pullout out the notebook
 *["Oh, fantastic."] You reluctantly pull out your own notebook.
 
-->Notebook
+->BJIntro_Notebook
 
-=== Notebook ===
+=== BJIntro_Notebook ===
 Jensen: "I liked how you presented your information for the first half, but I became really confused about halfway through."
 
 Jensen: "I also thought that you could have presented your evidence better, and had a stronger conclusion."
 
-He looks at you expecting.
+*["Yes, of course." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+// Jensen: +Hopeful
+// Bronislav: +Supportive
 
-*["Yes, of course." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50 ]
-->WriteDown
+->BJIntro_WriteDown
 
 *["Could you tell me a little more?"]
-->MoreInfo
+// Jensen: +Growth Mindset
+// Bronislav: +Supportive
+->BJIntro_MoreInfo
 
-*["I'm not interested." #>> DecrRelationshipStat Jensen Bronislav Opinion -50 ]
-->not_interested_bronislav_jensen
+*["This has to be your first time at a meeting like this isn't it."#>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+// Jensen: +Ashamed
+// Bronislav: +Petty
 
-=== WriteDown ===
+->BJIntro_FirstTime
+
+=== BJIntro_WriteDown ===
+{ShowCharacter("Jensen", "left", "hopeful")}
 Bronislav: "Yes, of course. Thanks for letting me know."
 
 You write down his feedback in your notebook. He smiles happily, and walks off.
 
 {HideCharacter("Jensen")}
 
-->mention_cafe_with_ivy
+->BJIntro_mention_cafe_with_ivy
 
 ->DONE
 
-=== MoreInfo ===
+=== BJIntro_MoreInfo ===
 Bronislav: "Could you tell me a little more about what did confuse you, and how I could present my evidence better?"
 
 Jensen explains his points. You zone out slightly, but remember to nod along to show you're listening.
@@ -97,11 +104,11 @@ You write down his feedback in your notebook. He smiles happily, and walks off.
 
 {HideCharacter("Jensen")}
 
-->mention_cafe_with_ivy
+->BJIntro_mention_cafe_with_ivy
 
 ->DONE
 
-=== not_interested_bronislav_jensen ===
+=== BJIntro_not_interested_bronislav_jensen ===
 
 Bronislav: "Sorry, I'm not interested in receiving feedback from other students."
 
@@ -109,24 +116,24 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 
 {HideCharacter("Jensen")}
 
-->mention_cafe_with_ivy
+->BJIntro_mention_cafe_with_ivy
 
 ->DONE
 
-=== FirstTime ===
-// Jensen is ashamed
+=== BJIntro_FirstTime ===
+{ShowCharacter("Jensen", "left", "ashamed")}
 Bronislav: "This has to be your first time at a meeting like this isn't it?"
 
 You put the pen and notebook back away. Jensen turns away ashamed by you mocking his input.
 
 {HideCharacter("Jensen")}
 
-->mention_cafe_with_ivy
+->BJIntro_mention_cafe_with_ivy
 
 ->DONE
 
 
-=== mention_cafe_with_ivy ===
+=== BJIntro_mention_cafe_with_ivy ===
 
 Bronislav: Glad that's done. I should head over to the cafe to meet Ivy.
 

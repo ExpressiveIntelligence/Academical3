@@ -26,10 +26,14 @@ That being the case, we must ensure that:
 
 INCLUDE ./helpers.ink
 INCLUDE ./locations.ink
+INCLUDE ./Bron&Hendricks/BH_Socializing1.ink
+INCLUDE ./Bron&Jen/BJ_Introduction.ink
+INCLUDE ./Bron&Jen/BJ_Socializing1.ink
+INCLUDE ./Bron&Jen/BJ_Socializing3.ink
+INCLUDE ./Bron&Jen/BJ_Socializing5.ink
 INCLUDE ./Bron&IvyFirstCoffeeSolo.ink
-INCLUDE ./Bron&IvyIRBReviewSolo.ink
-INCLUDE ./Bron&JenCoffee.ink
-INCLUDE ./Bron&JenIntroSolo.ink
+INCLUDE ./Bron&IvyIRBreviewSolo.ink
+
 
 EXTERNAL DbInsert(statement)
 EXTERNAL DbAssert(statement)
@@ -44,6 +48,8 @@ EXTERNAL GetOpinion(from, to)
 # ---
 # ===
 
+// Show the current player character on screen 
+// (even when not in dialogue)
 {ShowCharacter("Bronislav", "right", "")}
 
 -> lecture_hall

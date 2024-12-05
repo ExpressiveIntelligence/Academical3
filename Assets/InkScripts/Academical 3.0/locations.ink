@@ -74,8 +74,9 @@ EXTERNAL SetCurrentLocation(locationId)
 
 {SetCurrentLocation("lecture_hall")}
 
-{bron_and_jen_intro == 0:
+{action_selection_tutorial == 0:
   ->action_selection_tutorial
 }
 
 -> DONE
+
