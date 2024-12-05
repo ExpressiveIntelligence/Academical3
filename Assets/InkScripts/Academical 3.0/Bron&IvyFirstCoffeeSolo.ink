@@ -2,12 +2,11 @@
 #---
 # choiceLabel: Have coffee with ivy
 # @query
-# currentLocation!cafe
 # not givenQuidProQuo
 # metJensen
 # @end.
 # repeatable: false
-# tags: action
+# tags: action, cafe, auxillary
 #===
 
 -> FirstCoffee
