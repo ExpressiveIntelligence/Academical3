@@ -24,13 +24,21 @@ namespace Academical
 		protected override void SubscribeToEvents()
 		{
 			m_BackButton.onClick.AddListener( OnBackButtonClicked );
-			GameEvents.DialogueHistoryUpdated += OnDialogueHistoryUpdated;
 		}
 
 		protected override void UnsubscribeFromEvents()
 		{
 			m_BackButton.onClick.RemoveListener( OnBackButtonClicked );
-			GameEvents.DialogueHistoryUpdated -= OnDialogueHistoryUpdated;
+		}
+
+		#endregion
+
+		#region Public Methods
+
+		public override void Show()
+		{
+			base.Show();
+			UpdateHistoryList();
 		}
 
 		#endregion
@@ -40,12 +48,14 @@ namespace Academical
 		private void OnBackButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			GameEvents.DialogueHistoryScreenHidden?.Invoke();
 		}
 
-		private void OnDialogueHistoryUpdated(List<DialogueHistoryEntry> entries)
+		private void UpdateHistoryList()
 		{
+			List<DialogueHistoryEntry> entries = GameStateManager.GetGameState().DialogueHistory;
+
 			ClearEntries();
+
 			foreach ( var entry in entries )
 			{
 				GameObject entryUIComponent = Instantiate(

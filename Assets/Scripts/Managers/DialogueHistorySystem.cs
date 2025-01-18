@@ -11,14 +11,26 @@ namespace Academical
 		[SerializeField]
 		private DialogueManager m_DialogueManager;
 
+		[SerializeField]
+		private bool m_ClearOnNewDialogueScene = true;
+
 		private void OnEnable()
 		{
 			DialogueEvents.OnNextDialogueLine += RecordDialogueLine;
+			DialogueEvents.DialogueStarted += OnDialogueStarted;
 		}
 
 		private void OnDisable()
 		{
 			DialogueEvents.OnNextDialogueLine -= RecordDialogueLine;
+		}
+
+		private void OnDialogueStarted()
+		{
+			if ( m_ClearOnNewDialogueScene )
+			{
+				GameStateManager.GetGameState().DialogueHistory.Clear();
+			}
 		}
 
 		private void RecordDialogueLine(string text)

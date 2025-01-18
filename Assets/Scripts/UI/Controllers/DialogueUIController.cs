@@ -48,6 +48,12 @@ namespace Academical
 		[SerializeField]
 		private Button m_AdvanceDialogueButton;
 
+		[SerializeField]
+		private Image m_SpeakerImage;
+
+		[SerializeField]
+		private GameObject m_SpeakerImageContainer;
+
 		#endregion
 
 		#region Properties
@@ -95,9 +101,16 @@ namespace Academical
 			if ( IsTyping ) m_skipTypewriterEffect = true;
 		}
 
+		public void SetSpeakerImage(Sprite sprite)
+		{
+			m_SpeakerImage.sprite = sprite;
+			m_SpeakerImageContainer.SetActive( sprite != null );
+		}
+
 		public void SetSpeakerName(string name)
 		{
 			m_SpeakerName.text = name;
+			m_SpeakerName.gameObject.SetActive( name != "" );
 		}
 
 		public void SetDialogueText(string text)
@@ -161,10 +174,13 @@ namespace Academical
 			if ( info == null )
 			{
 				SetSpeakerName( "" );
+				SetSpeakerImage( null );
+
 			}
 			else
 			{
 				SetSpeakerName( info.SpeakerName );
+				SetSpeakerImage( info.Sprite );
 			}
 		}
 

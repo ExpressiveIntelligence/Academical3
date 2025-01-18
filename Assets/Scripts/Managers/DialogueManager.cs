@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using Anansi;
 using TDRS;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Academical
 {
@@ -57,6 +58,8 @@ namespace Academical
 		/// Will the manager auto advance blank lines.
 		/// </summary>
 		private bool m_AutoAdvanceBlankLines = true;
+
+		private bool m_InDialogue = false;
 
 		#endregion
 
@@ -227,7 +230,12 @@ namespace Academical
 		/// </summary>
 		public void StartDialogue()
 		{
-			DialogueEvents.DialogueStarted?.Invoke();
+			if ( m_InDialogue == false )
+			{
+				m_InDialogue = true;
+				DialogueEvents.DialogueStarted?.Invoke();
+			}
+
 			AdvanceDialogue();
 		}
 
@@ -237,6 +245,7 @@ namespace Academical
 		public void EndDialogue()
 		{
 			SetSpeaker( null );
+			m_InDialogue = false;
 			DialogueEvents.DialogueEnded?.Invoke();
 			GameEvents.GameHUDShown?.Invoke();
 		}
@@ -455,6 +464,9 @@ namespace Academical
 						m_Characters[speakerId].DisplayName,
 						speakerTags
 					)
+					{
+						Sprite = m_Characters[speakerId].GetComponent<Image>().sprite
+					}
 				);
 
 				string dialogueText = match.Groups[2].Value.Trim();

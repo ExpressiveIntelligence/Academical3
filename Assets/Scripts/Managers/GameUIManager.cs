@@ -38,7 +38,7 @@ namespace Academical
 		private UIComponent m_SettingsMenu;
 
 		[SerializeField]
-		private UIComponent m_DialogueHistoryScreen;
+		private UIComponent m_DialogueHistoryModal;
 
 		#endregion
 
@@ -70,7 +70,7 @@ namespace Academical
 			m_LocationSelectModal.Hide();
 			m_DialogueChoiceModal.Hide();
 			m_SettingsMenu.Hide();
-			m_DialogueHistoryScreen.Hide();
+			m_DialogueHistoryModal.Hide();
 		}
 
 		private void SubscribeToEvents()
@@ -114,6 +114,16 @@ namespace Academical
 				m_CurrentView.Show();
 				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
 			}
+		}
+
+		public void ShowDialogueHistory()
+		{
+			m_DialogueHistoryModal.Show();
+		}
+
+		public void HideDialogueHistory()
+		{
+			m_DialogueHistoryModal.Hide();
 		}
 
 		void OnHUDShown()
