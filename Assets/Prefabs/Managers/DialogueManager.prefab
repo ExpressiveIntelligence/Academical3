@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6252801890656142450}
   - component: {fileID: 4271245753053024097}
   - component: {fileID: 499177011121552035}
+  - component: {fileID: 8473674919191658210}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -174,3 +175,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NumChoices: 10
+--- !u!114 &8473674919191658210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193134408252900207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc09d77beef34de9847d7178e546aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectName: DecrRelationshipStat
+  m_EffectIcon: {fileID: 21300000, guid: c487ff096b188429d8b7b970d21afd2a, type: 3}

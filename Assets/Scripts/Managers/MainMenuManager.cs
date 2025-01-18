@@ -1,6 +1,4 @@
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Academical
 {
@@ -9,37 +7,63 @@ namespace Academical
 	{
 		#region Fields
 
-		[Header( "Story Scenarios" )]
-		[SerializeField] private GameLevelSO[] m_Scenarios;
-
 		private UIComponent m_CurrentView;
 		private UIComponent m_PreviousView;
+
+		[SerializeField]
+		private ScenarioManager m_ScenarioManager;
 
 		[Header( "UI Screens" )]
 		[SerializeField]
 		private UIComponent m_MainMenu;
+
 		[SerializeField]
 		private UIComponent m_CreditsScreen;
+
 		[SerializeField]
 		private UIComponent m_SettingsScreen;
-		[SerializeField]
-		private UIComponent m_LoadGameScreen;
+
+		// [SerializeField]
+		// private UIComponent m_LoadGameScreen;
+
 		[SerializeField]
 		private UIComponent m_ScenarioSelectionScreen;
+
+		[SerializeField]
+		private LoadingGameScreen m_LoadingScreen;
+
+		#endregion
+
+		#region Properties
+
+		public static MainMenuManager Instance { get; private set; }
+
+		public ScenarioManager ScenarioManager => m_ScenarioManager;
 
 		#endregion
 
 		#region Unity Messages
 
+		private void Awake()
+		{
+			if ( Instance != null )
+			{
+				Debug.LogWarning( "Multiple MainMenuManager instances found. Destroying self." );
+				Destroy( gameObject );
+				return;
+			}
+
+			Instance = this;
+		}
+
 		void Start()
 		{
-			MainMenuUIEvents.HomeScreenShown?.Invoke();
+			ShowHomeScreen();
 		}
 
 		void OnEnable()
 		{
 			SetupViews();
-
 			SubscribeToEvents();
 		}
 
@@ -54,32 +78,30 @@ namespace Academical
 
 		void SubscribeToEvents()
 		{
-			MainMenuUIEvents.HomeScreenShown += OnMainMenuScreenShown;
-			MainMenuUIEvents.SettingsScreenShown += OnSettingsScreenShown;
-			MainMenuUIEvents.NewGameScreenShown += OnScenarioSelectionScreenShown;
-			MainMenuUIEvents.LoadGameScreenShown += OnLoadGameScreenShown;
-			MainMenuUIEvents.CreditsScreenShown += OnCreditsScreenShown;
-			MainMenuUIEvents.CreditsScreenHidden += OnCreditScreenHidden;
-			MainMenuUIEvents.NewGameScreenHidden += OnScenarioSelectionScreenHidden;
-			MainMenuUIEvents.LoadGameScreenHidden += OnLoadGameScreenHidden;
-			MainMenuUIEvents.SettingsScreenHidden += OnSettingsScreenHidden;
+			MainMenuUIEvents.HomeScreenShown += ShowHomeScreen;
+			MainMenuUIEvents.SettingsScreenShown += ShowSettingsScreen;
+			MainMenuUIEvents.NewGameScreenShown += ShowScenarioSelectionScreen;
+			// MainMenuUIEvents.LoadGameScreenShown += ShowLoadGameScreen;
+			MainMenuUIEvents.CreditsScreenShown += ShowCreditsScreen;
+			MainMenuUIEvents.CreditsScreenHidden += HideCreditScreen;
+			MainMenuUIEvents.NewGameScreenHidden += HideScenarioSelectionScreen;
+			// MainMenuUIEvents.LoadGameScreenHidden += OnLoadGameScreenHidden;
+			MainMenuUIEvents.SettingsScreenHidden += HideSettingsScreen;
 			GameEvents.LevelSelected += OnLevelSelected;
-			MainMenuUIEvents.NewGameScreenShown += OnScenarioSelectionShown;
 		}
 
 		void UnsubscribeFromEvents()
 		{
-			MainMenuUIEvents.HomeScreenShown -= OnMainMenuScreenShown;
-			MainMenuUIEvents.SettingsScreenShown -= OnSettingsScreenShown;
-			MainMenuUIEvents.NewGameScreenShown -= OnScenarioSelectionScreenShown;
-			MainMenuUIEvents.LoadGameScreenShown -= OnLoadGameScreenShown;
-			MainMenuUIEvents.CreditsScreenShown -= OnCreditsScreenShown;
-			MainMenuUIEvents.CreditsScreenHidden -= OnCreditScreenHidden;
-			MainMenuUIEvents.NewGameScreenHidden -= OnScenarioSelectionScreenHidden;
-			MainMenuUIEvents.LoadGameScreenHidden -= OnLoadGameScreenHidden;
-			MainMenuUIEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
+			MainMenuUIEvents.HomeScreenShown -= ShowHomeScreen;
+			MainMenuUIEvents.SettingsScreenShown -= ShowSettingsScreen;
+			MainMenuUIEvents.NewGameScreenShown -= ShowScenarioSelectionScreen;
+			// MainMenuUIEvents.LoadGameScreenShown -= ShowLoadGameScreen;
+			MainMenuUIEvents.CreditsScreenShown -= ShowCreditsScreen;
+			MainMenuUIEvents.CreditsScreenHidden -= HideCreditScreen;
+			MainMenuUIEvents.NewGameScreenHidden -= HideScenarioSelectionScreen;
+			// MainMenuUIEvents.LoadGameScreenHidden -= OnLoadGameScreenHidden;
+			MainMenuUIEvents.SettingsScreenHidden -= HideSettingsScreen;
 			GameEvents.LevelSelected -= OnLevelSelected;
-			MainMenuUIEvents.NewGameScreenShown -= OnScenarioSelectionShown;
 		}
 
 		void SetupViews()
@@ -89,9 +111,10 @@ namespace Academical
 			m_ScenarioSelectionScreen.Hide();
 			// m_LoadGameScreen.Hide();
 			m_CreditsScreen.Hide();
+			m_LoadingScreen.Hide();
 		}
 
-		void ShowScreen(UIComponent newView)
+		private void ShowScreen(UIComponent newView)
 		{
 			if ( m_CurrentView != null )
 			{
@@ -108,18 +131,18 @@ namespace Academical
 			}
 		}
 
-		void OnMainMenuScreenShown()
+		public void ShowHomeScreen()
 		{
 			ShowScreen( m_MainMenu );
 		}
 
-		void OnSettingsScreenShown()
+		public void ShowSettingsScreen()
 		{
 			m_PreviousView = m_CurrentView;
 			m_SettingsScreen.Show();
 		}
 
-		void OnSettingsScreenHidden()
+		public void HideSettingsScreen()
 		{
 			m_SettingsScreen.Hide();
 
@@ -131,13 +154,13 @@ namespace Academical
 			}
 		}
 
-		void OnScenarioSelectionScreenShown()
+		public void ShowScenarioSelectionScreen()
 		{
 			m_PreviousView = m_CurrentView;
 			m_ScenarioSelectionScreen.Show();
 		}
 
-		void OnScenarioSelectionScreenHidden()
+		public void HideScenarioSelectionScreen()
 		{
 			m_ScenarioSelectionScreen.Hide();
 
@@ -149,31 +172,31 @@ namespace Academical
 			}
 		}
 
-		void OnLoadGameScreenShown()
-		{
-			m_PreviousView = m_CurrentView;
-			m_LoadGameScreen.Show();
-		}
+		// public void ShowLoadGameScreen()
+		// {
+		// 	m_PreviousView = m_CurrentView;
+		// 	m_LoadGameScreen.Show();
+		// }
 
-		void OnLoadGameScreenHidden()
-		{
-			m_LoadGameScreen.Hide();
+		// public void OnLoadGameScreenHidden()
+		// {
+		// 	m_LoadGameScreen.Hide();
 
-			if ( m_PreviousView != null )
-			{
-				m_PreviousView.Show();
-				m_CurrentView = m_PreviousView;
-				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
-			}
-		}
+		// 	if ( m_PreviousView != null )
+		// 	{
+		// 		m_PreviousView.Show();
+		// 		m_CurrentView = m_PreviousView;
+		// 		MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
+		// 	}
+		// }
 
-		void OnCreditsScreenShown()
+		public void ShowCreditsScreen()
 		{
 			m_PreviousView = m_CurrentView;
 			m_CreditsScreen.Show();
 		}
 
-		void OnCreditScreenHidden()
+		public void HideCreditScreen()
 		{
 			m_CreditsScreen.Hide();
 
@@ -185,14 +208,16 @@ namespace Academical
 			}
 		}
 
-		private void OnLevelSelected(GameLevelSO scenarioData)
+		public void ShowLoadingScreen()
 		{
-			SceneManager.LoadScene( scenarioData.Scene );
+			ShowScreen( m_LoadingScreen );
 		}
 
-		private void OnScenarioSelectionShown()
+		private void OnLevelSelected(GameLevelSO scenarioData)
 		{
-			NewGameScreenEvents.LevelsUpdated?.Invoke( m_Scenarios.ToList() );
+			ShowLoadingScreen();
+			GameStateManager.SetGameLevel( scenarioData );
+			m_ScenarioManager.StartGame( scenarioData.Scene );
 		}
 
 		#endregion

@@ -1,5 +1,11 @@
 === BJS1_start ===
 # ---
+# choiceLabel: Talk to Jensen
+# @query
+# BJS1_unlocked
+# @end
+# repeatable: false
+# tags: action, cafe
 # ===
 // Coffee Shop
 // TODO: CONNECT RELATIONSHIP MODIFIERS HERE FOR SCENE STARTS

@@ -40,7 +40,7 @@ EXTERNAL DbAssert(statement)
 EXTERNAL ShowCharacter(characterName, location, spriteTags)
 EXTERNAL HideCharacter(characterName)
 EXTERNAL GetOpinion(from, to)
-EXTERNAL HasUnseenAuxillaryActions()
+EXTERNAL HasUnseenAuxiliaryActions()
 EXTERNAL HasUnseenRequiredActions()
 EXTERNAL FadeToBlack(delay)
 EXTERNAL FadeFromBlack(delay)
@@ -52,7 +52,7 @@ EXTERNAL FadeFromBlack(delay)
 # ---
 # ===
 
-// Show the current player character on screen 
+// Show the current player character on screen
 // (even when not in dialogue)
 {ShowCharacter("Bronislav", "right", "")}
 
@@ -70,7 +70,7 @@ EXTERNAL FadeFromBlack(delay)
 {
    - HasUnseenRequiredActions():
       There are still things you must do. Look for locations with unvisited actions.
-   - HasUnseenAuxillaryActions():
+   - HasUnseenAuxiliaryActions():
       There are still some things you could do.
       -> check_advance_day
    - else:

@@ -25,9 +25,18 @@ namespace Academical
 		/// Delay in seconds between showing characters in the GUI.
 		/// </summary>
 		[Header( "Text Display" )]
-		// [Range( 0f, 1f )]
-		// [SerializeField] private float m_TextSpeed = 1f;
-		[SerializeField] private float m_TypingDelaySeconds;
+		private TextSpeed m_TextSpeed;
+
+		[SerializeField]
+		private float m_TypingDelaySlow = 0.2f;
+
+		[SerializeField]
+		private float m_TypingDelayDefault = 0.08f;
+
+		[SerializeField]
+		private float m_TypingDelayFast = 0.02f;
+
+		private float m_TypingDelaySeconds;
 
 		[Header( "UI Elements" )]
 		[SerializeField]
@@ -52,6 +61,12 @@ namespace Academical
 
 		#region Unity Messages
 
+		private void Start()
+		{
+			GameSettings gameSettings = SettingsManager.Settings;
+			OnSettingsUpdated( gameSettings );
+		}
+
 		private void Update()
 		{
 			// m_TypingDelaySeconds = k_TypeWriterDelaySeconds * (1.0f - m_TextSpeed);
@@ -64,6 +79,13 @@ namespace Academical
 		#endregion
 
 		#region Public Methods
+
+		public override void Show()
+		{
+			base.Show();
+			GameSettings gameSettings = SettingsManager.Settings;
+			OnSettingsUpdated( gameSettings );
+		}
 
 		/// <summary>
 		/// Bypass the typewriter effect and display the full line of text.
@@ -86,14 +108,7 @@ namespace Academical
 
 		public void SetAdvanceDialogueButtonEnabled(bool isEnabled)
 		{
-			if ( isEnabled )
-			{
-				m_AdvanceDialogueButton.gameObject.SetActive( true );
-			}
-			else
-			{
-				m_AdvanceDialogueButton.gameObject.SetActive( false );
-			}
+			m_AdvanceDialogueButton.interactable = isEnabled;
 		}
 
 		#endregion
@@ -107,6 +122,7 @@ namespace Academical
 			m_AdvanceDialogueButton.onClick.AddListener( HandleAdvanceDialogueButtonClicked );
 			DialogueEvents.OnNextDialogueLine += HandleDialogueLine;
 			DialogueEvents.SpeakerChanged += OnSpeakerChanged;
+			GameEvents.SettingsUpdated += OnSettingsUpdated;
 		}
 
 		protected override void UnsubscribeFromEvents()
@@ -116,6 +132,28 @@ namespace Academical
 			m_AdvanceDialogueButton.onClick.RemoveListener( HandleAdvanceDialogueButtonClicked );
 			DialogueEvents.OnNextDialogueLine -= HandleDialogueLine;
 			DialogueEvents.SpeakerChanged -= OnSpeakerChanged;
+			GameEvents.SettingsUpdated -= OnSettingsUpdated;
+		}
+
+		private void OnSettingsUpdated(GameSettings gameSettings)
+		{
+			m_TextSpeed = gameSettings.TextSpeed;
+
+			switch ( m_TextSpeed )
+			{
+				case TextSpeed.SLOW:
+					m_TypingDelaySeconds = m_TypingDelaySlow;
+					break;
+				case TextSpeed.DEFAULT:
+					m_TypingDelaySeconds = m_TypingDelayDefault;
+					break;
+				case TextSpeed.FAST:
+					m_TypingDelaySeconds = m_TypingDelayFast;
+					break;
+				default:
+					m_TypingDelaySeconds = m_TypingDelayDefault;
+					break;
+			}
 		}
 
 		private void OnSpeakerChanged(SpeakerInfo info)
@@ -144,12 +182,16 @@ namespace Academical
 		{
 			AudioManager.PlayDefaultButtonSound();
 			DialogueEvents.DialogueAdvanced?.Invoke();
-			SetAdvanceDialogueButtonEnabled( false );
+			// SetAdvanceDialogueButtonEnabled( false );
 		}
 
 		private void HandleDialogueLine(string text)
 		{
-			if ( m_typingCoroutine != null ) StopCoroutine( m_typingCoroutine );
+			if ( m_typingCoroutine != null )
+			{
+				StopCoroutine( m_typingCoroutine );
+				m_typingCoroutine = null;
+			}
 
 			m_typingCoroutine = StartCoroutine( DisplayTextCoroutine( text ) );
 		}
@@ -162,7 +204,15 @@ namespace Academical
 		{
 			SetAdvanceDialogueButtonEnabled( false );
 
-			if ( text != "" )
+			if ( text == "" )
+			{
+				// Do Nothing
+			}
+			else if ( m_TextSpeed == TextSpeed.NO_DELAY )
+			{
+				m_DialogueText.text = text;
+			}
+			else
 			{
 				IsTyping = true;
 				m_DialogueText.text = text;
@@ -178,51 +228,13 @@ namespace Academical
 					m_DialogueText.maxVisibleCharacters = i;
 					yield return new WaitForSeconds( m_TypingDelaySeconds );
 				}
-
-				IsTyping = false;
-				m_skipTypewriterEffect = false;
-				m_DialogueText.maxVisibleCharacters = text.Length;
 			}
 
+			IsTyping = false;
+			m_skipTypewriterEffect = false;
+			m_DialogueText.maxVisibleCharacters = text.Length;
+
 			SetAdvanceDialogueButtonEnabled( true );
-
-			// if ( m_DialogueManager.IsWaitingForInput )
-			// {
-			// 	m_inputPanel.HandleGetInput( m_DialogueManager.InputRequest );
-
-			// 	yield return new WaitUntil( () => !m_DialogueManager.IsWaitingForInput );
-
-			// 	m_inputPanel.Hide();
-
-			// 	AdvanceDialogue();
-			// }
-
-			// if ( m_DialogueManager.Story.HasChoices() )
-			// {
-			// 	var choices = m_DialogueManager.FilteredChoices;
-			// 	m_DialogueChoiceOptionsView.Show();
-
-			// 	foreach ( var c in choices )
-			// 	{
-			// 		m_DialogueChoiceOptionsView.AddChoice( c );
-			// 	}
-
-			// 	yield return new WaitUntil( () => m_userChoiceIndex != -1 );
-
-			// 	m_DialogueChoiceOptionsView.Hide();
-
-			// 	m_DialogueManager.Story.ChooseChoiceIndex( m_userChoiceIndex );
-
-			// 	m_userChoiceIndex = -1;
-
-			// 	IsTyping = false;
-
-			// 	// AdvanceDialogue();
-			// }
-			// else
-			// {
-
-			// }
 		}
 
 		#endregion

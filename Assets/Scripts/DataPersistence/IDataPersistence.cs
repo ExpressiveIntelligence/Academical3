@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IDataPersistence 
+namespace Academical
 {
-     void LoadData(GameData data);
+	public interface IDataPersistence
+	{
+		void LoadData(GameState data);
 
-     void SaveData(ref GameData data);
+		void SaveData(GameState data);
+	}
 }

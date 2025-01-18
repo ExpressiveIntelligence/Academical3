@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Academical
 {
+	/// <summary>
+	/// The game
+	/// </summary>
 	[DefaultExecutionOrder( 2 )]
 	public class GameManager : MonoBehaviour
 	{
@@ -41,8 +44,6 @@ namespace Academical
 		/// All storylets related to actions the player can take at locations.
 		/// </summary>
 		private Dictionary<string, Storylet> m_actionStorylets;
-
-		[SerializeField] private GameSettingsSO m_GameSettings;
 
 		#region Properties
 
@@ -80,6 +81,13 @@ namespace Academical
 
 		private void Start()
 		{
+			GameLevelSO currentLevel = GameStateManager.GetLevel();
+
+			if ( currentLevel != null )
+			{
+				m_dialogueManager.SetStory( new Story( currentLevel.InkScript.text ) );
+			}
+
 			GameEvents.GameHUDShown?.Invoke();
 			SocialEngineController.Instance.Initialize();
 			SocialEngineController.Instance.RegisterAgentsAndRelationships();
@@ -156,7 +164,7 @@ namespace Academical
 				if ( !locationStorylet.IsRepeatable && locationStorylet.TimesPlayed > 0 ) continue;
 
 				bool hasRequiredActions = LocationHasRequiredActions( location );
-				bool hasAuxillaryActions = LocationHasAuxillaryActions( location );
+				bool hasAuxiliaryActions = LocationHasAuxiliaryActions( location );
 
 				// Query the social engine database
 				if ( locationStorylet.Precondition != null )
@@ -175,7 +183,7 @@ namespace Academical
 										locationStorylet, bindingDict, locationStorylet.Weight )
 								)
 								{
-									hasAuxillaryActivities = hasAuxillaryActions,
+									hasAuxiliaryActivities = hasAuxiliaryActions,
 									hasRequiredActivities = hasRequiredActions
 								}
 							);
@@ -192,7 +200,7 @@ namespace Academical
 								)
 							)
 							{
-								hasAuxillaryActivities = hasAuxillaryActions,
+								hasAuxiliaryActivities = hasAuxiliaryActions,
 								hasRequiredActivities = hasRequiredActions
 							}
 						);
@@ -209,7 +217,7 @@ namespace Academical
 							)
 						)
 						{
-							hasAuxillaryActivities = hasAuxillaryActions,
+							hasAuxiliaryActivities = hasAuxiliaryActions,
 							hasRequiredActivities = hasRequiredActions
 						}
 					);
@@ -219,13 +227,13 @@ namespace Academical
 			return locationInfo;
 		}
 
-		public bool LocationHasAuxillaryActions(Location location)
+		public bool LocationHasAuxiliaryActions(Location location)
 		{
 			foreach ( var (_, actionStorylet) in m_actionStorylets )
 			{
 				if ( !actionStorylet.Tags.Contains( location.UniqueID ) ) continue;
 
-				if ( !actionStorylet.Tags.Contains( "auxillary" ) ) continue;
+				if ( !actionStorylet.Tags.Contains( "auxiliary" ) ) continue;
 
 				// Skip storylets still on cooldown
 				if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;
@@ -306,7 +314,7 @@ namespace Academical
 				if ( !storylet.IsRepeatable && storylet.TimesPlayed > 0 ) continue;
 
 				bool isRequired = storylet.Tags.Contains( "required" );
-				bool isAuxillary = storylet.Tags.Contains( "auxillary" );
+				bool isAuxiliary = storylet.Tags.Contains( "auxiliary" );
 
 				// Query the social engine database
 				if ( storylet.Precondition != null )
@@ -324,7 +332,7 @@ namespace Academical
 									new StoryletInstance( storylet, bindingDict, storylet.Weight )
 								)
 								{
-									isAuxillaryAction = isAuxillary,
+									isAuxiliaryAction = isAuxiliary,
 									isRequiredAction = isRequired
 								}
 							);
@@ -338,7 +346,7 @@ namespace Academical
 									storylet, new Dictionary<string, object>(), storylet.Weight )
 							)
 							{
-								isAuxillaryAction = isAuxillary,
+								isAuxiliaryAction = isAuxiliary,
 								isRequiredAction = isRequired
 							}
 						);
@@ -352,7 +360,7 @@ namespace Academical
 								storylet, new Dictionary<string, object>(), storylet.Weight )
 						)
 						{
-							isAuxillaryAction = isAuxillary,
+							isAuxiliaryAction = isAuxiliary,
 							isRequiredAction = isRequired
 						}
 					);
@@ -403,12 +411,12 @@ namespace Academical
 			);
 
 			story.BindExternalFunction(
-				"HasUnseenAuxillaryActions",
+				"HasUnseenAuxiliaryActions",
 				() =>
 				{
 					foreach ( var (_, actionStorylet) in m_actionStorylets )
 					{
-						if ( !actionStorylet.Tags.Contains( "auxillary" ) ) continue;
+						if ( !actionStorylet.Tags.Contains( "auxiliary" ) ) continue;
 
 						// Skip storylets still on cooldown
 						if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;

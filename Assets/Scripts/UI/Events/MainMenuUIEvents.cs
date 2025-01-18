@@ -10,7 +10,7 @@ namespace Academical
 
 		public static Action NewGameScreenShown;
 
-		public static Action LoadGameScreenShown;
+		// public static Action LoadGameScreenShown;
 
 		public static Action CreditsScreenShown;
 
@@ -22,5 +22,7 @@ namespace Academical
 		public static Action DialogueHistoryHidden;
 		public static Action LoadGameScreenHidden;
 		public static Action SettingsScreenHidden;
+		public static Action<float> GameLoadingProgressUpdated;
+		public static Action<GameSettings> SettingsUpdated;
 	}
 }

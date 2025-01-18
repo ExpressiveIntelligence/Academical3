@@ -6,10 +6,10 @@ namespace Academical
 {
 	public class AudioManager : MonoBehaviour
 	{
-		public static string MusicGroup = "Music";
-		public static string SfxGroup = "SFX";
-
-		private const string k_Parameter = "Volume";
+		public const string k_MasterGroup = "Master";
+		public const string k_MusicGroup = "Music";
+		public const string k_SfxGroup = "SFX";
+		private const string k_Parameter = "_Volume";
 
 		[SerializeField] private AudioMixer m_MainAudioMixer;
 
@@ -27,21 +27,28 @@ namespace Academical
 		[Tooltip( "Sounds played when the player fails at something." )]
 		[SerializeField] private AudioClip m_FailureSound;
 
+		private void Start()
+		{
+			GameSettings gameSettings = SettingsManager.Settings;
+			OnSettingsUpdated( gameSettings );
+		}
+
 		void OnEnable()
 		{
-			SettingsScreenEvents.SettingsUpdated += OnSettingsUpdated;
+			GameEvents.SettingsUpdated += OnSettingsUpdated;
 		}
 
 		void OnDisable()
 		{
-			SettingsScreenEvents.SettingsUpdated -= OnSettingsUpdated;
+			GameEvents.SettingsUpdated -= OnSettingsUpdated;
 		}
 
-		private void OnSettingsUpdated(GameData gameData)
+		private void OnSettingsUpdated(GameSettings gameSettings)
 		{
-			// use the gameData to set the music and sfx volume
-			SetVolume( MusicGroup + k_Parameter, gameData.musicVolume / 100f );
-			SetVolume( SfxGroup + k_Parameter, gameData.sfxVolume / 100f );
+			// use the GameState to set the music and sfx volume
+			SetVolume( k_MasterGroup + k_Parameter, gameSettings.MasterVolume / 100f );
+			SetVolume( k_MusicGroup + k_Parameter, gameSettings.MusicVolume / 100f );
+			SetVolume( k_SfxGroup + k_Parameter, gameSettings.SfxVolume / 100f );
 		}
 
 		// return an AudioMixerGroup by name
@@ -164,7 +171,7 @@ namespace Academical
 			source.Play();
 
 			// set the mixer group (e.g. music, sfx, etc.)
-			source.outputAudioMixerGroup = GetAudioMixerGroup( SfxGroup );
+			source.outputAudioMixerGroup = GetAudioMixerGroup( k_SfxGroup );
 
 			// destroy after clip length
 			Destroy( sfxInstance, clip.length );

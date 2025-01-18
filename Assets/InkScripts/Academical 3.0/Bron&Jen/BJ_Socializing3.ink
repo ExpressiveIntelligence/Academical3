@@ -1,9 +1,6 @@
 /*
 
-=== BJS3_start ===
-#---
-#===
--> student_cubes
+
 
 === student_cubes ===
 #---
@@ -29,6 +26,39 @@ VAR thinking = false
 
 VAR badidea = false
 VAR thinking = false
+
+
+=== BJS3_start ===
+#---
+# choiceLabel: Talk to Jensen
+# @query
+# BJS3_unlocked
+# @end
+# repeatable: false
+# tags: action, student_cubes
+#===
+
+// Check flags in the DB set in previous dialogue
+~ temp acceptedDeal = DbAssert("IvyDealAccepted")
+~ temp rejectedDeal = DbAssert("IvyDealRejected")
+~ temp toldJensenYes = DbAssert("")
+
+{
+    //if you accepted Ivy's deal and told Jensen no
+    -acceptedDeal && !toldJensenYes:
+        ->BJS3_IyesJno
+    //if you accepted Ivy's deal and told Jensen yes
+    -acceptedDeal && toldJensenYes:
+        ->BJS3_IyesJyes
+    //if you declined Ivy's deal and told Jensen yes
+    -rejectedDeal && toldJensenYes:
+        ->BJS3_InoJyes
+    //if you declined Ivy's deal and told Jensen no
+    - else:
+      ->BJS3_InoJno  
+}
+
+->DONE
 
 === BJS3_IyesJno ===
 //TODO: RELATIONSHIP FLAGS

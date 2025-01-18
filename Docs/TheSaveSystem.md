@@ -8,11 +8,11 @@ Persisting values to the file system involves several steps across several files
 
 1. Identify the data you'd like to persist across Game Sessions and what Game Objects are touching that data. There is always a Game Session object that can be used for global/player related data if needed.
 2. Add a "GameSession" and "DataPersistenceManager" object to your scene if it's not already there. Attach the scripts with the same name to these objects.
-3. Add the fields you would like to persist to GameData.cs with the relevant typing attached.
+3. Add the fields you would like to persist to GameState.cs with the relevant typing attached.
 4. In the script containing the relevant data to be persisted:
 - Ensure that the data to be saved is serializable and tag it as such.
 - Add the "IDataPersistence" interface
-- Implement SaveData and LoadData methods. SaveData should set the reference GameData object equal to the Game Object's current values. LoadData should set the Game Object's current values to the GameData's current values.
+- Implement SaveData and LoadData methods. SaveData should set the reference GameState object equal to the Game Object's current values. LoadData should set the Game Object's current values to the GameState's current values.
 
 ## Persisting across scenes with Scriptable Objects
 
@@ -27,7 +27,7 @@ Data can be saved across scenes within a single game session using Scriptable Ob
 
 ## Combining File Saving and Scriptable Objects
 
-Data from the file system can be loaded into Scriptable Objects at the start of the game to be used across a session. Alternatively, you can read and save from the file system on scene load and exit. To combine both file data and scriptable object data, add code in the LoadGame method to populate the corresponding fields in the Scriptable Object with fields from the incoming GameData. The SaveGame method can be left alone as the GameObject will save to file using it's current data.
+Data from the file system can be loaded into Scriptable Objects at the start of the game to be used across a session. Alternatively, you can read and save from the file system on scene load and exit. To combine both file data and scriptable object data, add code in the LoadGame method to populate the corresponding fields in the Scriptable Object with fields from the incoming GameState. The SaveGame method can be left alone as the GameObject will save to file using it's current data.
 
 ## System Notes
 

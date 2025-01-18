@@ -54,31 +54,35 @@ namespace Academical
 		private void OnScenarioSelectButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuUIEvents.NewGameScreenShown?.Invoke();
+			MainMenuManager.Instance.ShowScenarioSelectionScreen();
 		}
 
 		private void OnLoadGameButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuUIEvents.LoadGameScreenShown?.Invoke();
 		}
 
 		private void OnSettingsButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuUIEvents.SettingsScreenShown?.Invoke();
+			MainMenuManager.Instance.ShowSettingsScreen();
 		}
 
 		private void OnCreditsButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuUIEvents.CreditsScreenShown?.Invoke();
+			MainMenuManager.Instance.ShowCreditsScreen();
 		}
 
 		private void OnExitButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
+#if UNITY_STANDALONE
 			Application.Quit();
+#endif
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+#endif
 		}
 
 		#endregion

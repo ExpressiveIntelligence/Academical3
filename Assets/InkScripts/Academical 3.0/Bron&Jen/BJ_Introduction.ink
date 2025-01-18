@@ -136,4 +136,6 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 
 Bronislav: Glad that's done. I should head over to the cafe to meet Ivy.
 
+->BHS1_Hint->
+
 -> DONE

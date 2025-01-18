@@ -6,7 +6,7 @@
 # metJensen
 # @end.
 # repeatable: false
-# tags: action, cafe, auxillary
+# tags: action, cafe, auxiliary
 #===
 
 -> FirstCoffee

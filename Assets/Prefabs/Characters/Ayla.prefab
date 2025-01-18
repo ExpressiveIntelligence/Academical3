@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisplayName: Ayla
-  m_UniqueID: A
+  m_UniqueID: Ayla
 --- !u!114 &2749328358828525653
 MonoBehaviour:
   m_ObjectHideFlags: 0

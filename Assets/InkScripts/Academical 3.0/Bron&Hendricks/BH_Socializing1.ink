@@ -1,8 +1,39 @@
-=== BHS1_sceneStart ===
+=== BHS1_Hint ===
 
-After your presentation, one of your professors, Hendricks, reached out to you to talk about your progress. 
+After your presentation, one of your professors, Hendricks, reached out to you to talk about your progress.
+
+You agreed to meet her at the library if she had time.
+
+// Setting the following flag unlocks the BHS1 conversation
+{DbInsert("BHS1_unlocked")}
+
+// ![Note]: Below is some new syntax I'm trying out
+// for interfacing with the C# back-end. The code
+// below is intended to signal to the quest system
+// to initialize the quest with ID of "bron_hendricks_convo"
+// This same functionality could be accomplished with an
+// external function call, but plain text doesn't run the
+// risk of breaking anything.
+//
+// >>> StartQuest: bron_hendricks_convo
+// OR
+// {StartQuest("bron_hendricks_convo")}
+
+->DONE
+
+=== BHS1_sceneStart ===
+# ---
+# choiceLabel: Wait for Hendricks to arrive.
+# @query
+# BHS1_unlocked
+# @end
+# tags: action, library, auxiliary
+# repeatable: false
+# ===
 
 She sits down at your table, setting down her bag next to her.
+
+{ShowCharacter("Hendricks", "left", "")}
 
 *["How are you doing?"]
 ->BHS1_HowAreYou
@@ -10,14 +41,14 @@ She sits down at your table, setting down her bag next to her.
 === BHS1_HowAreYou ===
 Bronislav: "Hey Hendricks. How are you doing?"
 
-She shrugs. 
+She shrugs.
 
 Hendricks: "Quite alright. Rather busy, but I was just interested in seeing how you're progress is going."
 
 *["It's going good."]
 ->BHS1_GoingGood
 
-*["It could be going better."] 
+*["It could be going better."]
 ->BHS1_CouldBeBetter
 
 *["It's complicated."]
@@ -29,7 +60,7 @@ Bronislav: "The paper's going well! I also got some feedback on it at the lab me
 
 Hendricks: "Oh really? You're not working on all of this by yourself are you?"
 
-*["I'm thinking about it."] 
+*["I'm thinking about it."]
 ->BHS1_ThinkingAboutIt
 
 *["I am for right now."]
@@ -38,11 +69,11 @@ Hendricks: "Oh really? You're not working on all of this by yourself are you?"
 === BHS1_CouldBeBetter ===
 Bronislav: "Could be going better, but it could also be going worse. Just a lot of work for one-"
 
-She interrupts you. 
+She interrupts you.
 
 Hendricks: "You're doing this all by yourself Bronislav?"
 
-*["Just for now."] 
+*["Just for now."]
 ->BHS1_JustForNow
 
 *["That was the idea."]
@@ -55,7 +86,7 @@ Bronislav: "It's pretty complicated. I've been thinking of adding a person who g
 
 Hendricks: "Oh? Do share."
 
-*["His name is Jensen."] 
+*["His name is Jensen."]
 ->BHS1_HisNameIsJensen
 
 *["It's not really worth talking about."]
@@ -78,7 +109,7 @@ Bronislav: "Is everything ok?"
 
 Hendricks: "Yes I'm fine thank you."
 
-She says through a small laugh. 
+She says through a small laugh.
 
 Hendricks: "I know Jensen pretty well. I can say I'm not too surprised to hear that his feedback was... lacking. If you want to add him to your paper though I won't judge."
 
@@ -111,9 +142,9 @@ She gets up from the table and leaves, waving at one of her students on the way 
 -> DONE
 
 === BHS1_ForRightNow ===
-Bronislav: "I am for right now. I've gotten some feedback but it was... less than helpful." 
+Bronislav: "I am for right now. I've gotten some feedback but it was... less than helpful."
 
-She chuckles. 
+She chuckles.
 
 Hendricks: "Isn't that the truth. If you do find yourself needing some help you can always let me know."
 
@@ -173,10 +204,10 @@ She interrupts you.
 
 Hendricks: "Jensen huh?"
 
-She smirks a bit. 
+She smirks a bit.
 
 Hendricks: "I can't say it's surprising to hear Jensen's feedback was less than helpful.
-*["He has promise."] 
+*["He has promise."]
 // Bronislav: +Supportive
 // Hendricks: +Demeaning
 ->BHS1_HeHasPromise
@@ -188,11 +219,14 @@ Hendricks: "I can't say it's surprising to hear Jensen's feedback was less than 
 === BHS1_HeHasPromise ===
 Bronislav: "Jensen's got some promise, I feel like a nudge in the right direction and he could be a great person to work with."
 
-She shrugs. 
+She shrugs.
 
 Hendricks: "Well I'd have to wish you the best of luck on that endeavour Bronislav. If you need some more helpful advice on your paper you can always reach out."
 
 She gets up from the table and leaves, waving at one of her students on the way out.
+
+{HideCharacter("Hendricks")}
+
 ->DONE
 
 === BHS1_OnlyAConsideration ===
@@ -201,6 +235,9 @@ Bronislav: "Trust me, it was only a consideration. It was never something set in
 Hendricks: "I suppose that's what makes it complicated. I've got to head out now, but I'll stay in touch. Hope to see you again soon."
 
 She gets up from the table and leaves, waving at one of her students on the way out.
+
+{HideCharacter("Hendricks")}
+
 ->DONE
 
 === BHS1_ItsNotWorthIt ===
@@ -209,9 +246,7 @@ Bronislav: "It wasn't all that important in all honesty."
 Hendricks: "Alright, well if you need anything from me, feel free to reach out to me."
 
 She gets up from the table and leaves, waving at one of her students on the way out.
+
+{HideCharacter("Hendricks")}
+
 ->DONE
-
-
-
-
-

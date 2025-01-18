@@ -1,0 +1,39 @@
+using Anansi;
+using UnityEngine;
+
+namespace Academical
+{
+	/// <summary>
+	/// Helps record and clear dialogue history in the game state.
+	/// </summary>
+	public class DialogueHistorySystem : MonoBehaviour
+	{
+		[SerializeField]
+		private DialogueManager m_DialogueManager;
+
+		private void OnEnable()
+		{
+			DialogueEvents.OnNextDialogueLine += RecordDialogueLine;
+		}
+
+		private void OnDisable()
+		{
+			DialogueEvents.OnNextDialogueLine -= RecordDialogueLine;
+		}
+
+		private void RecordDialogueLine(string text)
+		{
+			SpeakerInfo currentSpeaker = m_DialogueManager.CurrentSpeaker;
+
+			if ( currentSpeaker == null || text == "" ) return;
+
+			GameStateManager.GetGameState().DialogueHistory.Add(
+				new DialogueHistoryEntry()
+				{
+					Speaker = currentSpeaker.SpeakerName,
+					Text = text
+				}
+			);
+		}
+	}
+}

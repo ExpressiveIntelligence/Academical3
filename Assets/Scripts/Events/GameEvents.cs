@@ -47,5 +47,7 @@ namespace Academical
 		public static Action<List<ActionStoryletInfo>> AvailableActionsUpdated;
 
 		public static Action<List<DialogueHistoryEntry>> DialogueHistoryUpdated;
+
+		public static Action<GameSettings> SettingsUpdated;
 	}
 }

@@ -75,7 +75,7 @@ namespace Academical
 
 		private void SubscribeToEvents()
 		{
-			MainMenuUIEvents.SettingsScreenShown += OnSettingsScreenShown;
+			MainMenuUIEvents.SettingsScreenShown += ShowSettingsModal;
 			MainMenuUIEvents.SettingsScreenHidden += OnSettingsScreenHidden;
 			GameEvents.GameHUDShown += OnHUDShown;
 			GameEvents.ActionSelectModalShown += OnActionSelectModalShown;
@@ -88,7 +88,7 @@ namespace Academical
 
 		private void UnsubscribeFromEvents()
 		{
-			MainMenuUIEvents.SettingsScreenShown -= OnSettingsScreenShown;
+			MainMenuUIEvents.SettingsScreenShown -= ShowSettingsModal;
 			MainMenuUIEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
 			GameEvents.GameHUDShown -= OnHUDShown;
 			GameEvents.ActionSelectModalShown -= OnActionSelectModalShown;
@@ -131,10 +131,15 @@ namespace Academical
 			ShowScreen( m_DialogueBox );
 		}
 
-		void OnSettingsScreenShown()
+		public void ShowSettingsModal()
 		{
 			m_PreviousView = m_CurrentView;
 			m_SettingsMenu.Show();
+		}
+
+		public void HideSettingsModal()
+		{
+			m_SettingsMenu.Hide();
 		}
 
 		void OnActionSelectModalShown()
