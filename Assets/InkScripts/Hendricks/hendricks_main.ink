@@ -8,7 +8,7 @@ included in the game.
 
 */
 
-INCLUDE ./helpers.ink
+INCLUDE ../helpers.ink
 INCLUDE ./locations.ink
 
 EXTERNAL DbInsert(statement)
@@ -27,8 +27,6 @@ EXTERNAL FadeFromBlack(delay)
 # ===
 
 {ShowCharacter("Hendricks", "right", "")}
-
-In this playthrough, you are Hendricks, assistant professor in the Psychology department at Shiz University.
 
 -> library
 

@@ -24,8 +24,9 @@ That being the case, we must ensure that:
 
 */
 
-INCLUDE ./helpers.ink
+INCLUDE ../helpers.ink
 INCLUDE ./locations.ink
+INCLUDE ./actions.ink
 INCLUDE ./Bron&Hendricks/BH_Socializing1.ink
 INCLUDE ./Bron&Jen/BJ_Introduction.ink
 INCLUDE ./Bron&Jen/BJ_Socializing1.ink

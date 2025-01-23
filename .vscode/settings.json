@@ -52,6 +52,13 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "cSpell.words": ["Bronislav", "Bronislav's", "Decr", "UXML"],
+    "cSpell.words": [
+        "Ayla",
+        "Bronislav",
+        "Bronislav's",
+        "Decr",
+        "Praveen",
+        "UXML"
+    ],
     "dotnet.defaultSolution": "Academical3.sln"
 }
