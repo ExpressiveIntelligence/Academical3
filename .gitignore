@@ -89,3 +89,4 @@ dist/
 # !Build/Academical3_Web/Build
 
 node_modules
+.vsconfig
