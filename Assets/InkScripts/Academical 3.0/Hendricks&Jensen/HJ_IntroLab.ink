@@ -1,14 +1,14 @@
-//=== start ===
-//#---
-//#===
+=== start ===
+#---
+#===
 -> library
 
 === library ===
-//#---
-//# choiceLabel: Go to the library.
-//# hidden: true
-//# tags: location
-// #===
+#---
+# choiceLabel: Go to the library.
+# hidden: true
+# tags: location
+#===
 VAR startPassthrough = false
 VAR convoOptions = 0
 VAR haveDifficult = false
