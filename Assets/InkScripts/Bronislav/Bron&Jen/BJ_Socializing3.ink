@@ -55,7 +55,7 @@ VAR thinking = false
         ->BJS3_InoJyes
     //if you declined Ivy's deal and told Jensen no
     - else:
-      ->BJS3_InoJno  
+      ->BJS3_InoJno
 }
 
 ->DONE

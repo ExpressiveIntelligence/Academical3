@@ -1,4 +1,4 @@
-=== BJS5_IncludedStart === 
+=== BJS5_IncludedStart ===
 You find Jensen in the cubicles on the phone with someone so you wait to reveal yourself until he's done with the call.
 
 Jensen: "This will totally get me into grad school now! Thanks so much for your help Ivy."
@@ -7,20 +7,20 @@ He pauses while Ivy is speaking presumably.
 
 Jensen: "Alright I'll talk to you later then."
 
-*["Glad to see you so happy."] 
+*["Glad to see you so happy."]
 ->BJS5_GladtoSeeYouHappy
 
 *["Don't make me regret it."]
 ->BJS5_DontMakeMeRegret
 
 === BJS5_GladtoSeeYouHappy ===
-You walk in after he gets off the call. 
+You walk in after he gets off the call.
 
 Bronislav: "Hey Jensen! Glad to see you so happy."
 
 Jensen: "How could I not be? There's no way they don't let me into grad school with this on my record! Thank you so much again Bronislav.
 
-*["Happy to help."] 
+*["Happy to help."]
 ->BJS5_HappyToHelp
 
 *["Don't make me regret it."]
@@ -34,9 +34,9 @@ Jensen: "You really think so? Wow... I'm so glad I have an advisor like you Bron
 ->DONE
 
 === BJS5_DontMakeMeRegret ===
-Bronislav: "That's great to hear, but don't make me regret it Jensen." 
+Bronislav: "That's great to hear, but don't make me regret it Jensen."
 
-Jensen: "I promise I won't let you down Bronislav." 
+Jensen: "I promise I won't let you down Bronislav."
 
 He gives you a jokey salute, giggles a bit, then goes back to looking at his laptop."
 -> DONE
@@ -44,13 +44,13 @@ He gives you a jokey salute, giggles a bit, then goes back to looking at his lap
 === BJS5_UnincludedStart ===
 You find Jensen in the cubicles on the phone with someone so you wait to reveal yourself until he's done with the call.
 
-Jensen: "I appreciate the effort Ivy..." 
+Jensen: "I appreciate the effort Ivy..."
 
-He sighs. 
+He sighs.
 
 Jensen: "Thanks for everything, I'll talk to you later, maybe..."
 
-*["Are you doing ok?"] 
+*["Are you doing ok?"]
 ->BJS5_DoingOkay
 
 *["You can't rely on stuff like that."]
