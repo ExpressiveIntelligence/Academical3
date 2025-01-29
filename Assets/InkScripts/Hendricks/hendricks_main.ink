@@ -10,6 +10,7 @@ included in the game.
 
 INCLUDE ../helpers.ink
 INCLUDE ./locations.ink
+INCLUDE ./Hendricks&Jensen/HJ_IntroLab.ink
 
 EXTERNAL DbInsert(statement)
 EXTERNAL DbAssert(statement)

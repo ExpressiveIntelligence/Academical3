@@ -292,6 +292,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2400217827245822283, guid: 2c624dd34d6ba44429c93a1bf55184d4, type: 3}
   m_PrefabInstance: {fileID: 36063822}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &36063824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5124333170962528552, guid: 2c624dd34d6ba44429c93a1bf55184d4, type: 3}
+  m_PrefabInstance: {fileID: 36063822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87d45ce4787efc41860cc8d323fde6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &60078858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2049,7 +2060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2735f3d1afb8549ab8ab5f702f5a0a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player: {fileID: 0}
+  m_Player: {fileID: 36063824}
   m_simulationController: {fileID: 369746412}
   m_socialEngine: {fileID: 369746416}
   m_dialogueManager: {fileID: 603229846}

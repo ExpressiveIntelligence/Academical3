@@ -17,4 +17,4 @@ MonoBehaviour:
     graduate student.
   InkScript: {fileID: 4900000, guid: 770863f00553b42b69b6cd5d96ff489f, type: 3}
   Thumbnail: {fileID: 21300000, guid: ad9954a5f432c4100ac74e9c65e4bc4a, type: 3}
-  Scene: Scenes/Game
+  Scene: Scenes/Bronislav_Base

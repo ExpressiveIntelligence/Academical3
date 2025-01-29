@@ -1351,6 +1351,7 @@ GameObject:
   - component: {fileID: 7213794886585152702}
   - component: {fileID: 7623096339697162298}
   - component: {fileID: 7550271972908935161}
+  - component: {fileID: 7906358810661027234}
   m_Layer: 5
   m_Name: Master_Volume_Slider
   m_TagString: Untagged
@@ -1418,6 +1419,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7906358810661027234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2552802154519200049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5482970d67fe84226b486161deca5f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2737232473016854088
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,11 +29,15 @@ INCLUDE ./locations.ink
 INCLUDE ./actions.ink
 INCLUDE ./Bron&Hendricks/BH_Socializing1.ink
 INCLUDE ./Bron&Jen/BJ_Introduction.ink
-INCLUDE ./Bron&Jen/BJ_Socializing1.ink
 INCLUDE ./Bron&Jen/BJ_Socializing3.ink
 INCLUDE ./Bron&Jen/BJ_Socializing5.ink
-INCLUDE ./Bron&IvyFirstCoffeeSolo.ink
-INCLUDE ./Bron&IvyIRBreviewSolo.ink
+INCLUDE ./Bron&Jen/BJ_Socializing6.ink
+INCLUDE ./Bron&Jen/BJ_Conference.ink
+INCLUDE ./Bron&Jen/BJ_ConferenceReview.ink
+INCLUDE ./Bron&Ivy/BI_ConferenceSubmission.ink
+INCLUDE ./Bron&Ivy/BI_Introduction.ink
+INCLUDE ./Bron&Ivy/BI_IRBReview.ink
+INCLUDE ./Bron&Ivy/BI_Socializing7.ink
 
 
 EXTERNAL DbInsert(statement)

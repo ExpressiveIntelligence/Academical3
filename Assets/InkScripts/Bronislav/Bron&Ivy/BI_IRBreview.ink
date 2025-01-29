@@ -1,29 +1,33 @@
-=== student_cubes ===
+=== BI_IRB_SceneStart ===
 #---
-# choiceLabel: Go to the student cubicles.
-# hidden: true
-# tags: location
+# choiceLabel: Talk with Ivy.
+# @query
+# not givenQuidProQuo
+# metJensen
+# @end
+# repeatable: false
+# tags: action, student_cubes, required
 #===
-->SceneStart
 
-=== SceneStart ===
-You start to pack up to head home for the day, as you notice Ivy approach. 
+{ShowCharacter("Ivy", "left", "")}
+
+You start to pack up to head home for the day, as you notice Ivy approach.
 
 Ivy:"Hey Bronislav, how are you doing?"
 
-*["Pretty well."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["Pretty well."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 // Ivy: +Cheerful
 ->PrettyWell
 
-*["Alright."] 
+*["Alright."]
 ->Alright
 
 *["Terrible." #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 // Ivy: +Supportive
-->Terrible
+->BI_IRB_Terrible
 
 === PrettyWell ===
-Bronislav: "I'm doing pretty well. I feel like I should be more nervous about the IRB review but I'm actually feeling pretty confident about it at this point." 
+Bronislav: "I'm doing pretty well. I feel like I should be more nervous about the IRB review but I'm actually feeling pretty confident about it at this point."
 
 Ivy: "That's great to hear! I know the anticipation can definitely be overwhelming sometimes. Actually, that reminds me..."
 
@@ -37,7 +41,7 @@ Ivy: "That's fair, I can understand why that would be daunting. Actually, that r
 *[What's up?]
 ->WhatsUp
 
-=== Terrible ===
+=== BI_IRB_Terrible ===
 Bronislav: "I'm actually kind of wreck right now. I know I shouldn't be, but I'm pretty nervous about the IRB review."
 
 Ivy: "Oh man Bronislav, I'm sorry! If I know anything about you, I'm sure you did everything that was required, so don't stress too much. Actually, that reminds me, I have something that might cheer you up."
@@ -51,7 +55,7 @@ Ivy: "My uncle works at a prestigious research firm, and they just opened up a p
 ->WaitReally
 
 === WaitReally ===
-Bronislav: "That sounds amazing Ivy! Is there anything I need to do to contact him?" 
+Bronislav: "That sounds amazing Ivy! Is there anything I need to do to contact him?"
 
 Ivy: "Yeah, I totally can send you the job listing."
 
@@ -70,14 +74,14 @@ Ivy: "Of course, I am happy to help a friend out!" She says with a big smile.
 
 // Ivy: "Don't metion it. I figured it might be something to look into while you wait to hear about your paper."
 
-// Bronislav: "Yeah, definitely," You say with a nod. 
+// Bronislav: "Yeah, definitely," You say with a nod.
 
 //if negative relationship
 // Bronislav: "That would be great Ivy! I really appreciate it!"
 
 // Ivy: "Yeah, sure. I know we aren't exactly close, but I figured you'd want to know about the job all the same."
 
-// Bronislav: "Yes, definitely, I appreciate it." You say, with a smile. 
+// Bronislav: "Yes, definitely, I appreciate it." You say, with a smile.
 
 You wonder if you should ask her if there's a way to get an edge on the application.
 
@@ -100,9 +104,9 @@ Ivy: "Maybe," Ivy says as she thinks, "I suppose it would be possible for me to 
 //if neutral relationship
 //Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
 
-//Ivy: "Possibly." 
+//Ivy: "Possibly."
 
-//Ivy says with a shrug. 
+//Ivy says with a shrug.
 
 //Ivy: "I could ask my Uncle about it more, and let you know what he says."
 
@@ -147,17 +151,17 @@ Bronislav: "You could talk to your Uncle for me."
 
 Ivy: "I mean, yeah I could, but it's not like you'd do something like that for me."
 
-Bronislav: "What's that supposed to mean?" You ask, a bit surprised. 
+Bronislav: "What's that supposed to mean?" You ask, a bit surprised.
 
 Ivy: "Oh, don't play dumb Bronislav. You haven't exactly been shy about your dislike for me."
 
 Bronislav: "Oh..." You say, embarrased.
 
-Ivy sighs. 
+Ivy sighs.
 
 Ivy: "Look, I brought up the job as a way to make amends. I figured it would be of interest to you, but I am not super interested in leveraging my relationship with my uncle on your behalf."
 
-Bronislav: "I suppose I can understand that. I appreciate you mentioning the job least." 
+Bronislav: "I suppose I can understand that. I appreciate you mentioning the job least."
 
 "Yeah, sure." Ivy says quietly
 
@@ -179,7 +183,7 @@ Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
 //if positive relationship
 You decide not to push your luck, especially since you would hate for her to feel like you are overstepping when she is already being so generous.
 
-Ivy smiles, as though a lightbulb went off in her head. 
+Ivy smiles, as though a lightbulb went off in her head.
 
 Ivy: "Actually, I'm realizing I might be able to mention you to my uncle to help you get the position."
 
@@ -194,7 +198,7 @@ Bronislav: "Thank you so much Ivy!" You say with excitement, "I really appreciat
 ->ShiftToJensen
 
 //if neutral relationship
-//You decide not to push you luck, especially since you don't want to come off as ungrateful. 
+//You decide not to push you luck, especially since you don't want to come off as ungrateful.
 
 //Bronislav: "I now have something to look into while I wait for this review," you say excitedly.
 
@@ -212,11 +216,11 @@ Bronislav: "Thank you so much Ivy!" You say with excitement, "I really appreciat
 
 //if negative relationship
 
-//You decide not to push your luck, especially since you and Ivy are not the closest. 
+//You decide not to push your luck, especially since you and Ivy are not the closest.
 
 //Bronislav: "I definitely now have something to look into while I wait for my review." You say appreciatively.
 
-//Ivy nods. 
+//Ivy nods.
 
 //Ivy: "I could maybe even put in a good word for you if I talk to my uncle about it again."
 
@@ -235,7 +239,7 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
 === AreYouAlright ===
 // TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
 //if positive relationship
-Ivy: "Sorry, yeah." 
+Ivy: "Sorry, yeah."
 
 Ivy shakes her head as though waking up from a trance.
 
@@ -245,7 +249,7 @@ Ivy: "I am okay, I am worried about Jensen though."
 ->WhatsUpWithHim
 
 //if neutral relationship
-//Ivy: "Huh?" Ivy says as her attention turns back to you. 
+//Ivy: "Huh?" Ivy says as her attention turns back to you.
 
 //Ivy: "Yeah, I guess I am a bit worried about Jensen."
 
@@ -253,7 +257,7 @@ Ivy: "I am okay, I am worried about Jensen though."
 //->WhatsUpWithHim
 
 //if negative relationship
-//Ivy stops and looks towards you, a bit surprised by your question. 
+//Ivy stops and looks towards you, a bit surprised by your question.
 
 //Ivy: "Yeah, I'm fine. I guess I am just a bit worried about Jensen."
 
@@ -265,11 +269,11 @@ Bronislav: "What's going on with him?"
 
 Ivy: "He's been really stressed. He's such a hard worker, but he's always worried about not doing enough, and that is certainly not helping his anxiousness about grad school."
 
-*["I know the feeling." #>>IncrementRelationshipStat Ivy Bronislav Opinion 50] 
+*["I know the feeling." #>>IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // Bronislav: +Empathetic
 ->IKnowTheFeeling
 
-*["I hope he can figure that out."] 
+*["I hope he can figure that out."]
 ->HopeHeFiguresItOut
 
 *["That's rough." #>>DecrRelationshipStat Ivy Bronislav Opinion -20]
@@ -284,12 +288,12 @@ Bronislav: "I know the feeling." You say with a chuckle.
 
 Ivy: "Yeah," Ivy says with a smile, "I guess you do, huh."
 
-*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50] 
+*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // Bronislav: +Supportive
 ->AnyWayICanHelp
-*["Jensen will figure it out."] 
+*["Jensen will figure it out."]
 ->JensensGotIt
-*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->IWouldntWorry
 *["He should be worried." #>>DecrRelationshipStat Ivy Bronislav Opinion -50]
 //Bronislav: +Petty
@@ -300,12 +304,12 @@ Bronislav: "Yeah, that's a tough spot to be in. I hope he can figure it all out.
 
 Ivy: "Me too," Ivy says with a sigh, "He definitely belongs in grad school."
 
-*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50] 
+*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // Bronislav: +Supportive
 ->AnyWayICanHelp
-*["Jensen will figure it out."] 
+*["Jensen will figure it out."]
 ->JensensGotIt
-*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->IWouldntWorry
 *["He should be worried." #>>DecrRelationshipStat Ivy Bronislav Opinion -50]
 //Bronislav: +Petty
@@ -316,12 +320,12 @@ Bronislav: "That's really rough," You say nonchalantly.
 
 Ivy: "Well of course it is." Ivy says flatly, "I'm just surprised you don't have more sympathy for the situation considering you also had a similar struggle."
 
-*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50] 
+*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // Bronislav: +Supportive
 ->AnyWayICanHelp
-*["Jensen will figure it out."] 
+*["Jensen will figure it out."]
 ->JensensGotIt
-*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->IWouldntWorry
 *["He should be worried." #>>DecrRelationshipStat Ivy Bronislav Opinion -50]
 //Bronislav: +Petty
@@ -332,12 +336,12 @@ Bronislav: "I think just about everyone in grad school has experienced those fee
 
 Ivy: "Yeah, no kidding." Ivy says shaking her head, "It's always a grind."
 
-*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50] 
+*["Is there any way I can help him?" #>>IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // Bronislav: +Supportive
 ->AnyWayICanHelp
-*["Jensen will figure it out."] 
+*["Jensen will figure it out."]
 ->JensensGotIt
-*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["I wouldn't worry about him." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->IWouldntWorry
 *["He should be worried." #>>DecrRelationshipStat Ivy Bronislav Opinion -50]
 //Bronislav: +Petty
@@ -358,9 +362,9 @@ Ivy: "Well, I know Jensen is looking to get on a research paper to help his chan
 ->HesInTrouble
 
 === JensensGotIt ===
-Bronislav: "Jensen will figure it out, Ivy. If he's smart enought to get this far, he can figure out how to get into grad school." 
+Bronislav: "Jensen will figure it out, Ivy. If he's smart enought to get this far, he can figure out how to get into grad school."
 
-Ivy: "Maybe you're right," Ivy says with a sigh. 
+Ivy: "Maybe you're right," Ivy says with a sigh.
 
 Ivy: "He just keeps talking about needing to get on a research paper to help his chances, and the last time we talked he seemed pretty desperate.
 
@@ -376,7 +380,7 @@ Ivy: "He just keeps talking about needing to get on a research paper to help his
 === IWouldntWorry ===
 Bronislav: "While it's nice of you to be concerned, I wouldn't worry about Jensen. If he's as hard of a worker as you say, and he's got the will to go to grad school, he can make it. Just like I did."
 
-Ivy: "Maybe you're right," Ivy says with a small smile. 
+Ivy: "Maybe you're right," Ivy says with a small smile.
 
 Ivy: "The last time he talked he seemed pretty hellbent on getting on a research paper. I'm just not sure how he's going to do it going forward."
 
@@ -392,7 +396,7 @@ Ivy: "The last time he talked he seemed pretty hellbent on getting on a research
 === HeShouldBeWorried ===
 Bronislav: "Jensen should be worried. If he isn't on top of his game, he simply won't get in to grad school."
 
-Ivy shoots you a look of annoyance. 
+Ivy shoots you a look of annoyance.
 
 Ivy: "Yeah I think he's painfully aware of that, which is why he has been so stressed. He keeps bringing up that he needs to get on a research paper to solidify his chances, and I'm not sure how he's going to do it."
 
@@ -408,7 +412,7 @@ Ivy: "Yeah I think he's painfully aware of that, which is why he has been so str
 === PutHimOn ===
 Bronislav: "Maybe I could put him on my paper?"
 
-Ivy perks up. 
+Ivy perks up.
 
 Ivy: "You'd consider doing something like that?"
 
@@ -419,16 +423,16 @@ Bronislav: "Hey, I was in his shoes at one point, I do know how hard it is to ge
 === ThatsAToughie ===
 Bronislav: "That's a tough one. I'm not sure that there are a lot of research opportunities avalaible to undergrads like that."
 
-Ivy: "Yeah, that's exactly what I told him. But he's very determined, and I would hate to seem him crushed by this," 
+Ivy: "Yeah, that's exactly what I told him. But he's very determined, and I would hate to seem him crushed by this,"
 
 Ivy looks as though she is considering something, and resolves to ask you.
 
 Ivy: "Do you think you'd be willing to put Jensen on your paper?"
 
-*["Probably." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["Probably." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->Probably
 
-*["I'm not sure." #>>IncrementRelationshipStat Ivy Bronislav Opinion 10] 
+*["I'm not sure." #>>IncrementRelationshipStat Ivy Bronislav Opinion 10]
 ->NotSure
 
 *["No."]
@@ -438,16 +442,16 @@ Ivy: "Do you think you'd be willing to put Jensen on your paper?"
 
 Bronislav: "A research paper isn't make or break. There's lot of other ways to stand out getting into grad school, he just needs to look into them."
 
-Ivy: "Yeah, maybe you're right. Still, he's certain it's the only path for him, no matter what I say to desuade him." 
+Ivy: "Yeah, maybe you're right. Still, he's certain it's the only path for him, no matter what I say to desuade him."
 
 Ivy looks as though she is considereing asking you something, and resolves to ask.
 
 Ivy: "Do you think you'd be willing to put Jensen on your paper?"
 
-*["Probably." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["Probably." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->Probably
 
-*["I'm not sure." #>>IncrementRelationshipStat Ivy Bronislav Opinion 10] 
+*["I'm not sure." #>>IncrementRelationshipStat Ivy Bronislav Opinion 10]
 ->NotSure
 
 *["No."]
@@ -462,10 +466,10 @@ Ivy looks as though she is considering asking you something, and decides to ask.
 
 Ivy: "Do you think you'd be willing to put Jensen on your paper?"
 
-*["Probably." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20] 
+*["Probably." #>>IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->Probably
 
-*["I'm not sure." #>>IncrementRelationshipStat Ivy Bronislav Opinion 10] 
+*["I'm not sure." #>>IncrementRelationshipStat Ivy Bronislav Opinion 10]
 ->NotSure
 
 *["No."]
@@ -474,7 +478,7 @@ Ivy: "Do you think you'd be willing to put Jensen on your paper?"
 === Probably ===
 Bronislav: "Hmm, maybe I could do something like that. It would certainly be helpful to him."
 
-Ivy perks up. 
+Ivy perks up.
 
 Ivy: "Really? You'd be willing to do something like that?"
 
@@ -485,7 +489,7 @@ Bronislav: "Probably, yeah." You say with a shrug.
 === NotSure ===
 Bronislav: "I'm not sure that I could." You say hesitantly, "I don't think I can just add him without causing some problems for the paper."
 
-Ivy: "Oh, alright. Well, if you could, I would ask that you at least consider it, just because I know it would help Jensen a lot. And it would certainly make me feel a lot less worried." 
+Ivy: "Oh, alright. Well, if you could, I would ask that you at least consider it, just because I know it would help Jensen a lot. And it would certainly make me feel a lot less worried."
 
 Bronislav: "Sure, I can keep it mind."
 
@@ -505,7 +509,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 === ContinueYES ===
 // TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
 //if positive relationship
-Ivy: "I'm really glad that you're willing to help Jensen." Ivy says, practically glowing. 
+Ivy: "I'm really glad that you're willing to help Jensen." Ivy says, practically glowing.
 
 Ivy: "I know this will definitely settle his nerves."
 
@@ -562,11 +566,13 @@ Ivy: "While I respect where you are coming from Bronislav, I really hope you rec
 === ContinueOutro ===
 // TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
 //if positive relationship
-Ivy looks down to her watch and a look of surprise washes over her face. 
+Ivy looks down to her watch and a look of surprise washes over her face.
 
 Ivy: "Wow. I really got swept up in this conversation. I've gotta go for now Bronislav, but it was nice chatting."
 
 Bronislav: "Yeah, always a pleasure."
+
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -587,3 +593,143 @@ Bronislav: "Yeah, always a pleasure."
 //Bronislav: "Yeah, I guess."
 
 //-> DONE
+
+
+///////////////////////////////////
+// SPARE CONTENT BELOW THIS LINE //
+///////////////////////////////////
+
+// NOTE: All the content below is from the duplicate
+//       Bron&IvyIRBReviewSolo.ink script. I've copied it below
+//       in case there are pieces of functionality that differ
+//       between the two files
+
+/*
+
+=== pack_to_go_home ===
+#---
+# choiceLabel: Pack to go home.
+# @query
+# not givenQuidProQuo
+# metJensen
+# @end
+# repeatable: false
+# tags: action, student_cubes
+#===
+->bron_ivy_irb_review
+
+=== bron_ivy_irb_review ===
+With your survey approved, you start to pack up and head home to work more on your paper. However, as you start to walk away Ivy flags you down.
+
+Ivy: "Bronislav! Did your survey get accepted?" {ShowCharacter("Ivy", "left", "")}
+
+*["It did."]
+
+Bronislav: "It sure did. I was just about to go home and start working more on the paper."
+
+-> Proposition
+
+=== Proposition ===
+Ivy smiles cheerfully.
+
+Ivy: "Great to hear. I do have a proposition for you Bronislav."
+
+*["What's that?"]
+-> PropInfo
+
+=== PropInfo ===
+Bronislav: "What is your proposition?"
+
+//If positive relationship
+Ivy: "My uncle works at a prestigious research firm, and they've been looking for a graduate student with your skillset."
+
+*["That sounds great! What would I need to do?"]
+-> TheCatch
+
+// If neutral relationship
+Ivy:"I know you've been on the fence about Jensen, but if you can get him on that paper I can help your career out a bit too."
+
+*["How so?"]
+->TheCatch
+
+//If negative relationship
+Ivy: "My uncle has been looking for someone to add to his firm with good mentorship skills. Being able to teach someone less knowledgeable than yourself is a useful skill Bronislav."
+
+*["This is a proposition how?"]
+-> TheCatch
+
+
+=== TheCatch ===
+//If positive relationship
+Bronislav:"That sounds great Ivy! Is there anything I need to do to contact him?"
+
+Ivy: "I can definitely put in a good word for you with him. All you need to do is add Jensen to your paper, and you've got yourself a deal."
+
+{DbInsert("givenQuidProQuo")}
+
+//If neutral relationship
+Ivy: "In exchange for putting Jensen on your paper, I can talk to my uncle who works at a research firm who have been looking for a new hire. So, what do you think?"
+
+//If negative relationship
+//Ivy: "Add Jensen to that paper Bronislav. Do that and I can talk with my uncle and put in a good word for you."
+Ivy: "Add Jensen to the paper and I can put in a good word for you with my uncle.
+
+*["That's it? Of course!"  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50 ]
+->AcceptingDeal
+
+*["I'm not sure yet."]
+->Unsure
+
+*["That is textbook quid pro quo."  #>> DecrRelationshipStat Ivy Bronislav Opinion -50 ]
+->DenyDeal
+
+=== AcceptingDeal ===
+Bronislav: "That's it? You've got yourself a deal Ivy!"
+
+You shake her hand.
+
+Ivy: "Incredible. I'll talk with my uncle ASAP and get back to you about that job."
+
+{DbInsert("IvyDealAccepted")}
+
+->irb_rev_cont
+
+=== Unsure ===
+Bronislav: "I'm not quite sure yet. Let me think about it some more."
+
+Ivy shakes her head.
+
+Ivy: "Ok, but opportunities like these don't come around often."
+
+{DbInsert("IvyDealConsidered")}
+
+->irb_rev_cont
+
+=== DenyDeal ===
+Bronislav: "Ivy that is textbook quid pro quo, my reputation would go down the drain."
+
+Ivy frowns and grows annoyed,
+
+Ivy: "Have it your way Bronislav. Won't get an opportunity like that ever again."
+
+{DbInsert("IvyDealDenied")}
+
+->irb_rev_cont
+
+=== irb_rev_cont ===
+// If AcceptingDeal
+Ivy packs her stuff up, smiling as usual. Quite the exciting prospect, getting connections in such a high place. However, if you get caught your reputation can be devalued greatly.
+
+//If Unsure
+Ivy: "You know where to reach me if you change your mind."
+
+Ivy packs her stuff up and leaves. As great of an opportunity that would be for your career, can you run the risk of getting caught?
+
+//If DenyDeal
+Ivy leaves angrily. She is somewhat right, opportunities like that are rare. However, integrity is priceless.
+
+{HideCharacter("Ivy")}
+
+-> DONE
+
+*/

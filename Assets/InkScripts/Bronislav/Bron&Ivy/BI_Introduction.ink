@@ -1,23 +1,29 @@
-->cafe
-=== cafe ===
+=== have_coffee_with_ivy ===
 #---
-# choiceLabel: Go to the Cafe.
-# hidden: true
-# tags: location
+# choiceLabel: Have coffee with ivy
+# @query
+# not givenQuidProQuo
+# metJensen
+# @end.
+# repeatable: false
+# tags: action, cafe, auxiliary
 #===
+
 -> FirstCoffee
 
 === FirstCoffee ===
-// # SetBackground *Coffee Shop Background*
-After a successful first pitch at the introductory lab meeting, you decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling. 
 
-Ivy: "Hey Bronislav. Happy to see you again."
+{ShowCharacter("Ivy", "left", "")}
 
-*["Nice to see you too, Ivy. How've you been?"]
+After a successful presentation at the seminar, you decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
+
+Ivy: "Hey Bronislav. Good to see you again." {ShowCharacter("Ivy", "left", "")}
+
+*["Nice to see you too, Ivy. How have you been?"]
 ->IvyCatchesUp
 
 === IvyCatchesUp ===
-Ivy: "I've been pretty busy, but keeping up with all of it pretty well. How'd the lab meeting go? Did you meet anyone who could help you on your paper?"
+Ivy: "I've been pretty busy, but keeping up with all of it pretty well. How'd the presentation go? Did you meet anyone who could help you on your paper?"
 
 *["Yes! I talked with someone."]
 ->InterestInPaper
@@ -26,9 +32,9 @@ Ivy: "I've been pretty busy, but keeping up with all of it pretty well. How'd th
 ->IvyRecommendsJensen
 
 === InterestInPaper ===
-Bronislav: "Yes! After my talk I was approached by someone who had interest in my presentation." 
+Bronislav: "Yes! After my talk I was approached by someone who had interest in my presentation."
 
-Hearing this she smiles brightly. 
+Hearing this she smiles brightly.
 
 Ivy: "That's great to hear. Did you happen to catch his name?"
 
@@ -40,37 +46,35 @@ Bronislav: "His name was Jensen."
 
 Ivy: "That's great to hear! I know Jensen and he's been having some problems getting into grad school. Being on this paper would be great for him."
 
-*["I see a bit of myself in him." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+*["I see a bit of myself in him."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50 ]
 ->BronislavSympathizes
 
 *["I wish I could help."]
 ->MoreTime
 
-*["He needs an opportunity more at his level." #>> DecrRelationshipStat Ivy Bronislav Opinion -50]
+*["He needs an opportunity more at his level."  #>> DecrRelationshipStat Ivy Bronislav Opinion -50 ]
 ->TooSoon
 
 === BronislavSympathizes ===
-Bronislav: "Getting into grad school wasn't easy for me either, so I see a bit of myself in him. I'll keep him in mind." 
+Bronislav: "Getting into grad school wasn't easy for me either, so I see a bit of myself in him. I'll keep him in mind."
 
-Ivy still very cheerful about the good news is also a bit confused. 
+Ivy still very cheerful about the good news is also a bit confused.
 
 Ivy: "Do you have some reservations about Jensen?"
 
-// TODO: ADD CHECK THAT KNOWS IF YOU TALKED TO BRAD TO UNLOCK BRAD SPECIFIC DIALOGUE
 *["I talked with Brad about Jensen."]
-// Bronislav: -Moral
-// Ivy: Spiteful
+// Ivy becomes spiteful
 ->IvySpite
 
 *["It is just too soon."]
 ->TooSoon
 
 === IvySpite ===
-Bronislav: "I did also talk with Brad after my presentation, and he felt a bit put off by Jensen." 
+Bronislav: "I did also talk with Brad after my presentation, and he felt a bit put off by Jensen."
 
-Ivy's cheerfulness turns to annoyance. 
+Ivy's cheerfulness turns to annoyance.
 
-Ivy: "Well Bronislav, I can assure you that there is nothing 'off' about Jensen. He's a good kid, so at least keep him in mind." 
+Ivy: "Well Bronislav, I can assure you that there is nothing 'off' about Jensen. He's a good kid, so at least keep him in mind."
 
 She leaves the table quickly after saying this.
 
@@ -78,49 +82,51 @@ She leaves the table quickly after saying this.
 ->Exit
 
 === TooSoon ===
-Bronislav:"It just is way too soon to make a call like that. I'd like to talk with a few more people before I start adding people to the paper." 
+Bronislav:"It just is way too soon to make a call like that. I'd like to talk with a few more people before I start adding people to the paper."
 
-She takes a long sip of her drink. 
+She takes a long sip of her drink.
 
-Ivy: "Well ok then, that is fair. At least consider him, ok?" 
+Ivy: "Well ok then, that is fair. At least consider him, ok?"
 
 -> Continue
 
 === MoreTime ===
-Bronislav: ""As much as I wish I could help right now I just want to keep my options open." 
+Bronislav: "As much as I wish I could help right now I just want to keep my options open."
 
-She takes a long sip of her drink. 
+She takes a long sip of her drink.
 
-Ivy: "Well ok then, that is fair. Keep him in mind at least?" 
+Ivy: "Well ok then, that is fair. Keep him in mind at least?"
 
 -> Continue
 
 === IvyRecommendsJensen ==
-Bronislav: "No, not yet." 
+Bronislav: "No, not yet."
 
-Ivy stirs her coffee. 
+Ivy stirs her coffee.
 
 Ivy: "Well I have a friend who is struggling to get into grad school right now named Jensen. Getting on such a big paper would certainly help him."
 
-// TODO: ADD CHECK THAT KNOWS IF YOU TALKED TO BRAD TO UNLOCK BRAD SPECIFIC DIALOGUE
 *["I talked with Brad about Jensen."]
-// Bronislav: -Moral
-// Ivy: Spiteful
+// Ivy becomes spiteful
 ->IvySpite
 
 *["It is just too soon."]
 -> TooSoon
 
 === Continue ===
-She looks down at her watch. 
+She looks down at her watch.
 
-Ivy: "Oh! I actually need to go to a meeting. Thanks for organizing this Bronislav, hope to hear from you again soon." 
+Ivy: "Oh! I actually need to go to a meeting. Thanks for organizing this Bronislav, hope to hear from you again soon."
 
-She waves goodbye and leaves.
+She waves goodbye and leaves. {HideCharacter("Ivy")}
 
 *[Leave.]
 ->Exit
 
 === Exit ===
+
+{HideCharacter("Ivy")}
+
+Its getting late. I should go pack my things in my cubicle and go home for the day.
 
 -> DONE

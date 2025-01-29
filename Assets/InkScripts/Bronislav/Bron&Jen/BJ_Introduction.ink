@@ -28,6 +28,8 @@ Select the "Choose Action" button in the interaction bar to see what actions are
 # tags: action, lecture_hall, required
 # ===
 
+{DbInsert("Seen_BJ_INTRO")}
+
 Today you have the honor of presenting a practice paper talk at the weekly department seminar.
 
 You go to the front of the room and speak for about 45 minutes.

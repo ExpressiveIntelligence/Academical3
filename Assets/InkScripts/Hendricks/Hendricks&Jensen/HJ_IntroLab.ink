@@ -1,21 +1,9 @@
-=== start ===
-#---
-#===
--> library
-
-=== library ===
-#---
-# choiceLabel: Go to the library.
-# hidden: true
-# tags: location
-#===
 VAR startPassthrough = false
 VAR convoOptions = 0
 VAR haveDifficult = false
 VAR researchLook = false
-->sceneStart
 
-=== sceneStart ===
+=== HJ_INTRO_sceneStart ===
 {startPassthrough == false :
 
 As you sit down at your desk, you notice Jensen wandering through the library. It's been a while since you've seen him, and he notices you, so you wave as he walks over.
@@ -71,7 +59,7 @@ Jensen: "Fortunately I don't have any tough classes this time around. That's hon
 
 Hendricks: "I see..."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
 === gradSchool ===
 {haveDifficult == true:
@@ -86,9 +74,9 @@ Hendricks: "I see..."
 Jensen lets out a sharp sigh.
 
 {researchLook == true:
-    Jensen: "Yeah that's the main reason I need the research in the first place. It's really tough because <> 
+    Jensen: "Yeah that's the main reason I need the research in the first place. It's really tough because <>
 - else:
-    Jensen: "I have. <> 
+    Jensen: "I have. <>
 }
 
 I actually just finished talking with Praveen about this too and his experience is making me doubt my chances to say the least."
@@ -127,7 +115,7 @@ Hendricks: "If it was easy, everyone would go to grad school. But just beacuse s
 
 Jensen: "Maybe... yeah I guess you're right."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
 *["You don't have to do it if you don't want to." #>> DecrementRelationshipStat Hendricks Jensen Opinion -20]
 Hendricks: "You know Jensen, you don't have to go to grad school if you don't want to."
@@ -138,7 +126,7 @@ Hendricks: "No, but I am saying its not the only path to succuess. Plenty of oth
 
 Jensen: "Well, grad school is what's best for me professor, whether you agree or not."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
 === researchInvolvement ===
 ~ researchLook = true
@@ -163,7 +151,7 @@ Jensen: "Okay cool. I'll definitely be figuring it out and I'll let you know how
 
 Hendrick: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
 *["Could be a good place to start."]
 Hendricks: "Huh, could be a good place to start."
@@ -175,6 +163,6 @@ Hendricks: "Well, Bronislav has a tendency to be very reserved, and can be fairl
 Jensen: "Noted. I'll definitely be figuring it out and I'll let you know how it goes."
 
 Hendrick: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
-->sceneStart
+->HJ_INTRO_sceneStart
 
 ->DONE

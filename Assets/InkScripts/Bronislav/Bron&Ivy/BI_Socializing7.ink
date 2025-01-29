@@ -1,16 +1,19 @@
-=== student_cubes ===
-#---
-# choiceLabel: Go to the student cubicles.
-# hidden: true
-# tags: location
-#===
 VAR hello = false
 VAR apology = true
 
-->SceneStart
+=== BI_S7_SceneStart ===
+# ---
+# choiceLabel: Talk with Ivy
+# hidden: true
+# repeatable: false
+# tags: action, student_cubes, auxiliary
+# ===
 
-=== SceneStart ===
-As you walk over to the cubicles, you notice Ivy hunched over at her desk. 
+{ShowCharacter("Ivy", "left", "")}
+
+{DbInsert("Seen_BI_S7")}
+
+As you walk over to the cubicles, you notice Ivy hunched over at her desk.
 
 *["Hey, are you okay?"]
 ->AreYouOkay
@@ -77,7 +80,7 @@ Ivy: "I took advantage of our frienship, and for that I am truly sorry."
 
 // Ivy glares at you, and you can tell your question has struck a nerve.
 
-// Ivy: "Don't act like you care all of a sudden." 
+// Ivy: "Don't act like you care all of a sudden."
 
 // She barks before biting her lip, regreting her harshness.
 
@@ -107,6 +110,8 @@ Ivy: "I have no plans of doing it again, that's for certain."
 
 You both smile breifly, before you nod and continue on your way.
 
+{HideCharacter("Ivy")}
+
 ->DONE
 
 === YouShouldBe ===
@@ -124,12 +129,14 @@ Ivy: "I am sorry for everything, but you don't need to shove this in my face."
 
 Ivy pushes past you and walks out of the room before you can say another word.
 
+{HideCharacter("Ivy")}
+
 ->DONE
 
 === SayNothing ===
 
 You say nothing as you akwardly glance away from her.
-{apology == false: 
+{apology == false:
 ~apology = true
 Ivy: "I just, um... wanted to say that I'm sorry. To you, about... well a lot of things."
 
@@ -147,7 +154,11 @@ You nod, acknowledging her.
 Bronislav: "Okay. I hear you."
 
 Ivy thinks about saying something else, but stops herself, turning back to her desk. You decide to continue on your way.
+
+{HideCharacter("Ivy")}
+
 ->DONE
+
 }
 
 === ImListening ===
@@ -219,5 +230,3 @@ Ivy: "I... uh..."
 You notice her eyes look swollen from crying.
 
 ->WhatsWrong
-
-

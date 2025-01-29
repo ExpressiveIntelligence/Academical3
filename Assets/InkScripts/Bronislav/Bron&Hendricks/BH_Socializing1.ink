@@ -130,6 +130,8 @@ Hendricks: "Well, I'll have to wish you the best of luck with that then. Glad to
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
+{HideCharacter("Hendricks")}
+
 ->DONE
 
 === BHS1_ISaidIWasUnsure ===
@@ -138,6 +140,8 @@ Bronislav: "Exactly why I said I was unsure about it. Jensen's got promise, but 
 Hendricks: "You could say that again. Glad to hear everything's going well Bronislav, I've got to head out but I hope we can meet again soon."
 
 She gets up from the table and leaves, waving at one of her students on the way out.
+
+{HideCharacter("Hendricks")}
 
 -> DONE
 
@@ -164,6 +168,9 @@ Bronislav: "Thanks professor, I'll make sure to keep that in mind."
 Hendricks: "Any time Bronislav. I've got to head out now, but I'm sure we'll be in touch."
 
 She gets up from the table and leaves, waving at one of her students on the way out.
+
+{HideCharacter("Hendricks")}
+
 -> DONE
 
 === BHS1_DontThinkItsNecessary ===
@@ -172,6 +179,8 @@ Bronislav: "Thanks for the offer professor, but I don't think that will be neces
 Hendricks: "I see you haven't changed much Bronislav. Hope to talk to you later."
 
 She laughs kindly and leaves, waving at one of her students on the way out.
+
+{HideCharacter("Hendricks")}
 
 ->DONE
 
@@ -195,6 +204,9 @@ She laughs.
 Hendricks: "You've got me there Bronislav. Then I suppose I shouldn't bother you anymore, I'll keep in touch though. In case you do end up needing something."
 
 She gets up from the table and leaves, waving at one of her students on the way out.
+
+{HideCharacter("Hendricks")}
+
 -> DONE
 
 === BHS1_HisNameIsJensen ===
