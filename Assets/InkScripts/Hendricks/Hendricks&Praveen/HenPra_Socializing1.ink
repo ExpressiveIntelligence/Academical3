@@ -16,7 +16,7 @@ Shuffling some papers at your desk, you hear a knock at the door.
 
 *["Come in!"]
 
-Hendricks: "Come on in Praveen." 
+- Hendricks: "Come on in Praveen." 
 
 Right on time Praveen walks through the door giving you a polite nod as you motion for him to have a seat. 
 
@@ -26,7 +26,7 @@ Praveen: "I'm doing as good as I can."
 
 *["What's been troubling you?"] -> TroublingYou
 *["How is your search for a research paper going?"] -> HowResearchSearch
--->DONE
+
 == TroublingYou ==
 Hendricks: "What has been troubling you Praveen?"
 
@@ -93,7 +93,7 @@ Praveen sighs shrugging his shoulders again, it seems to be a trademark of his
 == UnderstandFrustration ==
 Hendricks: "I understand." 
 
-You feel as if you are to suggest something Praveen will express his attempt, so you decide to take a different approach
+You feel as if Praveen will respond defensively if you make a direct suggestion, so you decide to take a different approach.
 
 Hendricks: "I know how skilled you are in the face of research, how about I look into some opportuinities for you and during our next session I can tell you what I found?" 
 
