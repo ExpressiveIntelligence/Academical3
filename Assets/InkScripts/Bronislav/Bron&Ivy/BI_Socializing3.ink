@@ -138,6 +138,8 @@ Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
 
+{HideCharacter(“Ivy”)}
+
 ->DONE
 
 *["And you're sure this will work how?"]
@@ -157,6 +159,8 @@ Ivy: "Of course, I'll leave you to it."
 
 Ivy turns and leaves the room.
 
+{HideCharacter(“Ivy”)}
+
 ->DONE
 
 *["This is making me uncomfortable." #>> IncrementRelationshipStat Ivy Bronislav Opinion +20]
@@ -171,6 +175,8 @@ Bronislav: "Just give me some time to think about all this. I've got some work t
 Ivy: "Okay, no problem, I'll leave you to it. Just please think about it, because it could really help you both."
 
 Ivy leaves you to your work.
+
+{HideCharacter(“Ivy”)}
 
 ->DONE
 
@@ -188,6 +194,9 @@ Bronislav: "Okay it's being considered. Now I have some work that I actually nee
 Ivy: "Mature, Bronislav, really mature."
 
 She shoots you an annoyed look as she walks past you out of the room.
+
+{HideCharacter(“Ivy”)}
+
 ->DONE
 
 === HelpJensen ===
@@ -210,6 +219,8 @@ Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
 
+{HideCharacter(“Ivy”)}
+
 ->DONE
 
 *["I guess you're right." #>> IncrementRelationshipStat Ivy Bronislav Opinion +20]
@@ -226,6 +237,8 @@ Bronislav: "I've got some work to do for now, but it was nice chatting."
 Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
+
+{HideCharacter(“Ivy”)}
 
 ->DONE
 
@@ -246,6 +259,8 @@ Ivy:"Of course, I'll leave you to it."
 
 She heads out of the office.
 
+{HideCharacter(“Ivy”)}
+
 ->DONE
 
 === NotInterested ===
@@ -254,5 +269,7 @@ Ivy: "All I was going to say was that I thought about our conversation earlier, 
 Ivy: "But clearly, you're more invested in whatever work is waiting for you at your desk, so I'll leave you to it. You're lucky Jensen needs my help, because it is ridiculous for you to treat me like this."
 
 Ivy walks out of the office before you can say anything else.
+
+{HideCharacter(“Ivy”)}
 
 ->DONE

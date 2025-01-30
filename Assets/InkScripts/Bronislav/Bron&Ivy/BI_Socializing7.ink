@@ -107,6 +107,8 @@ Ivy: "I have no plans of doing it again, that's for certain."
 
 You both smile breifly, before you nod and continue on your way.
 
+{HideCharacter(“Ivy”)}
+
 ->DONE
 
 === YouShouldBe ===
@@ -123,6 +125,8 @@ Ivy stands up from her chair, hurt clouding her face.
 Ivy: "I am sorry for everything, but you don't need to shove this in my face."
 
 Ivy pushes past you and walks out of the room before you can say another word.
+
+{HideCharacter(“Ivy”)}
 
 ->DONE
 
@@ -147,6 +151,9 @@ You nod, acknowledging her.
 Bronislav: "Okay. I hear you."
 
 Ivy thinks about saying something else, but stops herself, turning back to her desk. You decide to continue on your way.
+
+{HideCharacter(“Ivy”)}
+
 ->DONE
 }
 
