@@ -2,15 +2,15 @@
 # ---
 # choiceLabel: Meet with Praveen about Conference
 # @query
-# Seen_HPCON
+# Seen_HPS1
 # @end
 # hidden: true
 # tags: action, office, auxiliary
 # ===
 
-// {DbInsert("Seen_HPCON")}
+{DbInsert("Seen_HPCON")}
 
-// {ShowCharacter("Praveen", "left", "")}
+{ShowCharacter("Praveen", "left", "")}
 
 As you watched the clock tick, you awaited your appointment with Praveen. 
 
@@ -88,7 +88,7 @@ Hendricks: "See you soon, keep an eye out, your email will have your first assig
 
 Praveen nods his head as he steps out of the office.
 
-// {HideCharacter("Praveen")}
+{HideCharacter("Praveen")}
 
 -> DONE
 
