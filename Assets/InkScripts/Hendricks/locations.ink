@@ -75,3 +75,26 @@ EXTERNAL SetCurrentLocation(locationId)
 {SetCurrentLocation("lecture_hall")}
 
 -> DONE
+
+=== neds_office ===
+# ---
+# choiceLabel: Go to the Ned's office.
+# hidden: true
+# tags: location
+# ===
+
+{SetCurrentLocation("neds_office")}
+
+-> DONE
+
+
+=== hendricks_office ===
+# ---
+# choiceLabel: Go to the Hendricks' office.
+# hidden: true
+# tags: location
+# ===
+
+{SetCurrentLocation("hendricks_office")}
+
+-> DONE

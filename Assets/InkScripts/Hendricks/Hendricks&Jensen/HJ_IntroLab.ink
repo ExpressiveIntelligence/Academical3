@@ -4,16 +4,26 @@ VAR haveDifficult = false
 VAR researchLook = false
 
 === HJ_INTRO_sceneStart ===
+# ---
+# choiceLabel: Start meeting with Jensen.
+# repeatable: false
+# hidden: true
+# tags: action, hendricks_office, required
+# ===
+
 {startPassthrough == false :
 
 As you sit down at your desk, you notice Jensen wandering through the library. It's been a while since you've seen him, and he notices you, so you wave as he walks over.
 
 Hendricks: "Hi Jensen, how are things?"
 
+{ShowCharacter("Jensen", "left", "")}
+
 Jensen: "Things have been alright, definitely could be better though."
 ~ startPassthrough = true
 }
 {convoOptions == 3:
+
 Jensen looks to his watch, and his eyes widen as he realizes the time.
 
 Jensen: "Oh wow, is it really that late? Sorry Professor, I gotta run, otherwise I'm going to miss my only chance to grab lunch."
@@ -25,12 +35,16 @@ Hendricks: "Alright, good seeing you Jensen."
 
 Jensen smiles and nods as he turns to leave.
 
+{HideCharacter("Jensen")}
+
 ->DONE
 
 *["Take care."]
 Hendricks: "Take care Jensen."
 
 Jensen smiles and nodes as he turns to leave.
+
+{HideCharacter("Jensen")}
 
 ->DONE
 
@@ -106,7 +120,7 @@ Jensen: "He said reviews are especially the thing to watch out for, because they
 
 === consoleOptions ===
 
-*["Of course you are."  #>> IncrementRelationshipStat Hendricks Jensen Opinion 50]
+*["Of course you are."  #>> IncrementRelationshipStat Jensen Hendricks Opinion 50]
 Hendricks: "Of course you are cut out for grad school. Self doubt would be what's holding you back there."
 
 Jensen: "That and a thousand hurdles."
@@ -117,7 +131,7 @@ Jensen: "Maybe... yeah I guess you're right."
 
 ->HJ_INTRO_sceneStart
 
-*["You don't have to do it if you don't want to." #>> DecrementRelationshipStat Hendricks Jensen Opinion -20]
+*["You don't have to do it if you don't want to." #>> DecrementRelationshipStat Jensen Hendricks Opinion -20]
 Hendricks: "You know Jensen, you don't have to go to grad school if you don't want to."
 
 Jensen: "Are you saying I shouldn't?"
@@ -149,7 +163,7 @@ Hendricks: "Neither. He's very reserved though, and can be fairly protective of 
 
 Jensen: "Okay cool. I'll definitely be figuring it out and I'll let you know how it goes."
 
-Hendrick: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
+Hendricks: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
 
 ->HJ_INTRO_sceneStart
 
@@ -162,7 +176,7 @@ Hendricks: "Well, Bronislav has a tendency to be very reserved, and can be fairl
 
 Jensen: "Noted. I'll definitely be figuring it out and I'll let you know how it goes."
 
-Hendrick: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
+Hendricks: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
 ->HJ_INTRO_sceneStart
 
 ->DONE
