@@ -104,7 +104,7 @@ Hendricks: "Thank you for your honesty. With that, would you like to be added to
 
 Praveen: "That would be immensely appreciated. I will make sure to provide good feedback. As a graduate student, I have a great deal of experience!"
 
-*[I believe this is the best option for you.]
+*[I believe this is the best option for you. #>> IncrementRelationshipStat Praveen Hendricks Opinion 15]
 
 - Hendricks: "Yes I've looked into some of your work and believe this would be the best option for you." 
 
