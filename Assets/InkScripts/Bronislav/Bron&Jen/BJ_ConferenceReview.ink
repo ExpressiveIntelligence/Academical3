@@ -43,18 +43,15 @@ VAR thinking = false
 //if positive relationship
 Jensen approaches you with a bit of excitement in his step.
 
-Jensen: “Hey Bronislav, great to see you. If you have a second, there’s something I want to ask you.”
-
+Jensen: "Hey Bronislav, great to see you. If you have a second, there’s something I want to ask you."
 //if netural relationship
 Jensen approaches you, looking slightly nervous.
 
-Jensen: “Hey Bronislav. If you have a second, there’s something I would like to ask you.”
-
+Jensen: "Hey Bronislav. If you have a second, there’s something I would like to ask you."
 //if negative relationship
 Jensen looks over to you nervously, as though he is debating something. He appears to muster up the courage to talk to you.
 
-Jensen: “Hi Bronislav, I uh… would like to ask you something, if that’s okay.”
-
+Jensen: "Hi Bronislav, I uh… would like to ask you something, if that’s okay."
 *["Sure, what's up? #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 
 ->BJS3_SureWhat
@@ -68,162 +65,145 @@ Jensen: “Hi Bronislav, I uh… would like to ask you something, if that’s ok
 ->BJS3_KindaBusy
 
 === BJS3_SureWhat ===
-Bronislav: “Sure, what’s up?” You prompt back, with a smile.
+Bronislav: "Sure, what’s up?" You prompt back, with a smile.
 
-Jensen: “I would like to ask you to reconsider adding me to the paper.”
-*[“Actually, I have been thinking about it more.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+Jensen: "I would like to ask you to reconsider adding me to the paper."*["Actually, I have been thinking about it more." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 //Bronislav: + Supportive
 ->BJS3_ActuallyIhave
 
-*[“What is your reasoning?"]
+*["What is your reasoning?"]
 ->BJS3_Reasoning
 
-*[“Not this again.” #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Not this again." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
 ->BJS3_NotThis
 
-*[“There’s nothing to reconsider.” #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["There’s nothing to reconsider." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
 //Bronislav: Petty
 ->BJS3_NothingtoReconsider
 
 === BJS3_YeahIG ===
-Bronislav: “Yeah, I guess you can.” You say with a shrug. “What’s up?”
-
-Jensen: “I want to ask you to reconsider adding me to the paper.”
-
-*[“Actually, I have been thinking about it more.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+Bronislav: "Yeah, I guess you can." You say with a shrug. "What’s up?"
+Jensen: "I want to ask you to reconsider adding me to the paper."
+*["Actually, I have been thinking about it more." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 //Bronislav: + Supportive
 ->BJS3_ActuallyIhave
 
-*[“What is your reasoning?"]
+*["What is your reasoning?"]
 ->BJS3_Reasoning
 
-*[“Not this again.” #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Not this again." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
 ->BJS3_NotThis
 
-*[“There’s nothing to reconsider.” #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["There’s nothing to reconsider." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
 //Bronislav: Petty
 ->BJS3_NothingtoReconsider
 
 === BJS3_KindaBusy ===
-Bronislav: “I’m actually kind of busy, Jensen.” You say coldly, as you try to leave.
+Bronislav: "I’m actually kind of busy, Jensen." You say coldly, as you try to leave.
 
 Jensen’s face shifts to a look of panic.
 
-Jensen: “Wait, I just wanted to ask you to reconsider adding me to the paper.”
-
-*[“Actually, I have been thinking about it more.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+Jensen: "Wait, I just wanted to ask you to reconsider adding me to the paper."
+*["Actually, I have been thinking about it more." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 //Bronislav: + Supportive
 ->BJS3_ActuallyIhave
 
-*[“What is your reasoning?"]
+*["What is your reasoning?"]
 ->BJS3_Reasoning
 
-*[“Not this again.” #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Not this again." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
 ->BJS3_NotThis
 
-*[“There’s nothing to reconsider.” #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["There’s nothing to reconsider." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
 //Bronislav: Petty
 ->BJS3_NothingtoReconsider
 
 === BJS3_ActuallyIhave ===
-Bronislav: “Actually, I have been reconsidering,” You say with a slight smile, “I think I was a bit harsh with you before.”
-
-Jensen: “Well, when I last talked with Ivy, she mentioned that she offered you a sweet job position in exchange for helping me out, but you turned that down too. I know you have some concerns, but all of this is simply friends helping friends out.”
-
-*[“I’d love to help one of my friends out.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+Bronislav: "Actually, I have been reconsidering," You say with a slight smile, "I think I was a bit harsh with you before."
+Jensen: "Well, when I last talked with Ivy, she mentioned that she offered you a sweet job position in exchange for helping me out, but you turned that down too. I know you have some concerns, but all of this is simply friends helping friends out."
+*["I’d love to help one of my friends out." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*[“I think it’s worth making an exception for you.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 ->BJS3_ExceptionforYou
 
-*[“I don’t think I can help.”]
+*["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*[“We’re not friends.” #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
 === BJS3_Reasoning ===
-Bronislav: “Why should I reconsider?”
-
+Bronislav: "Why should I reconsider?"
 You prompt, to which Jensen perks up.
 
-Jensen: “I know you are hesitant about the whole authorship thing, so I talked with Ivy. Apparently, she offered you a sweet job position in exchange for helping me, which seems like a more than generous reason to help a friend.”
-
-*[“I’d love to help one of my friends out.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+Jensen: "I know you are hesitant about the whole authorship thing, so I talked with Ivy. Apparently, she offered you a sweet job position in exchange for helping me, which seems like a more than generous reason to help a friend."
+*["I’d love to help one of my friends out." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*[“I think it’s worth making an exception for you.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 ->BJS3_ExceptionforYou
 
-*[“I don’t think I can help.”]
+*["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*[“We’re not friends.” #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
 === BJS3_NotThis ===
-Bronislav: “Not this again,”
-
+Bronislav: "Not this again,"
 You say with a groan.
 
-Bronislav: “I thought I was clear with you that I wasn’t going through with this.”
-
-Jensen: “I know you told me that you didn’t want to add me to the paper, but I talked with Ivy, and I think what she’s offering you in return for helping me is pretty generous. All of this is a simple as friends helping friends.”
-
-*[“I’d love to help one of my friends out.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+Bronislav: "I thought I was clear with you that I wasn’t going through with this."
+Jensen: "I know you told me that you didn’t want to add me to the paper, but I talked with Ivy, and I think what she’s offering you in return for helping me is pretty generous. All of this is a simple as friends helping friends."
+*["I’d love to help one of my friends out." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*[“I think it’s worth making an exception for you.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 ->BJS3_ExceptionforYou
 
-*[“I don’t think I can help.”]
+*["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*[“We’re not friends.” #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
 === BJS3_NothingtoReconsider ===
-Bronislav: “There’s nothing to reconsider.”
-
+Bronislav: "There’s nothing to reconsider."
 You scoff.
 
-Jensen: “Look, Bronislav, I know you’re feeling that way, but I talked to Ivy. Even though you turned it down, I think what she’s offering you for helping me is pretty generous. All of this is a simple as friends helping friends.”
-
-*[“I’d love to help one of my friends out.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+Jensen: "Look, Bronislav, I know you’re feeling that way, but I talked to Ivy. Even though you turned it down, I think what she’s offering you for helping me is pretty generous. All of this is a simple as friends helping friends."
+*["I’d love to help one of my friends out." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*[“I think it’s worth making an exception for you.” #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 ->BJS3_ExceptionforYou
 
-*[“I don’t think I can help.”]
+*["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*[“We’re not friends.” #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
 === BJS3_HelpAFriend ===
 {ShowCharacter("Jensen", "left", "happy")}
-Bronislav: "Well, I’d love the chance to help one of my friends out.” You say happily, “Besides, you gave me some feedback that I took into consideration.”
-
-Jensen: “Really?”
-
+Bronislav: "Well, I’d love the chance to help one of my friends out." You say happily, "Besides, you gave me some feedback that I took into consideration."
+Jensen: "Really?"
 Jensen says in awe, practically beaming.
 
-Jensen: “Thank you, thank you, thank you!”
-
-Bronislav: “Yeah, no problem.”
-
+Jensen: "Thank you, thank you, thank you!"
+Bronislav: "Yeah, no problem."
 While it is great to see Jensen so happy, you can’t shake the feeling that this is somehow a bad idea. This could end badly for both of you if you’re caught.
 
-*[“I am happy to help a friend, no matter what.”]
+*["I am happy to help a friend, no matter what."]
 ->BJS3_HappyToHelp
 
 *[ Maybe I should reconsider... #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
@@ -233,17 +213,14 @@ While it is great to see Jensen so happy, you can’t shake the feeling that thi
 
 === BJS3_ExceptionforYou ===
 {ShowCharacter("Jensen", "left", "happy")}
-Bronislav: “While I still have some reservations about all of this, I think it’s worth making an exception for you.”
-
-Jensen: “I’m so glad to hear it,”
-
+Bronislav: "While I still have some reservations about all of this, I think it’s worth making an exception for you."
+Jensen: "I’m so glad to hear it,"
 Jensen says with a smile.
 
-Jensen: “I really appreciate it Bronislav.”
-
+Jensen: "I really appreciate it Bronislav."
 While it feels great to help Jensen out, you can’t shake the feeling that this is somehow a bad idea. Your credibility could be destroyed if you’re caught.
 
-*[“I am happy to help a friend, no matter what.”]
+*["I am happy to help a friend, no matter what."]
 ->BJS3_HappyToHelp
 
 *[ Maybe I should reconsider... #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
@@ -251,18 +228,14 @@ While it feels great to help Jensen out, you can’t shake the feeling that this
 ->BJS3_Reconsider
 
 === BJS3_DontThinkICan ===
-Bronislav: “As much as I’d like to help Jensen, I am not sure that I can.”
-
+Bronislav: "As much as I’d like to help Jensen, I am not sure that I can."
 You say sympathetically.
 
-Jensen: “What do you mean? It’s as simple as adding me to the paper.”
-
+Jensen: "What do you mean? It’s as simple as adding me to the paper."
 Jensen looks genuinely confused.
 
-Bronislav: “I could, but it is not just throwing your name on a paper. I would be jeopardizing the credibility of me and my work if I did that.”
-
-Jensne: “You don’t understand, Bronislav, if I don’t get this opportunity, I can’t get into grad school. I can’t believe you’d put your own concerns over the chance to actually help me.”
-
+Bronislav: "I could, but it is not just throwing your name on a paper. I would be jeopardizing the credibility of me and my work if I did that."
+Jensne: "You don’t understand, Bronislav, if I don’t get this opportunity, I can’t get into grad school. I can’t believe you’d put your own concerns over the chance to actually help me."
 The desperation in Jensen’s voice is overwhelming. While it feels right to not add him to your paper, turning your back on someone doesn’t exactly feel good.
 
 *["That's my final decision."]
@@ -277,11 +250,10 @@ The desperation in Jensen’s voice is overwhelming. While it feels right to not
 
 === BJS3_NotFriends ===
 
-Bronislav: “We’re not friends, Jensen. You do not deserve co-authorship, and no amount of Ivy twisting my arm is going to change that.”
-
+Bronislav: "We’re not friends, Jensen. You do not deserve co-authorship, and no amount of Ivy twisting my arm is going to change that."
 Jensen looks absolutely crushed.
 
-Jensen: “There’s truly nothing that I can say to change your mind?” he says quietly.
+Jensen: "There’s truly nothing that I can say to change your mind?" he says quietly.
 
 Jensen is visibly distraught. While you have been firm in your beliefs, perhaps you’ve been too harsh.
 
@@ -295,61 +267,46 @@ Jensen is visibly distraught. While you have been firm in your beliefs, perhaps 
 ->BJS3_Reconsider
 
 === BJS3_HappyToHelp ===
-Bronislav: “I am happy to help a friend, no matter what.”
-
-Jensen: “Thank you, truly.” Jensen says as he turns to leave, “I can’t wait to tell Ivy.”
-
+Bronislav: "I am happy to help a friend, no matter what."
+Jensen: "Thank you, truly." Jensen says as he turns to leave, "I can’t wait to tell Ivy."
 {HideCharacter("Jensen")}
 // TODO: LOCK BAD TIMELINE
 ->DONE
 
 === BJS3_Reconsider ===
 {badidea == true:
-Bronislav: “Wait, Jensen…”
-
+Bronislav: "Wait, Jensen…"
 You say quietly.
 
-Bronislav: “I don’t think I can do this.”
-
-Jensen: “What do you mean?”
-
+Bronislav: "I don’t think I can do this."
+Jensen: "What do you mean?"
 Jensen asks, confused.
 
-Bronislav: “This authorship thing, it isn’t right. As much as I want to help you, I don’t think I can.”
-
-Jensen: “Even after everything you just said?”
-
+Bronislav: "This authorship thing, it isn’t right. As much as I want to help you, I don’t think I can."
+Jensen: "Even after everything you just said?"
 Jensen is starting to get choked up.
 
-Jensen: “Why would you even say all of that?”
-
-Bronislav: “Because you’re a good guy, Jensen. But just because you are doesn’t mean I can just give you authorship on this paper.”
-
+Jensen: "Why would you even say all of that?"
+Bronislav: "Because you’re a good guy, Jensen. But just because you are doesn’t mean I can just give you authorship on this paper."
 Jensen shakes his head at you and leaves the room without another word. While you probably just made the right decision, you feel guilty for giving him hope like that.
 
 // TODO: LOCK GOOD TIMELINE
 - else:
 Seeing Jensen this upset is starting to weigh on you. Perhaps you really are being unfair.
 
-Bronislav: “You know what, Jensen, I’m willing to make an exception for you, just this once.”
-
-Jensen: “Really?”
-
+Bronislav: "You know what, Jensen, I’m willing to make an exception for you, just this once."
+Jensen: "Really?"
 Jensen says, shocked.
 
-Jensen: “I don’t know what to say. You mean you will put me on the paper then?”
-
-Bronislav: “Yeah, I will put you on the paper.”
-
+Jensen: "I don’t know what to say. You mean you will put me on the paper then?"
+Bronislav: "Yeah, I will put you on the paper."
 You say with a sigh.
 
-Jensen: “Wow, I…”
-
+Jensen: "Wow, I…"
 Jensen is speechless in his relief,
 
-Jensen: “Thank you so much Bronislav.”
-
-As he turns to leave, you can hear him say “I can’t wait to tell Ivy!” The amount of excitement on Jensen’s face almost feels worth it, but this is definitely a risky decision.
+Jensen: "Thank you so much Bronislav."
+As he turns to leave, you can hear him say "I can’t wait to tell Ivy!" The amount of excitement on Jensen’s face almost feels worth it, but this is definitely a risky decision.
 
 {HideCharacter("Jensen")}
 // TODO: LOCK BAD TIMELINE
@@ -359,23 +316,19 @@ As he turns to leave, you can hear him say “I can’t wait to tell Ivy!” The
 
 === BJS3_FinalDecision ===
 {thinking == true:
-Bronislav: “That’s my final decision. I’m sorry, but that’s how it has to be.”
-
+Bronislav: "That’s my final decision. I’m sorry, but that’s how it has to be."
 You say apologetically.
 
-Jensen: “I don’t understand why you insist on being this way, Bronislav. It hurts, like really hurts.”
-
+Jensen: "I don’t understand why you insist on being this way, Bronislav. It hurts, like really hurts."
 Jensen says as he leaves the room.
 
 While you don’t like letting him down like this, it is important that he learns you can’t be bought.
 
 - else:
-Bronislav: “That’s my final decision,”
-
+Bronislav: "That’s my final decision,"
 You say heatedly.
 
-Bronislav: “And if you’re expecting sympathy for making such a ridiculous ask, you’re out of line.”
-
+Bronislav: "And if you’re expecting sympathy for making such a ridiculous ask, you’re out of line."
 
 Jensen hangs his head, utterly ashamed, and leaves as quickly as he can. You are determined to stick to your beliefs, no matter the cost.
 
