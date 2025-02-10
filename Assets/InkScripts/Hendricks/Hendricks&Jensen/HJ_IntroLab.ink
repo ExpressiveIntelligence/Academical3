@@ -11,6 +11,8 @@ VAR researchLook = false
 # tags: action, hendricks_office, required
 # ===
 
+{DbInsert("Seen_HJINTRO")}
+
 {startPassthrough == false :
 
 As you sit down at your desk, you notice Jensen wandering through the library. It's been a while since you've seen him, and he notices you, so you wave as he walks over.
