@@ -1,6 +1,6 @@
 === BI_CONFERENCE_SceneStart ===
 # ---
-# choiceLabel: Talk with Ivy
+# choiceLabel: Talk with Ivy about the deal.
 # hidden: true
 # repeatable: false
 # tags: action, student_cubes, auxiliary

@@ -1,6 +1,6 @@
 === have_coffee_with_ivy ===
 #---
-# choiceLabel: Have coffee with ivy
+# choiceLabel: Have coffee with Ivy
 # @query
 # not givenQuidProQuo
 # metJensen

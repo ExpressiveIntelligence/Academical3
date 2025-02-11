@@ -1,6 +1,6 @@
 === BI_IRB_SceneStart ===
 #---
-# choiceLabel: Talk with Ivy.
+# choiceLabel: Talk with Ivy about the IRB review
 # @query
 # not givenQuidProQuo
 # metJensen

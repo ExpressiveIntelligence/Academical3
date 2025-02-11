@@ -1,9 +1,9 @@
 VAR hello = false
 VAR apology = true
 
-=== BI_S7_SceneStart ===
+=== BI_S6_SceneStart ===
 # ---
-# choiceLabel: Talk with Ivy
+# choiceLabel: Console Ivy at her desk
 # hidden: true
 # repeatable: false
 # tags: action, student_cubes, auxiliary
@@ -11,7 +11,7 @@ VAR apology = true
 
 {ShowCharacter("Ivy", "left", "")}
 
-{DbInsert("Seen_BI_S7")}
+{DbInsert("Seen_BI_S6")}
 
 As you walk over to the cubicles, you notice Ivy hunched over at her desk.
 

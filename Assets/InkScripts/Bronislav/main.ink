@@ -37,7 +37,7 @@ INCLUDE ./Bron&Jen/BJ_ConferenceReview.ink
 INCLUDE ./Bron&Ivy/BI_ConferenceSubmission.ink
 INCLUDE ./Bron&Ivy/BI_Introduction.ink
 INCLUDE ./Bron&Ivy/BI_IRBReview.ink
-INCLUDE ./Bron&Ivy/BI_Socializing7.ink
+INCLUDE ./Bron&Ivy/BI_Socializing6.ink
 INCLUDE ./Bron&Ivy/BI_Conference.ink
 INCLUDE ./Bron&Ivy/BI_ReviewPeriod.ink
 INCLUDE ./Bron&Ivy/BI_Socializing3.ink
