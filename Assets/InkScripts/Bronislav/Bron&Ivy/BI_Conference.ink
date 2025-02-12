@@ -5,7 +5,7 @@
 // Questioning if what he did was right/wrong 
 
 VAR BI_C_negativeNelly = false
-
+//{DB_Insert{
 === conference_hall ===
 #---
 # choiceLabel: Go to the conference hall
