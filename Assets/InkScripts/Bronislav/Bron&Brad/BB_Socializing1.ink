@@ -309,6 +309,7 @@ Brad: "Uhm... well I've got to go... See you Bronislav."
 
 He leaves without another word.
 
+{HideCharacter(“Brad”)}
 ->DONE
 
 === BB_S1_WhateverYouSay ===
@@ -324,6 +325,7 @@ Brad: "I'll... see you later Bronislav. Bye."
 
 He hastily leaves.
 
+{HideCharacter(“Brad”)}
 ->DONE
 
 === BB_S1_Jensen ===
@@ -399,6 +401,7 @@ Bronislav: "I'll see you later Brad, talk soon!"
 
 Brad waves goodbye and walks out.
 
+{HideCharacter(“Brad”)}
 ->DONE
 
 === BB_S1_GoodLuck ===
@@ -406,4 +409,5 @@ Bronislav: "Good luck Brad, hope you hear from them soon."
 
 Brad gives a thumbs up and waves goodbye to you.
 
+{HideCharacter(“Brad”)}
 ->DONE
