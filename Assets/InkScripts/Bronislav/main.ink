@@ -28,6 +28,7 @@ INCLUDE ../helpers.ink
 INCLUDE ./locations.ink
 INCLUDE ./actions.ink
 INCLUDE ./Bron&Hendricks/BH_Socializing1.ink
+INCLUDE ./Bron&Hendricks/BH_Socializing2.ink
 INCLUDE ./Bron&Jen/BJ_Introduction.ink
 INCLUDE ./Bron&Jen/BJ_Socializing3.ink
 INCLUDE ./Bron&Jen/BJ_Socializing5.ink

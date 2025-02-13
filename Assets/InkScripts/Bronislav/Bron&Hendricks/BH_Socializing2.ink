@@ -1,41 +1,19 @@
-=== BHS1_Hint ===
-
-After your presentation, one of your professors, Hendricks, reached out to you to talk about your progress.
-
-You agreed to meet her at the library if she had time.
-
-// Setting the following flag unlocks the BHS1 conversation
-{DbInsert("BHS1_unlocked")}
-
-// ![Note]: Below is some new syntax I'm trying out
-// for interfacing with the C# back-end. The code
-// below is intended to signal to the quest system
-// to initialize the quest with ID of "bron_hendricks_convo"
-// This same functionality could be accomplished with an
-// external function call, but plain text doesn't run the
-// risk of breaking anything.
-//
-// >>> StartQuest: bron_hendricks_convo
-// OR
-// {StartQuest("bron_hendricks_convo")}
-
-->DONE
-
-=== BHS1_sceneStart ===
+// Author: Ivy Dudzik
+=== BHS2_sceneStart ===
 # ---
-# choiceLabel: Wait for Hendricks to arrive.
+# choiceLabel: Meet with Hendricks.
 # @query
-# BHS1_unlocked
+# Seen_BHS1
 # @end
 # tags: action, library, auxiliary
 # repeatable: false
 # ===
 
-{DbInsert("Seen_BHS1")}
+Hendricks lets out a sigh as she sits next to you, surely coming from a boring meeting or a long talk with a student. She smiles gently as she turns her full attention to Bronislav.
 
-She sits down at your table, setting down her bag next to her.
+// {DbInsert("Seen_BHS2")}
 
-{ShowCharacter("Hendricks", "left", "")}
+// {ShowCharacter("Hendricks", "left", "")}
 
 *["How are you doing?"]
 ->BHS1_HowAreYou
@@ -132,7 +110,7 @@ Hendricks: "Well, I'll have to wish you the best of luck with that then. Glad to
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 ->DONE
 
@@ -143,7 +121,7 @@ Hendricks: "You could say that again. Glad to hear everything's going well Broni
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 -> DONE
 
@@ -171,7 +149,7 @@ Hendricks: "Any time Bronislav. I've got to head out now, but I'm sure we'll be 
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 -> DONE
 
@@ -182,7 +160,7 @@ Hendricks: "I see you haven't changed much Bronislav. Hope to talk to you later.
 
 She laughs kindly and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 ->DONE
 
@@ -207,7 +185,7 @@ Hendricks: "You've got me there Bronislav. Then I suppose I shouldn't bother you
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 -> DONE
 
@@ -239,7 +217,7 @@ Hendricks: "Well I'd have to wish you the best of luck on that endeavour Bronisl
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 ->DONE
 
@@ -250,7 +228,7 @@ Hendricks: "I suppose that's what makes it complicated. I've got to head out now
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 ->DONE
 
@@ -261,6 +239,6 @@ Hendricks: "Alright, well if you need anything from me, feel free to reach out t
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
-{HideCharacter("Hendricks")}
+// {HideCharacter("Hendricks")}
 
 ->DONE
