@@ -3,6 +3,7 @@
 # choiceLabel: Talk to Jensen
 # @query
 # Seen_BJ_CONF
+# date.day!3
 # @end
 # repeatable: false
 # tags: action, cafe, auxiliary

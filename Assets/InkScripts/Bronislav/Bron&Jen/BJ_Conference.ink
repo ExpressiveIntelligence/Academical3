@@ -3,6 +3,7 @@
 # choiceLabel: Talk to Jensen
 # @query
 # Seen_BJ_INTRO
+# date.day!5
 # @end
 # repeatable: false
 # tags: action, student_cubes, required

@@ -13,6 +13,7 @@ library after ... <TODO:: WHEN DOES THIS HAPPEN??>.
 # @query
 # IvyDealAccepted
 # Seen_BJS3
+# date.day!5
 # @end
 # hidden: true
 # tags: action, library, auxiliary

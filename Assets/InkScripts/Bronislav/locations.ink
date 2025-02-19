@@ -74,10 +74,6 @@ EXTERNAL SetCurrentLocation(locationId)
 
 {SetCurrentLocation("lecture_hall")}
 
-{action_selection_tutorial == 0:
-  ->action_selection_tutorial
-}
-
 -> DONE
 
 
@@ -101,5 +97,23 @@ EXTERNAL SetCurrentLocation(locationId)
 # ===
 
 {SetCurrentLocation("hendricks_office")}
+
+-> DONE
+
+
+=== conference_hall ===
+#---
+# choiceLabel: Go to the conference hall.
+# hidden: true
+# tags: location
+#===
+
+{SetCurrentLocation("conference_hall")}
+
+-> DONE
+: location
+#===
+
+{SetCurrentLocation("conference_hall")}
 
 -> DONE

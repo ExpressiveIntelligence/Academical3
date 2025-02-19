@@ -5,6 +5,9 @@ VAR apology = true
 # ---
 # choiceLabel: Console Ivy at her desk
 # hidden: true
+# @query
+# date.day!6
+# @end
 # repeatable: false
 # tags: action, student_cubes, auxiliary
 # ===
