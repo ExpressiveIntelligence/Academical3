@@ -186,7 +186,7 @@ Praveen: "I really wish Hendricks would ask me to help with the conference. I ha
 ->BP_Socializing2_Suggestion
 
 === BP_Socializing2_HendricksHelpful ===
-Bronislav: "Hendricks has been nothing but helpful to me, Praveen. I'm not sure what you're issue is, but maybe its a bit unfounded."
+Bronislav: "Hendricks has been nothing but helpful to me, Praveen. I'm not sure what you're issue is, but maybe it's a bit unfounded."
 
 Praveen: "I don't have an issue with her..."
 
