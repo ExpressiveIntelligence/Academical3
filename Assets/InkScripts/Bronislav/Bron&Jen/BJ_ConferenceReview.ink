@@ -7,6 +7,7 @@ VAR thinking = false
 # choiceLabel: Talk to Jensen
 # @query
 # BJS3_unlocked
+# date.day!4
 # @end
 # repeatable: false
 # tags: action, student_cubes

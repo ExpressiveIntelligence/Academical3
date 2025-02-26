@@ -2,7 +2,11 @@
 
 === BIS3_SceneStart ===
 # ---
-# choiceLabel: Talk to Ivy about socializing 3.
+# choiceLabel: Go to your desk.
+# @query
+# Seen_BI_CONF
+# date.day!3
+# @end
 # hidden: true
 # repeatable: false
 # tags: action, required, student_cubes

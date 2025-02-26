@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b6985baddc040c8af405baedaf4914, type: 3}
+  m_Name: QuidProQuo
+  m_EditorClassIdentifier: 
+  id: quid_pro_quo
+  title: What is a quid pro quo?
+  slides:
+  - text: 'A "quid pro quo" is used to describe situations where people exchange
+      goods or services, but the exchange is contigent on one party perforing their
+      potion of the exchange first.
+
+
+      Often quid pro quos situations should
+      be avoided as they blah blah blah bad stuff.'
