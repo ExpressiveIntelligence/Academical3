@@ -42,6 +42,7 @@ INCLUDE ./Bron&Ivy/BI_Socializing7.ink
 INCLUDE ./Bron&Ivy/BI_Conference.ink
 INCLUDE ./Bron&Ivy/BI_ReviewPeriod.ink
 INCLUDE ./Bron&Ivy/BI_Socializing3.ink
+INCLUDE ./Bron&Ned/BN_Socializing1.ink
 
 
 EXTERNAL DbInsert(statement)
