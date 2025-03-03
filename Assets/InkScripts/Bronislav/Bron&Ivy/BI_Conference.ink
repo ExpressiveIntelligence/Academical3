@@ -6,7 +6,6 @@
 
 VAR BI_C_negativeNelly = false
 
-
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL (positive relationship)
 // TODO: Add decisions based on whether or not you accepted Ivy's deal, relationship status
 === BI_Conference_SceneStart ===
