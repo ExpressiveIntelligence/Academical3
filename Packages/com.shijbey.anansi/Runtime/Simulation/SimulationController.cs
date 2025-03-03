@@ -139,7 +139,18 @@ namespace Anansi
 		public void TickTime()
 		{
 			m_dateTime.AdvanceTime();
+			UpdateTimeInDatabase();
 
+		}
+
+		public void AdvanceToNextDay()
+		{
+			m_dateTime.AdvanceToNextDay();
+			UpdateTimeInDatabase();
+		}
+
+		private void UpdateTimeInDatabase()
+		{
 			DB.Insert(
 				$"date.time_of_day!{Enum.GetName( typeof( TimeOfDay ), m_dateTime.TimeOfDay )}" );
 			DB.Insert(

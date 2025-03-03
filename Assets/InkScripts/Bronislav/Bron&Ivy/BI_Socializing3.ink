@@ -1,22 +1,21 @@
-=== student_cubes ===
-#---
-# choiceLabel: Go to the student cubicles.
-# hidden: true
-# tags: location
-#===
-
-{SetCurrentLocation("student_cubes")}
-
-->SceneStart
-
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL
 
-=== SceneStart ===
+=== BIS3_SceneStart ===
+# ---
+# choiceLabel: Go to your desk.
+# @query
+# Seen_BI_CONF
+# date.day!3
+# @end
+# hidden: true
+# repeatable: false
+# tags: action, required, student_cubes
+# ===
 
 As you walk towards your desk, you notice that Ivy steps into your path.
 
 *["Hey Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
-Bronislav: "Hey Ivy." 
+Bronislav: "Hey Ivy."
 
 You say as you stop in front of her.
 
@@ -42,7 +41,7 @@ Bronislav: "Uh.. hi... Ivy."
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 
 // if you were receptive of the offer
-Ivy: "Oh?" 
+Ivy: "Oh?"
 
 Ivy seems surprised.
 
@@ -60,14 +59,14 @@ Ivy: "Why so cold all of a sudden?"
 ->WhyShouldIHelp
 
 *["Excuse me, Ivy." #>> DecrRelationshipStat Ivy Bronislav Opinion -50]
-Bronislav: "Excuse me, Ivy." 
+Bronislav: "Excuse me, Ivy."
 
 You try to deliberately move around her to your desk.
 
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 // if you were receptive of the offer
 
-Ivy: "Oh?" 
+Ivy: "Oh?"
 
 Ivy seems surprised.
 
@@ -99,9 +98,9 @@ Ivy: "Oh, sorry. I won't take up too much of your time then, I just thought abou
 *["I'm not sure I'm comfortable with talking."]
 Bronislav: "I'm honestly not sure I'm comfortable talking with you right now. I know I said I was potentially interested in taking your offer, but my gut is telling me this is all a bad idea."
 
-Ivy: "Oh, well... I wasn't exactly expecting that..." 
+Ivy: "Oh, well... I wasn't exactly expecting that..."
 
-Ivy now looks nervous. 
+Ivy now looks nervous.
 
 Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should definitely help Jensen."
 
@@ -121,7 +120,7 @@ Ivy: "Real mature Bronislav."
 === WhyShouldIHelp ===
 Bronislav: "Okay, you have my attention, why should I help Jensen?"
 
-Ivy: "Well, in thinking about it more, you and I both know how hard it is to get into grad school. We both know how difficult it is to get in, especially without taking part in research like you're engaged in. But, I realized this extends into getting a job in our field after school. 
+Ivy: "Well, in thinking about it more, you and I both know how hard it is to get into grad school. We both know how difficult it is to get in, especially without taking part in research like you're engaged in. But, I realized this extends into getting a job in our field after school.
 
 Ivy: "I've heard so many horror stories about the whole process, and I am realizing that having an in like the one I'm offering not only would be a testimate to your hard work, but it gives you security for your future going forward. You're not only helping Jensen through what we both know is a difficult situation, but you are helping yourself have a plan for post graduation."
 
@@ -138,7 +137,7 @@ Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -159,7 +158,7 @@ Ivy: "Of course, I'll leave you to it."
 
 Ivy turns and leaves the room.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -176,7 +175,7 @@ Ivy: "Okay, no problem, I'll leave you to it. Just please think about it, becaus
 
 Ivy leaves you to your work.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -195,7 +194,7 @@ Ivy: "Mature, Bronislav, really mature."
 
 She shoots you an annoyed look as she walks past you out of the room.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -219,7 +218,7 @@ Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -228,7 +227,7 @@ Bronislav: "Yeah, I guess you're right, Ivy."
 
 Ivy: "Of course I am. When have I ever not been on the mark?"
 
-Bronislav: "Yeah, I guess so. I'll have to see about helping Jensen. 
+Bronislav: "Yeah, I guess so. I'll have to see about helping Jensen.
 
 You move to sit down at your desk.
 
@@ -238,7 +237,7 @@ Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -259,7 +258,7 @@ Ivy:"Of course, I'll leave you to it."
 
 She heads out of the office.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -270,6 +269,6 @@ Ivy: "But clearly, you're more invested in whatever work is waiting for you at y
 
 Ivy walks out of the office before you can say anything else.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE

@@ -57,6 +57,12 @@ namespace Academical
 		/// </summary>
 		public DialogueManager DialogueManager => m_dialogueManager;
 
+		public Character Player => m_Player;
+
+		public Location CurrentLocation => m_CurrentLocation;
+
+		public SimDateTime CurrentDate => m_simulationController.DateTime;
+
 		#endregion
 
 		private void Awake()
@@ -495,6 +501,22 @@ namespace Academical
 				(float delaySeconds) =>
 				{
 					GameEvents.OnFadeFromBlack( delaySeconds );
+				}
+			);
+
+			story.BindExternalFunction(
+				"ShowInfoDialog",
+				(string dialogId) =>
+				{
+					GameEvents.InfoDialogShown?.Invoke( dialogId );
+				}
+			);
+
+			story.BindExternalFunction(
+				"AdvanceDay",
+				() =>
+				{
+					m_simulationController.AdvanceToNextDay();
 				}
 			);
 		}

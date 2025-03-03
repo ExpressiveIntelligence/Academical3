@@ -10,23 +10,18 @@ As Bronislav, you must chose how to approach this situation.
 
 */
 
-=== action_selection_tutorial ===
-
-Today you have to give a presentation to the department.
-
-Select the "Choose Action" button in the interaction bar to see what actions are available at your current location.
-
--> DONE
-
 === BJIntro_bron_and_jen_intro ===
 # ---
 # choiceLabel: Give presentation
 # @query
 # not metJensen
+# date.day!1
 # @end
 # repeatable: false
 # tags: action, lecture_hall, required
 # ===
+
+{DbInsert("Seen_BJ_INTRO")}
 
 Today you have the honor of presenting a practice paper talk at the weekly department seminar.
 
@@ -43,8 +38,7 @@ Jensen: "Bronislav, right? Nice to meet you. I'm Jensen." {ShowCharacter("Jensen
 He extends his hand for you to shake.
 
 *[Shake his hand.] Bronislav: "Nice to meet you too, Jensen."
-
-->BJIntro_ShakeHand
+    ->BJIntro_ShakeHand
 
 === BJIntro_ShakeHand ===
 Jensen smiles.
@@ -53,34 +47,22 @@ Jensen: "I just wanted to talk to you about your presentation and some feedback 
 
 He pulls out a small notebook.
 
-// The line below has emotional nuance that isn't being captured in Bronislav's actions
-// Clearly he's not pleased about the prospect of feedback. Do we need to describe his internal
-// thought process while pullout out the notebook
 *["Oh, fantastic."] You reluctantly pull out your own notebook.
-
-->BJIntro_Notebook
+    ->BJIntro_Notebook
 
 === BJIntro_Notebook ===
 Jensen: "I liked how you presented your information for the first half, but I became really confused about halfway through."
 
 Jensen: "I also thought that you could have presented your evidence better, and had a stronger conclusion."
 
-*["Yes, of course." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
-// Jensen: +Hopeful
-// Bronislav: +Supportive
-
-->BJIntro_WriteDown
+*["Yes, of course." #>> ChangeOpinion Jensen Bronislav ++]
+    ->BJIntro_WriteDown
 
 *["Could you tell me a little more?"]
-// Jensen: +Growth Mindset
-// Bronislav: +Supportive
-->BJIntro_MoreInfo
+    ->BJIntro_MoreInfo
 
-*["This has to be your first time at a meeting like this isn't it."#>> DecrRelationshipStat Jensen Bronislav Opinion -50]
-// Jensen: +Ashamed
-// Bronislav: +Petty
-
-->BJIntro_FirstTime
+*["This has to be your first time at a meeting like this isn't it."#>> ChangeOpinion Jensen Bronislav --]
+    ->BJIntro_FirstTime
 
 === BJIntro_WriteDown ===
 {ShowCharacter("Jensen", "left", "hopeful")}
@@ -134,7 +116,9 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 
 === BJIntro_mention_cafe_with_ivy ===
 
-Bronislav: Glad that's done. I should head over to the cafe to meet Ivy.
+Bronislav: Glad that's done.
+
+You check the time on your phone. You promised to meet your labmate Ivy for coffee later at the cafe.
 
 ->BHS1_Hint->
 

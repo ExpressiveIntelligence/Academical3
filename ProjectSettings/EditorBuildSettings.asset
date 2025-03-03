@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 6415d45a7037a42919ef91d1230f43a9
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 133636814bf4e4421a7bd016a8682e72
+    path: Assets/Scenes/Bronislav_Base.unity
+    guid: 273c478598f96474a802672a569a146f
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 00b503e6b23af4c71b40760b2e77e76b
+    path: Assets/Scenes/Hendricks_Base.unity
+    guid: daf4b8aa548844b7580d9c5e83022dc8
+  - enabled: 1
+    path: Assets/Scenes/Bronislav_Experimental.unity
+    guid: b088b55af29d347f2808aad63b8edfd6
   m_configObjects: {}

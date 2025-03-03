@@ -27,6 +27,20 @@ namespace Academical
 		[Tooltip( "Sounds played when the player fails at something." )]
 		[SerializeField] private AudioClip m_FailureSound;
 
+		public static AudioManager Instance { get; private set; }
+
+		private void Awake()
+		{
+			if ( Instance == null )
+			{
+				Instance = this;
+			}
+			else
+			{
+				Destroy( this );
+			}
+		}
+
 		private void Start()
 		{
 			GameSettings gameSettings = SettingsManager.Settings;
@@ -54,15 +68,13 @@ namespace Academical
 		// return an AudioMixerGroup by name
 		public static AudioMixerGroup GetAudioMixerGroup(string groupName)
 		{
-			AudioManager audioManager = FindObjectOfType<AudioManager>();
-
-			if ( audioManager == null )
+			if ( Instance == null )
 				return null;
 
-			if ( audioManager.m_MainAudioMixer == null )
+			if ( Instance.m_MainAudioMixer == null )
 				return null;
 
-			AudioMixerGroup[] groups = audioManager.m_MainAudioMixer.FindMatchingGroups( groupName );
+			AudioMixerGroup[] groups = Instance.m_MainAudioMixer.FindMatchingGroups( groupName );
 
 			foreach ( AudioMixerGroup match in groups )
 			{
@@ -70,7 +82,6 @@ namespace Academical
 					return match;
 			}
 			return null;
-
 		}
 
 		// convert linear value between 0 and 1 to decibels
@@ -168,10 +179,15 @@ namespace Academical
 
 			AudioSource source = sfxInstance.AddComponent<AudioSource>();
 			source.clip = clip;
-			source.Play();
 
+#if UNITY_WEBGL
+			source.volume = GetVolume( k_SfxGroup + k_Parameter );
+#else
 			// set the mixer group (e.g. music, sfx, etc.)
 			source.outputAudioMixerGroup = GetAudioMixerGroup( k_SfxGroup );
+#endif
+
+			source.Play();
 
 			// destroy after clip length
 			Destroy( sfxInstance, clip.length );

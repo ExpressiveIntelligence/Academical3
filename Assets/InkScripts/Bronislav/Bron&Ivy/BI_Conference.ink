@@ -1,25 +1,23 @@
 // Ivy Conference
-// [MANDATORY] Ivy: 
-// Recommends or rejects Bronislav 
-// Reflection of decisions up to this point 
-// Questioning if what he did was right/wrong 
+// [MANDATORY] Ivy:
+// Recommends or rejects Bronislav
+// Reflection of decisions up to this point
+// Questioning if what he did was right/wrong
 
 VAR BI_C_negativeNelly = false
-//{DB_Insert{
-=== conference_hall ===
-#---
-# choiceLabel: Go to the conference hall
-# hidden: true
-# tags: location
-#===
-
-{SetCurrentLocation("conference_hall")}
-
-->BI_Conference_SceneStart
 
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL (positive relationship)
 // TODO: Add decisions based on whether or not you accepted Ivy's deal, relationship status
 === BI_Conference_SceneStart ===
+# ---
+# choiceLabel: Ivy Conference
+# hidden: true
+# @query
+# date.day!5
+# @end
+# repeatable: false
+# tags: action, lecture_hall, required
+# ===
 
 You notice Ivy at the conference and decide to approach her.
 
@@ -88,7 +86,7 @@ Ivy: "Actually, I'd need to think about that more, I'll get back to you on that.
 
 Ivy smiles as she remembers something.
 
-Ivy: "Speaking of getting back to you, I talked to my uncle for you." 
+Ivy: "Speaking of getting back to you, I talked to my uncle for you."
 
 Bronislav: "Did you? How'd it go?"
 
@@ -135,7 +133,7 @@ Ivy: "Ouch, pretentious much."
 
 Ivy rolls her eyes at you.
 
-Ivy: "I, believe it or not, have been enjoying this conference." 
+Ivy: "I, believe it or not, have been enjoying this conference."
 
 Bronislav: "Could have fooled me. You looked bored out of your mind, hence why I thought I'd come over for a chat."
 
@@ -287,7 +285,7 @@ Ivy: "Ouch, pretentious much."
 
 Ivy rolls her eyes at you.
 
-Ivy: "I, believe it or not, have been enjoying this conference." 
+Ivy: "I, believe it or not, have been enjoying this conference."
 
 Bronislav: "Could have fooled me. You looked bored out of your mind, hence why I thought I'd come over for a chat."
 
@@ -308,7 +306,7 @@ As you stand near Ivy, your mind keeps wandering back to the deal. While it surp
 
 
 === BI_C_WantedToSayHi ===
-Bronislav: "Is it a crime to just want to say hello now?" 
+Bronislav: "Is it a crime to just want to say hello now?"
 
 Ivy: "No, I guess not. It's just... you seem like you don't like me very much, and maybe you have reason to, but yeah, that's why I'm surprised you even want to talk."
 
@@ -396,7 +394,7 @@ Ivy looks completely stunned.
 
 Ivy: "What do you mean? I spoke super highly of you, your work, and your research, and he was very impressed. Why wouldn't you want me to do that?"
 
-Bronislav: "Maybe I would appreciate it more under different circumstances, but this... it's just not sitting right with me at all. I appreciate the gesture, but this all feels so wrong. 
+Bronislav: "Maybe I would appreciate it more under different circumstances, but this... it's just not sitting right with me at all. I appreciate the gesture, but this all feels so wrong.
 
 Ivy: "Or maybe you could just say thank you and move on Bronislav? Would it kill you to be grateful for once? Nobody cares about what you have to do to get a job, they just care whether or not you have one. You now have one, a real, prestigious job."
 
@@ -408,7 +406,7 @@ Bronislav: "I regret putting myself in this situation to begin with. That's wher
 
 You turn to walk away from Ivy, before she can say anything else.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -425,7 +423,7 @@ Ivy: "Oh, looks like they're calling me. I gotta go for now but talk to you soon
 
 Bronislav: "Yeah, see you Ivy."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -466,7 +464,7 @@ Ivy: "I hope it all works out for you. I gotta go for now, but see you around."
 
 Bronislav: "Yeah, see you Ivy."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -509,7 +507,7 @@ Bronislav: "Well, it was good talking with you Ivy. I'm going to check out a few
 
 Ivy: "Yeah you too Bronislav. Take care."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -528,7 +526,7 @@ Bronislav: "Well, I'm glad I could talk with you some more, Ivy. I'm going to ch
 
 Ivy: "Yeah, okay... take care."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 ->DONE
 
@@ -550,7 +548,7 @@ Ivy lowers her head, trying to hide her shame.
 
 Ivy: "Yeah, I know that now... I think I'm going to go."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 Ivy walks away before you can say any more to her.
 
@@ -584,7 +582,7 @@ Ivy: "Alright, there's a talk I'm going to head off to now, but see you around B
 
 Bronislav: "Okay, see you."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 While you know that you aren't fully comfortable with being friends with Ivy, you find some reassurance in the fact that she wants to make things right. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. For now, you just need to give the whole thing some space.
 
@@ -602,7 +600,7 @@ Ivy: "Alright, there's a talk I'm going to head off to now, but see you around B
 
 Bronislav: "Okay, see you."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 While you know that you aren't fully comfortable with being friends with Ivy, you find some reassurance in the fact that she wants to make things right. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. For now, you just need to give the whole thing some space.
 
@@ -649,7 +647,7 @@ Ivy: "I appreciate that Bronislav. Now, if you don't mind, I'm going to head off
 
 Bronislav: "Yeah, no problem, see you around."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 While this certainly hasn't been the cleanest resolution to the whole situation, the important thing is that you are setting boundaries with Ivy so you don't have go through something like this again in the future. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. For now, you just need to give the whole thing some space.
 
@@ -664,7 +662,7 @@ Ivy: "Okay, Bronislav, be that way. It's sad that I'm the only one who can be a 
 
 Ivy turns and leaves without another word.
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 While this certainly hasn't been the cleanest resolution to the whole situation, the important thing is that Ivy learns she can't force people to do things, even if she has an incentive. At this point, you're more concerned about preserving your integrity than associating with someone who wants to use your research for someone else's benefit like she tried to.
 
@@ -679,7 +677,7 @@ Ivy looks absolutely apalled.
 
 Ivy: "My intentions were good, and I was just trying to help a friend, but if you are really this heartless, then I have nothing more to say to you. Goodbye, Bronislav."
 
-{HideCharacter(“Ivy”)}
+{HideCharacter("Ivy")}
 
 Ivy turns and storms off before you can say another word.
 

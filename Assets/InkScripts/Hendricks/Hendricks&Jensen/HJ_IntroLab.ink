@@ -1,31 +1,31 @@
-=== start ===
-#---
-#===
--> library
-
-=== library ===
-#---
-# choiceLabel: Go to the library.
-# hidden: true
-# tags: location
-#===
 VAR startPassthrough = false
 VAR convoOptions = 0
 VAR haveDifficult = false
 VAR researchLook = false
-->sceneStart
 
-=== sceneStart ===
+=== HJ_INTRO_sceneStart ===
+# ---
+# choiceLabel: Start meeting with Jensen.
+# repeatable: false
+# hidden: true
+# tags: action, hendricks_office, required
+# ===
+
+{DbInsert("Seen_HJINTRO")}
+
 {startPassthrough == false :
 
 As you sit down at your desk, you notice Jensen wandering through the library. It's been a while since you've seen him, and he notices you, so you wave as he walks over.
 
 Hendricks: "Hi Jensen, how are things?"
 
+{ShowCharacter("Jensen", "left", "")}
+
 Jensen: "Things have been alright, definitely could be better though."
 ~ startPassthrough = true
 }
 {convoOptions == 3:
+
 Jensen looks to his watch, and his eyes widen as he realizes the time.
 
 Jensen: "Oh wow, is it really that late? Sorry Professor, I gotta run, otherwise I'm going to miss my only chance to grab lunch."
@@ -37,12 +37,16 @@ Hendricks: "Alright, good seeing you Jensen."
 
 Jensen smiles and nods as he turns to leave.
 
+{HideCharacter("Jensen")}
+
 ->DONE
 
 *["Take care."]
 Hendricks: "Take care Jensen."
 
 Jensen smiles and nodes as he turns to leave.
+
+{HideCharacter("Jensen")}
 
 ->DONE
 
@@ -71,7 +75,7 @@ Jensen: "Fortunately I don't have any tough classes this time around. That's hon
 
 Hendricks: "I see..."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
 === gradSchool ===
 {haveDifficult == true:
@@ -86,9 +90,9 @@ Hendricks: "I see..."
 Jensen lets out a sharp sigh.
 
 {researchLook == true:
-    Jensen: "Yeah that's the main reason I need the research in the first place. It's really tough because <> 
+    Jensen: "Yeah that's the main reason I need the research in the first place. It's really tough because <>
 - else:
-    Jensen: "I have. <> 
+    Jensen: "I have. <>
 }
 
 I actually just finished talking with Praveen about this too and his experience is making me doubt my chances to say the least."
@@ -118,7 +122,7 @@ Jensen: "He said reviews are especially the thing to watch out for, because they
 
 === consoleOptions ===
 
-*["Of course you are."  #>> IncrementRelationshipStat Hendricks Jensen Opinion 50]
+*["Of course you are."  #>> IncrementRelationshipStat Jensen Hendricks Opinion 50]
 Hendricks: "Of course you are cut out for grad school. Self doubt would be what's holding you back there."
 
 Jensen: "That and a thousand hurdles."
@@ -127,9 +131,9 @@ Hendricks: "If it was easy, everyone would go to grad school. But just beacuse s
 
 Jensen: "Maybe... yeah I guess you're right."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
-*["You don't have to do it if you don't want to." #>> DecrementRelationshipStat Hendricks Jensen Opinion -20]
+*["You don't have to do it if you don't want to." #>> DecrementRelationshipStat Jensen Hendricks Opinion -20]
 Hendricks: "You know Jensen, you don't have to go to grad school if you don't want to."
 
 Jensen: "Are you saying I shouldn't?"
@@ -138,7 +142,7 @@ Hendricks: "No, but I am saying its not the only path to succuess. Plenty of oth
 
 Jensen: "Well, grad school is what's best for me professor, whether you agree or not."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
 === researchInvolvement ===
 ~ researchLook = true
@@ -161,9 +165,9 @@ Hendricks: "Neither. He's very reserved though, and can be fairly protective of 
 
 Jensen: "Okay cool. I'll definitely be figuring it out and I'll let you know how it goes."
 
-Hendrick: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
+Hendricks: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
 
-->sceneStart
+->HJ_INTRO_sceneStart
 
 *["Could be a good place to start."]
 Hendricks: "Huh, could be a good place to start."
@@ -174,7 +178,7 @@ Hendricks: "Well, Bronislav has a tendency to be very reserved, and can be fairl
 
 Jensen: "Noted. I'll definitely be figuring it out and I'll let you know how it goes."
 
-Hendrick: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
-->sceneStart
+Hendricks: "Yeah, I actually didn't know that he was working on a paper, I'll have to ask him more about that."
+->HJ_INTRO_sceneStart
 
 ->DONE
