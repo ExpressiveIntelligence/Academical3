@@ -54,7 +54,6 @@ namespace Academical
 		private void OnScenarioSelectButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuManager.Instance.ShowScenarioSelectionScreen();
 		}
 
 		private void OnLoadGameButtonClicked()
@@ -65,13 +64,11 @@ namespace Academical
 		private void OnSettingsButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuManager.Instance.ShowSettingsScreen();
 		}
 
 		private void OnCreditsButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuManager.Instance.ShowCreditsScreen();
 		}
 
 		private void OnExitButtonClicked()
