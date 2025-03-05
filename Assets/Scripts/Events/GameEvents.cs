@@ -6,6 +6,11 @@ namespace Academical
 {
 	public static class GameEvents
 	{
+		/// <summary>
+		/// Invoked by the GameManager at the start of the game.
+		/// </summary>
+		public static Action OnStoryStart;
+
 		public static Action QuestsViewShown;
 
 		public static Action ActionSelectModalShown;

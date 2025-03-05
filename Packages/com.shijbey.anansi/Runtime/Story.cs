@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using RePraxis;
 
 namespace Anansi
@@ -306,6 +306,16 @@ namespace Anansi
 
 			m_currentStorylet.InkStory.ChoosePathString(
 				m_currentStorylet.KnotID, false, knotArgs );
+		}
+
+		/// <summary>
+		/// Check if a storylet is present in the game.
+		/// </summary>
+		/// <param name="storyletId"></param>
+		/// <returns></returns>
+		public bool StoryletExists(string storyletId)
+		{
+			return m_storylets.ContainsKey( storyletId );
 		}
 
 		/// <summary>

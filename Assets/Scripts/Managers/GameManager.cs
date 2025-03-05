@@ -118,8 +118,12 @@ namespace Academical
 		/// </summary>
 		public void StartStory()
 		{
-			Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
-			m_dialogueManager.RunStorylet( startStorylet );
+			GameEvents.OnStoryStart();
+			if ( m_dialogueManager.Story.StoryletExists( "start" ) )
+			{
+				Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
+				m_dialogueManager.RunStorylet( startStorylet );
+			}
 		}
 
 		/// <summary>
