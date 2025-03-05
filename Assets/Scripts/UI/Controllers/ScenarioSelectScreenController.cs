@@ -28,12 +28,13 @@ namespace Academical
 		public override void Show()
 		{
 			base.Show();
-			UpdateScenarioList( MainMenuManager.Instance.ScenarioManager.Scenarios );
+			UpdateScenarioList();
 		}
 
-		public void UpdateScenarioList(IEnumerable<GameLevelSO> scenarios)
+		public void UpdateScenarioList()
 		{
 			ClearScenarioList();
+			GameLevelSO[] scenarios = ScenarioManager.GetAllScenarios();
 			foreach ( var entry in scenarios )
 			{
 				GameObject scenarioCard = Instantiate(
@@ -68,8 +69,8 @@ namespace Academical
 
 		private void OnBackButtonClicked()
 		{
+			Hide();
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuManager.Instance.HideScenarioSelectionScreen();
 		}
 
 		private void ClearScenarioList()

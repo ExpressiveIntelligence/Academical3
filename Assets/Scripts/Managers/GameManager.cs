@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using Academical.Persistence;
 using Anansi;
 using TDRS;
 using UnityEngine;
@@ -12,6 +14,10 @@ namespace Academical
 	[DefaultExecutionOrder( 2 )]
 	public class GameManager : MonoBehaviour
 	{
+		[Tooltip( "Toggle auto saving after each conversation." )]
+		[SerializeField]
+		public bool m_AutoSaveEnabled;
+
 		[SerializeField]
 		private Character m_Player;
 
@@ -87,7 +93,15 @@ namespace Academical
 
 		private void Start()
 		{
-			GameLevelSO currentLevel = GameStateManager.GetLevel();
+			SaveData saveData = DataPersistenceManager.SaveData;
+			GameState gameState = GameStateManager.GetGameState();
+
+			if ( saveData != null )
+			{
+				gameState.scenarioId = saveData.scenarioId;
+			}
+
+			GameLevelSO currentLevel = ScenarioManager.GetScenario( gameState.scenarioId );
 
 			if ( currentLevel != null )
 			{
@@ -118,7 +132,7 @@ namespace Academical
 		/// </summary>
 		public void StartStory()
 		{
-			GameEvents.OnStoryStart();
+			GameEvents.OnStoryStart?.Invoke();
 			if ( m_dialogueManager.Story.StoryletExists( "start" ) )
 			{
 				Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
@@ -539,6 +553,41 @@ namespace Academical
 		private void OnActionSelected(StoryletInstance action)
 		{
 			m_dialogueManager.RunStoryletInstance( action );
+		}
+
+		public void EnableAutoSave()
+		{
+			m_AutoSaveEnabled = true;
+			GameEvents.OnSceneEnd += AutoSave;
+		}
+
+		public void DisableAutoSave()
+		{
+			m_AutoSaveEnabled = false;
+			GameEvents.OnSceneEnd -= AutoSave;
+		}
+
+		public void AutoSave()
+		{
+			SaveGame( true );
+		}
+
+		public void SaveGame(bool isAutoSave)
+		{
+			GameState gameState = GameStateManager.GetGameState();
+
+			SaveData saveData = new SaveData();
+
+			saveData.scenarioId = gameState.scenarioId;
+			saveData.guid = gameState.guid;
+			saveData.currentDay = m_simulationController.DateTime.Day;
+			saveData.currentTimeOfDay = m_simulationController.DateTime.TimeOfDay.ToString();
+			saveData.currentLocationId = m_Player.Location.UniqueID;
+			saveData.isAutoSave = isAutoSave;
+			saveData.totalPlaytime = gameState.TotalPlayTime;
+
+
+			DataPersistenceManager.SaveGame( saveData );
 		}
 	}
 }

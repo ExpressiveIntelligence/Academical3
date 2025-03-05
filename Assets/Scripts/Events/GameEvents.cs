@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Academical.Persistence;
 using Anansi;
 
 namespace Academical
@@ -10,6 +11,12 @@ namespace Academical
 		/// Invoked by the GameManager at the start of the game.
 		/// </summary>
 		public static Action OnStoryStart;
+
+		public static Action OnSceneStart;
+
+		public static Action OnSceneEnd;
+
+		public static Action<GameSavedEventResult> OnGameSaved;
 
 		public static Action QuestsViewShown;
 
@@ -23,7 +30,7 @@ namespace Academical
 
 		public static Action GameUIShown;
 
-		public static Action<GameLevelSO> LevelSelected;
+		public static Action LevelSelected;
 
 		public static Action GameHUDHidden;
 

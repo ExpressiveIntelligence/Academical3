@@ -5,6 +5,7 @@ namespace Academical
 	[CreateAssetMenu( fileName = "NewLevel", menuName = "Academical/Level" )]
 	public class GameLevelSO : ScriptableObject
 	{
+		public string ScenarioId;
 		public string Title;
 		[TextArea]
 		public string Description;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9578e4f4f2cff4d71bd441b6a6acca52, type: 3}
   m_Name: HendriksDilemma
   m_EditorClassIdentifier: 
+  ScenarioId: hendricks
   Title: Play as Hendricks
   Description: Play from the perspective of Prof. Hendriks, a faculty member in the
     ______ department.

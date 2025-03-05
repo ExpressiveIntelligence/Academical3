@@ -1,84 +1,187 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using System.IO;
+using Academical.Persistence;
 using UnityEngine;
-using System.Linq;
-using Academical;
 
-public class DataPersistenceManager : MonoBehaviour
+
+namespace Academical
 {
-	[Header( "File Storage Config" )]
-	[SerializeField]
-	private string m_FileName;
-
-	private GameState m_GameState;
-	private List<IDataPersistence> dataPersistenceObjects;
-	private FileDataHandler dataHandler;
-
-	public static DataPersistenceManager Instance { get; private set; }
-
-	private void Awake()
+	public class DataPersistenceManager : MonoBehaviour
 	{
-		if ( Instance != null )
+		[Tooltip( "Toggle destruction on load." )]
+		[SerializeField]
+		private bool m_DontDestroyOnLoad;
+
+		private IDataService m_DataService = new JsonDataService();
+
+		public static DataPersistenceManager Instance { get; private set; }
+
+		public static SaveData SaveData = null;
+
+		private void Awake()
 		{
-			Debug.LogError( "Found more than one Data Persistence Manager in the scene." );
-			Destroy( this );
-			return;
+			if ( Instance != null )
+			{
+				Debug.LogWarning( "Found more than one Data Persistence Manager in the scene." );
+				Destroy( this );
+				return;
+			}
+
+			Instance = this;
+
+			if ( m_DontDestroyOnLoad )
+			{
+				DontDestroyOnLoad( gameObject );
+			}
 		}
 
-		Instance = this;
-		NewGame();
-	}
-
-	private void Start()
-	{
-		this.dataHandler = new FileDataHandler( Application.persistentDataPath, m_FileName );
-		this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-		LoadGame();
-	}
-
-	public void NewGame()
-	{
-		this.m_GameState = new GameState();
-	}
-
-	public void LoadGame()
-	{
-		// Load any saved data from a file using the data handler
-		this.m_GameState = dataHandler.Load();
-		// If no data is there, create a new game
-		if ( this.m_GameState == null )
+		/// <summary>
+		/// Loads save slots from the manifest data stored on the persistent data path.
+		/// </summary>
+		public static SaveSlotManifestFile LoadSaveSlots()
 		{
-			Debug.Log( "No game data found. Creating a new game file." );
-			NewGame();
-		}
-		// Push loaded data to relevant game objects
-		foreach ( IDataPersistence dataPersistenceObj in dataPersistenceObjects )
-		{
-			dataPersistenceObj.LoadData( m_GameState );
-		}
-	}
+			string manifestPath = Path.Combine(
+				Application.persistentDataPath, "saves", "manifest.json" );
 
-	public void SaveGame()
-	{
-		// Send data to other scripts for update
-		foreach ( IDataPersistence dataPersistenceObj in dataPersistenceObjects )
-		{
-			dataPersistenceObj.SaveData( m_GameState );
+			if ( !Instance.m_DataService.FileExists( manifestPath ) )
+			{
+				// Create a blank manifest.
+				Instance.m_DataService.SaveData( manifestPath, new SaveSlotManifestFile() );
+			}
+
+			SaveSlotManifestFile manifest = Instance.m_DataService.LoadData<SaveSlotManifestFile>(
+				manifestPath );
+
+			return manifest;
 		}
 
-		// Save data to persistence using file handler
-		dataHandler.Save( m_GameState );
-	}
+		/// <summary>
+		/// Saves game data to a save slot.
+		/// </summary>
+		/// <param name="serializedGame"></param>
+		/// <param name="saveGuid"></param>
+		/// <param name="isAutoSave"></param>
+		public static void SaveGame(SaveData saveData)
+		{
+			if ( saveData.guid == null )
+			{
+				Debug.LogWarning( "Cannot save game data. No profile given." );
+				return;
+			}
 
-	private void OnApplicationQuit()
-	{
-		SaveGame();
-	}
+			saveData.saveTimeStamp = System.DateTime.UtcNow.ToString( "yyyy-MM-ddTHH:mm:ssZ" );
 
-	private List<IDataPersistence> FindAllDataPersistenceObjects()
-	{
-		IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+			SaveSlotManifestFile manifest = LoadSaveSlots();
 
-		return new List<IDataPersistence>( dataPersistenceObjects );
+			SaveSlotData saveSlotData = new SaveSlotData()
+			{
+				guid = saveData.guid,
+				scenarioId = saveData.scenarioId,
+				saveTimeStamp = saveData.saveTimeStamp,
+				isAutoSave = saveData.isAutoSave,
+				currentDay = saveData.currentDay,
+				currentTimeOfDay = saveData.currentTimeOfDay,
+				currentLocationId = saveData.currentLocationId,
+				totalPlaytime = saveData.totalPlaytime
+			};
+
+			bool existingSaveFound = false;
+
+			for ( int i = 0; i < manifest.saves.Count; i++ )
+			{
+				if ( manifest.saves[i].guid == saveData.guid )
+				{
+					manifest.saves[i] = saveSlotData;
+					existingSaveFound = true;
+				}
+			}
+
+			if ( existingSaveFound == false )
+			{
+				manifest.saves.Add( saveSlotData );
+			}
+
+			string manifestPath = Path.Combine(
+				Application.persistentDataPath, "saves", "manifest.json" );
+
+			Instance.m_DataService.SaveData( manifestPath, manifest );
+
+			string savesDataPath = Path.Combine( Application.persistentDataPath, "saves" );
+
+			string fullPath = Path.Combine( savesDataPath, $"{saveData.guid}.save" );
+
+			Instance.m_DataService.SaveData( fullPath, saveData );
+
+			Debug.Log( "Saved game to: " + savesDataPath );
+
+			GameEvents.OnGameSaved?.Invoke( GameSavedEventResult.Success() );
+		}
+
+		/// <summary>
+		/// Load the save with the provided GUID.
+		/// </summary>
+		/// <param name="guid"></param>
+		/// <returns></returns>
+		public static SaveData LoadGame(string guid)
+		{
+			string saveFilePath = Path.Combine(
+				Application.persistentDataPath, "saves", $"{guid}.save" );
+
+			SaveData saveData = Instance.m_DataService.LoadData<SaveData>(
+				saveFilePath );
+
+			return saveData;
+		}
+
+		/// <summary>
+		/// Delete the save with the provided GUID.
+		/// </summary>
+		/// <param name="guid"></param>
+		public static void DeleteSave(string guid)
+		{
+			if ( guid == null ) return;
+
+
+			SaveSlotManifestFile manifest = LoadSaveSlots();
+
+			for ( int i = manifest.saves.Count - 1; i >= 0; i-- )
+			{
+				if ( manifest.saves[i].guid == guid )
+				{
+					manifest.saves.RemoveAt( i );
+					Debug.Log( $"Removed save from manifest: {guid}" );
+				}
+			}
+
+			string manifestPath = Path.Combine(
+				Application.persistentDataPath, "saves", "manifest.json" );
+
+			Instance.m_DataService.SaveData( manifestPath, manifest );
+			Debug.Log( "Updated manifest json" );
+
+
+			string fullPath = Path.Combine( Application.persistentDataPath, "saves", $"{guid}.save" );
+			try
+			{
+				// ensure the data file exists at this path before deleting the directory
+				if ( File.Exists( fullPath ) )
+				{
+					// delete the profile folder and everything within it
+					File.Delete( fullPath );
+					Debug.Log( "Deleted Save at: " + fullPath );
+				}
+				else
+				{
+					Debug.LogWarning(
+						$"Tried to delete save data. No data found at: {fullPath}"
+					);
+				}
+			}
+			catch ( Exception e )
+			{
+				Debug.LogError( "Failed to delete save slot data for slot: "
+					+ guid + " at path: " + fullPath + "\n" + e );
+			}
+		}
 	}
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9578e4f4f2cff4d71bd441b6a6acca52, type: 3}
   m_Name: LadyHConversation
   m_EditorClassIdentifier: 
+  ScenarioId: Overboard!
   Title: Conversation with Lady H
   Description: Play through the sample dialogue script between Lady H and V from
     the Ink game, "Overboard!"

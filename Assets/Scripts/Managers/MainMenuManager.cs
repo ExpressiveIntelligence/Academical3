@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Academical
 {
@@ -31,6 +33,8 @@ namespace Academical
 
 		[SerializeField]
 		private LoadingGameScreen m_LoadingScreen;
+
+		private AsyncOperation m_SceneLoadingOperation;
 
 		#endregion
 
@@ -87,7 +91,7 @@ namespace Academical
 			MainMenuUIEvents.NewGameScreenHidden += HideScenarioSelectionScreen;
 			// MainMenuUIEvents.LoadGameScreenHidden += OnLoadGameScreenHidden;
 			MainMenuUIEvents.SettingsScreenHidden += HideSettingsScreen;
-			GameEvents.LevelSelected += OnLevelSelected;
+			GameEvents.LevelSelected += StartNewGame;
 		}
 
 		void UnsubscribeFromEvents()
@@ -101,7 +105,7 @@ namespace Academical
 			MainMenuUIEvents.NewGameScreenHidden -= HideScenarioSelectionScreen;
 			// MainMenuUIEvents.LoadGameScreenHidden -= OnLoadGameScreenHidden;
 			MainMenuUIEvents.SettingsScreenHidden -= HideSettingsScreen;
-			GameEvents.LevelSelected -= OnLevelSelected;
+			GameEvents.LevelSelected -= StartNewGame;
 		}
 
 		void SetupViews()
@@ -213,11 +217,31 @@ namespace Academical
 			ShowScreen( m_LoadingScreen );
 		}
 
-		private void OnLevelSelected(GameLevelSO scenarioData)
+		public void StartNewGame()
 		{
-			ShowLoadingScreen();
-			GameStateManager.SetGameLevel( scenarioData );
-			m_ScenarioManager.StartGame( scenarioData.Scene );
+			GameLevelSO scenario =
+				ScenarioManager.GetScenario( GameStateManager.GetGameState().scenarioId );
+			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( scenario.Scene );
+			StartCoroutine( LoadGameScene() );
+		}
+
+		public void StartGameFromSave()
+		{
+			GameLevelSO scenario =
+				ScenarioManager.GetScenario( DataPersistenceManager.SaveData.scenarioId );
+			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( scenario.Scene );
+			StartCoroutine( LoadGameScene() );
+		}
+
+		private IEnumerator LoadGameScene()
+		{
+			while ( !m_SceneLoadingOperation.isDone )
+			{
+				MainMenuUIEvents.GameLoadingProgressUpdated?.Invoke(
+					m_SceneLoadingOperation.progress );
+
+				yield return null;
+			}
 		}
 
 		#endregion

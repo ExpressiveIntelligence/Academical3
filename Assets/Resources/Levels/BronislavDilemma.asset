@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9578e4f4f2cff4d71bd441b6a6acca52, type: 3}
   m_Name: BronislavDilemma
   m_EditorClassIdentifier: 
+  ScenarioId: bronislav
   Title: Play as Bronislav
   Description: Play Academical from the perspective of Bronislav, a international
     graduate student.

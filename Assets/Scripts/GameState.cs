@@ -10,9 +10,18 @@ namespace Academical
 	public class GameState
 	{
 		/// <summary>
+		/// Unique ID used when saving this game state.
+		/// </summary>
+		public string guid;
+
+		public string scenarioId;
+
+		/// <summary>
 		/// (For experiments) The participants unique ID.
 		/// </summary>
 		public int PlayerId;
+
+		public int TotalPlayTime;
 
 		/// <summary>
 		/// Lines of dialogue uttered during the current scene.
@@ -21,6 +30,7 @@ namespace Academical
 
 		public GameState()
 		{
+			guid = Guid.NewGuid().ToString();
 			PlayerId = -1;
 			DialogueHistory = new List<DialogueHistoryEntry>();
 		}
