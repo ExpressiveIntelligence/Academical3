@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Academical.Persistence;
 using Anansi;
 using TDRS;
@@ -17,6 +16,9 @@ namespace Academical
 		[Tooltip( "Toggle auto saving after each conversation." )]
 		[SerializeField]
 		public bool m_AutoSaveEnabled;
+
+		[SerializeField]
+		public GameLevelSO m_DefaultScenario;
 
 		[SerializeField]
 		private Character m_Player;
@@ -101,7 +103,8 @@ namespace Academical
 				gameState.scenarioId = saveData.scenarioId;
 			}
 
-			GameLevelSO currentLevel = ScenarioManager.GetScenario( gameState.scenarioId );
+			GameLevelSO currentLevel = (gameState.scenarioId != null) ?
+				ScenarioManager.GetScenario( gameState.scenarioId ) : m_DefaultScenario;
 
 			if ( currentLevel != null )
 			{
