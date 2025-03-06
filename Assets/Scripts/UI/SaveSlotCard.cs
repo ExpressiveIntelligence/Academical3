@@ -56,11 +56,19 @@ namespace Academical
 		{
 
 			var timestamp = System.DateTime.Parse( saveSlotData.saveTimeStamp ).ToString();
+			string scenarioName = ScenarioManager.GetScenario( saveSlotData.scenarioId ).Title;
+			m_ScenarioName.text = $"<b>{scenarioName}</b>";
 			m_SaveTimeStamp.text = $"<b>Save Date:</b> {timestamp}";
 			m_AutoSaveIndicator.SetActive( saveSlotData.isAutoSave );
-			m_LocationName.text = $"<b>Current Location:</b> {saveSlotData.currentLocationId}";
+
+			LocationData locationData
+				= BackgroundManager.GetLocationData( saveSlotData.currentLocationId );
+
+			m_LocationName.text = $"<b>Current Location:</b> {locationData.displayName}";
 			m_Date.text = $"<b>Current Date:</b> {saveSlotData.currentTimeOfDay}, Day {saveSlotData.currentDay}";
 			m_TotalPlayTime.text = $"<b>Play Time:</b> {saveSlotData.totalPlaytime / 60} minutes";
+
+			m_LocationPreview.sprite = locationData.sprite;
 		}
 
 		private void PlayButtonClicked()
