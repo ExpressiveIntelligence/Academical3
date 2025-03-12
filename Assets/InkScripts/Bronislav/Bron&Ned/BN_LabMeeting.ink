@@ -1,4 +1,3 @@
-->Seen_BNLM_SceneStart
 === Seen_BNLM_SceneStart ===
 # ---
 # choiceLabel: Meet with Ned in the Lab
