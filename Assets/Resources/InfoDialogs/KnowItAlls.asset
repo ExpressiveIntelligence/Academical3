@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b6985baddc040c8af405baedaf4914, type: 3}
+  m_Name: KnowItAlls
+  m_EditorClassIdentifier: 
+  id: know_it_alls
+  title: How to deal with know it alls
+  slides:
+  - text: 'Congratulations! You''ve encountered your first academic "know it all".
+
+
+      Q&A 
+      after research presentations is often rife with people who ask questions to
+      boost their own egos. You must read these people for the filth they are.'
+  - text: 'Say it with me: "Shut. yo... DUMB ASS. UP!"'
+  - text: This has been an Academical public service announcement.

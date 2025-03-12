@@ -3,6 +3,7 @@
 # choiceLabel: Meet with Jensen
 # @query
 # Seen_BJS5
+# date.day!6
 # @end
 # hidden: true
 # tags: action, library, auxiliary

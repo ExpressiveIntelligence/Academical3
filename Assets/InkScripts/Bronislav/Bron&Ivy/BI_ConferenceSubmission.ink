@@ -1,9 +1,13 @@
 === BI_CONFERENCE_SceneStart ===
 # ---
-# choiceLabel: Talk with Ivy
+# choiceLabel: Talk with Ivy about the deal.
 # hidden: true
+# @query
+# Seen_BI_IRB
+# date.day!3
+# @end
 # repeatable: false
-# tags: action, student_cubes, auxiliary
+# tags: action, student_cubes, required
 # ===
 
 {ShowCharacter("Ivy", "left", "")}
@@ -68,7 +72,7 @@ Bronislav: "It is hard, but I feel like Jensen really just isn't going to hold u
 
 Ivy interrupts you, clearly you hit a nerve.
 
-Ivy: "Look, if you pull this off, I'll give you that recommendation to my uncle's place. Don't disapoint him." She walks off with a huff.
+Ivy: "Look, if you pull this off, I'll give you that recommendation to my uncle's place. Don't disappoint him." She walks off with a huff.
 
 {HideCharacter("Ivy")}
 
@@ -107,13 +111,13 @@ With that, Ivy waves goodbye to you and walks off.
 ->DONE
 
 // if you did not say you would add Jensen
-// TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
+// TODO: WRITE SELECTORS BASED OFF OF POSITIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
 // if positive relationship
 Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."
 
 Ivy: "If you put Jensen on the paper, I'll recommend you to my uncle's place and see about getting him to meet you."
 
-*["That's relly helpful."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+*["That's really helpful."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
 ->ThatsReallyHelpful
 
 *["Thanks, but are you sure?" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
@@ -123,7 +127,7 @@ Ivy: "If you put Jensen on the paper, I'll recommend you to my uncle's place and
 ->ImNotSure
 
 === ThatsReallyHelpful ===
-Bronislav: "That's really helpful, Ivy, I'll need to see how the paper turns out first but if I keep it together, I'm leaning towards putting Jenson on the paper."
+Bronislav: "That's really helpful, Ivy, I'll need to see how the paper turns out first but if I keep it together, I'm leaning towards putting Jensen on the paper."
 
 Ivy smiles, pleased by this.
 
@@ -210,7 +214,7 @@ Ivy frowns.
 
 Ivy: "Bronislav, you know how much help he needs. Please. Think about it."
 
-Ivy: "I know it might be hard, but you're struggling with gettting a job. Mull it over."
+Ivy: "I know it might be hard, but you're struggling with getting a job. Mull it over."
 
 Ivy waves goodbye and leaves without another word.
 
@@ -221,7 +225,7 @@ Ivy waves goodbye and leaves without another word.
 === NoWay ===
 Bronislav: "No way for now, Jensen needs to step it up a notch if he wants my help. We would get caught instantly."
 
-Ivy: "C'mon Bronislav, this is a big oppurtunity for you if you just add him to the paper. You're missing out on a lot."
+Ivy: "C'mon Bronislav, this is a big opportunity for you if you just add him to the paper. You're missing out on a lot."
 
 Ivy frowns and turns away.
 

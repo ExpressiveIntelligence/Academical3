@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Characters>
+
+    <Character id="Bronislav">
+        <Name>Bronislav</Name>
+        <Pronouns>
+            <Subject>He</Subject>
+            <Personal>Him</Personal>
+            <Possessive>His</Possessive>
+        </Pronouns>
+        <Bio>
+        Bronislav is an international student from Russia.
+        He is studying psychology under Professor Hendricks.
+        </Bio>
+        <Notes>
+        </Notes>
+    </Character>
+
+    <Character id="Ivy">
+        <Name>Ivy</Name>
+        <Pronouns>
+            <Subject>She</Subject>
+            <Personal>Her</Personal>
+            <Possessive>Hers</Possessive>
+        </Pronouns>
+        <Bio>
+        Bronislav is an international student from Russia.
+        He is studying psychology under Professor Hendricks.
+        </Bio>
+        <Notes>
+            <Note>
+                <Precondition>
+                receivedQuidProQuo
+                </Precondition>
+                <Text>
+                Offered Bronislav a good word with her uncle in exchange
+                for putting Jensen on a paper.
+                </Text>
+            </Note>
+        </Notes>
+    </Character>
+
+
+</Characters>

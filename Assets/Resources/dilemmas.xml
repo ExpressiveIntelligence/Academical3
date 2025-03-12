@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Dilemmas>
+    <Dilemma id="ivy_quid_pro_quo">
+        <Precondition>
+        receivedQuidProQuo
+        </Precondition>
+        <Title>Ivy's Quid Pro Quo</Title>
+        <Description>
+            "Ivy has issued you a quid pro quo."
+        </Description>
+    </Dilemma>
+
+
+</Dilemmas>

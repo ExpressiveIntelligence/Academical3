@@ -1,0 +1,13 @@
+{
+    "info_dialogs": [
+        {
+            "id": "quid_pro_quo",
+            "title": "Quid Pro Quo",
+            "slides": [
+                {
+                    "text": "A quid pro quo is something that is given in return for something else. "
+                }
+            ]
+        }
+    ]
+}

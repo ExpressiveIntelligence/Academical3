@@ -6,20 +6,18 @@
 
 VAR BI_C_negativeNelly = false
 
-=== conference_hall ===
-#---
-# choiceLabel: Go to the conference hall
-# hidden: true
-# tags: location
-#===
-
-{SetCurrentLocation("conference_hall")}
-
-->BI_Conference_SceneStart
-
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL (positive relationship)
 // TODO: Add decisions based on whether or not you accepted Ivy's deal, relationship status
 === BI_Conference_SceneStart ===
+# ---
+# choiceLabel: Ivy Conference
+# hidden: true
+# @query
+# date.day!5
+# @end
+# repeatable: false
+# tags: action, lecture_hall, required
+# ===
 
 You notice Ivy at the conference and decide to approach her.
 

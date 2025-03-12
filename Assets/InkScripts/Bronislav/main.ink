@@ -8,19 +8,19 @@ It is provided to the Dialogue Manager in the Unity Editor to
 allow us to play through all the content.
 
 Each additional Ink file with story content should be added
-belowe following the "INCLUDE" keyword. When the Ink compiler
+below following the "INCLUDE" keyword. When the Ink compiler
 translates this file into JSON, the content from all files
 listed below are included with it.
 
 That being the case, we must ensure that:
-1. There is only onne "start" storylet
+1. There is only one "start" storylet
 2. We do not duplicate knot names
 3. Location storylets are separated from conversation storylets
    unless we intend for the conversation to trigger
    immediately when the player navigates. If we do have
    immediate dialogue, the divert needs to be placed in
    a conditional block to ensure we don't visit it again on
-   further navigations to that location.
+   further navigation to that location.
 
 */
 
@@ -38,7 +38,7 @@ INCLUDE ./Bron&Jen/BJ_ConferenceReview.ink
 INCLUDE ./Bron&Ivy/BI_ConferenceSubmission.ink
 INCLUDE ./Bron&Ivy/BI_Introduction.ink
 INCLUDE ./Bron&Ivy/BI_IRBReview.ink
-INCLUDE ./Bron&Ivy/BI_Socializing7.ink
+INCLUDE ./Bron&Ivy/BI_Socializing6.ink
 INCLUDE ./Bron&Ivy/BI_Conference.ink
 INCLUDE ./Bron&Ivy/BI_ReviewPeriod.ink
 INCLUDE ./Bron&Ivy/BI_Socializing3.ink
@@ -55,6 +55,8 @@ EXTERNAL HasUnseenAuxiliaryActions()
 EXTERNAL HasUnseenRequiredActions()
 EXTERNAL FadeToBlack(delay)
 EXTERNAL FadeFromBlack(delay)
+EXTERNAL ShowInfoDialog(dialogId)
+EXTERNAL AdvanceDay()
 
 
 // There can be only one "start" storylet. We place it in this
@@ -104,6 +106,8 @@ Do you still want to advance the day?
 === advance_day ===
 
 You go home for the day. {FadeToBlack(0)} {HideCharacter("Bronislav")}
+
+{AdvanceDay()}
 
 New day. New things to do. {FadeFromBlack(1)} {ShowCharacter("Bronislav", "right", "")}
 

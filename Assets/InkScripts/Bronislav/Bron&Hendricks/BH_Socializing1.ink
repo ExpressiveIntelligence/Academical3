@@ -1,23 +1,18 @@
 === BHS1_Hint ===
 
-After your presentation, one of your professors, Hendricks, reached out to you to talk about your progress.
+\*Buzz Buzz\* Your phone vibrates with a notification.
 
-You agreed to meet her at the library if she had time.
+It's an email from you advisor, Hendricks.
 
-// Setting the following flag unlocks the BHS1 conversation
-{DbInsert("BHS1_unlocked")}
+She wants to talk about your research progress.
 
-// ![Note]: Below is some new syntax I'm trying out
-// for interfacing with the C# back-end. The code
-// below is intended to signal to the quest system
-// to initialize the quest with ID of "bron_hendricks_convo"
-// This same functionality could be accomplished with an
-// external function call, but plain text doesn't run the
-// risk of breaking anything.
-//
-// >>> StartQuest: bron_hendricks_convo
-// OR
-// {StartQuest("bron_hendricks_convo")}
+* [Agree to meet her later today #>> ChangeOpinion Hendricks Bronislav +]
+    You reply to her email. The two of you agree to meet at the library later
+    today.
+    {DbInsert("BHS1_unlocked")}
+* [Ignore the email #>> ChangeOpinion Hendricks Bronislav -]
+    You put your phone back in your pocket.
+-
 
 ->DONE
 
@@ -26,6 +21,7 @@ You agreed to meet her at the library if she had time.
 # choiceLabel: Wait for Hendricks to arrive.
 # @query
 # BHS1_unlocked
+# date.day!1
 # @end
 # tags: action, library, auxiliary
 # repeatable: false
@@ -48,13 +44,13 @@ She shrugs.
 Hendricks: "Quite alright. Rather busy, but I was just interested in seeing how you're progress is going."
 
 *["It's going good."]
-->BHS1_GoingGood
+    ->BHS1_GoingGood
 
 *["It could be going better."]
-->BHS1_CouldBeBetter
+    ->BHS1_CouldBeBetter
 
 *["It's complicated."]
-->BHS1_ItsComplicated
+    ->BHS1_ItsComplicated
 
 === BHS1_GoingGood ===
 
@@ -63,10 +59,10 @@ Bronislav: "The paper's going well! I also got some feedback on it at the lab me
 Hendricks: "Oh really? You're not working on all of this by yourself are you?"
 
 *["I'm thinking about it."]
-->BHS1_ThinkingAboutIt
+    ->BHS1_ThinkingAboutIt
 
 *["I am for right now."]
-->BHS1_ForRightNow
+    ->BHS1_ForRightNow
 
 === BHS1_CouldBeBetter ===
 Bronislav: "Could be going better, but it could also be going worse. Just a lot of work for one-"
@@ -76,12 +72,10 @@ She interrupts you.
 Hendricks: "You're doing this all by yourself Bronislav?"
 
 *["Just for now."]
-->BHS1_JustForNow
+    ->BHS1_JustForNow
 
 *["That was the idea."]
-// Bronislav: +Student-ALigned
-// Hendricks: +Hands-off
-->BHS1_ThatsTheIdea
+    ->BHS1_ThatsTheIdea
 
 === BHS1_ItsComplicated ===
 Bronislav: "It's pretty complicated. I've been thinking of adding a person who gave me feedback to the paper, but I still feel a bit conflicted about it due to the quality of their feedback."
@@ -89,10 +83,10 @@ Bronislav: "It's pretty complicated. I've been thinking of adding a person who g
 Hendricks: "Oh? Do share."
 
 *["His name is Jensen."]
-->BHS1_HisNameIsJensen
+    ->BHS1_HisNameIsJensen
 
 *["It's not really worth talking about."]
-->BHS1_ItsNotWorthIt
+    ->BHS1_ItsNotWorthIt
 
 === BHS1_ThinkingAboutIt ===
 Bronislav: "I was debating adding the person who gave the feedback to the paper. Still a bit unsure about it at the moment."
@@ -104,7 +98,7 @@ Bronislav: "His name was Jensen. While his feedback was a bit lacking-"
 She raises an eyebrow and shows a bit of a smirk.
 
 *["Everything okay?"]
-->BHS1_EverythingOkay
+    ->BHS1_EverythingOkay
 
 === BHS1_EverythingOkay ===
 Bronislav: "Is everything ok?"
@@ -116,14 +110,10 @@ She says through a small laugh.
 Hendricks: "I know Jensen pretty well. I can say I'm not too surprised to hear that his feedback was... lacking. If you want to add him to your paper though I won't judge."
 
 *["I feel like you are judging."]
-// Bronislav: +Supportive
-// Hendricks: +Demeaning
-->BHS1_IFeelLikeYouAre
+    ->BHS1_IFeelLikeYouAre
 
 *["I said I was unsure."]
-// Bronislav: +Petty
-// Hendricks: +Engaged
-->BHS1_ISaidIWasUnsure
+    ->BHS1_ISaidIWasUnsure
 
 === BHS1_IFeelLikeYouAre ===
 Bronislav: "I feel like I am being judged. It feels like it could be a good advising opportunity for myself, and I'm always trying to sharpen my skills."
@@ -155,14 +145,10 @@ She chuckles.
 Hendricks: "Isn't that the truth. If you do find yourself needing some help you can always let me know."
 
 *["I'll keep that in mind."]
-// Bronislav: +Faculty-ALigned
-// Hendricks: +Engaged
-->BHS1_IllKeepItInMind
+    ->BHS1_IllKeepItInMind
 
 *["I don't think that will be necessary."]
-// Bronislav: +Student-ALigned
-// Hendricks: +Hands-off
-->BHS1_DontThinkItsNecessary
+    ->BHS1_DontThinkItsNecessary
 
 === BHS1_IllKeepItInMind ===
 Bronislav: "Thanks professor, I'll make sure to keep that in mind."
@@ -201,7 +187,7 @@ She raises an eyebrow and shows a bit of a smirk.
 === BHS1_ThatsTheIdea ===
 Bronislav: "That was the idea. You of all people should know that Professor."
 
-She laughs.
+Hendricks: She laughs.
 
 Hendricks: "You've got me there Bronislav. Then I suppose I shouldn't bother you anymore, I'll keep in touch though. In case you do end up needing something."
 
@@ -222,13 +208,9 @@ She smirks a bit.
 
 Hendricks: "I can't say it's surprising to hear Jensen's feedback was less than helpful.
 *["He has promise."]
-// Bronislav: +Supportive
-// Hendricks: +Demeaning
-->BHS1_HeHasPromise
+    ->BHS1_HeHasPromise
 *["It was only a consideration."]
-// Bronislav: +Petty
-// Hendricks: +Engaged
-->BHS1_OnlyAConsideration
+    ->BHS1_OnlyAConsideration
 
 === BHS1_HeHasPromise ===
 Bronislav: "Jensen's got some promise, I feel like a nudge in the right direction and he could be a great person to work with."

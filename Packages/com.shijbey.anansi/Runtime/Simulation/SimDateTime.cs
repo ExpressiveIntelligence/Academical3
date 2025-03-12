@@ -88,6 +88,12 @@ namespace Anansi
 			m_timeOfDay = (TimeOfDay)(((int)m_timeOfDay + 1) % 4);
 		}
 
+		public void AdvanceToNextDay()
+		{
+			m_day += 1;
+			m_timeOfDay = TimeOfDay.Morning;
+		}
+
 		public override string ToString()
 		{
 			return $"{TimeOfDay}, Day {Day}";
