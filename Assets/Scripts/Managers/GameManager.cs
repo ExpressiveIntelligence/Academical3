@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Academical.Persistence;
@@ -167,6 +168,45 @@ namespace Academical
 					)
 				);
 			}
+		}
+
+		/// <summary>
+		/// Change the player's location and the current story location.
+		/// </summary>
+		/// <param name="location"></param>
+		public void ChangeLocation(Location location)
+		{
+			m_CurrentLocation = location;
+			m_simulationController.SetCharacterLocation( m_Player, location );
+			m_dialogueManager.SetBackground(
+					new BackgroundInfo(
+						location.UniqueID,
+						new string[]
+						{
+							// Pass the time of day as an optional tag.
+							$"~{m_simulationController.DateTime.TimeOfDay.ToString()}"
+						}
+					)
+				);
+		}
+
+		/// <summary>
+		/// Advance the game to the next day.
+		/// </summary>
+		public void AdvanceDay()
+		{
+			StartCoroutine( AdvanceDayCoroutine() );
+		}
+
+		private IEnumerator AdvanceDayCoroutine()
+		{
+			GameEvents.OnFadeToBlack?.Invoke( 1f );
+
+			yield return new WaitForSeconds( 1f );
+
+			GameEvents.OnFadeFromBlack?.Invoke( 1f );
+
+			m_simulationController.AdvanceToNextDay();
 		}
 
 
@@ -538,6 +578,56 @@ namespace Academical
 				() =>
 				{
 					m_simulationController.AdvanceToNextDay();
+				}
+			);
+
+			story.BindExternalFunction(
+				"LockLocations",
+				(string locationIds, string message) =>
+				{
+					string[] locationIdList = locationIds.Split( "," ).Select( s => s.Trim() ).ToArray();
+
+					foreach ( string id in locationIdList )
+					{
+						m_simulationController.GetLocation( id ).LockLocation( message );
+					}
+				}
+			);
+
+			story.BindExternalFunction(
+				"UnlockLocations",
+				(string locationIds) =>
+				{
+					string[] locationIdList = locationIds.Split( "," ).Select( s => s.Trim() ).ToArray();
+
+					foreach ( string id in locationIdList )
+					{
+						m_simulationController.GetLocation( id ).UnlockLocation();
+					}
+				}
+			);
+
+			story.BindExternalFunction(
+				"LockAllLocations",
+				(string message) =>
+				{
+					foreach ( Location location in m_simulationController.Locations )
+					{
+						if ( location == m_Player.Location ) continue;
+
+						location.LockLocation( message );
+					}
+				}
+			);
+
+			story.BindExternalFunction(
+				"UnlockAllLocations",
+				() =>
+				{
+					foreach ( Location location in m_simulationController.Locations )
+					{
+						location.UnlockLocation();
+					}
 				}
 			);
 		}

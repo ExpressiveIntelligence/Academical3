@@ -42,6 +42,10 @@ namespace Anansi
 		/// </summary>
 		protected SpriteController m_spriteController;
 
+		protected bool m_IsLocked;
+
+		protected string m_LockMessage;
+
 		#endregion
 
 		#region Properties
@@ -76,6 +80,10 @@ namespace Anansi
 			}
 		}
 
+		public bool IsLocked => m_IsLocked;
+
+		public string LockMessage => m_LockMessage;
+
 		#endregion
 
 		#region Unity Messages
@@ -88,6 +96,18 @@ namespace Anansi
 		#endregion
 
 		#region Public Methods
+
+		public void LockLocation(string message)
+		{
+			m_IsLocked = true;
+			m_LockMessage = message;
+		}
+
+		public void UnlockLocation()
+		{
+			m_IsLocked = false;
+			m_LockMessage = "";
+		}
 
 		/// <summary>
 		/// Set the currently displayed sprite using the given tags

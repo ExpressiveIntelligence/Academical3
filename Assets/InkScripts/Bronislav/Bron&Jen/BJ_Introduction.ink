@@ -21,6 +21,7 @@ As Bronislav, you must chose how to approach this situation.
 # tags: action, lecture_hall, required
 # ===
 
+{UnlockAllLocations()}
 {DbInsert("Seen_BJ_INTRO")}
 
 Today you have the honor of presenting a practice paper talk at the weekly department seminar.
