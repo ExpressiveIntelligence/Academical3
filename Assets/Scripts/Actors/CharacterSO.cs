@@ -23,7 +23,7 @@ namespace Academical
 		public CharacterPoseData[] poses;
 
 		[Tooltip( "The default pose to use." )]
-		public string defaultPose;
+		public Sprite defaultPose;
 
 		[Tooltip( "Starting relationship settings." )]
 		public CharacterRelationshipData[] relationships;
