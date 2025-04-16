@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Academical.Persistence;
 using Anansi;
 using TDRS;
@@ -50,6 +51,16 @@ namespace Academical
 		private Dictionary<string, Storylet> m_locationStorylets;
 
 		/// <summary>
+		/// Storylets that can be triggered when a player enters a location.
+		/// </summary>
+		private Dictionary<string, List<Storylet>> m_LocationEnterStorylets;
+
+		/// <summary>
+		/// Storylets that can be triggered when the player leaves a location.
+		/// </summary>
+		private Dictionary<string, List<Storylet>> m_LocationExitStorylets;
+
+		/// <summary>
 		/// All storylets related to actions the player can take at locations.
 		/// </summary>
 		private Dictionary<string, Storylet> m_actionStorylets;
@@ -78,6 +89,8 @@ namespace Academical
 		{
 			m_locationStorylets = new Dictionary<string, Storylet>();
 			m_actionStorylets = new Dictionary<string, Storylet>();
+			m_LocationEnterStorylets = new Dictionary<string, List<Storylet>>();
+			m_LocationExitStorylets = new Dictionary<string, List<Storylet>>();
 		}
 
 		private void OnEnable()
@@ -128,7 +141,55 @@ namespace Academical
 				.GetStoryletsWithTags( "location" )
 				.ToDictionary( s => s.ID );
 
+			CollectEnterExitStorylets();
+
 			StartStory();
+		}
+
+		private void CollectEnterExitStorylets()
+		{
+			Regex onLocationEnterRg = new Regex( "OnLocationEnter:(?<locationID>[_a-zA-Z][_a-zA-z0-9]*)" );
+			Regex onLocationExitRg = new Regex( "OnLocationExit:(?<locationID>[_a-zA-Z][_a-zA-z0-9]*)" );
+
+			foreach ( Storylet storylet in m_dialogueManager.Story.Storylets )
+			{
+				foreach ( string tag in storylet.Tags )
+				{
+					// Check for OnLocationEnter:<ID> tag
+					Match match = onLocationEnterRg.Match( tag );
+					if ( match.Success )
+					{
+						AddLocationEnterStorylet( match.Groups["locationId"].Value, storylet );
+					}
+
+					// Check for OnLocationExit:<ID> tag
+					match = onLocationExitRg.Match( tag );
+					if ( match.Success )
+					{
+						AddLocationExitStorylet( match.Groups["locationId"].Value, storylet );
+					}
+				}
+			}
+		}
+
+		private void AddLocationEnterStorylet(string locationId, Storylet storylet)
+		{
+			if ( !m_LocationEnterStorylets.ContainsKey( locationId ) )
+			{
+				m_LocationEnterStorylets[locationId] = new List<Storylet>();
+			}
+
+			m_LocationEnterStorylets[locationId].Add( storylet );
+		}
+
+		private void AddLocationExitStorylet(string locationId, Storylet storylet)
+		{
+			if ( !m_LocationExitStorylets.ContainsKey( locationId ) )
+			{
+				m_LocationExitStorylets[locationId] = new List<Storylet>();
+			}
+
+			m_LocationExitStorylets[locationId].Add( storylet );
 		}
 
 		/// <summary>
@@ -137,6 +198,7 @@ namespace Academical
 		public void StartStory()
 		{
 			GameEvents.OnStoryStart?.Invoke();
+
 			if ( m_dialogueManager.Story.StoryletExists( "start" ) )
 			{
 				Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
@@ -155,6 +217,11 @@ namespace Academical
 
 			if ( m_Player.Location != location )
 			{
+				if ( m_Player.Location != null )
+				{
+					GameEvents.OnLocationExit?.Invoke( m_Player.Location );
+				}
+
 				m_CurrentLocation = location;
 				m_simulationController.SetCharacterLocation( m_Player, location );
 				m_dialogueManager.SetBackground(
@@ -167,6 +234,8 @@ namespace Academical
 						}
 					)
 				);
+
+				GameEvents.OnLocationEnter?.Invoke( location );
 			}
 		}
 
@@ -176,6 +245,32 @@ namespace Academical
 		/// <param name="location"></param>
 		public void ChangeLocation(Location location)
 		{
+			if ( m_Player.Location == location ) return;
+
+			// Attempt to run an "OnLocationExit" storylet. If it does, exit execution of this
+			// function since we do not know what the storylet is going to do to the story. It's
+			// best to have the player try to change locations again once the scene is over.
+			if ( m_LocationExitStorylets.ContainsKey( location.UniqueID ) )
+			{
+				List<Storylet> storylets = m_LocationExitStorylets[location.UniqueID]
+					.Where( storylet => storylet.IsEligible )
+					.ToList();
+
+				StoryletInstance instance = SelectStoryletFromCollection( storylets );
+
+				if ( instance != null )
+				{
+					m_dialogueManager.Story.GoToStoryletInstance( instance );
+					return;
+				}
+			}
+
+
+			if ( m_Player.Location != null )
+			{
+				GameEvents.OnLocationExit?.Invoke( m_Player.Location );
+			}
+
 			m_CurrentLocation = location;
 			m_simulationController.SetCharacterLocation( m_Player, location );
 			m_dialogueManager.SetBackground(
@@ -188,6 +283,61 @@ namespace Academical
 						}
 					)
 				);
+
+			GameEvents.OnLocationEnter?.Invoke( location );
+
+			// Running an "OnLocationEnter" storylet ends execution too for the same reasons
+			// provided above for "OnLocationExit" storylets.
+			if ( m_LocationEnterStorylets.ContainsKey( location.UniqueID ) )
+			{
+				List<Storylet> storylets = m_LocationEnterStorylets[location.UniqueID]
+					.Where( storylet => storylet.IsEligible )
+					.ToList();
+
+				StoryletInstance instance = SelectStoryletFromCollection( storylets );
+
+				if ( instance != null )
+				{
+					m_dialogueManager.Story.GoToStoryletInstance( instance );
+					return;
+				}
+			}
+
+			// If we don't trigger an "OnLocationEnter" storylet, try to trigger the storylet
+			// with the same name as this location. This used to be required with the old system,
+			// but is now optional.
+			if ( m_locationStorylets.ContainsKey( location.UniqueID ) )
+			{
+				m_dialogueManager.Story.GoToStorylet( m_locationStorylets[location.UniqueID] );
+			}
+		}
+
+		public StoryletInstance SelectStoryletFromCollection(IEnumerable<Storylet> storylets)
+		{
+			List<StoryletInstance> storyletInstances = new List<StoryletInstance>();
+
+			foreach ( Storylet storylet in storylets )
+			{
+				List<StoryletInstance> instances = m_dialogueManager.Story.CreateStoryletInstances(
+					storylet,
+					new Dictionary<string, object>()
+				);
+
+				foreach ( var entry in instances )
+				{
+					storyletInstances.Add( entry );
+				}
+			}
+
+			if ( storyletInstances.Count > 0 )
+			{
+				StoryletInstance selectedInstance = storyletInstances
+					.RandomElementByWeight( s => s.Weight );
+
+				return selectedInstance;
+			}
+
+			return null;
 		}
 
 		/// <summary>

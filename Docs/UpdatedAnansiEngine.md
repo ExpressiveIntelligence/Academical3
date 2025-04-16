@@ -61,7 +61,7 @@ When the game starts it uses the following procedure:
 
 Location change has three approaches that do slightly different things depending your intentions and the current state of the game.
 
-### 1.Changing player location outside of dialogue
+### 1. Changing player location outside of dialogue
 
 The first case is when the player changes location while not engaging in dialogue. So, this process is *NOT* initiated within Ink. The Game Manager performs the following procedure to update the player's location, trigger any required dialogue, and notify external systems.
 
@@ -195,10 +195,6 @@ After the game state has been updated, the game passes control back to the playe
 ### Deleting Save Data
 
 Game saves can be deleted in the main menu. The player will receive a confirmation dialog box asking if they are sure before they delete the save.
-
-## General Action vs Per-Character Actions
-
-Currently all actions are filtered using the tag of the location they belong to. However, this feature makes it difficult to organic
 
 ## Storylet Tooltips
 

@@ -12,9 +12,25 @@ namespace Academical
 		/// </summary>
 		public static Action OnStoryStart;
 
+		/// <summary>
+		/// Event invoked when a storylet scene is triggered from the action selection menu.
+		/// </summary>
 		public static Action OnSceneStart;
 
+		/// <summary>
+		/// Event invoked when dialogue concludes and the HUD is shown again.
+		/// </summary>
 		public static Action OnSceneEnd;
+
+		/// <summary>
+		/// Event invoked when the player enters a location.
+		/// </summary>
+		public static Action<Location> OnLocationEnter;
+
+		/// <summary>
+		/// Event invoked when the player leaves a location.
+		/// </summary>
+		public static Action<Location> OnLocationExit;
 
 		public static Action<GameSavedEventResult> OnGameSaved;
 

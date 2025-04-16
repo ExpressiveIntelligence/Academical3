@@ -64,6 +64,8 @@ namespace Anansi
 
 		#region Properties
 
+		public IEnumerable<Storylet> Storylets => m_storylets.Values;
+
 		/// <summary>
 		/// The reference to the wrapped Ink story instance.
 		/// </summary>
