@@ -21,7 +21,10 @@ namespace Academical
 		private TMP_Text m_CharacterBioText;
 
 		[SerializeField]
-		private TMP_Text m_CharacterOpinionText;
+		private TensionMeter m_TensionMeter;
+
+		[SerializeField]
+		private RelationshipMeter m_RelationshipMeter;
 
 		[SerializeField]
 		private CharacterSO m_DefaultCharacterShown;
@@ -61,7 +64,8 @@ namespace Academical
 			m_CharacterImage.sprite = characterData.defaultPose;
 			if ( characterData.uid == m_GameManager.Player.UniqueID )
 			{
-				m_CharacterOpinionText.text = $"N/A";
+				m_RelationshipMeter.gameObject.SetActive( false );
+				m_TensionMeter.gameObject.SetActive( false );
 			}
 			else
 			{
@@ -70,7 +74,20 @@ namespace Academical
 					.GetRelationship( characterData.uid, m_GameManager.Player.UniqueID )
 					.Stats.GetStat( "Opinion" ).Value;
 
-				m_CharacterOpinionText.text = $"{opinion}/255";
+				int tension = (int)m_SocialEngineController
+					.State
+					.GetRelationship( characterData.uid, m_GameManager.Player.UniqueID )
+					.Stats.GetStat( "Tension" ).Value;
+
+
+				m_RelationshipMeter.gameObject.SetActive( true );
+				m_TensionMeter.gameObject.SetActive( true );
+
+				m_RelationshipMeter.SetValueLabel(opinion);
+				m_RelationshipMeter.FillAmount = (float)opinion / 255f;
+
+				m_TensionMeter.SetValueLabel( tension );
+				m_TensionMeter.FillAmount = (float)tension / 100f;
 			}
 
 		}
