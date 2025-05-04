@@ -93,7 +93,7 @@ Hendricks: "Do tell."
 
 Bronislav: "His name was Jensen. While his feedback was a bit lacking-"
 
-She raises an eyebrow and shows a bit of a smirk.
+She raises an eyebrow and tries to hide laugh.
 
 *["Everything okay?"]
     ->BHS1_EverythingOkay
@@ -116,13 +116,10 @@ Hendricks: "I know Jensen pretty well. I can say I'm not too surprised to hear t
 === BHS1_IFeelLikeYouAre ===
 Bronislav: "I feel like I am being judged. It feels like it could be a good advising opportunity for myself, and I'm always trying to sharpen my skills."
 
-Hendricks: "Well, I'll have to wish you the best of luck with that then. Glad to hear the paper is going well though. Hope it stays that way."
+Bronislav: "Besides, but I think I have a pretty good judge of character. Like Praveen." 
 
-You stay for a bit longer to catch her up on your progress; and eventually she gets up from the table and leaves, waving at one of her students on the way out.
-
-{HideCharacter("Hendricks")}
-
-->DONE
+Hendricks silently looks at you with her "non-judgemental" stare. 
+-> BHS1_TrapDoorPraveen
 
 === BHS1_ISaidIWasUnsure ===
 Bronislav: "Exactly why I said I was unsure about it. Jensen's got promise, but maybe needs something more his speed."
@@ -171,13 +168,13 @@ She laughs kindly and leaves, waving at one of her students on the way out.
 ->DONE
 
 === BHS1_JustForNow ===
-Bronislav: "Probably not for too much longer. I got some feedback at the introductory meeting and I've been debating on adding them."
+Bronislav: "Probably not for too much longer. I got some feedback at the meeting and I've been debating on adding him."
 
 Hendricks: "Do tell."
 
 Bronislav: "His name was Jensen. While his feedback was a bit lacking-"
 
-She raises an eyebrow and shows a bit of a smirk.
+She raises an eyebrow and tries to hide laugh.
 
 *["Everything ok?"]
 ->BHS1_EverythingOkay
@@ -202,7 +199,7 @@ She interrupts you.
 
 Hendricks: "Jensen huh?"
 
-She smirks a bit.
+She tries to hide laugh.
 
 Hendricks: "I can't say it's surprising to hear Jensen's feedback was less than helpful.
 *["He has promise."]
@@ -215,7 +212,28 @@ Bronislav: "Jensen's got some promise, I feel like a nudge in the right directio
 
 She shrugs.
 
-Hendricks: "Well I'd have to wish you the best of luck on that endeavour Bronislav. If you need some more helpful advice on your paper you can always reach out."
+Hendricks: "I understand, sometimes you want to help out other people." 
+
+Bronislav: "Yeah, like Praveen."
+
+Hendricks silently looks at you with her "non-judgemental" stare. 
+-> BHS1_TrapDoorPraveen
+
+===BHS1_TrapDoorPraveen===
+*["I told you he was a good student."] -> BHS1_TrapDoorPraveenGoodStudent
+*["He's been doing great."] -> BHS1_TrapDoorPraveenGreat
+*["He's struggling."] -> BHS1_PraveenConvoEnding
+
+=BHS1_TrapDoorPraveenGreat 
+You prepare to say this but hold back. Hendricks knows Praveen's been struggling since he's arrived. Even though you have hopes for him, you probably should be truthful about what's actually happening. ->BHS1_TrapDoorPraveen
+
+=BHS1_TrapDoorPraveenGoodStudent
+You prepare to say this but hold back. Sure, he may have the grades, but that hasn't been his struggle. Even though you have hopes for him, you probably should be truthful about what's actually happening. -> BHS1_TrapDoorPraveen
+
+===BHS1_PraveenConvoEnding===
+Bronislav: "Sure, he may be struggling a bit but that's just kind of how the first year goes." 
+
+Hendricks: "You're right. Well I'd have to wish you the best of luck on your endeavour Bronislav. If you need some more helpful advice on your paper you can always reach out."
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
@@ -226,13 +244,12 @@ She gets up from the table and leaves, waving at one of her students on the way 
 === BHS1_OnlyAConsideration ===
 Bronislav: "Trust me, it was only a consideration. It was never something set in stone."
 
-Hendricks: "I suppose that's what makes it complicated. I've got to head out now, but I'll stay in touch. Hope to see you again soon."
+Hendricks: "I suppose that's what makes it complicated. I know you want to help others but also take other things into consideration." 
 
-She gets up from the table and leaves, waving at one of her students on the way out.
+Bronislav: "I know, but I think I have a pretty good judge of character. Like Praveen." 
 
-{HideCharacter("Hendricks")}
-
-->DONE
+Hendricks silently looks at you with her "non-judgemental" stare. 
+-> BHS1_TrapDoorPraveen
 
 === BHS1_ItsNotWorthIt ===
 Bronislav: "It wasn't all that important in all honesty."
