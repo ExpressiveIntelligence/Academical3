@@ -11,6 +11,8 @@
 # tags: action, cafe, auxiliary
 #===
 
+# Summary: You meet with Ivy at a cafe to catch up. She mentions knowing Jensen and you can bring the relationship down by mentioning Brad's bad talk.
+
 {DbInsert("Seen_BI_Intro")}
 
 -> FirstCoffee
@@ -19,7 +21,7 @@
 
 {ShowCharacter("Ivy", "left", "")}
 
-After a successful presentation at the seminar, you decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
+You decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
 
 Ivy: "Hey Bronislav. Good to see you again." {ShowCharacter("Ivy", "left", "")}
 
@@ -72,15 +74,26 @@ Ivy: "Do you have some reservations about Jensen?"
 *{talkedWithBradAboutJensen} ["I talked with Brad about Jensen."]
     ->IvySpite
 
-*["It is just too soon."]
+*["It's just too soon."]
     ->TooSoon
 
 === IvySpite ===
+# Should bring down the relationship
 Bronislav: "I did also talk with Brad after my presentation, and he felt a bit put off by Jensen."
 
 Ivy's cheerfulness turns to annoyance.
 
-Ivy: "Well Bronislav, I can assure you that there is nothing 'off' about Jensen. He's a good kid, so at least keep him in mind."
+Ivy: "Well Bronislav, I can assure you that there is nothing 'off' about Jensen. He's a good kid, so at least keep him in mind." 
+
+Bronislav: "You seem upset, is everything ok?" 
+
+Ivy: "Everything's fine. I just feel bad for Jensen, it's not right that people are talking bad about him behind his back." 
+
+Bronislav: "No I get it." 
+
+Ivy: "Well I should go for my meeting. Bye." 
+
+Bronislav: "Oh, ok. Bye." 
 
 She leaves the table quickly after saying this.
 
@@ -110,7 +123,7 @@ Bronislav: "No, not yet."
 
 Ivy stirs her coffee.
 
-Ivy: "Well I have a friend who is struggling to get into grad school right now named Jensen. Getting on such a big paper would certainly help him."
+Ivy: "Well I have a student who is struggling to get into grad school right now named Jensen. Getting on such a big paper would certainly help him."
 
 *["It is just too soon."]
     -> TooSoon
@@ -129,6 +142,6 @@ She waves goodbye and leaves. {HideCharacter("Ivy")}
 
 {HideCharacter("Ivy")}
 
-Its getting late. I should go pack my things in my cubicle and go home for the day.
+Its getting late, but there's enough time chat a bit more with someone else. 
 
 -> DONE

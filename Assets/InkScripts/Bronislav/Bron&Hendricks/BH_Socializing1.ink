@@ -26,7 +26,7 @@ She wants to talk about your research progress.
 # tags: action, library, auxiliary
 # repeatable: false
 # ===
-
+# Summary: You meet with Hendricks and talk about Jensen not giving helpful feedback. 
 She sits down at your table, setting down her bag next to her.
 
 {ShowCharacter("Hendricks", "left", "")}
@@ -39,7 +39,7 @@ Bronislav: "Hey Hendricks. How are you doing?"
 
 She shrugs.
 
-Hendricks: "Quite alright. Rather busy, but I was just interested in seeing how you're progress is going."
+Hendricks: "Quite alright. Rather busy, but I was just interested in seeing how your progress is going."
 
 *["It's going good."]
     ->BHS1_GoingGood
@@ -118,7 +118,7 @@ Bronislav: "I feel like I am being judged. It feels like it could be a good advi
 
 Hendricks: "Well, I'll have to wish you the best of luck with that then. Glad to hear the paper is going well though. Hope it stays that way."
 
-She gets up from the table and leaves, waving at one of her students on the way out.
+You stay for a bit longer to catch her up on your progress; and eventually she gets up from the table and leaves, waving at one of her students on the way out.
 
 {HideCharacter("Hendricks")}
 

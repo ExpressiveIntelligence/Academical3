@@ -5,17 +5,18 @@ VAR BronBradJensenDiscussion = false
 # hidden: true
 # tags: location
 #===
+# Summary: You meet Brad and he expresses stress for the IRB not getting back to him. If you are good enough relationship he tells you about his concern about Jensen
 ->BB_Socializing1_SceneStart
 
 
 === BB_Socializing1_SceneStart ===
-After your introductory lab meeting, you go back to the student cubicles to go over and review how you felt like your presentation went with all feedback in mind. 
+You go back to your cubicle and go over the presentation review with all of the feedback in mind. 
 
-You hear a knock at your door.
+You hear a knock at your cubicle wall.
 
 Brad: "It's the IRB! Stop working on that paper right now!"
 
-The door bursts open and you see your friend, Brad. 
+You see your friend, Brad. 
 
 Brad: "Just joking!"
 
@@ -102,7 +103,7 @@ Bronislav: "It really could have gone better, not much to take note of personall
 
 Brad laughs. 
 
-Brad: "I also didn't get much out of it. To be fair, I've had something kind of distracting me recently so this whole thing was in the back of my mind."
+Brad: "I also didn't get much out of it. To be fair, I've had something kind of stressing me recently so this whole thing was in the back of my mind."
 
 *["Stressed about what?"] 
 ->BB_S1_StressedAbtWhat
@@ -124,11 +125,11 @@ Brad: "Went... well for me too... Sorry Bronislav, did I come in at a bad time?"
 ->BB_S1_CouldBeBetter
 
 === BB_S1_StressedAbtWhat ===
-Bronislav: "Oh? What's been stressing you out Brad?"
+Bronislav: "Oh? What's been stressing you out?"
 
 He lets out a deep sigh. 
 
-Brad: "It's just... it feels like the IRB has been taking a long time to approve my research. I feel like I'm really starting to fall behind, and I'm not sure what to do."
+Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
 *["Sounds stressful." #>> IncrementRelationshipStatus Brad Bronislav 10] 
 ->BB_S1_SoundsStressful
@@ -144,7 +145,7 @@ Bronislav: "I'm sorry to hear that Brad. What's going on?"
 
 He lets out a deep sigh. 
 
-Brad: "It's just... it feels like the IRB has been taking a long time to approve my research. I feel like I'm really starting to fall behind, and I'm not sure what to do."
+Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
 *["Sounds stressful." #>> IncrementRelationshipStatus Brad Bronislav 10] 
 ->BB_S1_SoundsStressful
@@ -342,7 +343,7 @@ Brad: "Right, Jensen. Something about him really sets off some alarms. I don't h
 *["Could be nervous."] 
 ->BB_S1_CouldBeNervous
 
-*["Pretty harsh.]
+*["Pretty harsh."]
 ->BB_S1_PrettyHarsh
 
 === BB_S1_WasntPlanningOnIt ===
