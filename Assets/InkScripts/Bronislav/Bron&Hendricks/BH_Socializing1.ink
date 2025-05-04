@@ -26,7 +26,7 @@ She wants to talk about your research progress.
 # tags: action, library, auxiliary
 # repeatable: false
 # ===
-# Summary: You meet with Hendricks and talk about Jensen not giving helpful feedback. 
+# Summary: You meet with Hendricks and talk about Jensen not giving helpful feedback. Also first mentioning of Praveen. 
 She sits down at your table, setting down her bag next to her.
 
 {ShowCharacter("Hendricks", "left", "")}
