@@ -52,12 +52,26 @@ Ivy: "Oh man Bronislav, I'm sorry! If I know anything about you, I'm sure you di
 
 === WhatsUp ===
 
-Ivy: "My uncle works at a prestigious research firm, and they just opened up a position. From what I've heard from him, they've been looking for a graduate student with your skill set."
+Ivy: “You remember the firm I work at with my uncle, right?” 
 
-*["Wait, really?"]
+-> TrapDoorResearchFirm
+
+===TrapDoorResearchFirm===
+
+*[Is she finally going to offer me a job?] -> offerAJobThought
+*[This could help with my visa issues.] -> VisaIssues
+*["Yeah!"]
     ->WaitReally
+    
+= offerAJobThought
+I've been wanting a job at her uncle's firm for months, is she finally going to offer me a job? I'd do anything to work there. -> TrapDoorResearchFirm
+= VisaIssues
+Graduation is around the corner and I could really use this job. I've been talking to her about my issues for a while so I hope she remembers. If I don't land anything soon, I may not be able to stay. -> TrapDoorResearchFirm
 
 === WaitReally ===
+
+Ivy: “It sounds like they just opened up a position. From what I've heard, they've been looking for a graduate student with your skill set."
+
 Bronislav: "That sounds amazing Ivy! Is there anything I need to do to contact him?"
 
 Ivy: "Yeah, I totally can send you the job listing."
@@ -74,7 +88,7 @@ Ivy: "Yeah, I totally can send you the job listing."
 
     Bronislav: "That would be great Ivy! I really appreciate it!" # >> ChangeOpinion Ivy Bronislav ++
 
-    Ivy: "Of course, I am happy to help a friend out!" She says with a big smile.
+    Ivy: "Of course, I am happy to help a student out!" She says with a big smile.
 
     - ivyOpinion == OpinionState.Neutral:
 
@@ -88,7 +102,7 @@ Ivy: "Yeah, I totally can send you the job listing."
 
     Bronislav: "That would be great Ivy! I really appreciate it!"
 
-    Ivy: "Yeah, sure. I know we aren't exactly close, but I figured you'd want to know about the job all the same."
+    Ivy:  "Yeah, sure. I figured you'd want to know about the job all the same."
 
     Bronislav: "Yes, definitely, I appreciate it." You say, with a smile.
 }
@@ -145,7 +159,7 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
 
 Bronislav: "Really? You would do that?"
 
-Ivy: "I can definitely mention you if it comes up in conversation. I don't talk to him too much about his work stuff, but if it does come up, I'll keep you in mind."
+Ivy: "I can definitely mention you if it comes up in conversation."
 
 Bronislav: "Thank you so much Ivy! I really appreciate it."
 
@@ -273,9 +287,9 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
 
     Ivy: "Sorry, yeah."
 
-    Ivy shakes her head as though waking up from a trance.
+    Ivy shakes her head momentarily. 
 
-    Ivy: "I am okay, I am worried about Jensen though."
+    Ivy: "I'm okay, I am worried about Jensen though."
 
     *["What's going on with him?"]
         ->WhatsUpWithHim
@@ -413,7 +427,7 @@ Bronislav: "Jensen will figure it out, Ivy. If he's smart enough to get this far
 
 Ivy: "Maybe you're right," Ivy says with a sigh.
 
-Ivy: "He just keeps talking about needing to get on a research paper to help his chances, and the last time we talked he seemed pretty desperate.
+Ivy: "He just keeps talking about needing to get on a research paper to help his chances, and the last time we talked he seemed pretty desperate."
 
 *["Maybe I could put him on my paper?" #>>ChangeOpinion Ivy Bronislav ++]
     ->PutHimOn
@@ -474,6 +488,8 @@ Bronislav: "Maybe I could put him on my paper?"
 Ivy perks up.
 
 Ivy: "You'd consider doing something like that?"
+
+You can't remember any other work he contributed, but he did feedback he gave at your presentation. Maybe that's enough to consider him an author? 
 
 Bronislav: "Hey, I was in his shoes at one point, I do know how hard it is to get into grad school."
 
