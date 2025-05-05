@@ -64,7 +64,7 @@ Bronislav: "Sorry with how everything turned out Jensen. I hope things get bette
 
 You reach out your hand, and he shakes it firmly.
 
-Jensen: "I hope your paper turns out well Bronislav, I'll see you when I see you."
+Jensen: "I hope the same for you, Bronislav, I'll see you when I see you."
 
 {HideCharacter("Jensen")}
 
@@ -92,7 +92,9 @@ Jensen: "I- what? Hopefully I..."
 
 He looks heartbroken.
 
-Jensen: "Yeah, thanks Bronislav..." He says begrudgingly as he takes his coffee and leaves quickly.
+Jensen: "Yeah, thanks Bronislav..." 
+
+He takes his coffee and leaves begrudgingly.
 
 {HideCharacter("Jensen")}
 
@@ -135,7 +137,7 @@ Jensen: "Right. Thanks, you too Bronislav..."
 ->DONE
 
 === WeShouldHaveExpected ===
-Bronislav: "We really should have expected this Jensen. I should've trusted me intuition to stay away from this."
+Bronislav: "We really should have expected this Jensen. I should've trusted my intuition to stay away from this."
 
 Jensen: "Maybe we both should have Bronislav."
 
@@ -151,7 +153,7 @@ He walks out of the cafe without another word, or wave.
 
 // if Jensen was not on the paper
 // TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
-When you go to look for a seat at the student cubicles you see Jensen typing away at his laptop.
+You walk around and see Jensen typing away at his laptop.
 //if positive relationship
 He looks up and notices you as well, waving at you.
 
