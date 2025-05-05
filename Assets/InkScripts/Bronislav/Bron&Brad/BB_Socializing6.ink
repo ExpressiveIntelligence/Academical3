@@ -15,6 +15,7 @@ VAR count = 0
 #repeatable: false
 #tags: action, cafe
 #===
+# Summary: Ned and Brad overlook the outcome of the options
 
 {SetCurrentLocation("cafe")}
 {DBInsert("Seen_BB_Socializing6")}
@@ -38,7 +39,9 @@ Brad: "I'm going to just leave this here for a moment, I'm going to grab a drink
 === BB_Socializing6_SoundsGood ===
 Bronislav: "Sounds good, I'll keep an eye on your stuff."
 {ShowCharacter(“Brad”)}
-Brad eventually comes back with his drink and sits down. "Welp, time for a break huh?"
+Brad eventually comes back with his drink and sits down. 
+
+Brad: "Welp, time for a break huh?"
 *["A break from writing maybe."] 
 ->BB_Socializing6_BreakfromWriting
 
@@ -48,7 +51,7 @@ Brad eventually comes back with his drink and sits down. "Welp, time for a break
 === BB_Socializing6_BreakfromWriting ===
 {BreakFromWriting == false:
 ~ BreakFromWriting = true
-Bronislav: "A break from writing at least, definitely still have some extracirricular stuff to catch up on? How about you?"
+Bronislav: "A break from writing at least, definitely still have some extracurricular stuff to catch up on? How about you?"
 
 Brad chuckles. 
 
