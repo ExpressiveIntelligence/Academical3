@@ -8,6 +8,7 @@
 # repeatable: false
 # tags: action, cafe, auxiliary
 # ===
+# Summary: Jensen asks if he's on the paper/updates 
 
 {ShowCharacter("Jensen", "left", "")}
 
@@ -121,7 +122,7 @@ Jensen: "Thank you so much for the advice and opportunity for co-authorship Bron
 
 Jensen: "Hey, Bronislav, I was wondering, am I joining the paper?"
 
-He looks at you with eyes akin to a puppy.
+He looks at you with an attempt at puppy-eyes.
 
 *["There's a good chance." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 // Jensen: +Hopeful
@@ -207,7 +208,7 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 
 === BJS3_KeepOnHustling ===
 {ShowCharacter("Jensen", "left", "hopeful")}
-Bronislav: "Keep on hustling Jensen, as long as you put in the work that you have been you'll go far."
+Bronislav: "Keep on hustling Jensen, as long as you put in the work like you have been you'll go far."
 
 *[Shake his hand and leave.]
 ->BJS3_ShakeHandLeave
@@ -215,6 +216,7 @@ Bronislav: "Keep on hustling Jensen, as long as you put in the work that you hav
 === BJS3_HeresHowYouAuthor ===
 
 Bronislav: "While you certainly have some room to grow Jensen, I'd be happy to show you how to author. Let me know some time you are free and we can organize a meeting."
+
 
 *["Start working on your paper again."]
 
@@ -253,7 +255,9 @@ He says then looks down at the table, stirring his coffee.
 
 Jensen: "It technically isn't too late to add me Bronislav."
 
-He smirks at you, then walks away.
+He smiles at you, then walks away.
+
+Jensen: "I hope you reconsider." 
 
 {HideCharacter("Jensen")}
 
@@ -279,7 +283,11 @@ He walks away calmly.
 
 === BJS3_ConsiderChanging ===
 {ShowCharacter("Jensen", "left", "hopeful")}
-Bronislav: "You're perseverance is definitely admirable Jensen." You take a long pause, and sip your own coffee. "I'll consider changing my mind, and keep you updated."
+Bronislav: "You're perseverance is definitely admirable Jensen." 
+
+You take a long pause, and sip your own coffee. 
+
+Bronislav: "I'll consider changing my mind, and keep you updated."
 
 Jensen, taking a sip from his coffee as you say this, coughs for a bit but collects himself.
 
@@ -319,7 +327,9 @@ He weakly picks up his bag and coffee, and slumps out of the cafe.
 === BJS3_StartWorkingAgain ===
 You start working on your paper again.
 
-Jensen: "That sounds great! I'll get out of your hair and let you get back to work, but I'll be in contact." He gets up and leaves, waving goodbye with a smile.
+Jensen: "That sounds great! I'll get out of your hair and let you get back to work, but I'll be in contact." 
+
+He gets up and leaves, waving goodbye with a smile.
 
 {HideCharacter("Jensen")}
 
@@ -339,7 +349,7 @@ Jensen: "Oh, I can't thank you enough."
 
 === BJS3_NoIncluded ===
 
-Bronislav: "No, your feedback woudln't hold up to review."
+Bronislav: "No, your feedback wouldn't hold up to review."
 
 His innocent gaze contorts into a naive sadness.
 
