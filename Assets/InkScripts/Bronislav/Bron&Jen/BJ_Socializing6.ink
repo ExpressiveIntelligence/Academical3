@@ -9,6 +9,8 @@
 # tags: action, library, auxiliary
 # ===
 
+# Summary: You give a quick chat to Jensen about what he's currently doing. 
+
 {DbInsert("Seen_BJS6")}
 
 {ShowCharacter("Jensen", "left", "")}
