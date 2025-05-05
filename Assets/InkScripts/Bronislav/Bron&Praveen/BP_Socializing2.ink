@@ -11,7 +11,7 @@ VAR BP_S2_AskDirectly = false
 # tags: action, student_cubes, auxiliary
 # repeatable: false
 #===
-
+# Summary: Praveen asks you to help on getting Hendrick's approval 
 {SetCurrentLocation("student_cubes")}
 
 {DbInsert("Seen_BP_Socializing2")}
@@ -74,7 +74,7 @@ Bronislav: "As pretentious as ever I see."
 
 You say with an unmasked eye roll.
 
-Praveen: "Ouch. And here I hoped that you were less self-important than you used to be. Whatever, you clearly didn't come over here to talk about me. How have you been doing?"
+Praveen: "And here I hoped that you were less self-important than you used to be. Whatever, you clearly didn't come over here to talk about me. How have you been doing?"
 
 *["I've had a lot on my plate as well."  #>> DecrRelationshipStat Praveen Bronislav 5]
 ~ BP_S2_Pretentious = true
@@ -170,7 +170,7 @@ Praveen: "It's not that I'm super interested in talking about her, I just..."
 
 Bronislav: "You're just what?"
 
-Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -185,7 +185,7 @@ Bronislav: "It's just what?"
 
 Praveen sighs as he looks over at you.
 
-Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -198,7 +198,7 @@ Bronislav: "But?"
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "But I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "But I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -207,7 +207,7 @@ Bronislav: "I'm not sure I follow."
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "Look, I just really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "Look, I just really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -218,7 +218,7 @@ Praveen: "Easy for you to say, you're clearly a favorite of hers."
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "It's just... I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "It's just... I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
