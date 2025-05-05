@@ -40,7 +40,7 @@
 {r == OpinionState.Good || r == OpinionState.Excellent:
 While at the lab meeting, Brad runs into you again. 
 
-Brad: "Hey Bronislav. Have you been doing good?"
+Brad: "Hey Bronislav. How are you doing?"
 
 *["Doing great!"]
 ->BB_LabMeeting_GoingGreat
@@ -129,7 +129,7 @@ Brad: "Busy with my ethics training recently, not much going on outside of that 
 ->BB_LabMeeting_SorrytoHear
 
 === BB_LabMeeting_GladtoHear ===
-Bronislav: "I'm glad to hear that Brad! Sorry it couldn't work out this year, but I know you'll make something great."
+Bronislav: "I'm glad to hear that! Sorry it couldn't work out this year, but I know you'll make something great."
 
 Brad shrugs. 
 
@@ -142,11 +142,11 @@ Brad: "I'm not happy about it either, but you live and you learn. Thanks for bei
 ->BB_LabMeeting_FreeLater
 
 === BB_LabMeeting_HowsNed ===
-Bronislav: "Glad to hear you've been alright, and are looking forward to the future, Brad. Is Ned feeling the same at all?"
+Bronislav: "Glad to hear you've been alright, and are looking forward to the future. Is Ned feeling the same at all?"
 
 Brad chuckles awkwardly. 
 
-Brad: "He's definitely still not over everything, but I think that's understandable. I definitely feel like we're still on good terms. I do still feel like I disappointed him."
+Brad: "He's definitely still not over everything, but I think that's understandable. I definitely feel like we're still on good terms, but do still feel like I disappointed him."
 
 *["Could be worse."] 
 ->BB_LabMeeting_CouldbeWorse
@@ -213,7 +213,7 @@ Brad laughs.
 
 Brad: "I guess that's this whole situation in a nutshell isn't it?" 
 
-"Well," Brad says after a brief pause, "If you're free later I'd love to talk a bit more. I'm going to head out to the cafe, hopefully see you later Bronislav."
+Brad: "Well...If you're free later I'd love to talk a bit more. I'm going to head out to the cafe, hopefully see you later Bronislav."
 
 {HideCharacter(“Brad”)}
 
@@ -233,7 +233,7 @@ Brad: "I am actually! I'd be happy to talk more at the cafe sometime after this.
 === BB_LabMeeting_WantToTalkMore ===
 Bronislav: "Do you want to talk more later? I'd love to chat over a coffee to talk about it more."
 
-"Yeah." Brad says with a full smile, "I would like that, hope to see you later then."
+Brad: "Yeah, I would like that! Hope to see you later then."
 
 {HideCharacter(“Brad”)}
 
