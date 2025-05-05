@@ -23,7 +23,7 @@
 
 After submitting your paper you sit down and try to finally get a second of rest. However, you see Brad cautiously approach you.
 
-Brad: "Hey Bronislav. Nice to see you! How've you been?" He says slightly shakily.
+Brad: "Hey Bronislav. Nice to see you! How've you been?" He says nervously.
 
 *["Relieved."]
 ->BB_CSD_Relieved
@@ -92,7 +92,7 @@ Brad: "I just need your input on something."
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_AnywayICouldHelp ===
-Bronislav: "Is there some way I can help? I know its the submission deadline, but I'll help where I can."
+Bronislav: "Is there some way I can help? I know it's the submission deadline, but I'll help where I can."
 
 Brad shrugs. 
 
@@ -105,7 +105,7 @@ Brad: "There's nothing really to do now. I appreciate the offer, but can I just.
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_ItsStressful ===
-Bronislav: "It definitely has proven stressful. Sorry to hear it's been especially so for you Brad."
+Bronislav: "It definitely has proven stressful. Sorry to hear it's been especially so for you."
 
 Brad smiles. 
 
@@ -122,7 +122,7 @@ Bronislav: "Sure! What do you need input on?"
 
 Brad looks even more nervous. 
 
-Brad: "So Bronislav, I did get the IRB approval. I just got it way later than I wanted. So, I thought that I'd just get some data to use to get started on the paper. So I used that data on my paper." 
+Brad: "So, I did get the IRB approval. I just got it way later than I wanted. I thought that I'd just get some data to use to get started on the paper. So...I used that data on my paper." 
 
 He looks at you.
 
@@ -140,9 +140,9 @@ Brad: "It shouldn't be that big of a deal though, right?"
 === BB_CSD_WhatDidYouDo ===
 Bronislav: "Brad, what did you do?"
 
-Brad looks a bit offended to hear you say this but then decides to speak.
+Brad looks a bit offended to hear you say this.
 
-Brad: "Well I ended up using some data I did collect, and I did get IRB approval to collect the data. I just did it in... the wrong order."
+Brad: "Well...I ended up using some data I did collect, and I did get IRB approval to collect the data. I just did it in... the wrong order."
 
 He looks at you then snaps back to what he was saying. 
 
@@ -253,7 +253,7 @@ Brad: "That definitely sounds like a good plan."
 
 Brad looks back up while packing up his things. 
 
-Brad: "I'll reach out to you again when I hear back. Thanks Bronislav!"
+Brad: "I'll let you know when I hear back. Thanks Bronislav!"
 
 {HideCharacter(“Brad”)}
 
