@@ -13,6 +13,7 @@
 #repeatable: false
 #tags: action, student_cubes
 #===
+# Summary: Brad confides in Bronislav about using pre-IRB data
 
 {SetCurrentLocation("student_cubes")}
 {DBInsert("Seen_BB_ConferenceSubmissionDeadline")}
