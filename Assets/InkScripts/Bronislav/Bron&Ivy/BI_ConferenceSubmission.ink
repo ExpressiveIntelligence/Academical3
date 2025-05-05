@@ -9,6 +9,7 @@
 # repeatable: false
 # tags: action, student_cubes, required
 # ===
+# Summary: Ivy officially gives the deal to Bronislav 
 
 {ShowCharacter("Ivy", "left", "")}
 
@@ -17,21 +18,36 @@
 // TODO: Branching based off of previously saying you'd add Jensen or not
 While you are crunching away at your paper, Ivy approaches you.
 //if you said you would add Jensen
-Ivy: "Hey Bronislav. I know you said you'd put Jensen on the paper. If that's still on the table, allow me to explain my proposal. I've been talking to my uncle about you and I could arrange a meeting with him as well as a recommendation if you put Jensen on the paper. He's excited to meet you, so please, think about it."
+Ivy: "Hey Bronislav. I know you said you'd put Jensen on the paper. If that's still on the table, allow me to explain my proposal."
 
-*["Thanks Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+Ivy: "I've been talking to my uncle about you, and I could arrange a meeting with him as well as a recommendation if you put Jensen as first author on the paper. He's excited to meet you, so please, think about it."
+-> ChoiceOptionsForDeal
+
+=ChoiceOptionsForDeal
+*[This could really help me...] -> internalReflectionAddJensen
+*[What has Jensen done for authorship...?] -> internalReflectionAddJensen2
+
+*{internalReflectionAddJensen2}["Thanks Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
 ->ThanksIvy
 
-*["I've changed my mind."]
+*{internalReflectionAddJensen2}["I've changed my mind."]
 ->ChangedMyMind
 
-*["I'm not sure yet."]
+*{internalReflectionAddJensen2}["I'm not sure yet."]
 ->NotSureYet
+
+=internalReflectionAddJensen
+If you take this offer, it could basically guarentee your job and help with your visa issues. 
+->ChoiceOptionsForDeal
+
+=internalReflectionAddJensen2
+All he gave was that one piece of feedback, is that enough to be put as first author? 
+->ChoiceOptionsForDeal
 
 === ThanksIvy ===
 Bronislav: "That's really generous of you. Thank you Ivy. If I get this done in time, I'll be heavily considering adding him to the paper."
 
-Ivy: "Yeah, I just hope Jensen can get into grad school with this and a few more papers under his belt. It's really important to him."
+Ivy: "Thank you, I just hope Jensen can get into grad school with this and a few more papers under his belt. It's really important to him."
 
 {HideCharacter("Ivy")}
 
@@ -39,7 +55,7 @@ Ivy: "Yeah, I just hope Jensen can get into grad school with this and a few more
 
 === ChangedMyMind ===
 
-Bronislav: "I'm actually leaning towards no on this, now. I don't feel as though Jensen's feedback is enough now, and with a generous offer from you on the table like this, I think it would be too risky for the both of us."
+Bronislav: "I'm actually not comfortable with this. I don't feel as though Jensen's feedback is enough, and with a generous offer from you on the table like this, I think it would be too risky for the both of us."
 
 Ivy: "Aw, c'mon Bronislav, you know how hard it is to get into Grad School."
 
@@ -57,11 +73,11 @@ Ivy: "Jensen needs all the help he can get, wouldn't you have liked help like th
 ->JensenNotMe
 
 === YouAreRight ===
-Bronislav: "You're right, I would have liked this help back then. I'll mull it over some more, Ivy. You had a rough time getting into grad school too, right? That's why you're sympathizing with Jensen?"
+Bronislav: "You're right, I would have liked this help back then. I'll think about it some more, Ivy. You had a rough time getting into grad school back when you were a student too, right? That's why you're sympathizing with Jensen?"
 
 Ivy starts to smile, relieved by this turn of events.
 
-Ivy: "Yeah, it was a struggle getting onto papers, and I feel like Jensen needs the help. Thank you for mulling it over, Bronislav, I've got to go."
+Ivy: "Yeah, back then it was a struggle getting onto papers, and I feel like Jensen needs the help. Thank you for thinking it over, Bronislav, I've got to go."
 
 {HideCharacter("Ivy")}
 
@@ -72,7 +88,9 @@ Bronislav: "It is hard, but I feel like Jensen really just isn't going to hold u
 
 Ivy interrupts you, clearly you hit a nerve.
 
-Ivy: "Look, if you pull this off, I'll give you that recommendation to my uncle's place. Don't disappoint him." She walks off with a huff.
+Ivy: "Look, if you pull this off, I'll give you that recommendation. You and I know both of you need this. Don't disappoint him." 
+
+She walks off with a huff.
 
 {HideCharacter("Ivy")}
 
@@ -83,11 +101,11 @@ Bronislav: "This is Jensen, not me, Ivy. I worked so hard to get in and he's now
 
  Ivy frowns, looking peeved.
 
- Ivy: "Yeah, but what if it does? Jensen would have his credit, and you would have a recommendation to a job at my Uncle's place."
+ Ivy: "Yeah, but what if it does? Jensen would have his credit, and you would have a recommendation."
 
 Ivy sighs, shaking her head.
 
- Ivy: "Look, just think it over, okay? He's in the same place you were years ago, he may not be 'on your level' or whatever, but he's trying his hardest."
+ Ivy: "Look, just think it over, okay? He's in the same place you were years ago, and while he may not be 'on your level', but he's trying his hardest."
 
 Ivy turns away, heading out.
 
@@ -100,7 +118,7 @@ Bronislav: "Look, I'm not sure yet Ivy..."
 
 You hesitantly speak up.
 
-Ivy:"Not sure yet? Things are getting a bit close for authorship, Bronislav."
+Ivy:"Not sure yet? Things are getting a bit close for the deadline, Bronislav."
 
 Ivy: "Look, you get Jensen on that paper and I'll see what I can do about getting you that recommendation."
 
@@ -115,16 +133,28 @@ With that, Ivy waves goodbye to you and walks off.
 // if positive relationship
 Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."
 
-Ivy: "If you put Jensen on the paper, I'll recommend you to my uncle's place and see about getting him to meet you."
+Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."
 
-*["That's really helpful."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+=ChoiceOptionsForDealPositive
+*[This could really help me...] -> internalReflectionPositive
+*[What has Jensen done for authorship...?] -> internalReflectionPositive2
+
+*{internalReflectionPositive2}["That's really helpful."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
 ->ThatsReallyHelpful
 
-*["Thanks, but are you sure?" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*{internalReflectionPositive2}["Thanks, but are you sure?" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->YouSure
 
-*[I'm not sure about this?"]
+*{internalReflectionPositive2}[I'm not sure about this?"]
 ->ImNotSure
+
+=internalReflectionPositive
+If you take this offer, it could basically guarentee your job and help with your visa issues. 
+->ChoiceOptionsForDealPositive
+
+=internalReflectionPositive2
+All he gave was that one piece of feedback, is that enough to be put as first author? 
+->ChoiceOptionsForDealPositive
 
 === ThatsReallyHelpful ===
 Bronislav: "That's really helpful, Ivy, I'll need to see how the paper turns out first but if I keep it together, I'm leaning towards putting Jensen on the paper."
@@ -175,7 +205,11 @@ Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed 
 
 She looks dejected.
 
-Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you a job at my uncle's place. Any thoughts?"
+Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you that job. Any thoughts?"
+
+=ChoiceOptionsForDealNegative
+*[This could really help me...] -> internalReflectionNegative
+*[What has Jensen done for authorship...?] -> internalReflectionNegative2
 
 *["I'm sorry about what I said."]
 ->SorryAbtThat
@@ -186,16 +220,24 @@ Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper
 *["No way."]
 ->NoWay
 
+=internalReflectionNegative
+If you take this offer, it could basically guarentee your job and help with your visa issues. 
+->ChoiceOptionsForDealNegative
+
+=internalReflectionNegative2
+All he gave was that one piece of feedback, is that enough to be put as an author? 
+->ChoiceOptionsForDealNegative
+
 === SorryAbtThat ===
 Bronislav: "I'm sorry about what I said regarding Jensen. I'm sure he's a fine guy, he just rubbed me wrong when we first met. I think I'll be putting him on the paper."
 
 Ivy looks slightly relieved.
 
-Ivy: "That actually means a lot to hear you say that, Bronislav. Jensen really needs it, as you've clearly noticed."
+Ivy: "That actually means a lot, Bronislav. Jensen really needs it, as you've clearly noticed."
 
 With the slight bit of sass, she continues.
 
-Ivy: "For now, keep mulling it over, and be a bit nicer to poor Jensen from now on."
+Ivy: "For now, maybe try being a bit nicer to poor Jensen from now on."
 
 Ivy walks away, not even waving goodbye.
 
@@ -206,7 +248,7 @@ Ivy walks away, not even waving goodbye.
 === ThatWontHelp ===
 Bronislav: "Look, it won't really help with how the feedback from Jensen is."
 
-You grimace a little.
+You smile a little.
 
 Bronislav: "As enticing as a job recommendation is, Jensen's feedback is iffy."
 
@@ -214,7 +256,7 @@ Ivy frowns.
 
 Ivy: "Bronislav, you know how much help he needs. Please. Think about it."
 
-Ivy: "I know it might be hard, but you're struggling with getting a job. Mull it over."
+Ivy: "I know it might be hard, but you're struggling with getting a job. And we both know what could happen if you don't find anything. Think it over."
 
 Ivy waves goodbye and leaves without another word.
 
