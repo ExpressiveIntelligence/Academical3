@@ -60,7 +60,9 @@ Bronislav: "You know, I don't really recall him mentioning anything. Why?"
 
 Ned's brow furrows slightly.
 
-Ned: "I find that really interesting Bronislav, because he did mention talking to you about it breifly when we spoke yesterday. I understand you are trying to be a good friend to Brad and not say anything that might get him in trouble, but lying to me is not a good idea."
+Ned: "I find that really interesting Bronislav, because he did mention talking to you about it breifly when we spoke yesterday." 
+
+Ned: "I understand you are trying to be a good friend to Brad and not say anything that might get him in trouble, but lying to me is not a good idea."
 
 *["Sorry, Ned."]
 ->BN_Socializing5_SorryNed
@@ -138,24 +140,24 @@ Ned sighs.
 Ned: "You see, Brad did not wait for IRB approval before collecting data for our research. <>
 
 { honesty == true:
-<>As I am sure you are well aware, Brad was likely more worried about making sure things went smoothly, so he was willing to overlook the ethicality of preemptively collecting data without proper IRB approval. <>
+<> Ned: "As I am sure you are well aware, Brad was likely more worried about making sure things went smoothly, so he was willing to overlook the ethicality of preemptively collecting data without proper IRB approval." <>
 }
 
 //if Brad did not withdraw data
-<>And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review. This entire process has turned into a headache, where it would have been much simpler if Brad had come clean and told me the situation so I could have withdrawn the paper."
+<>Ned: "And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review. This entire process has turned into a headache, where it would have been much simpler if Brad had come clean and told me the situation so I could have withdrawn the paper."
 
 //if Brad withdrew data
-//<>Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me. I am very glad he came forward, because the reprocussions had he not would have been severe."
+//<>Ned: "Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me. I am very glad he came forward, because the reprocussions had he not would have been severe."
 
-Ned: "While I know this is not something you were directly involved in, its important to remember Brad's mistakes here, so that if you are ever in this situation, you come clean as soon as you realize you have made an ethics violation. <>
+Ned: "While I know this is not something you were directly involved in, its important to remember Brad's mistakes here, so that if you are ever in this situation, you come clean as soon as you realize you have made an ethics violation." <>
 
 //if Brad did not withdraw data
-<>If Brad would have just been honest about the situation, I could have helped mitigate the damage done by his reckless actions, but much of this is out of my hands at this point.
+<>Ned: "If Brad would have just been honest about the situation, I could have helped mitigate the damage done by his reckless actions, but much of this is out of my hands at this point."
 
 Ned: "What's important for you to remember is that it's never worth violating ethics to get a paper published. Not only is it morally wrong, but it can land you in a heap of trouble."
 
 //if Brad withdrew data
-//<>Thankfully, Brad was honest and came forward about the situation early, and I was able to help mitigate the damage done bt his oversight."
+//<>Ned: "Thankfully, Brad was honest and came forward about the situation early, and I was able to help mitigate the damage done bt his oversight."
 
 //Ned: "What's important for you to remember is that it's never worth violating ethics just to get a paper published. Not only is it morally wrong, but it can land you in a heap of trouble. I am proud of Brad for realizing what was problematic about his actions and taking ownership of his mistakes."
 
@@ -220,7 +222,7 @@ Bronislav: "Uhm, yes?"
 
 Ned shakes his head at you.
 
-Ned: "It's never a good idea to lie to yuor advisor Bronislav. But, I can understand trying to protect Brad from any more trouble. Luckily for him, there won't be any major issues going forward because he came clean, just some internal delays."
+Ned: "It's never a good idea to lie to your advisor Bronislav. But, I can understand trying to protect Brad from any more trouble. Luckily for him, there won't be any major issues going forward because he came clean, just some internal delays."
 
 - else:
 Ned: "Yes, me too. Not only did it save me a lot of problems, it was simply the right thing to do."
