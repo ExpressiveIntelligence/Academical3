@@ -10,9 +10,9 @@
 # tags: action, required, student_cubes
 # ===
 
-After the review of papers at the lecture hall, you sit down and go over the feedback. Ivy approaches you seeing you work on edits.
+You sit down to go over the feedback. Ivy approaches you seeing you work on edits.
 
-Ivy: "Hey Bronislav. Get some helpful feedback?"
+Ivy: "Hey Bronislav. Got some helpful feedback?"
 
 *["I did."]
 ->BI_RP_IDid
@@ -72,7 +72,7 @@ Bronislav: "Not really, I've been pretty uninterested in all the feedback I have
 
 Ivy raises her eyebrow.
 
-Ivy: "O-oh? Well I'm sorry that nothing has been that helpful Bronislav. If I can suggest something, I know Jensen's good with authorship so if you just need some help writing down everything I'm sure Jensen can do that."
+Ivy: "O-oh? Well I'm sorry that nothing has been that helpful Bronislav. If I can suggest something, I know Jensen did give you some good feedback a while ago, maybe good enough for you to consider our deal?"
 
 *["As long as I get something." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
 ->BI_RP_GetSomething
@@ -85,13 +85,14 @@ Ivy: "O-oh? Well I'm sorry that nothing has been that helpful Bronislav. If I ca
 
 === BI_RP_BetterThanJ ===
 Bronislav: "Well, the feedback I did get was definitely better than what Jensen gave me week one."
+
 Ivy scoffs.
 
 Ivy: "Bronislav! He's an undergrad, this is his first time at something like this. Cut him some slack will you?"
 
 She takes a deep breath.
 
-Ivy: "Look, you don't even need to have Jensen do anything. Just say he was a co-author and I'll leave that offer with my uncle on the table."
+Ivy: "Look, you don't even need to have Jensen do anything. Just say he was a co-author and I'll leave my offer on the table."
 
 *["As long as I get something." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
 ->BI_RP_GetSomething
@@ -108,7 +109,7 @@ Ivy: "Look, you don't even need to have Jensen do anything. Just say he was a co
 
 // Ivy looks estatic hearing you say this.
 
-// Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen ASAP, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."
+// Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."
 
 // if Bronislav said Jensen would not be on the paper
 Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."
@@ -132,7 +133,7 @@ Ivy: "Wait, really? Oh! That's incredible news. I'll make sure to relay the good
 
 //She smiles and nods.
 
-//Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call my uncle for you. After I do that I'll call you for a coffee and we can discuss details further."
+//Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call the firm. After I do that I'll call you for a coffee and we can discuss details further."
 
 // if Bronislav said Jensen would not be on the paper
 Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."
@@ -191,11 +192,11 @@ Ivy: "Bronislav, it really isn't that big of an issue I promise. Seems like I ca
 
 //Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"
 
-//She grumbles quietly to herself and gets up with her stuff.
+//She grumbles quietly to herself.
 
 //Ivy: "I cannot believe you right now Bronislav. We are going to talk later."
 
-//She storms out of the lecture hall.
+//She storms out.
 
 //{HideCharacter("Ivy")}
 
@@ -219,8 +220,6 @@ Ivy: "I really thought this would've been a great opportunity for all of us. Har
 === BI_RP_ThanksIvy ===
 Bronislav: "Thanks Ivy, it's going to be great working with both of you. I'm really glad we could catch up and hash this out."
 
-Ivy, overjoyed, gets up with her stuff.
-
 Ivy: "Me too Bronislav. I know Jensen is really looking forward to working with you, you'll be a great mentor."
 
 Ivy: "I've got to head out now, but we'll be in touch."
@@ -242,8 +241,6 @@ Ivy: "Yep, talk with you later Bronislav."
 
 === BI_RP_SoundsGreat ===
 Bronislav: "That sounds great Ivy, look forward to hearing from you on how that goes."
-
-She packs her things up.
 
 IvyL "Speaking of, I've got somewhere to be, but I'll get on that as soon as possible."
 
@@ -280,15 +277,11 @@ She leaves, waving goodbye to you.
 ->DONE
 
 === BI_RP_ItsAnIssue ===
-Bronislav: "You're disappointed in me? Ivy I'm disappointed in seeing how low you'd stoop just to get a friend of yours false authorship."
+Bronislav: "You're disappointed in me? Ivy I'm disappointed in seeing how low you'd stoop just to get your student false authorship."
 
 She lets out a chuckle.
 
 Ivy: "Call it what you want Bronislav, Jensen was just really struggling and I thought that I'd help as much as I can. Nothing more."
-
-She gets up with her things packed up.
-
-Ivy: "Nothing more."
 
 She leaves promptly after saying this.
 
