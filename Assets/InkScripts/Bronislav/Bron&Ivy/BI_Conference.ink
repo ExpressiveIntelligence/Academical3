@@ -18,8 +18,9 @@ VAR BI_C_negativeNelly = false
 # repeatable: false
 # tags: action, lecture_hall, required
 # ===
+#Summary: You confront Ivy at the conference and exchange apologies 
 
-You notice Ivy at the conference and decide to approach her.
+You notice Ivy and decide to approach her.
 
 // if you accepted Ivy's Deal
 // positive relationship
@@ -46,7 +47,7 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 //*["Good to see you too, Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
 //->BI_C_GoodToSeeYouTooIvy
 
-//*["Have you talked to your uncle yet?"  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+//*["Have you talked to the firm yet?"  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
 //->BI_C_HaveYouTalked
 
 // if you didn't accept Ivy's Deal
@@ -86,11 +87,11 @@ Ivy: "Actually, I'd need to think about that more, I'll get back to you on that.
 
 Ivy smiles as she remembers something.
 
-Ivy: "Speaking of getting back to you, I talked to my uncle for you."
+Ivy: "Speaking of getting back to you, I talked to the firm for you."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "He said he would love to have someone of your talent for the position."
+Ivy: "They said they would love to have someone of your talent for the position."
 
 *["That's amazing."]
 ->BI_C_ThatsAmazing
@@ -109,11 +110,11 @@ Ivy: "Hmmm... maybe you've been checking out the wrong things, because everythin
 
 Ivy smiles as she remembers something.
 
-Ivy: "Actually, I was going to tell you, I talked to my uncle."
+Ivy: "Actually, I was going to tell you, I talked to the firm."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "He said he would love to have someone of your talent for the position."
+Ivy: "They said they would love to have someone of your talent for the position."
 
 *["That's amazing."]
 ->BI_C_ThatsAmazing
@@ -139,15 +140,15 @@ Bronislav: "Could have fooled me. You looked bored out of your mind, hence why I
 
 Ivy shakes her head at you.
 
-Ivy: "You're lucky you're my friend, Bronislav."
+Ivy: "You're lucky I think you're a good student, Bronislav."
 
 Ivy suddenly smiles as she remembers something.
 
-Ivy: "Actually, I was going to tell you, I talked to my uncle."
+Ivy: "Actually, I was going to tell you, I talked to the firm."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "He said he would love to have someone of your talent for the position."
+Ivy: "They said they would love to have someone of your talent for the position."
 
 *["That's amazing."]
 ->BI_C_ThatsAmazing
@@ -166,11 +167,11 @@ Ivy: "Mhm."
 
 She grows quiet, before she appears to remember something.
 
-Ivy: "You know, I actually did talk to my Uncle for you."
+Ivy: "You know, I actually did talk to the firm for you."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "He said he would definitely be willing to consider someone of your skill for the position."
+Ivy: "They said they would definitely be willing to consider someone of your skill for the position."
 
 *["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->BI_C_ThatsGreat
@@ -194,11 +195,11 @@ Ivy: "No, I guess not."
 
 She sighs and grows quiet, before she appears to remember something.
 
-Ivy: "You know, I actually did talk to my Uncle for you."
+Ivy: "You know, I actually did talk to the firm for you."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "He said he would definitely be willing to consider someone of your skill for the position."
+Ivy: "They said they would definitely be willing to consider someone of your skill for the position."
 
 *["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->BI_C_ThatsGreat
@@ -210,7 +211,7 @@ Ivy: "He said he would definitely be willing to consider someone of your skill f
 ->BI_C_WishYouHadnt
 
 === BI_C_HaveYouTalked ===
-Bronislav: "Have you talked to your Uncle yet?"
+Bronislav: "Have you talked to the firm yet?"
 
 Ivy looks annoyed.
 
@@ -222,9 +223,9 @@ Ivy sighs. You are definitely trying her patience.
 
 Ivy: "As a matter of a fact, I did."
 
-Bronislav: "You did? What did he say?"
+Bronislav: "You did? What did they say?"
 
-Ivy: "He said he would definitely be willing to consider someone of your skill for the position."
+Ivy: "They said they would definitely be willing to consider someone of your skill for the position."
 
 *["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
 ->BI_C_ThatsGreat
@@ -247,7 +248,7 @@ Ivy: "Actually, I'd need to think about that more, I'll get back to you on that.
 
 Bronislav: "Alright then."
 
-As you stand near Ivy, your mind keeps wandering back to the deal. While it surprised you a bit that she was so adamant on you talking it, you genuinely hope that all of this buisness hasn't messed too much with your friendship. You aren't sure if you should even bring it up.
+As you stand near Ivy, your mind keeps wandering back to the deal. While it surprised you that she was so adamant on you taking it, you genuinely hope that all of this hasn't messed too much of her perception of you. You aren't sure if you should even bring it up.
 
 // TODO: did the player do optional dialogue in socalizing 4
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
@@ -266,7 +267,7 @@ Ivy: "Hmmm... maybe you've been checking out the wrong things, because everythin
 
 Bronislav: "Yeah, maybe."
 
-As you stand near Ivy, your mind keeps wandering back to the deal. While it surprised you a bit that she was so adamant on you talking it, you genuinely hope that all of this buisness hasn't messed too much with your friendship. You aren't sure if you should even bring it up.
+As you stand near Ivy, your mind keeps wandering back to the deal. While it surprised you that she was so adamant on you taking it, you genuinely hope that all of this hasn't messed too much of her perception of you. You aren't sure if you should even bring it up.
 
 // TODO: did the player do optional dialogue in socalizing 4
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
@@ -291,9 +292,9 @@ Bronislav: "Could have fooled me. You looked bored out of your mind, hence why I
 
 Ivy shakes her head at you.
 
-Ivy: "You're lucky you're my friend, Bronislav."
+Ivy: "You're lucky I think you're a good student, Bronislav."
 
-As you stand near Ivy, your mind keeps wandering back to the deal. While it surprised you a bit that she was so adamant on you talking it, you genuinely hope that all of this buisness hasn't messed too much with your friendship. You aren't sure if you should even bring it up.
+As you stand near Ivy, your mind keeps wandering back to the deal. While it surprised you that she was so adamant on you taking it, you genuinely hope that all of this hasn't messed too much of her perception of you. You aren't sure if you should even bring it up.
 
 // TODO: did the player do optional dialogue in socalizing 4
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
@@ -322,7 +323,9 @@ Ivy: "No, I guess not. It's just... you seem like you don't like me very much, a
 === BI_C_HowAreYouDoing ===
 Bronislav: "How are you doing?"
 
-Ivy: "I guess about as good as you would expect, given everything. I came here to focus on the conference, but clearly everything I tried with the whole deal is clearly still on your mind. Otherwise why would you want to talk with me, right? You clearly didn't like me very much before, but maybe you had a good reason to. Why would that be any different now?"
+Ivy: "I guess about as good as you would expect, given everything. I came here to focus on the conference, but clearly everything I tried with the whole deal is still on your mind. Otherwise why would you want to talk with me, right?"
+
+Ivy: "You clearly didn't like me very much before, but maybe you had a good reason to. Why would that be any different now?"
 
 *["I don't have a problem with you as a person Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
 ->BI_C_NoProblemWithYou
@@ -337,7 +340,9 @@ Ivy: "I guess about as good as you would expect, given everything. I came here t
 
 Bronislav: "You know, now I really wish I hadn't."
 
-Ivy: "Okay Bronislav. You know I really didn't want to do this in a professional setting but clearly you are not going to let this go. I don't know what I did to make you hate me, but I apologize for even bringing the deal up to you in the first place because clearly you don't care about other people or their feelings."
+Ivy: "Okay Bronislav. You know I really didn't want to do this in a professional setting but clearly you are not going to let this go." 
+
+Ivy: "I don't know what I did to make you hate me, but I apologize for even bringing the deal up to you in the first place because clearly you don't care about other people or their feelings."
 
 *["I don't have a problem with you as a person Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
 ->BI_C_NoProblemWithYou
@@ -352,13 +357,13 @@ Ivy: "Okay Bronislav. You know I really didn't want to do this in a professional
 === BI_C_ThatsAmazing ===
 Bronislav: "That's amazing Ivy, thank you so much!"
 {BI_C_negativeNelly == false :
-Ivy: "Of course, it's the least I can do for a good friend like you."
+Ivy: "Of course, it's the least I can do."
 - else:
 Ivy: "And that was all it took for you to stop whining."
 }
 Bronislav: "No, seriously Ivy, this means so much to me."
 
-Ivy: "What can I say, he was very impressed with you."
+Ivy: "What can I say, they were very impressed with you."
 
 You shake your head, trying to process what that means for you and your career.
 
@@ -367,21 +372,21 @@ Ivy: "I'm so glad I could help you out like this Bronislav."
 ->BI_C_DealOutro
 
 === BI_C_Seriously ===
-Bronislav: "Wait, seriously? What did you tell him"
+Bronislav: "Wait, seriously? What did you say?"
 {BI_C_negativeNelly == false :
-Ivy: "I told him about your research, and he was impressed with the breadth of it."
+Ivy: "I told them about your research, and they were impressed with the breadth of it."
 - else:
-Ivy: "I told him that you are super pretentious and like to hate on everyone else's work."
+Ivy: "I told them that you are super pretentious and like to hate on everyone else's work."
 
 You give Ivy an annoyed glare which causes her to giggle.
 
-Ivy: "Okay, okay, I told him about your research and your skill and he was impressed."
+Ivy: "Okay, okay, I told them about your research and they were impressed."
 
 }
 
 You shake your head, trying to process what that means for you and your career.
 
-Bronislav: "I can't believe he was impressed, this doesn't even feel real."
+Bronislav: "I can't believe- this doesn't even feel real."
 
 Ivy: "Best believe, it's very real. I'm just glad I could help you out like this."
 
@@ -392,11 +397,13 @@ Bronislav: "Honestly Ivy, I kind of wish you hadn't said anything."
 
 Ivy looks completely stunned.
 
-Ivy: "What do you mean? I spoke super highly of you, your work, and your research, and he was very impressed. Why wouldn't you want me to do that?"
+Ivy: "What do you mean? I spoke super highly of you, your work, and your research, and they were very impressed. Why wouldn't you want me to do that?"
 
 Bronislav: "Maybe I would appreciate it more under different circumstances, but this... it's just not sitting right with me at all. I appreciate the gesture, but this all feels so wrong.
 
-Ivy: "Or maybe you could just say thank you and move on Bronislav? Would it kill you to be grateful for once? Nobody cares about what you have to do to get a job, they just care whether or not you have one. You now have one, a real, prestigious job."
+Ivy: "Or maybe you could just say thank you and move on Bronislav? Would it kill you to be grateful for once?"
+
+Ivy: "Nobody cares about what you have to do to get a job, they just care whether or not you have one. You now have one, a real, prestigious job."
 
 Ivy shakes her head in frustration.
 
@@ -477,18 +484,20 @@ Ivy: "I'm okay. I just..."
 
 Ivy trails off as she searches for her next words.
 
-Ivy: "I genuinely don't want all of this to mess with our friendship Bronislav. And I feel like it has."
+Ivy: "I genuinely don't want all of this to mess with us working together in the future."
 
-*["We are definitely still friends."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["We definitely will."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->BI_C_WeAreStillFriends
 
 *["I'm not sure anymore."  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
 ->BI_C_NotSureAnymore
 
 === BI_C_DontBringUp ===
-You decide to not bring up the deal. It's better not to make things akward, especially at an event like this.
+You decide to not bring up the deal. It's better not to make things awkard, especially at an event like this.
 
-Ivy: "Uh... Bronislav, I just wanted to apologize, about putting you in that position the other day. I know I said a lot of things I regret, and I think that was just because I was so desperate to help Jensen. You don't have to respond to any of this, but just know I'm sorry."
+Ivy: "Uh... Bronislav, I just wanted to apologize, about putting you in that position the other day." 
+
+Ivy: "I know I said a lot of things I regret, and I think that was just because I was so desperate to help Jensen. You don't have to respond to any of this, but just know I'm sorry."
 
 *["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
 ->BI_C_AppreciateApology
@@ -497,11 +506,9 @@ Ivy: "Uh... Bronislav, I just wanted to apologize, about putting you in that pos
 ->BI_C_YouShouldBe
 
 === BI_C_WeAreStillFriends ===
-Bronislav: "Of course we are still friends. I get that you were just trying to help Jensen out and be a good friend to him. I think just next time, if you didn't place me in the middle of that, I think I would feel much better about it."
+Bronislav: "Of course we'll continue working together. I get that you were just trying to help Jensen out. I think just next time, if you didn't place me in the middle of that, I think I would feel much better about it."
 
-Ivy: "Yeah, I'm sorry I did. I'm just glad you're still willing to be friends after this."
-
-While you were worried at first about how Ivy would feel about you now that you refused to help her, you find some reassurance in the fact that she still wants to be friends. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. Just because she showed a moment of weakness, doesn't mean you have to give up on your friendship.
+Ivy: "Yeah, I'm sorry I did. I'm just glad there's no hard feelings."
 
 Bronislav: "Well, it was good talking with you Ivy. I'm going to check out a few more presentations, but it was nice seeing you."
 
@@ -518,9 +525,7 @@ Ivy: "Oh... yeah... I guess I understand."
 
 Ivy looks visibly saddened.
 
-Ivy: "I'm really sorry for putting you in this position. I just really wanted to help Jensen, but I can see I took it too far. I just hope I can make it up to you at some point, because I definitely value our friendship."
-
-While you know that you aren't fully comfortable with still being friends with Ivy, you find some reassurance in the fact that she wants to make things right. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. For now, you just need to give the whole thing some space.
+Ivy: "I'm really sorry for putting you in this position. I just really wanted to help Jensen, but I can see I took it too far. I just hope I can make it up to you at some point."
 
 Bronislav: "Well, I'm glad I could talk with you some more, Ivy. I'm going to check out a few more presentations, but I'll see you around."
 
@@ -533,9 +538,9 @@ Ivy: "Yeah, okay... take care."
 === BI_C_AppreciateApology ===
 Bronislav: "I appreciate your apology. I certainly wasn't perfect in my own handling of that situation either, so I'm sorry for that."
 
-Ivy: "Do you think we will be able to be friends, after all this?"
+Ivy: "Do you think we will still be able to work together, after all this?"
 
-*["We are definitely still friends."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["Definately."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->BI_C_WeAreStillFriends
 
 *["I'm not sure anymore."  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
@@ -584,8 +589,6 @@ Bronislav: "Okay, see you."
 
 {HideCharacter("Ivy")}
 
-While you know that you aren't fully comfortable with being friends with Ivy, you find some reassurance in the fact that she wants to make things right. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. For now, you just need to give the whole thing some space.
-
 ->DONE
 
 
@@ -601,8 +604,6 @@ Ivy: "Alright, there's a talk I'm going to head off to now, but see you around B
 Bronislav: "Okay, see you."
 
 {HideCharacter("Ivy")}
-
-While you know that you aren't fully comfortable with being friends with Ivy, you find some reassurance in the fact that she wants to make things right. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. For now, you just need to give the whole thing some space.
 
 ->DONE
 
@@ -625,7 +626,6 @@ Ivy: "Sure Bronislav. Look, I'm going to go to a talk now, but I guess I'll see 
 
 Bronislav: "Okay, see you."
 
-While you know that you aren't fully comfortable with being friends with Ivy, you find some reassurance in the fact that she at least feels some remorse for her actions.
 
 ->DONE
 
@@ -649,7 +649,7 @@ Bronislav: "Yeah, no problem, see you around."
 
 {HideCharacter("Ivy")}
 
-While this certainly hasn't been the cleanest resolution to the whole situation, the important thing is that you are setting boundaries with Ivy so you don't have go through something like this again in the future. You couldn't help Jensen, but maybe there's still some hope for your friendship with Ivy. For now, you just need to give the whole thing some space.
+While this certainly hasn't been the cleanest resolution to the whole situation, the important thing is that you are setting boundaries with Ivy so you don't have go through something like this again in the future. You couldn't help Jensen, but maybe there's still some hope for both of your futures. For now, you just need to give the whole thing some space.
 
 ->DONE
 
@@ -675,7 +675,7 @@ Ivy: "Wow. Just wow."
 
 Ivy looks absolutely apalled.
 
-Ivy: "My intentions were good, and I was just trying to help a friend, but if you are really this heartless, then I have nothing more to say to you. Goodbye, Bronislav."
+Ivy: "My intentions were good, and I was just trying to help a student, but if you are really this heartless, then I have nothing more to say to you. Goodbye, Bronislav."
 
 {HideCharacter("Ivy")}
 
