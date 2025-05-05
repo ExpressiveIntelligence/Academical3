@@ -11,6 +11,7 @@
 # repeatable: false
 # tags: action, required, student_cubes
 # ===
+#Summary: Ivy continues pushing the deal. 
 
 As you walk towards your desk, you notice that Ivy steps into your path.
 
@@ -52,7 +53,7 @@ Ivy: "Why so cold all of a sudden?"
 // if you weren't receptive
 //Ivy: "Hi. I... uh... okay..."
 
-//She looks like she is mentally fortifying herself for this conversation.
+//She looks like she is preparing herself for this conversation.
 
 //Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."
 
@@ -100,7 +101,7 @@ Bronislav: "I'm honestly not sure I'm comfortable talking with you right now. I 
 
 Ivy: "Oh, well... I wasn't exactly expecting that..."
 
-Ivy now looks nervous.
+Ivy looks nervous.
 
 Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should definitely help Jensen."
 
@@ -120,16 +121,14 @@ Ivy: "Real mature Bronislav."
 === WhyShouldIHelp ===
 Bronislav: "Okay, you have my attention, why should I help Jensen?"
 
-Ivy: "Well, in thinking about it more, you and I both know how hard it is to get into grad school. We both know how difficult it is to get in, especially without taking part in research like you're engaged in. But, I realized this extends into getting a job in our field after school.
+Ivy: "Well, in thinking about it more, you and I both know how hard it is to get into grad school, especially without taking part in research like you're engaged in. But, I realized this extends into getting a job in our field after school."
 
 Ivy: "I've heard so many horror stories about the whole process, and I am realizing that having an in like the one I'm offering not only would be a testimate to your hard work, but it gives you security for your future going forward. You're not only helping Jensen through what we both know is a difficult situation, but you are helping yourself have a plan for post graduation."
 
 *["I hadn't thought about it like that." #>> IncrementRelationshipStat Ivy Bronislav Opinion +40]
 Bronislav: "Huh, I hadn't thought about it like that, Ivy."
 
-Ivy giggles.
-
-Ivy: "Oh you know me, master schemer and insight wizard over here. Anyway, I think you should defintiely put Jensen on the paper, because you're not only helping him, but you're helping yourself."
+Ivy: "What I'm trying to say is that I think you should defintiely put Jensen on the paper, because you're not only helping him, but you're helping yourself."
 
 Bronislav: "Alright, I'll have to see. I've got some work I have to do now, but it was nice chatting."
 
@@ -169,7 +168,7 @@ Ivy: "Oh, my bad. I didn't realize I was making this weird, I appreciate you bei
 
 Ivy: "Is there anything that I can say that might make you feel less worried? The last thing I want is to make you feel uncomfortable."
 
-Bronislav: "Just give me some time to think about all this. I've got some work to do right now, and I think I need to focus on that first before I can think anymore about your ideas."
+Bronislav: "Just give me some time to think about all this. I've got some work to do right now, and I think I need to focus on that first before I can think about anything else."
 
 Ivy: "Okay, no problem, I'll leave you to it. Just please think about it, because it could really help you both."
 
@@ -208,9 +207,7 @@ Ivy: "Helping Jensen would really give you the secruity of having your life afte
 *["I hadn't thought about it like that." #>> IncrementRelationshipStat Ivy Bronislav Opinion +40]
 Bronislav: "Huh, I hadn't thought about it like that, Ivy."
 
-Ivy giggles.
-
-Ivy: "Oh you know me, master schemer and insight wizard over here. Anyway, I think you should defintiely put Jensen on the paper, because you're not only helping him, but you're helping yourself."
+Ivy: "Yeah, what I'm trying to say here is that I think you should defintiely put Jensen on the paper, because you're not only helping him, but you're helping yourself."
 
 Bronislav: "Alright, I'll have to see. I've got some work I have to do now, but it was nice chatting."
 
@@ -227,7 +224,7 @@ Bronislav: "Yeah, I guess you're right, Ivy."
 
 Ivy: "Of course I am. When have I ever not been on the mark?"
 
-Bronislav: "Yeah, I guess so. I'll have to see about helping Jensen.
+Bronislav: "Yeah, I guess so. I'll have to see about helping Jensen."
 
 You move to sit down at your desk.
 
@@ -248,7 +245,7 @@ Ivy: "I have, and this is fool proof. It's simple straightforwad logic, and you 
 
 Bronislav: "And why is that exactly?"
 
-Ivy: "You are a reasonable person Bronislav, and its so easy to do the reasonable thing in this case. Just at least say you will consider it."
+Ivy: "You are a reasonable person Bronislav, and its easy to do the right thing in this case. Just at least say you will consider it."
 
 Bronislav: "Okay, I will, but right now I've got some work to do."
 
@@ -263,7 +260,7 @@ She heads out of the office.
 ->DONE
 
 === NotInterested ===
-Ivy: "All I was going to say was that I thought about our conversation earlier, which may I remind you, you said you were interested in helping Jensen, and that I also thought about how this deal would really be helpful both for you securing a job and getting your life planned out prior to graduating."
+Ivy: "All I was going to say was that I thought about our conversation earlier, which may I remind you, you said you were interested in helping Jensen. I've also thought about how this deal would really be helpful both for you securing a job and getting your life planned out prior to graduating."
 
 Ivy: "But clearly, you're more invested in whatever work is waiting for you at your desk, so I'll leave you to it. You're lucky Jensen needs my help, because it is ridiculous for you to treat me like this."
 
