@@ -62,7 +62,9 @@ namespace Academical
 		private void OnPlayButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			GameEvents.LevelSelected?.Invoke( m_ScenarioData );
+			GameStateManager.NewGame();
+			GameStateManager.GetGameState().scenarioId = m_ScenarioData.ScenarioId;
+			MainMenuManager.Instance.StartNewGame();
 		}
 
 		#endregion

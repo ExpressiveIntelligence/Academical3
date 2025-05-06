@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 
 namespace Academical
@@ -78,6 +78,7 @@ namespace Academical
 
 		public void OnBackButtonClicked()
 		{
+			Hide();
 			AudioManager.PlayDefaultButtonSound();
 		}
 

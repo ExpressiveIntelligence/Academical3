@@ -60,6 +60,9 @@ EXTERNAL FadeToBlack(delay)
 EXTERNAL FadeFromBlack(delay)
 EXTERNAL ShowInfoDialog(dialogId)
 EXTERNAL AdvanceDay()
+EXTERNAL LockAllLocations(message)
+EXTERNAL UnlockAllLocations()
+EXTERNAL SetPlayerLocation(locationID)
 
 
 // There can be only one "start" storylet. We place it in this
@@ -71,6 +74,9 @@ EXTERNAL AdvanceDay()
 // Show the current player character on screen
 // (even when not in dialogue)
 {ShowCharacter("Bronislav", "right", "")}
+
+{SetPlayerLocation("lecture_hall")}
+{LockAllLocations("Must give presentation in lecture hall.")}
 
 -> lecture_hall
 

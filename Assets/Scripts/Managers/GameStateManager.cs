@@ -9,9 +9,6 @@ namespace Academical
 	{
 		private GameState m_GameState;
 
-		[SerializeField]
-		private GameLevelSO m_GameLevel;
-
 		public static GameStateManager Instance { get; private set; }
 
 		private void Awake()
@@ -25,8 +22,12 @@ namespace Academical
 
 			Instance = this;
 			m_GameState = new GameState();
-			m_GameLevel = null;
 			DontDestroyOnLoad( gameObject );
+		}
+
+		public static void NewGame()
+		{
+			Instance.m_GameState = new GameState();
 		}
 
 		public static void SetGameState(GameState gameState)
@@ -45,24 +46,6 @@ namespace Academical
 			}
 
 			return null;
-		}
-
-		public static GameLevelSO GetLevel()
-		{
-			if ( Instance != null )
-			{
-				return Instance.m_GameLevel;
-			}
-
-			return null;
-		}
-
-		public static void SetGameLevel(GameLevelSO gameLevel)
-		{
-			if ( Instance != null )
-			{
-				Instance.m_GameLevel = gameLevel;
-			}
 		}
 	}
 }

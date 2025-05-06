@@ -1,5 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using Academical.Persistence;
 using Anansi;
 using TDRS;
 using UnityEngine;
@@ -12,6 +15,13 @@ namespace Academical
 	[DefaultExecutionOrder( 2 )]
 	public class GameManager : MonoBehaviour
 	{
+		[Tooltip( "Toggle auto saving after each conversation." )]
+		[SerializeField]
+		public bool m_AutoSaveEnabled;
+
+		[SerializeField]
+		public GameLevelSO m_DefaultScenario;
+
 		[SerializeField]
 		private Character m_Player;
 
@@ -39,6 +49,16 @@ namespace Academical
 		/// All storylets related to locations on the map.
 		/// </summary>
 		private Dictionary<string, Storylet> m_locationStorylets;
+
+		/// <summary>
+		/// Storylets that can be triggered when a player enters a location.
+		/// </summary>
+		private Dictionary<string, List<Storylet>> m_LocationEnterStorylets;
+
+		/// <summary>
+		/// Storylets that can be triggered when the player leaves a location.
+		/// </summary>
+		private Dictionary<string, List<Storylet>> m_LocationExitStorylets;
 
 		/// <summary>
 		/// All storylets related to actions the player can take at locations.
@@ -69,6 +89,8 @@ namespace Academical
 		{
 			m_locationStorylets = new Dictionary<string, Storylet>();
 			m_actionStorylets = new Dictionary<string, Storylet>();
+			m_LocationEnterStorylets = new Dictionary<string, List<Storylet>>();
+			m_LocationExitStorylets = new Dictionary<string, List<Storylet>>();
 		}
 
 		private void OnEnable()
@@ -87,7 +109,16 @@ namespace Academical
 
 		private void Start()
 		{
-			GameLevelSO currentLevel = GameStateManager.GetLevel();
+			SaveData saveData = DataPersistenceManager.SaveData;
+			GameState gameState = GameStateManager.GetGameState();
+
+			if ( saveData != null )
+			{
+				gameState.scenarioId = saveData.scenarioId;
+			}
+
+			GameLevelSO currentLevel = (gameState.scenarioId != null) ?
+				ScenarioManager.GetScenario( gameState.scenarioId ) : m_DefaultScenario;
 
 			if ( currentLevel != null )
 			{
@@ -110,7 +141,55 @@ namespace Academical
 				.GetStoryletsWithTags( "location" )
 				.ToDictionary( s => s.ID );
 
+			CollectEnterExitStorylets();
+
 			StartStory();
+		}
+
+		private void CollectEnterExitStorylets()
+		{
+			Regex onLocationEnterRg = new Regex( "OnLocationEnter:(?<locationID>[_a-zA-Z][_a-zA-z0-9]*)" );
+			Regex onLocationExitRg = new Regex( "OnLocationExit:(?<locationID>[_a-zA-Z][_a-zA-z0-9]*)" );
+
+			foreach ( Storylet storylet in m_dialogueManager.Story.Storylets )
+			{
+				foreach ( string tag in storylet.Tags )
+				{
+					// Check for OnLocationEnter:<ID> tag
+					Match match = onLocationEnterRg.Match( tag );
+					if ( match.Success )
+					{
+						AddLocationEnterStorylet( match.Groups["locationId"].Value, storylet );
+					}
+
+					// Check for OnLocationExit:<ID> tag
+					match = onLocationExitRg.Match( tag );
+					if ( match.Success )
+					{
+						AddLocationExitStorylet( match.Groups["locationId"].Value, storylet );
+					}
+				}
+			}
+		}
+
+		private void AddLocationEnterStorylet(string locationId, Storylet storylet)
+		{
+			if ( !m_LocationEnterStorylets.ContainsKey( locationId ) )
+			{
+				m_LocationEnterStorylets[locationId] = new List<Storylet>();
+			}
+
+			m_LocationEnterStorylets[locationId].Add( storylet );
+		}
+
+		private void AddLocationExitStorylet(string locationId, Storylet storylet)
+		{
+			if ( !m_LocationExitStorylets.ContainsKey( locationId ) )
+			{
+				m_LocationExitStorylets[locationId] = new List<Storylet>();
+			}
+
+			m_LocationExitStorylets[locationId].Add( storylet );
 		}
 
 		/// <summary>
@@ -118,8 +197,13 @@ namespace Academical
 		/// </summary>
 		public void StartStory()
 		{
-			Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
-			m_dialogueManager.RunStorylet( startStorylet );
+			GameEvents.OnStoryStart?.Invoke();
+
+			if ( m_dialogueManager.Story.StoryletExists( "start" ) )
+			{
+				Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
+				m_dialogueManager.RunStorylet( startStorylet );
+			}
 		}
 
 		/// <summary>
@@ -133,6 +217,11 @@ namespace Academical
 
 			if ( m_Player.Location != location )
 			{
+				if ( m_Player.Location != null )
+				{
+					GameEvents.OnLocationExit?.Invoke( m_Player.Location );
+				}
+
 				m_CurrentLocation = location;
 				m_simulationController.SetCharacterLocation( m_Player, location );
 				m_dialogueManager.SetBackground(
@@ -145,7 +234,129 @@ namespace Academical
 						}
 					)
 				);
+
+				GameEvents.OnLocationEnter?.Invoke( location );
 			}
+		}
+
+		/// <summary>
+		/// Change the player's location and the current story location.
+		/// </summary>
+		/// <param name="location"></param>
+		public void ChangeLocation(Location location)
+		{
+			if ( m_Player.Location == location ) return;
+
+			// Attempt to run an "OnLocationExit" storylet. If it does, exit execution of this
+			// function since we do not know what the storylet is going to do to the story. It's
+			// best to have the player try to change locations again once the scene is over.
+			if ( m_LocationExitStorylets.ContainsKey( location.UniqueID ) )
+			{
+				List<Storylet> storylets = m_LocationExitStorylets[location.UniqueID]
+					.Where( storylet => storylet.IsEligible )
+					.ToList();
+
+				StoryletInstance instance = SelectStoryletFromCollection( storylets );
+
+				if ( instance != null )
+				{
+					m_dialogueManager.Story.GoToStoryletInstance( instance );
+					return;
+				}
+			}
+
+
+			if ( m_Player.Location != null )
+			{
+				GameEvents.OnLocationExit?.Invoke( m_Player.Location );
+			}
+
+			m_CurrentLocation = location;
+			m_simulationController.SetCharacterLocation( m_Player, location );
+			m_dialogueManager.SetBackground(
+					new BackgroundInfo(
+						location.UniqueID,
+						new string[]
+						{
+							// Pass the time of day as an optional tag.
+							$"~{m_simulationController.DateTime.TimeOfDay.ToString()}"
+						}
+					)
+				);
+
+			GameEvents.OnLocationEnter?.Invoke( location );
+
+			// Running an "OnLocationEnter" storylet ends execution too for the same reasons
+			// provided above for "OnLocationExit" storylets.
+			if ( m_LocationEnterStorylets.ContainsKey( location.UniqueID ) )
+			{
+				List<Storylet> storylets = m_LocationEnterStorylets[location.UniqueID]
+					.Where( storylet => storylet.IsEligible )
+					.ToList();
+
+				StoryletInstance instance = SelectStoryletFromCollection( storylets );
+
+				if ( instance != null )
+				{
+					m_dialogueManager.Story.GoToStoryletInstance( instance );
+					return;
+				}
+			}
+
+			// If we don't trigger an "OnLocationEnter" storylet, try to trigger the storylet
+			// with the same name as this location. This used to be required with the old system,
+			// but is now optional.
+			if ( m_locationStorylets.ContainsKey( location.UniqueID ) )
+			{
+				m_dialogueManager.Story.GoToStorylet( m_locationStorylets[location.UniqueID] );
+			}
+		}
+
+		public StoryletInstance SelectStoryletFromCollection(IEnumerable<Storylet> storylets)
+		{
+			List<StoryletInstance> storyletInstances = new List<StoryletInstance>();
+
+			foreach ( Storylet storylet in storylets )
+			{
+				List<StoryletInstance> instances = m_dialogueManager.Story.CreateStoryletInstances(
+					storylet,
+					new Dictionary<string, object>()
+				);
+
+				foreach ( var entry in instances )
+				{
+					storyletInstances.Add( entry );
+				}
+			}
+
+			if ( storyletInstances.Count > 0 )
+			{
+				StoryletInstance selectedInstance = storyletInstances
+					.RandomElementByWeight( s => s.Weight );
+
+				return selectedInstance;
+			}
+
+			return null;
+		}
+
+		/// <summary>
+		/// Advance the game to the next day.
+		/// </summary>
+		public void AdvanceDay()
+		{
+			StartCoroutine( AdvanceDayCoroutine() );
+		}
+
+		private IEnumerator AdvanceDayCoroutine()
+		{
+			GameEvents.OnFadeToBlack?.Invoke( 1f );
+
+			yield return new WaitForSeconds( 1f );
+
+			GameEvents.OnFadeFromBlack?.Invoke( 1f );
+
+			m_simulationController.AdvanceToNextDay();
 		}
 
 
@@ -519,6 +730,56 @@ namespace Academical
 					m_simulationController.AdvanceToNextDay();
 				}
 			);
+
+			story.BindExternalFunction(
+				"LockLocations",
+				(string locationIds, string message) =>
+				{
+					string[] locationIdList = locationIds.Split( "," ).Select( s => s.Trim() ).ToArray();
+
+					foreach ( string id in locationIdList )
+					{
+						m_simulationController.GetLocation( id ).LockLocation( message );
+					}
+				}
+			);
+
+			story.BindExternalFunction(
+				"UnlockLocations",
+				(string locationIds) =>
+				{
+					string[] locationIdList = locationIds.Split( "," ).Select( s => s.Trim() ).ToArray();
+
+					foreach ( string id in locationIdList )
+					{
+						m_simulationController.GetLocation( id ).UnlockLocation();
+					}
+				}
+			);
+
+			story.BindExternalFunction(
+				"LockAllLocations",
+				(string message) =>
+				{
+					foreach ( Location location in m_simulationController.Locations )
+					{
+						if ( location == m_Player.Location ) continue;
+
+						location.LockLocation( message );
+					}
+				}
+			);
+
+			story.BindExternalFunction(
+				"UnlockAllLocations",
+				() =>
+				{
+					foreach ( Location location in m_simulationController.Locations )
+					{
+						location.UnlockLocation();
+					}
+				}
+			);
 		}
 
 		private void OnActionSelectModalShown()
@@ -535,6 +796,41 @@ namespace Academical
 		private void OnActionSelected(StoryletInstance action)
 		{
 			m_dialogueManager.RunStoryletInstance( action );
+		}
+
+		public void EnableAutoSave()
+		{
+			m_AutoSaveEnabled = true;
+			GameEvents.OnSceneEnd += AutoSave;
+		}
+
+		public void DisableAutoSave()
+		{
+			m_AutoSaveEnabled = false;
+			GameEvents.OnSceneEnd -= AutoSave;
+		}
+
+		public void AutoSave()
+		{
+			SaveGame( true );
+		}
+
+		public void SaveGame(bool isAutoSave)
+		{
+			GameState gameState = GameStateManager.GetGameState();
+
+			SaveData saveData = new SaveData();
+
+			saveData.scenarioId = gameState.scenarioId;
+			saveData.guid = gameState.guid;
+			saveData.currentDay = m_simulationController.DateTime.Day;
+			saveData.currentTimeOfDay = m_simulationController.DateTime.TimeOfDay.ToString();
+			saveData.currentLocationId = m_Player.Location.UniqueID;
+			saveData.isAutoSave = isAutoSave;
+			saveData.totalPlaytime = gameState.TotalPlayTime;
+
+
+			DataPersistenceManager.SaveGame( saveData );
 		}
 	}
 }

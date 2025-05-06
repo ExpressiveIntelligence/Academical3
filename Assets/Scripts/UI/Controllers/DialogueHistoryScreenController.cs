@@ -47,6 +47,8 @@ namespace Academical
 
 		private void OnBackButtonClicked()
 		{
+			Hide();
+			ClearEntries();
 			AudioManager.PlayDefaultButtonSound();
 		}
 

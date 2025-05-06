@@ -20,4 +20,9 @@ MonoBehaviour:
     maxValue: 255
     minValue: 0
     isDiscrete: 1
+  - statName: Tension
+    baseValue: 0
+    maxValue: 100
+    minValue: 0
+    isDiscrete: 1
   traits: []

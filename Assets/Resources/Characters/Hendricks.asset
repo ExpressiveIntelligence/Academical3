@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c585eb49b294c2c9a6e6375e4c9785, type: 3}
+  m_Name: Hendricks
+  m_EditorClassIdentifier: 
+  uid: Hendricks
+  displayName: Hendricks
+  nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
+  bio: Hendricks is a professor in the <MAJOR> Department. Hendricks is described
+    by her friends as <CHARACTER TRAITS>. She advises Bronislav.
+  poses:
+  - poseName: default
+    sprite: {fileID: 21300000, guid: c96dfda4c91fd4819b08d9091cad825f, type: 3}
+  defaultPose: {fileID: 21300000, guid: c96dfda4c91fd4819b08d9091cad825f, type: 3}
+  relationships: []

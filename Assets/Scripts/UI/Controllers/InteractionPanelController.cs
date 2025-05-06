@@ -40,7 +40,7 @@ namespace Academical
 		private void OnLocationSelectButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
-			GameEvents.LocationSelectModalShown?.Invoke();
+			// GameEvents.LocationSelectModalShown?.Invoke();
 		}
 
 		#endregion

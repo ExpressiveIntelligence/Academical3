@@ -31,8 +31,8 @@ namespace Academical
 
 		private void OnBackButtonClicked()
 		{
+			Hide();
 			AudioManager.PlayDefaultButtonSound();
-			MainMenuUIEvents.CreditsScreenHidden?.Invoke();
 		}
 
 		#endregion
