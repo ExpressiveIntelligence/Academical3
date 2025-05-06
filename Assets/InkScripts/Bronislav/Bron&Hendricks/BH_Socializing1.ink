@@ -27,6 +27,8 @@ She wants to talk about your research progress.
 # repeatable: false
 # ===
 
+{DbInsert("Seen_BHS1")}
+
 She sits down at your table, setting down her bag next to her.
 
 {ShowCharacter("Hendricks", "left", "")}

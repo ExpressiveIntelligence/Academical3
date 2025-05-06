@@ -28,6 +28,8 @@ INCLUDE ../helpers.ink
 INCLUDE ./locations.ink
 INCLUDE ./actions.ink
 INCLUDE ./Bron&Hendricks/BH_Socializing1.ink
+INCLUDE ./Bron&Hendricks/BH_Socializing2.ink
+INCLUDE ./Bron&Hendricks/BH_Socializing3.ink
 INCLUDE ./Bron&Jen/BJ_Introduction.ink
 INCLUDE ./Bron&Jen/BJ_Socializing3.ink
 INCLUDE ./Bron&Jen/BJ_Socializing5.ink
@@ -41,6 +43,10 @@ INCLUDE ./Bron&Ivy/BI_Socializing6.ink
 INCLUDE ./Bron&Ivy/BI_Conference.ink
 INCLUDE ./Bron&Ivy/BI_ReviewPeriod.ink
 INCLUDE ./Bron&Ivy/BI_Socializing3.ink
+INCLUDE ./Bron&Ned/BN_Socializing1.ink
+INCLUDE ./Bron&Ned/BN_LabMeeting.ink
+INCLUDE ./Bron&Praveen/BP_Socializing6.ink
+
 
 
 EXTERNAL DbInsert(statement)
