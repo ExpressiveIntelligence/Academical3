@@ -8,12 +8,13 @@
 # repeatable: false
 # tags: action, student_cubes, required
 # ===
+# Summary: You find Jensen at the conference and learn his feelings considering the outcome of the situation. 
 
 {ShowCharacter("Jensen", "left", "")}
 
 {DbInsert("Seen_BJ_CONF")}
 
-You find Jensen in the cubicles on the phone with someone so you wait to reveal yourself until he's done with the call.
+You find Jensen on the phone with someone so you wait until he's done with the call.
 
 Jensen: "This will totally get me into grad school now! Thanks so much for your help Ivy."
 
@@ -32,7 +33,7 @@ You walk in after he gets off the call.
 
 Bronislav: "Hey Jensen! Glad to see you so happy."
 
-Jensen: "How could I not be? There's no way they don't let me into grad school with this on my record! Thank you so much again Bronislav.
+Jensen: "How could I not be? There's no way they don't let me into grad school with this on my record! Thank you so much again Bronislav."
 
 *["Happy to help."]
 ->BJ_CONF_HappyToHelp
@@ -54,14 +55,14 @@ Bronislav: "That's great to hear, but don't make me regret it Jensen."
 
 Jensen: "I promise I won't let you down Bronislav."
 
-He gives you a jokey salute, giggles a bit, then goes back to looking at his laptop."
+He gives you a jokey salute, giggles a bit, then goes back to looking at his laptop.
 
 {HideCharacter("Jensen")}
 
 -> DONE
 
 === BJ_CONF_UnincludedStart ===
-You find Jensen in the cubicles on the phone with someone so you wait to reveal yourself until he's done with the call.
+You find Jensen on the phone with someone so you wait to reveal yourself until he's done with the call.
 
 Jensen: "I appreciate the effort Ivy..."
 
@@ -79,7 +80,9 @@ Jensen: "Thanks for everything, I'll talk to you later, maybe..."
 === BJ_CONF_DoingOkay ===
 Bronislav: "Hey Jensen... Are you doing ok?"
 
-Jensen: He rests his chin on his arms, "Could be doing better. Could be doing better..."
+He rests his chin on his arms
+
+Jensen: "Could be doing better. Could be doing better..."
 
 *["You can't rely on stuff like that."]
 ->BJ_CONF_CantRelyOnThat
@@ -93,7 +96,7 @@ Bronislav: "As much as I resepct you Jensen, you can't rely on stuff like that. 
 
 Jensen: "You're right, you're right. I'll keep trying. Thanks Bronislav."
 
-He sighs and starts working at his computer again.
+He sighs and walks away.
 
 {HideCharacter("Jensen")}
 
@@ -105,7 +108,7 @@ Bronislav: "Don't let this get you down Jensen, you're a smart guy. Keep putting
 
 Jensen: "Well Bronislav, I appreciate the kind words. I'll just... get back to work."
 
-He starts typing away at his laptop.
+He sighs and walks away.
 
 {HideCharacter("Jensen")}
 

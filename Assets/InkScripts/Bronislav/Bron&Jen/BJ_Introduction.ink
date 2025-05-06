@@ -20,11 +20,12 @@ As Bronislav, you must chose how to approach this situation.
 # repeatable: false
 # tags: action, lecture_hall, required
 # ===
+# Summary: Jensen gives not so great feedback on your presentation
 
 {UnlockAllLocations()}
 {DbInsert("Seen_BJ_INTRO")}
 
-Today you have the honor of presenting a practice paper talk at the weekly department seminar.
+Today you are presenting a practice paper talk at the weekly department seminar.
 
 You go to the front of the room and speak for about 45 minutes.
 
@@ -119,7 +120,7 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 
 Bronislav: Glad that's done.
 
-You check the time on your phone. You promised to meet your labmate Ivy for coffee later at the cafe.
+You check the time on your phone. You promised to meet Professor Ivy for coffee later at the cafe, but you may have a little time for something else.
 
 ->BHS1_Hint->
 

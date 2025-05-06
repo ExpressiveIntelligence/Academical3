@@ -1,4 +1,4 @@
-// Wishes Hendricks would ask to help with conference 
+// Wishes Hendricks would ask to help with conference
 // Tell Praveen he will put in a good word for him or not
 
 VAR BP_Suggestion = false
@@ -12,6 +12,8 @@ VAR BP_S2_AskDirectly = false
 # tags: action, student_cubes, auxiliary
 # repeatable: false
 #===
+
+// Summary: Praveen asks you to help on getting Hendrick's approval
 
 {ShowCharacter("Praveen", "left", "")}
 
@@ -71,11 +73,11 @@ Bronislav: "As pretentious as ever I see."
 
 You say with an unmasked eye roll.
 
-Praveen: "Ouch. And here I hoped that you were less self-important than you used to be. Whatever, you clearly didn't come over here to talk about me. How have you been doing?"
+Praveen: "And here I hoped that you were less self-important than you used to be. Whatever, you clearly didn't come over here to talk about me. How have you been doing?"
 
 *["I've had a lot on my plate as well."  #>> DecrRelationshipStat Praveen Bronislav 5]
 ~ BP_S2_Pretentious = true
-Bronislav: "I've had a lot on my plate. I just finished getting my own paper ready for IRB review." 
+Bronislav: "I've had a lot on my plate. I just finished getting my own paper ready for IRB review."
 
 Praveen: "I'm not surprised that's keeping you busy. You probably are getting plenty of pushback knowing your tendency to work alone. Hendricks certainly never helps matters."
 
@@ -89,7 +91,7 @@ Praveen: "I'm not surprised that's keeping you busy. You probably are getting pl
 
 === BP_Socializing2_LotOnMyPlate ===
 { BP_S2_Pretentious == false:
-Bronislav: "I've had a lot on my plate. I just finished getting my own paper ready for IRB review." 
+Bronislav: "I've had a lot on my plate. I just finished getting my own paper ready for IRB review."
 
 Praveen: "Oh wow, that is a lot. Hopefully the stress hasn't been too much for you. Hendricks certainly never helps matters."
 }
@@ -105,7 +107,7 @@ Praveen: "Oh wow, that is a lot. Hopefully the stress hasn't been too much for y
 ->BP_Socializing2_HendricksHelpful
 
 === BP_Socializing2_PrettyGood ===
-Bronislav: "I've been pretty good overall. I just finished getting my own paper ready for IRB review." 
+Bronislav: "I've been pretty good overall. I just finished getting my own paper ready for IRB review."
 
 Praveen: "Oh, I see. Well, good luck with that. And hopefully you can get more help from Hendricks than I have been able to."
 
@@ -167,7 +169,7 @@ Praveen: "It's not that I'm super interested in talking about her, I just..."
 
 Bronislav: "You're just what?"
 
-Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -182,7 +184,7 @@ Bronislav: "It's just what?"
 
 Praveen sighs as he looks over at you.
 
-Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -195,7 +197,7 @@ Bronislav: "But?"
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "But I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "But I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -204,7 +206,7 @@ Bronislav: "I'm not sure I follow."
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "Look, I just really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "Look, I just really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -215,7 +217,7 @@ Praveen: "Easy for you to say, you're clearly a favorite of hers."
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "It's just... I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in it, but honestly, I haven't had much luck at all."
+Praveen: "It's just... I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -235,7 +237,7 @@ You notice that despite all of his theatrics, he is genuinely stressed about the
 ~ BP_S2_AskDirectly = true
 Bronislav: "Have you considered just asking her directly?"
 
-Praveen: "Of course you would suggest the tasteless option. You and I both know no good comes from being overly direct about your intentions. It's always best to let someone think they are original for having the idea to help you." 
+Praveen: "Of course you would suggest the tasteless option. You and I both know no good comes from being overly direct about your intentions. It's always best to let someone think they are original for having the idea to help you."
 
 *["That's a great way to end up with no help."]
 ->BP_Socializing2_GreatWayToEndUp
@@ -320,7 +322,7 @@ Praveen: "Well, I know Hendricks likes you, or at least respects your opinion. I
 === BP_Socializing2_AskHendricks ===
 { BP_S2_AskDirectly == true:
 Bronislav: "As I said before, just ask Hendricks. I'm pretty sure she'd be willing to help you"
-- else: 
+- else:
 Bronislav: "Why can't you just ask Hendricks?"
 
 Praveen fidgets nervously as he considers your suggestion.

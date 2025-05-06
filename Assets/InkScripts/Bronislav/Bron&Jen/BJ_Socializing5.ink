@@ -18,14 +18,13 @@ library after ... <TODO:: WHEN DOES THIS HAPPEN??>.
 # hidden: true
 # tags: action, library, auxiliary
 # ===
+# Summary: Jensen asks to meet at the conference to talk about his feelings of the outcome. 
 
 {DbInsert("Seen_BJS5")}
 
-Jensen texted you earlier today saying he wanted to talk about the project at the library.
+Jensen texted you earlier today saying he wanted to talk to you about something.
 
-You walk up to the door of the sty room he booked, and you see him on his phone.
-
-He puts it away once he sees you, waving briefly and getting up to open the door.
+You walk up you see him on his phone. He quickly puts it away once he sees you, waving briefly.
 
 {ShowCharacter("Jensen", "left", "")}
 
@@ -46,7 +45,7 @@ Jensen: "Hey, Bronislav! Glad you you could come here on pretty short notice. Ho
 
 === BJS5_ItsBeenGood ===
 
-Bronislav: "It's been pretty good. Got off a call with Ivy earlier today, and it sounds like she'll recommend me to her Uncle!"
+Bronislav: "It's been pretty good. Got off a call with Ivy earlier today, and it sounds like she'll recommend me for the job position!"
 
 Jensen gives you a little round of applause.
 
@@ -65,8 +64,6 @@ Jensen: "I'm just happy to finally have something to put on my CV. You're a life
 
 Jensen: "Oh, right!"
 
-Jensen takes out his laptop.
-
 Jensen: "I do need some help if you've got a moment."
 
 * [Help Jensen]
@@ -82,20 +79,14 @@ Jensen: "Oh yeah! I saw you talking to that one guy at the conference. What was 
 
 * ["Brad?"]
     -> BJS5_TalkAboutBrad
-* ["What did you do, Jensen?"]
-    -> BJS5_WhatDidYouDo
 
 === BJS5_HelpJensen ===
 
-You pull up a chair next to jensen and help solve the problem he was having.
+He begins to ask you questions about networking in a conference as an undergrad, and you help him with some advice. 
 
-You see him glance outside
-
-Jensen: "Woof! Looks like its might be getting a bit late, I don't want to keep you too long, Bronislav"
+Jensen: "Thanks Bronislav! Well, I don't want to keep you too long!"
 
 * ["Need help with anything else?"]
-
-    Bronislav: "I mean, this is about your work on the paper. Are you sure you don't need help with anything else?"
 
     // Note: I added the line below (Shi)
 
@@ -106,27 +97,13 @@ Jensen: "Woof! Looks like its might be getting a bit late, I don't want to keep 
     // Note: This part of the story doesn't make sense. Why would Jensen
     //       be at a conference? Do we leave campus?
 
-    Jensen: "It's not really related to the paper, but what's the name of the guy you were talking with at the conference today?"
+    Jensen: "What's the name of the guy you were talking with at the conference today? The one I see you hang out with alot?"
 
     ** ["Brad?"]
         -> BJS5_TalkAboutBrad
-
-    // Note: This choice takes an odd accusatory tone
-    ** ["What did you do, Jensen?"]
-        -> BJS5_WhatDidYouDo
     -
 
-* ["That sounds reasonable."]
-
-    You glance out the door.
-
-    Bronislav: "I think you might be right, Jensen."
-
-    Bronislav: "I think my bus should be here soon, as a matter of fact."
-
-    You pack your stuff up to leave.
-
-    Jensen: "Thanks again for showing up on short notice and helping me with that, Bronislav."
+* ["No problem."]
 
     Jensen: "Catch you later"
 
@@ -147,27 +124,12 @@ Jensen: "Bet he hates seeing me come this far, huh?"
 
 * ["I doubt it."]
     -> BJS5_IDoubtIt
-* ["That's not something you should worry about"]
+* ["He's not someone you should worry about"]
     -> BJS5_NotSomethingYouShouldWorryAbout
 * ["I bet you're right."]
     -> BJS5_IBetYouAreRight
 
 -> DONE
-
-=== BJS5_WhatDidYouDo ===
-
-Bronislav: "Jensen, ... what did you do?"
-
-Jensen: "I didn't do anything!"
-
-Jensen: "Nothing ... like .. super serious anyway."
-
-Jensen: "Just had to let him know I was on the paper."
-
-* [Roll your eyes.]
-    -> BJS5_RollYourEyes
-* ["That's not something you should worry about"]
-    -> BJS5_NotSomethingYouShouldWorryAbout
 
 
 === BJS5_WhatIsItNow ===
@@ -190,32 +152,15 @@ Jensen: "Talk to me again when you feel up to it"
     -> BJS5_LetJensenLeave
 
 
-=== BJS5_RollYourEyes ===
-
-You visibly roll your eyes.
-
-Jensen: "I'm telling you, Bronislav. He's not as nice a guy that you seem to think he is."
-
-Jensen: "I just know I get on his nerves."
-
-Jensen: "That's not really important anyway..."
-
-Jensen: "While I've got you here, do you think you could help me with something on the paper?"
-
-* ["Yeah I've got some time."]
-    -> BJS5_IveGotSomeTime
-* ["Maybe another time."]
-    -> BJS5_MaybeAnotherTime
-
 === BJS5_IDoubtIt ===
 
-Bronislav: "I know Brad, and I really doubt it."
+Bronislav: "I know Brad, he's not someone you should worry about."
 
 Bronislav: "He's pretty professional. He just seems concerned about the nature of you on this paper. Which is fair"
 
 Jensen: "Yeah, whatever you say, Bronislav. I know it really does get on his nerves."
 
-Jensen: "Anyway, that's not important. Do you think you have time to spare to help on the paper?"
+Jensen: "Anyway, that's not important. Do you think you have time to spare to help me? This is my first conference and could use some help."
 
 * ["Yeah I've got some time."]
     -> BJS5_IveGotSomeTime
@@ -224,13 +169,13 @@ Jensen: "Anyway, that's not important. Do you think you have time to spare to he
 
 === BJS5_NotSomethingYouShouldWorryAbout ===
 
-Bronislav: "That;s not something you should worry about, Jensen."
+Bronislav: "That's not something you should worry about, Jensen."
 
-Bronislav: "As long as you're working on the paper, who cares what people think?"
+Bronislav: "Besides, who cares what people think?"
 
 Jensen: "That's a smart wat to think about it. Yeah ... You're right. I'll just ignore him."
 
-Jensen: "While I've got you here, do you thing you can help me with something on the paper?"
+Jensen: "While I've got you here, do you think you have time to spare to help me? This is my first conference and could use some help."
 
 * ["Yeah I've got some time."]
     -> BJS5_IveGotSomeTime
@@ -245,7 +190,7 @@ Jensen laughs with you.
 
 Jensen: "Seriously. Glad to hear I'm not crazy"
 
-Jensen: "Well, anyways, I was wondering if you've got some time to help me with something on the paper?"
+Jensen: "Well, anyways, do you think you have time to spare to help me? This is my first conference and could use some help."
 
 * ["Yeah I've got some time."]
     -> BJS5_IveGotSomeTime
@@ -256,9 +201,9 @@ Jensen: "Well, anyways, I was wondering if you've got some time to help me with 
 
 Bronislav: "Sure, I can help for a bit. What do you need help with?"
 
-You work on the paper with Jensen for a while.
+He begins to ask you questions about networking in a conference as an undergrad and you help him with some advice. 
 
-You head home once you noticed it has gotten dark outside.
+Jensen: "Thanks! I really appreciate your help! I'll see you around!" 
 
 {HideCharacter("Jensen")}
 
@@ -267,9 +212,9 @@ You head home once you noticed it has gotten dark outside.
 
 === BJS5_MaybeAnotherTime ===
 
-You look at the time, seeing that your bus should be arriving soon.
+You look at the time and see you might miss a talk you wanted to go to.
 
-Bronislav: Maybe another time, Jensen. I've got to get home soon."
+Bronislav: "Maybe another time, Jensen, I have to go."
 
 Jensen: "No worries, Bronislav. I'm sure we'll talk again soon."
 
@@ -287,11 +232,11 @@ Jensen: "No worries, Bronislav. I'm sure we'll talk again soon."
 # tags: action, library, auxiliary
 # ===
 
-Jensen texted you earlier to day saying he wanted to talk with you at the library.
+Jensen texted you earlier to day saying he wanted to talk with you.
 
-You approach the study room he booked, and you see him on his phone.
+You approach where he told you to meet and see him on his phone.
 
-He puts it away once he see you, waving briefly, and getting up to open the door.
+He puts it away once he see you, waving briefly.
 
 Jensen: "Hey, Bronislav. Sorry if I was interrupting anything. I just wanted to talk with you."
 
@@ -323,7 +268,7 @@ Jensen: "Now I see that you were always thinking about what was best for me."
 
 === BJS5_SitDownAndListen ===
 
-You sit down across from Jensen, silently.
+You stand across from Jensen, silently.
 
 He lets out a deep sigh.
 
@@ -344,9 +289,11 @@ Jensen: "Now I see that you were always thinking about what was best for me."
 
 Bronislav: "As long as you got something out of this, even if it wasn't something for your CV, thats good."
 
-Jensen: "Huh." He scratches his chin
+Jensen: "Huh." 
 
-Jensen: "Yeah, I guess I did... I guess I did"
+He scratches his chin
+
+Jensen: "Yeah, I guess I did... I guess I did."
 
 Jensen awkwardly smiles at you.
 
@@ -354,7 +301,7 @@ Jensen: "Thanks Bronislav. Hope I can talk to you again after your paper is done
 
 * ["Sounds like a plan."]
     -> BJS5_SoundsLikeAPlan
-* ["We'll see.]
+* ["We'll see."]
     -> BJS5_WeWillSee
 
 === BJS5_TookYouLongEnough
@@ -367,7 +314,7 @@ Jensen: "I was really hoping we could've smoothed over any problems we still had
 
 Jensen: "Guess not ..."
 
-He packs his stuff up and weakly waves you goodbye.
+He weakly begins to walk away.
 
 Jensen: "Hope we can try again sometime."
 
@@ -405,7 +352,7 @@ Jensen: "Ive got to head out now, but I hope we can talk again once your paper i
 
 * ["Sounds like a plan."]
     -> BJS5_SoundsLikeAPlan
-* ["We'll see.]
+* ["We'll see."]
     -> BJS5_WeWillSee
 
 
@@ -431,20 +378,20 @@ Jensen seems a little less nervous now.
 
 He awkwardly pats your back, too.
 
-Jensen: "Glad tht it seems we're all good then?"
+Jensen: "Glad that it seems we're all good then?"
 
 * ["We're all good."]
     -> BJS5_WeAreAllGood
-* ["Sure Jensen"]
+* ["Sure Jensen."]
     -> BJS5_SureJensen
 
 === BJS5_SoundsLikeAPlan ===
 
-Bronislav: "That sounds great!
+Bronislav: "That sounds great!"
 
 Bronislav: "I'll be pretty available after the paper is done. Just message me whenever."
 
-Jensen walks out with a thumbs up and a look of relief.
+Jensen walks away with a thumbs up and a look of relief.
 
 {HideCharacter("Jensen")}
 
@@ -466,9 +413,7 @@ Jensen: "That's completely understandable. I guess we'll see!"
 
 You attempt to call out to Jensen.
 
-He shuts the door behind him quickly.
-
-You sit in the study room for a bit before leaving as well.
+He doesn't hear you and continues to walk off.
 
 Maybe you'll get the chance to talk to him one more time.
 
@@ -478,9 +423,7 @@ Maybe you'll get the chance to talk to him one more time.
 
 {HideCharacter("Jensen")}
 
-Jensen shuts the door behind him.
-
-You start to pack up and leave the room as well.
+Jensen walks away.
 
 Will you ever see him again?
 

@@ -21,7 +21,7 @@
 //*["Going great!"]
 //->BB_LabMeeting_GoingGreat
 
-//*["I've been good."] 
+//*["I've been good."]
 //->BB_LabMeeting_Good
 
 //*["It's complicated."]
@@ -30,14 +30,14 @@
 // assuming paper was not withdrawn
 ~temp r = GetOpinionState("Brad", "Bronislav")
 {r == OpinionState.Good || r == OpinionState.Excellent:
-While at the lab meeting, Brad runs into you again. 
+While at the lab meeting, Brad runs into you again.
 
 Brad: "Hey Bronislav. Have you been doing good?"
 
 *["Doing great!"]
 ->BB_LabMeeting_GoingGreat
 
-*["I've been good."] 
+*["I've been good."]
 ->BB_LabMeeting_Good
 
 *["It's complicated."]
@@ -46,7 +46,7 @@ Brad: "Hey Bronislav. Have you been doing good?"
 
 {r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
 
-While at the lab meeting, Brad runs into you again. 
+While at the lab meeting, Brad runs into you again.
 
 Brad: "Hey Bronislav."
 
@@ -58,14 +58,14 @@ Brad: "Hey Bronislav."
 
 Bronislav: "It's been going great! I'm curious with how you're doing Brad, you seem to be happy though."
 
-Brad nods. 
+Brad nods.
 
 Brad: "Yeah, after withdrawing the paper all I can do now is just look forward to the next conference, and not make the same mistakes again."
 
 *["Glad to hear!"]
 ->BB_LabMeeting_GladtoHear
 
-*["How's Ned?"] 
+*["How's Ned?"]
 ->BB_LabMeeting_HowsNed
 
 *["Any ideas for next year?"]
@@ -74,7 +74,7 @@ Brad: "Yeah, after withdrawing the paper all I can do now is just look forward t
 === BB_LabMeeting_Good ===
 Bronislav: "I've been pretty good, finally getting a break is much needed right now. How about you, Brad?"
 
-Brad thinks for a moment. 
+Brad thinks for a moment.
 
 // TODO: I think we're missing a choice option in here? This looks like it was written exclusively for brad ending bad
 
@@ -83,7 +83,7 @@ Brad: "Well, on one hand I'm excited to work on a new paper next year, but this 
 *["Glad to hear!"]
 ->BB_LabMeeting_GladtoHear
 
-*["How's Ned?"] 
+*["How's Ned?"]
 ->BB_LabMeeting_HowsNed
 
 *["Any ideas for next year?"]
@@ -92,7 +92,7 @@ Brad: "Well, on one hand I'm excited to work on a new paper next year, but this 
 === BB_LabMeeting_Complicated ===
 Bronislav: "It's a bit complicated right now, but it's not a big deal. How're you doing, Brad?"
 
-Brad thinks for a moment. 
+Brad thinks for a moment.
 
 // TODO: I think we're missing a choice option in here? This looks like it was written exclusively for brad ending bad
 
@@ -101,7 +101,7 @@ Brad: "Well, on one hand I'm excited to work on a new paper next year, but this 
 *["Glad to hear!"]
 ->BB_LabMeeting_GladtoHear
 
-*["How's Ned?"] 
+*["How's Ned?"]
 ->BB_LabMeeting_HowsNed
 
 *["Any ideas for next year?"]
@@ -110,7 +110,7 @@ Brad: "Well, on one hand I'm excited to work on a new paper next year, but this 
 === BB_LabMeeting_HeyBrad ===
 Bronislav: "Hey Brad, how's it going?"
 
-Brad: "Fine." Brad says coldly. 
+Brad: "Fine." Brad says coldly.
 
 Brad: "Busy with my ethics training recently, not much going on outside of that though now."
 
@@ -123,11 +123,11 @@ Brad: "Busy with my ethics training recently, not much going on outside of that 
 === BB_LabMeeting_GladtoHear ===
 Bronislav: "I'm glad to hear that Brad! Sorry it couldn't work out this year, but I know you'll make something great."
 
-Brad shrugs. 
+Brad shrugs.
 
 Brad: "I'm not happy about it either, but you live and you learn. Thanks for being by my side through it all though Bronislav. It means a lot."
 
-*["No problem."] 
+*["No problem."]
 ->BB_LabMeeting_NoProb
 
 *["Are you free later?"]
@@ -136,11 +136,11 @@ Brad: "I'm not happy about it either, but you live and you learn. Thanks for bei
 === BB_LabMeeting_HowsNed ===
 Bronislav: "Glad to hear you've been alright, and are looking forward to the future, Brad. Is Ned feeling the same at all?"
 
-Brad chuckles awkwardly. 
+Brad chuckles awkwardly.
 
 Brad: "He's definitely still not over everything, but I think that's understandable. I definitely feel like we're still on good terms. I do still feel like I disappointed him."
 
-*["Could be worse."] 
+*["Could be worse."]
 ->BB_LabMeeting_CouldbeWorse
 
 *["Are you free later?"]
@@ -149,7 +149,7 @@ Brad: "He's definitely still not over everything, but I think that's understanda
 === BB_LabMeeting_AnyIdeas ===
 Bronislav: "Have you had time to think of what you're doing next year?"
 
-Brad sighs. 
+Brad sighs.
 
 Brad: "Unfortunately, not really. This whole thing has kind of been in the back of my mind, I'm still a bit rattled by everything."
 
@@ -164,7 +164,7 @@ Bronislav: "That's all you're doing?"
 
 Brad seems offended.
 
-Brad: "No Bronislav, I obviously do more, just nothing I thought would interest you. Like right now I'm spending my time to see how people I knew were working on papers, like you, were doing." 
+Brad: "No Bronislav, I obviously do more, just nothing I thought would interest you. Like right now I'm spending my time to see how people I knew were working on papers, like you, were doing."
 
 Brad: "I just wanted to talk, smooth things out. You know? It's alright if you don't want to Bronislav, I've got other people to talk to anyways."
 
@@ -177,11 +177,11 @@ Brad turns and leaves.
 === BB_LabMeeting_SorrytoHear ===
 Bronislav: "I'm sorry to hear that, Brad. Wish things could have gone differently."
 
-Brad sighs. 
+Brad sighs.
 
 Brad: "Me too Bronislav, me too. It's really frustrating, but I know I'll move past it."
 
-*["Want to talk more later?"] 
+*["Want to talk more later?"]
 ->BB_LabMeeting_WantToTalkMore
 
 *["Hope that goes well."]
@@ -190,7 +190,7 @@ Brad: "Me too Bronislav, me too. It's really frustrating, but I know I'll move p
 === BB_LabMeeting_NoProb ===
 Bronislav: "No problem Brad, that whole situation was tough. If you want to talk more about it I'll be more free after this."
 
-Brad gives a nod. 
+Brad gives a nod.
 
 Brad: "That sounds like a plan to me, hope to see you then."
 
@@ -201,9 +201,9 @@ Brad: "That sounds like a plan to me, hope to see you then."
 === BB_LabMeeting_CouldbeWorse ===
 Bronislav: "Well it could be worse."
 
-Brad laughs. 
+Brad laughs.
 
-Brad: "I guess that's this whole situation in a nutshell isn't it?" 
+Brad: "I guess that's this whole situation in a nutshell isn't it?"
 
 "Well," Brad says after a brief pause, "If you're free later I'd love to talk a bit more. I'm going to head out to the cafe, hopefully see you later Bronislav."
 
@@ -214,7 +214,7 @@ Brad: "I guess that's this whole situation in a nutshell isn't it?"
 === BB_LabMeeting_FreeLater ===
 Bronislav: "Well, I don't want to keep you for too long Brad, but are you free later to talk more?"
 
-Brad looks excited. 
+Brad looks excited.
 
 Brad: "I am actually! I'd be happy to talk more at the cafe sometime after this. Hope to see you there."
 
@@ -234,7 +234,7 @@ Bronislav: "Do you want to talk more later? I'd love to chat over a coffee to ta
 === BB_LabMeeting_HopeItGoeseWell ===
 Bronislav: "I hope that goes well for you, good luck on the trainings."
 
-Brad lightly smiles. 
+Brad lightly smiles.
 
 Brad: "Thanks Bronislav. If you want to talk more later, I'll be at the cafe. Don't want to take up more of your time."
 

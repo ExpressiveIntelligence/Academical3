@@ -7,6 +7,7 @@
 #repeatable: false
 #tags: action, cafe
 #===
+# Summary: Ned and Brad overlook the outcome of the options
 
 // TODO: QUERY ABOUT WHETHER OR NOT BRAD WITHDREW THE PAPER
 // else completely block this scene
@@ -19,9 +20,9 @@ VAR count = 0
 // TODO: Scene selection based on withdraw
 // current default is paper was not withdrawn
 
-You sit in the coffee shop, waiting for Brad to show up. 
+You sit in the coffee shop, waiting for Brad to show up.
 {ShowCharacter("Brad", "left", "")}
-He walks in the door and sets his stuff down at the table. 
+He walks in the door and sets his stuff down at the table.
 
 Brad: "I'm going to just leave this here for a moment, I'm going to grab a drink."
 {HideCharacter("Brad")}
@@ -31,9 +32,14 @@ Brad: "I'm going to just leave this here for a moment, I'm going to grab a drink
 
 === BB_Socializing6_SoundsGood ===
 Bronislav: "Sounds good, I'll keep an eye on your stuff."
+
 {ShowCharacter("Brad", "left", "")}
-Brad eventually comes back with his drink and sits down. "Welp, time for a break huh?"
-*["A break from writing maybe."] 
+
+Brad eventually comes back with his drink and sits down.
+
+Brad: "Welp, time for a break huh?"
+
+*["A break from writing maybe."]
 ->BB_Socializing6_BreakfromWriting
 
 *["Could not agree more."]
@@ -42,9 +48,9 @@ Brad eventually comes back with his drink and sits down. "Welp, time for a break
 === BB_Socializing6_BreakfromWriting ===
 {BreakFromWriting == false:
 ~ BreakFromWriting = true
-Bronislav: "A break from writing at least, definitely still have some extracirricular stuff to catch up on? How about you?"
+Bronislav: "A break from writing at least, definitely still have some extracurricular stuff to catch up on? How about you?"
 
-Brad chuckles. 
+Brad chuckles.
 
 // TODO: if didn't withdraw
 Brad: "Yeah, pretty much in the same boat. Those darn trainings certainly don't leave a completely open schedule though."
@@ -55,7 +61,7 @@ Brad: "Yeah, pretty much in the same boat. Those darn trainings certainly don't 
 }
 ~ count += 1
 // TODO: ask a writer about this and lab meeting because Ned is asked about in that interaction as well possibly
-*["How's Ned?"] 
+*["How's Ned?"]
 ->BB_Socializing6_HowsNed
 
 // TODO: if didn't withdraw
@@ -75,7 +81,7 @@ Brad: "Yeah, pretty much in the same boat. Those darn trainings certainly don't 
 {CouldNotAgreeMore == false:
 ~ CouldNotAgreeMore = true
 Bronislav: "Could not agree more, are you available much to have some more coffee hangouts?"
- 
+
 
 // TODO: if didn't withdraw
 Brad seems unsure.
@@ -83,13 +89,13 @@ Brad seems unsure.
 Brad: "I'm sure I could fit in a few, but I've got trainings for a bit still so I'll be keeping busy with that."
 
 // if withdrew
-//Brad nods. 
+//Brad nods.
 
 //Brad: "Yeah, besides maybe submitting some applications for jobs, I'll be pretty free."
 
 }
 ~ count += 1
-*["How's Ned?"] 
+*["How's Ned?"]
 ->BB_Socializing6_HowsNed
 
 // TODO: if didn't withdraw
@@ -108,7 +114,7 @@ Brad: "I'm sure I could fit in a few, but I've got trainings for a bit still so 
 === BB_Socializing6_HowsNed ===
 Bronislav: "How's Ned doing?"
 
-Brad shrugs. 
+Brad shrugs.
 
 // TODO: if didn't withdraw
 Brad: "Seems fine, if anyone needs a break it's definitely him so I think he's taking that break."
@@ -126,7 +132,7 @@ Brad: "Seems fine, if anyone needs a break it's definitely him so I think he's t
 === BB_Socializing6_IdImagine ===
 Bronislav: "I'd imagine that those trainings are keeping you pretty busy."
 
-Brad: "Definitely looking that way." 
+Brad: "Definitely looking that way."
 
 Brad says as he takes another sip from his drink.
 
@@ -140,7 +146,7 @@ Brad says as he takes another sip from his drink.
 === BB_Socializing6_MoreTime ===
 Bronislav: "Well, it's great to hear you'll have more time for coffee breaks. We've been long overdue to make these a regular occurance"
 
-Brad smiles. "I'd have to agree. These are nice." 
+Brad smiles. "I'd have to agree. These are nice."
 
 He takes a sip from his drink.
 
@@ -154,7 +160,7 @@ He takes a sip from his drink.
 === BB_Socializing6_WhatsNext ===
 Bronislav: "What's next for you Brad?"
 
-Brad sighs. 
+Brad sighs.
 
 Brad: "Honestly, not much. Rest? Planning for next year maybe. Nothing I want to worry about now."
 
@@ -164,7 +170,7 @@ Brad: "Honestly, not much. Rest? Planning for next year maybe. Nothing I want to
 === BB_Socializing6_SoundsNice ===
 Bronislav: "Definitely feel you there. Sounds nice to not think about that kind of stuff."
 
-Brad laughs. 
+Brad laughs.
 
 Brad: "Yeah I look forward to it. Thanks again for setting this up, and I'm sure I'll see you again soon Bronislav. Have a nice break."
 
@@ -175,6 +181,3 @@ Brad: "Yeah I look forward to it. Thanks again for setting this up, and I'm sure
 Bronislav: "You too Brad, see you later."
 {HideCharacter("Brad")}
 ->DONE
-
-
-

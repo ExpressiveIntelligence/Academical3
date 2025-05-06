@@ -16,7 +16,7 @@ VAR apology = true
 
 {DbInsert("Seen_BI_S6")}
 
-As you walk over to the cubicles, you notice Ivy hunched over at her desk.
+As you walk over to the cubicles, you notice Ivy is here too.
 
 *["Hey, are you okay?"]
 ->AreYouOkay
@@ -43,11 +43,11 @@ Bronislav: "What's wrong Ivy?"
 
 Ivy sighs, and you can tell she is very upset.
 
-Ivy: "I really screwed up. I never should have used our friendship to try and leverage something for Jensen. It was my own stupid attempt to twist your arm into helping Jensen, and all of it was just wrong."
+Ivy: "I really screwed up. I never should have tried to leverage something for Jensen. It was my own stupid attempt to twist your arm into helping Jensen, and all of it was just wrong."
 
 She shakes her hed sadly.
 
-Ivy: "I took advantage of our frienship, and for that I am truly sorry."
+Ivy: "I took advantage of you, and for that I am truly sorry."
 
 *["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
 ->AppreciateYourApology
@@ -85,13 +85,13 @@ Ivy: "I took advantage of our frienship, and for that I am truly sorry."
 
 // Ivy: "Don't act like you care all of a sudden."
 
-// She barks before biting her lip, regreting her harshness.
+// She bites her lip, regreting her harshness.
 
 // Ivy: "Sorry, uh... Bronislav, I..."
 
 // She sighs as she gathers her thoughts.
 
-// "Look, I want to apologize. I know we aren't close or anything, but that was no excuse to pressure you like I did to try and help Jensen. It was so wrong for me to put you in that type of situation, and I feel awful about it. I am truly sorry, for all of it."
+// Ivy: "Look, I want to apologize. I know we aren't close or anything, but that was no excuse to pressure you like I did to try and help Jensen. It was so wrong for me to put you in that type of situation, and I feel awful about it. I am truly sorry, for all of it."
 
 // *["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // ->AppreciateYourApology
@@ -167,7 +167,7 @@ Ivy thinks about saying something else, but stops herself, turning back to her d
 === ImListening ===
 Bronislav: "I'm listening."
 
-Ivy figets in her chair, and you notice her eyes look swollen from crying.
+Ivy fidgets in her chair, and you notice her eyes look swollen from crying.
 
 ->WhatsWrong
 
@@ -175,7 +175,7 @@ Ivy figets in her chair, and you notice her eyes look swollen from crying.
 === WalkAway ===
 You turn and begin to walk away, which prompts Ivy to stand up and chase you.
 
-"Wait! Please, just hear me out."
+Ivy: "Wait! Please, just hear me out."
 
 You look back to find Ivy staring at the floor, her arms crossed as she shakes a bit.
 
