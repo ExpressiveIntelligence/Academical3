@@ -25,17 +25,20 @@ That being the case, we must ensure that:
 */
 
 INCLUDE ../helpers.ink
-INCLUDE ./locations.ink
-INCLUDE ./actions.ink
+
 INCLUDE ./Bron&Hendricks/BH_Socializing1.ink
 INCLUDE ./Bron&Hendricks/BH_Socializing2.ink
 INCLUDE ./Bron&Hendricks/BH_Socializing3.ink
+INCLUDE ./Bron&Hendricks/BH_Socializing5.ink
+INCLUDE ./Bron&Hendricks/BH_Socializing6.ink
+
 INCLUDE ./Bron&Jen/BJ_Introduction.ink
 INCLUDE ./Bron&Jen/BJ_Socializing3.ink
 INCLUDE ./Bron&Jen/BJ_Socializing5.ink
 INCLUDE ./Bron&Jen/BJ_Socializing6.ink
 INCLUDE ./Bron&Jen/BJ_Conference.ink
 INCLUDE ./Bron&Jen/BJ_ConferenceReview.ink
+
 INCLUDE ./Bron&Ivy/BI_ConferenceSubmission.ink
 INCLUDE ./Bron&Ivy/BI_Introduction.ink
 INCLUDE ./Bron&Ivy/BI_IRBReview.ink
@@ -43,10 +46,21 @@ INCLUDE ./Bron&Ivy/BI_Socializing6.ink
 INCLUDE ./Bron&Ivy/BI_Conference.ink
 INCLUDE ./Bron&Ivy/BI_ReviewPeriod.ink
 INCLUDE ./Bron&Ivy/BI_Socializing3.ink
+
 INCLUDE ./Bron&Ned/BN_Socializing1.ink
+INCLUDE ./Bron&Ned/BN_Socializing5.ink
 INCLUDE ./Bron&Ned/BN_LabMeeting.ink
+
+INCLUDE ./Bron&Praveen/BP_ConferenceSubmissionDeadline.ink
+INCLUDE ./Bron&Praveen/BP_Socializing2.ink
+INCLUDE ./Bron&Praveen/BP_Socializing3.ink
+INCLUDE ./Bron&Praveen/BP_Socializing4.ink
 INCLUDE ./Bron&Praveen/BP_Socializing6.ink
 
+INCLUDE ./Bron&Brad/BB_LabMeeting.ink
+INCLUDE ./Bron&Brad/BB_Socializing1.ink
+INCLUDE ./Bron&Brad/BB_ConferenceSubmissionDeadline.ink
+INCLUDE ./Bron&Brad/BB_Socializing6.ink
 
 
 EXTERNAL DbInsert(statement)
@@ -77,8 +91,6 @@ EXTERNAL SetPlayerLocation(locationID)
 
 {SetPlayerLocation("lecture_hall")}
 {LockAllLocations("Must give presentation in lecture hall.")}
-
--> lecture_hall
 
 -> DONE
 

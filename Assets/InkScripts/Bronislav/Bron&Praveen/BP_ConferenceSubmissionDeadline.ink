@@ -1,4 +1,4 @@
-=== library ===
+=== BP_ConferenceSubmissionDeadline_SceneStart ===
 #---
 # choiceLabel: Talk with Praveen.
 # hidden: true
@@ -13,13 +13,8 @@
 
 //TODO: QUERY FOR HENDRICKS CONVO
 
-{SetCurrentLocation("library")}
-{DBInsert("Seen_BP_ConferenceSubmissionDeadline")}
-{ShowCharacter("Praveen","left","")} 
-
-->BP_ConferenceSubmissionDeadline_SceneStart
-
-=== BP_ConferenceSubmissionDeadline_SceneStart ===
+{DbInsert("Seen_BP_ConferenceSubmissionDeadline")}
+{ShowCharacter("Praveen", "left", "")} 
 
 You approach Praveen, who is currently skimming what appears to be a textbook.
 
@@ -89,7 +84,7 @@ Bronislav: "Alright sounds good, see you!"
 
 Praveen: "Buh-bye."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -107,7 +102,7 @@ Bronislav: "Alright sounds good, see you!"
 
 Praveen: "Buh-bye."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -140,7 +135,7 @@ Praveen: "Well, I need to head out for now, but I'll see you around Bronislav."
 
 Bronislav: "See you."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -151,7 +146,7 @@ Praveen: "Well, you're right, now I definitely wouldn't. Whatever, Bronislav, be
 
 Praveen: "I gotta go."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 Praveen walks past you with a hurt look on his face as he leaves. 
 
@@ -164,7 +159,7 @@ Praveen looks disgusted and hurt.
 
 Praveen: "I don't even know what to say to you. Goodbye, Bronislav."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 Praveen walks by you without another word. Perhaps you were too harsh...
 
@@ -183,7 +178,7 @@ Praveen: "Well, I gotta head out, but I'll see you around Bronislav."
 
 Bronislav: "Yeah, see you."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -202,7 +197,7 @@ Praveen: "Well, I gotta head out, but it was nice talking with you Bronislav. We
 
 Bronislav: "Yeah, nice talking with you."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -223,7 +218,7 @@ Praveen: "Well, I gotta head out, but it was nice talking with you Bronislav. We
 
 Bronislav: "Yeah, nice talking with you."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -240,6 +235,6 @@ Praveen: "Well, since you just want to patronize me, I'll leave you and your sup
 
 Praveen leaves before you can say anything else to him.
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE

@@ -4,7 +4,8 @@
 VAR BP_Suggestion = false
 VAR BP_S2_Pretentious = false
 VAR BP_S2_AskDirectly = false
-=== student_cubes ===
+
+=== BP_Socializing2_SceneStart ===
 #---
 # choiceLabel: Talk with Praveen.
 # hidden: true
@@ -12,13 +13,9 @@ VAR BP_S2_AskDirectly = false
 # repeatable: false
 #===
 
-{SetCurrentLocation("student_cubes")}
+{ShowCharacter("Praveen", "left", "")}
 
 {DbInsert("Seen_BP_Socializing2")}
-
-->BP_Socializing2_SceneStart
-
-=== BP_Socializing2_SceneStart ===
 
 You notice your friend Praveen working at his desk in the lab and decide to talk to him. It's been a while since you two have talked.
 
@@ -376,7 +373,7 @@ Bronislav: "Yeah no problem. I'm going to head out for now, but yeah I can defin
 
 Praveen: "Thank you so much Bronislav, I appreciate it."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -389,7 +386,7 @@ Bronislav: "Yeah, I'll think about it more. I'm going to head out for now, but I
 
 Praveen: "Okay, I would really appreciate the help though, so at least consider it."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE
 
@@ -405,6 +402,6 @@ Bronislav: "I think it will go better if you talk to her yourself. I'm going to 
 
 Praveen: "Sure, whatever, like it will make a difference."
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 
 ->DONE

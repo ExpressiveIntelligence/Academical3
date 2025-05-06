@@ -1,5 +1,4 @@
 // Author: Ivy Dudzik
-->BHS3_sceneStart
 === BHS3_sceneStart ===
 # ---
 # choiceLabel: Find Hendricks in the Library
@@ -10,9 +9,9 @@
 # repeatable: false
 # ===
 
-// {DbInsert("Seen_BHS3")}
+{DbInsert("Seen_BHS3")}
 
-// {ShowCharacter("Hendricks", "left", "")}
+{ShowCharacter("Hendricks", "left", "")}
 
 You take a seat next to the professor where she sits at a desk in the library, a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought.
 

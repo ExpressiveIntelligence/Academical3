@@ -1,12 +1,4 @@
-=== cafe ===
-
-// TODO: QUERY ABOUT WHETHER OR NOT BRAD WITHDREW THE PAPER
-// else completely block this scene
-
-VAR BreakFromWriting = false
-VAR CouldNotAgreeMore = false
-VAR count = 0
-
+=== BB_Socializing6_SceneStart ===
 #---
 #choiceLabel: Wait for Brad.
 #@query
@@ -16,28 +8,30 @@ VAR count = 0
 #tags: action, cafe
 #===
 
-{SetCurrentLocation("cafe")}
-{DBInsert("Seen_BB_Socializing6")}
+// TODO: QUERY ABOUT WHETHER OR NOT BRAD WITHDREW THE PAPER
+// else completely block this scene
+
+VAR BreakFromWriting = false
+VAR CouldNotAgreeMore = false
+VAR count = 0
+{DbInsert("Seen_BB_Socializing6")}
 
 // TODO: Scene selection based on withdraw
 // current default is paper was not withdrawn
 
-->BB_Socializing6_SceneStart
-
-=== BB_Socializing6_SceneStart ===
 You sit in the coffee shop, waiting for Brad to show up. 
-{ShowCharacter(“Brad”)}
+{ShowCharacter("Brad", "left", "")}
 He walks in the door and sets his stuff down at the table. 
 
 Brad: "I'm going to just leave this here for a moment, I'm going to grab a drink."
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 *["Sounds good."]
 ->BB_Socializing6_SoundsGood
 
 === BB_Socializing6_SoundsGood ===
 Bronislav: "Sounds good, I'll keep an eye on your stuff."
-{ShowCharacter(“Brad”)}
+{ShowCharacter("Brad", "left", "")}
 Brad eventually comes back with his drink and sits down. "Welp, time for a break huh?"
 *["A break from writing maybe."] 
 ->BB_Socializing6_BreakfromWriting
@@ -179,7 +173,7 @@ Brad: "Yeah I look forward to it. Thanks again for setting this up, and I'm sure
 
 === BB_Socializing6_YouToo ===
 Bronislav: "You too Brad, see you later."
-{HideCharacter(Brad)}
+{HideCharacter("Brad")}
 ->DONE
 
 

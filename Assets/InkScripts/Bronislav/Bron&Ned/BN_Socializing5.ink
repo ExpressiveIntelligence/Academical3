@@ -1,7 +1,4 @@
-=== neds_office ===
-
-// TODO: query if Brad withdrew data
-
+=== BN_Socializing5_SceneStart ===
 #---
 #choiceLabel: Drop in to talk with Ned.
 #@query
@@ -14,15 +11,10 @@
 VAR honesty = false
 VAR basics = false
 
-{SetCurrentLocation("neds_office")}
-{DBInsert("Seen_BN_Socializing5")}
+{DbInsert("Seen_BN_Socializing5")}
 
-
-->BN_Socializing5_SceneStart
-
-=== BN_Socializing5_SceneStart ===
 While you don't have a meeting scheduled with Ned, you decide to pop into his office to talk with him briefly. His door is open, and Ned is sitting at his desk as you walk in.
-{ShowCharacter(“Ned”)}
+{ShowCharacter("Ned", "left", "")}
 
 Bronislav: "Hello, Ned. How are things?"
 
@@ -48,11 +40,11 @@ Ned: "I'm not sure I can discuss... actually, how much has Brad told you about h
 ->BN_Socializing5_DontReallyRecall
 
 *["Oh, just the basics."]
-{ basics = true }
+~ basics = true
 ->BN_Socializing5_JustTheBasics
 
 *["He's mentioned some trouble with data." #>> IncrementRelationshipStat Ned Bronislav 5]
-{ honesty = true }
+~ honesty = true
 ->BN_Socializing5_SomeTroubleWithData
 
 === BN_Socializing5_DontReallyRecall ===
@@ -242,7 +234,7 @@ Bronislav: "Sure thing."
 ->BN_Socializing5_Outro
 
 === BN_Socializing5_Outro ===
-{HideCharacter(“Ned”)}
+{HideCharacter("Ned")}
 
 You gently close the door as you leave Ned's office.
 

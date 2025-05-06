@@ -1,6 +1,4 @@
-=== student_cubicles ===
-
-
+== BP_Socializing4_SceneStart ===
 #---
 #choiceLabel: Chat with Praveen.
 #@query
@@ -10,11 +8,9 @@
 #tags: action, student_cubicles
 #===
 
-{SetCurrentLocation("student_cubicles")}
-{DBInsert("Seen_BP_Socializing4")}
+{DbInsert("Seen_BP_Socializing4")}
 
-=== BP_Socializing4_SceneStart ===
-{ShowCharacter(“Praveen”)}
+{ShowCharacter("Praveen", "left", "")}
 Striding into the student cubicles you spot Praveen clacking away on his computer. He looks concentrated but has a prideful resting face. 
 
 *["Yo Praveen."] 
@@ -170,7 +166,7 @@ Praveen: "I'm not sure what you mean. Look I need to get back to this, I'll talk
 
 Praveen turns back to his assignment ignoring you as his signal to leave. 
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE
 
 === BP_Socializing4_TotallyAgree ===
@@ -182,7 +178,7 @@ Bronislav: "Alright, good luck!."
 
 Praveen goes back to his work as you walk to settle and get some of your own work done. 
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE
 
 === BP_Different_Perspective ===
@@ -206,5 +202,5 @@ Praveen: "Well, thanks for stopping by, I gotta get back to work but I'll see yo
 
 Bronislav: "Sounds good, good luck with the rest of your work!"
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE

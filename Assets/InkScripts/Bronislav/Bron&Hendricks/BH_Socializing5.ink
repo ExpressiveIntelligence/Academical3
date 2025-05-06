@@ -1,7 +1,4 @@
-=== library ===
-
-// TODO: QUERY ABOUT WHETHER OR NOT BRONISLAV TOOK THE DEAL
-
+=== BH_Socializing5_SceneStart ===
 #---
 #choiceLabel: Peruse library.
 #@query
@@ -11,10 +8,9 @@
 #tags: action, library
 #===
 
-=== BH_Socializing5_SceneStart ===
 // current default is took the deal
 Today has been going incredibly well, and the excitement of your upcoming job came with a sense of accomplishment. 
-{ShowCharacter(Hendricks)}
+{ShowCharacter("Hendricks", "left", "")}
 Lost in thought, you notice Hendricks out of the corner of your eye.
 
 *["Hello, Hendricks!"]
@@ -30,7 +26,7 @@ Bronislav: "Hello, Hendricks, how are you today?"
 
 Hendricks closes her book and looks over to you with her usual smile.
 
-Hendircks: "Oh, hello, Bronislav. I'm doing well. How about you?"
+Hendricks: "Oh, hello, Bronislav. I'm doing well. How about you?"
 
 *["Really well."]
 ->BH_Socializing5_ReallyWell
@@ -261,7 +257,7 @@ Hendricks: "Give her some time, if she is someone who cares about you and I'm su
 ->BH_Socializing5_AppreciateYourHelp
 
 === BH_Socializing5_AppreciateYourHelp ===
-Bronislav: "I really appreciate your help, Professor Hendircks. your advice helped me make a better call in the end."
+Bronislav: "I really appreciate your help, Professor Hendricks. your advice helped me make a better call in the end."
 
 Hendricks: "Of course, that is why I'm here for. I just wish Praveen had the same revelation."
 
@@ -275,7 +271,7 @@ Bronislav: "Ah, I have to get going now. I need to finish an assignment. Thanks 
 
 You get up and Hendricks smiles as you leave going back to her book.
 
-{HideCharacter(Hendricks)}
+{HideCharacter("Hendricks")}
 ->DONE
 
 === BH_Socializing5_NopeThatsIt ===
@@ -285,6 +281,6 @@ Hendricks: "Well, I hope you have a good rest of your day, Bronislav."
 
 You get up, and Hendricks goes back to her book as you leave.
 
-{HideCharacter(Hendricks)}
+{HideCharacter("Hendricks")}
 ->DONE
 

@@ -1,7 +1,4 @@
-=== student_cubicles ===
-
-// TODO: tags for whether or not you told praveen to not tell the rest of the lab
-
+=== BP_Socializing3_SceneStart ===
 #---
 #choiceLabel: Chat with Praveen.
 #@query
@@ -11,14 +8,9 @@
 #tags: action, student_cubicles
 #===
 
-{SetCurrentLocation("student_cubicles")}
-{DBInsert("Seen_BP_Socializing3")}
+{DbInsert("Seen_BP_Socializing3")}
 
-
-->BP_Socializing3_SceneStart
-
-=== BP_Socializing3_SceneStart ===
-{ShowCharacter(“Praveen”)}
+{ShowCharacter("Praveen", "left", "")}
 As you approach Praveen, he seems to be chuckling to himself at his desk.
 
 Praveen: "Ho boy Bronislav, you're never going to believe this."
@@ -170,7 +162,7 @@ Praveen: "And I'm allowed to have my own opinion of you. Now if you don't mind, 
 Praveen turns back to his computer without another word. Perhaps it's better to leave him alone.
 
 // TODO: cement Praveen yapping to the rest of the department
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE
 
 === BP_Socializing3_IDidntKnow ===
@@ -242,7 +234,7 @@ Praveen: "Well I guess that's all the more reason to pay as much attention to th
 
 Praveen turns back to his computer as you leave his cubicle.
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE
 
 === BP_Socializing3_IThinkTheresRules ===
@@ -269,7 +261,7 @@ Praveen: "Well, I guess I better get back to my silent slog through this paper. 
 
 Praveen turns back to his computer as you leave his cubicle.
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE
 
 === BP_Socializing3_WhatDoYouThink ===
@@ -280,7 +272,7 @@ Praveen: "Sheesh... alright I get it. No talking about the paper. A bit harsh if
 
 Praveen turns back to his computer as you leave his cubicle.
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE
 
 === BP_Socializing3_BeCareful ===
@@ -295,5 +287,5 @@ Praveen: "I guess I'll be giving this paper my full attention now. I'll chat wit
 
 Praveen turns back to his computer as you leave his cubicle.
 
-{HideCharacter(“Praveen”)}
+{HideCharacter("Praveen")}
 ->DONE

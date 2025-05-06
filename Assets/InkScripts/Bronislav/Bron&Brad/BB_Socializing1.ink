@@ -1,14 +1,14 @@
-=== student_cubes ===
-VAR BronBradJensenDiscussion = false
+=== BB_Socializing1_SceneStart ===
 #---
 # choiceLabel: Go to the student cubicles.
 # hidden: true
 # tags: location
 #===
-->BB_Socializing1_SceneStart
 
+{ShowCharacter("Brad", "left", "")}
 
-=== BB_Socializing1_SceneStart ===
+VAR BronBradJensenDiscussion = false
+
 After your introductory lab meeting, you go back to the student cubicles to go over and review how you felt like your presentation went with all feedback in mind. 
 
 You hear a knock at your door.
@@ -309,7 +309,7 @@ Brad: "Uhm... well I've got to go... See you Bronislav."
 
 He leaves without another word.
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 ->DONE
 
 === BB_S1_WhateverYouSay ===
@@ -325,7 +325,7 @@ Brad: "I'll... see you later Bronislav. Bye."
 
 He hastily leaves.
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 ->DONE
 
 === BB_S1_Jensen ===
@@ -401,7 +401,7 @@ Bronislav: "I'll see you later Brad, talk soon!"
 
 Brad waves goodbye and walks out.
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 ->DONE
 
 === BB_S1_GoodLuck ===
@@ -409,5 +409,5 @@ Bronislav: "Good luck Brad, hope you hear from them soon."
 
 Brad gives a thumbs up and waves goodbye to you.
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 ->DONE

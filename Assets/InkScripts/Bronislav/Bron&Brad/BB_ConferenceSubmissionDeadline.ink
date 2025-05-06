@@ -1,10 +1,4 @@
-=== student_cubes ===
-
-~temp r = GetOpinionState("Brad", "Bronislav")
-{r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
-->DONE
-}
-
+=== BB_ConferenceSubmissionDeadline_SceneStart ===
 #---
 #choiceLabel: Sit and relax.
 #@query
@@ -14,14 +8,16 @@
 #tags: action, student_cubes
 #===
 
-{SetCurrentLocation("student_cubes")}
-{DBInsert("Seen_BB_ConferenceSubmissionDeadline")}
+~temp r = GetOpinionState("Brad", "Bronislav")
+{r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
+->DONE
+}
 
-->BB_ConferenceSubmissionDeadline_SceneStart
-
-=== BB_ConferenceSubmissionDeadline_SceneStart ===
+{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
 
 After submitting your paper you sit down and try to finally get a second of rest. However, you see Brad cautiously approach you.
+
+{ShowCharacter("Brad", "left", "")}
 
 Brad: "Hey Bronislav. Nice to see you! How've you been?" He says slightly shakily.
 
@@ -225,7 +221,7 @@ Brad: "Thanks Bronislav. I'll consider withdrawing the paper."
 
 He packs up his things, and waves goodbye without another word.
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -240,7 +236,7 @@ He starts walking away.
 
 Brad: "I'll talk to you some other time Bronislav, maybe when we can have a reasonable conversation."
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -255,7 +251,7 @@ Brad looks back up while packing up his things.
 
 Brad: "I'll reach out to you again when I hear back. Thanks Bronislav!"
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -268,7 +264,7 @@ Brad: "Thanks Bronislav. I will let you know!"
 
 He waves you goodbye as he leaves.
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -283,7 +279,7 @@ He packs up his things.
 
 Brad: "Think I'm going to take a lesson from you and take a chance to relax. See ya Bronislav!"
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -294,5 +290,5 @@ Brad shakes his head.
 
 Brad: "Nope, that's all I really had! Thanks a ton Bronislav. Time for me to have a chance to relax."
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 ->DONE

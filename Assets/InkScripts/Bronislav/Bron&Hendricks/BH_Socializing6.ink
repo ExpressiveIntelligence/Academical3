@@ -1,13 +1,4 @@
-=== hendricks_office ===
-
-//TODO: Create a variable to see if Bronislav took the quid pro quo deal
-
-VAR appreciate_honesty = true
-~temp r = GetOpinionState("Hendricks", "Bronislav")
-{r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral
-    appreciate_honesty = false
-}
-
+=== BH_Socializing6_SceneStart ===
 #---
 #choiceLabel: Speak with Hendricks.
 #@query
@@ -17,13 +8,21 @@ VAR appreciate_honesty = true
 #tags: action, hendricks_office
 #===
 
-{SetCurrentLocation("hendricks_office")}
-{DBInsert("Seen_BH_Socializing6")}
+//TODO: Create a variable to see if Bronislav took the quid pro quo deal
+
+VAR appreciate_honesty = true
+~temp r = GetOpinionState("Hendricks", "Bronislav")
+{r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
+    appreciate_honesty = false
+}
 
 
-->BH_Socializing6_SceneStart
+{ShowCharacter("Hendricks", "left", "")}
+{DbInsert("Seen_BH_Socializing6")}
 
-=== BH_Socializing6_SceneStart ===
+
+
+
 Hendricks: "Thank you for coming to my office, Bronislav."
 
 Hendricks greets you as you open the door. 

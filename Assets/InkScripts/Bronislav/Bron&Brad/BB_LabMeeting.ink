@@ -1,9 +1,4 @@
-=== student_cubes ===
-
-// TODO: QUERY ABOUT WHETHER OR NOT BRAD WITHDREW THE PAPER
-// else go into Brad not withdrawing scene
-
-
+=== BB_LabMeeting_SceneStart ===
 #---
 #choiceLabel: Sit and relax.
 #@query
@@ -13,13 +8,10 @@
 #tags: action, student_cubes
 #===
 
-{SetCurrentLocation("student_cubes")}
-{DBInsert("Seen_BB_LabMeeting")}
+{DbInsert("Seen_BB_LabMeeting")}
 
-->BB_LabMeeting_SceneStart
 
-=== BB_LabMeeting_SceneStart ===
-{ShowCharacter(“Brad”)}
+{ShowCharacter("Brad", "left", "")}
 // TODO: Brad withdrew the paper (use query variable produced by inital check for this)
 // current default is Brad didn't withdraw the paper
 //At the lab meeting, you're approached by Brad. He seems happy to see you.
@@ -60,6 +52,7 @@ Brad: "Hey Bronislav."
 
 *["Hey Brad."]
 ->BB_LabMeeting_HeyBrad
+}
 
 === BB_LabMeeting_GoingGreat ===
 
@@ -77,7 +70,6 @@ Brad: "Yeah, after withdrawing the paper all I can do now is just look forward t
 
 *["Any ideas for next year?"]
 ->BB_LabMeeting_AnyIdeas
-}
 
 === BB_LabMeeting_Good ===
 Bronislav: "I've been pretty good, finally getting a break is much needed right now. How about you, Brad?"
@@ -178,7 +170,7 @@ Brad: "I just wanted to talk, smooth things out. You know? It's alright if you d
 
 Brad turns and leaves.
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -202,7 +194,7 @@ Brad gives a nod.
 
 Brad: "That sounds like a plan to me, hope to see you then."
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -215,7 +207,7 @@ Brad: "I guess that's this whole situation in a nutshell isn't it?"
 
 "Well," Brad says after a brief pause, "If you're free later I'd love to talk a bit more. I'm going to head out to the cafe, hopefully see you later Bronislav."
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -226,7 +218,7 @@ Brad looks excited.
 
 Brad: "I am actually! I'd be happy to talk more at the cafe sometime after this. Hope to see you there."
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -235,7 +227,7 @@ Bronislav: "Do you want to talk more later? I'd love to chat over a coffee to ta
 
 "Yeah." Brad says with a full smile, "I would like that, hope to see you later then."
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
 
@@ -246,6 +238,17 @@ Brad lightly smiles.
 
 Brad: "Thanks Bronislav. If you want to talk more later, I'll be at the cafe. Don't want to take up more of your time."
 
-{HideCharacter(“Brad”)}
+{HideCharacter("Brad")}
 
 ->DONE
+
+
+=== BB_LabMeeting_MakesSense ===
+
+// TODO: Add content for this dialogue path
+
+There is no content for this dialogue path.
+
+{HideCharacter("Brad")}
+
+-> DONE
