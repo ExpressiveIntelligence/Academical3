@@ -10,6 +10,7 @@
 # repeatable: false
 # tags: action, cafe, auxiliary
 #===
+VAR BI_FirstCoffee_InternationalMentioned = false
 
 # Summary: You meet with Ivy at a cafe to catch up. She mentions knowing Jensen and you can bring the relationship down by mentioning Brad's bad talk.
 
@@ -50,22 +51,23 @@ Ivy: "That's great to hear. Did you happen to catch his name?"
 == JensenByName ===
 Bronislav: "His name was Jensen."
 
-Ivy: "That's great to hear! I know Jensen and he's been having some problems getting into grad school. Being on this paper would be great for him."
+Ivy: "Oh sweet! I know Jensen and he's been having some problems getting into grad school. Being on this paper would be great for him."
 
-*["I see a bit of myself in him."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50 ]
+*["I see a bit of myself in him."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 5 ]
     ->BronislavSympathizes
 
 *["I wish I could help."]
     ->MoreTime
 
-*["He needs an opportunity more at his level."  #>> DecrRelationshipStat Ivy Bronislav Opinion -50 ]
+*["He needs an opportunity more at his level."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10 ]
     ->TooSoon
 
 === BronislavSympathizes ===
 
 ~ temp talkedWithBradAboutJensen = DbAssert("talkedWithBradAboutJensen")
+~ BI_FirstCoffee_InternationalMentioned = true 
 
-Bronislav: "Getting into grad school wasn't easy for me either, so I see a bit of myself in him. I'll keep him in mind."
+Bronislav: "Getting into grad school wasn't easy for me either, especially being an international student and all, so I see a bit of myself in him. I'll keep him in mind."
 
 Ivy still very cheerful about the good news is also a bit confused.
 
@@ -101,20 +103,34 @@ She leaves the table quickly after saying this.
     ->Exit
 
 === TooSoon ===
+{BI_FirstCoffee_InternationalMentioned == true: 
 Bronislav:"It just is way too soon to make a call like that. I'd like to talk with a few more people before I start adding people to the paper."
 
 She takes a long sip of her drink.
 
-Ivy: "Well ok then, that is fair. At least consider him, ok?"
+Ivy: "Well okay then, that is fair. At least consider him, ok?"
 
 -> Continue
 
-=== MoreTime ===
-Bronislav: "As much as I wish I could help right now I just want to keep my options open."
+} 
+{BI_FirstCoffee_InternationalMentioned == false:
+Bronislav:"It just is way too soon to make a call like that. This paper is very important to me, as it really helps the possibility of me getting a job and renewing my visa, since I am an international student as you well know."
+
+Bronislav: "I'd really like to talk with a few more people before I start adding people to the paper."
 
 She takes a long sip of her drink.
 
-Ivy: "Well ok then, that is fair. Keep him in mind at least?"
+Ivy: "Well okay then, that is fair. At least consider him, ok?"
+
+-> Continue
+}
+
+=== MoreTime ===
+Bronislav: "As much as I wish I could help right now, I'm really excited about being able to do this research and I really want to keep my options open. I am really hoping writing this will help me with my job prospects and my visa, especially since I am an international student."
+
+She takes a long sip of her drink.
+
+Ivy: "Well okay then, that is fair. Keep him in mind at least?"
 
 -> Continue
 

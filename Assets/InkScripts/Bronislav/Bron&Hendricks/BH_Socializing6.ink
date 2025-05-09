@@ -50,7 +50,7 @@ Hendricks: "I spoke with Ivy yesterday."
 *["She deserved it."] 
 ->BH_Socializing6_DeservedIt
 
-*["It wasn't cool what happened"]
+*["It wasn't cool what happened."]
 ->BH_Socializing6_WasntCool
 
 === BH_Socializing6_OhYouDid ===
@@ -79,7 +79,7 @@ Yeah, she deserved it, you think to yourself. But, you don't think saying that i
 ->BH_Socializing6_WasntCool
 
 === BH_Socializing6_WasntCool ===
-Bronislav: "Yeah, it wasn't cool what happened...I felt a like I was being backed into a corner." 
+Bronislav: "Yeah, it wasn't cool what happened...I felt a like I was being backed into a corner, especially with her dangling a solution to my visa sponsor in front of me." 
 
 Hendricks: "I'm sorry for that. Considering that you did need that job, I can understand how hard it must have been to turn it down. I am proud of you for standing your ground."
 
@@ -291,5 +291,19 @@ Bronislav: "No, thank you for all your help, Professor."
 Hendricks: "Anytime."
 
 Hendricks gives a small smile as you stand from your seat and make your way out of Hendricks' office. 
+
+->DONE
+
+//TODO: make a selector back in Socializing 5 to add this dialogue based on whether you confided in hendricks
+=== BH_Socializing6_JobOffer ===
+Bronislav: "Hendricks, I wanted to ask you if you had any updates on the visa situation. I know I confided in you about it the last time we talked, and you said you would let me know if you have any updates."
+
+Hendricks: "I do actually, Bronislav, thank you for reminding me! I talked to one of my contacts about your research and as it turns out, they have a recently opened position at their company that needs someone of your skillset. I talked with them, and they would love to have an interview with you, if you're open to it. And they told me to tell you, that without a doubt, they will sponsor your visa if that interview goes well."
+
+Hendrick's words almost don't feel real. This is a job, a real job, that will make all of your visa worries disappear. And nobody is twisting your arm to do something in exchange for it. 
+
+Bronislav: "I don't know what to say, thank you so much Professor."
+
+Hendricks: "Of course! I am so happy that I could help you Bronislav. You deserve it, after everything you've been through."
 
 ->DONE

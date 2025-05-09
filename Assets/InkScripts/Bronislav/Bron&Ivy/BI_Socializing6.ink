@@ -43,7 +43,7 @@ Bronislav: "What's wrong Ivy?"
 
 Ivy sighs, and you can tell she is very upset.
 
-Ivy: "I really screwed up. I never should have tried to leverage something for Jensen. It was my own stupid attempt to twist your arm into helping Jensen, and all of it was just wrong."
+Ivy: "I really screwed up. I never should have tried to leverage your situation for Jensen. It was my own stupid attempt to twist your arm into helping Jensen, and all of it was just wrong."
 
 She shakes her hed sadly.
 
@@ -67,7 +67,7 @@ Ivy: "I took advantage of you, and for that I am truly sorry."
 
 // She shakes her hed sadly.
 
-// Ivy: "I tried to leverage my connections to force you to help, and for that I am truly sorry."
+// Ivy: "I tried to leverage my knowledge of your situation and my connections to force you to help, and for that I am truly sorry."
 
 // *["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // ->AppreciateYourApology
@@ -91,7 +91,7 @@ Ivy: "I took advantage of you, and for that I am truly sorry."
 
 // She sighs as she gathers her thoughts.
 
-// Ivy: "Look, I want to apologize. I know we aren't close or anything, but that was no excuse to pressure you like I did to try and help Jensen. It was so wrong for me to put you in that type of situation, and I feel awful about it. I am truly sorry, for all of it."
+// Ivy: "Look, I want to apologize. I know we aren't close or anything, but that was no excuse to pressure you like I did to try and help Jensen. I used my knowledge of your situation and problems to try and help him, and it was so wrong. I feel awful about what I did, and I am truly sorry, for all of it."
 
 // *["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
 // ->AppreciateYourApology
@@ -124,7 +124,7 @@ The coldness in your voice catches Ivy off-guard.
 
 Ivy: "I was apologizing Bronislav..."
 
-Bronislav: "Well, maybe you should have thought about what would happen before you tried to pressure me like you did."
+Bronislav: "Well, maybe you should have thought about what would happen before you tried to pressure me like you did. You made me painfully conscious of my own struggles to get a job and find a sponsor for my visa, and I really can't accept any excuse for why you thought that was a reasonable thing to do."
 
 Ivy stands up from her chair, hurt clouding her face.
 
@@ -156,7 +156,7 @@ You nod, acknowledging her.
 
 Bronislav: "Okay. I hear you."
 
-Ivy thinks about saying something else, but stops herself, turning back to her desk. You decide to continue on your way.
+Ivy thinks about saying something else, but stops herself, turning back to her desk. You decide to continue on your way. It's not your job to entertain her any longer.
 
 {HideCharacter("Ivy")}
 

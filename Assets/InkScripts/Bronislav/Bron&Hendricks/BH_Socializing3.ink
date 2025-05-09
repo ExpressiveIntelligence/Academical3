@@ -38,29 +38,29 @@ Hendricks: "I didn't see you there, take a seat! How are you doing? You seem... 
     Hendricks: "Oh, wow. How do you feel about that?"
     
     *["It seems like a fair deal."]
-        Bronislav: "It seems like a fair deal."
+        Bronislav: "It seems like a fair deal. Jensen gets the credit he needs for grad school and I get a sponsor for my visa."
         
         Hendricks: "I don't know if you should be so comfortable with this arrangement, Bronislav. I don't think its ethical to trade favors like this in an academic context."
         
         **["Why not?"]->BHS3_WhyNot
     *["It feels wrong, right?"]
-        Bronislav: "It feels wrong, right?"
+        Bronislav: "It feels wrong, right? Ivy has been really focused on the fact that I need someone to sponsor my visa, and it has really been stressing me out. I know I could really use what she's offering, but I am not sure that its the right thing to do."
         
-        Hendricks: "I think so. It feels like a breach of ethics to me that Ivy even put you in such a position."
+        Hendricks: "I think you are right. It feels like a breach of ethics to me that Ivy even put you in such a position."
         
         **["How do you mean?"]
             Bronislav: "How do you mean?"
             
             ->BHS3_HowDoYouMeanISee
     *["I don't know..."]
-        Bronislav: "I don't know..."
+        Bronislav: "I don't know... I really could use the help she's offering, since I am definitely in need of a sponsor for my visa, and she is offering something that could really help me."
     
-        Hendricks: "It doesn't seem right to me. I don't think its ethical to trade favors like this in an academic context."
+        Hendricks: "This doesn't seem right to me. I don't think its ethical to trade favors like this in an academic context."
         **["Why not?"]->BHS3_WhyNot
 == BHS3_WhyNot ==
 Bronislav: "Why not?"
 
-Hendricks: "It brings bias into your work that undermines its integrity. What Ivy is offering is "quid pro quo." Its a slippery slope of conflicting interests.
+Hendricks: "It brings bias into your work that undermines its integrity. What Ivy is offering sounds like "quid pro quo", which is essentially trading one favor for another. Its a slippery slope of conflicting interests.
 
 *["I see.*]
 Bronislav: I see...
@@ -77,7 +77,7 @@ Hendricks: "For instance, would you have ever considered putting Jensen on your 
 
 -She sighs.
 
-Hendricks: "I'll let you decide how you want to handle it, but please let me know if I can help."
+Hendricks: "This really is a problematic situation. I am going to let you decide how you want to handle it, but please let me know if I can help."
 
 Bronislav: "Thank you Hendricks, I always appreciate your insight."
 
@@ -137,6 +137,6 @@ She seems to be telling half the truth, put off by your curtness.
     
     ->BHS3_HideHenAndEnd
 == BHS3_HideHenAndEnd ==
-// {HideCharacter("Hendricks")}
+{HideCharacter("Hendricks")}
 
 ->DONE

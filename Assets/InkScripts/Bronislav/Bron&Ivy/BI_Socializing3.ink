@@ -123,7 +123,9 @@ Bronislav: "Okay, you have my attention, why should I help Jensen?"
 
 Ivy: "Well, in thinking about it more, you and I both know how hard it is to get into grad school, especially without taking part in research like you're engaged in. But, I realized this extends into getting a job in our field after school."
 
-Ivy: "I've heard so many horror stories about the whole process, and I am realizing that having an in like the one I'm offering not only would be a testimate to your hard work, but it gives you security for your future going forward. You're not only helping Jensen through what we both know is a difficult situation, but you are helping yourself have a plan for post graduation."
+Ivy: "I've heard so many horror stories about the whole process, and I am realizing that having an in like the one I'm offering not only would be a testimate to your hard work, but it gives you security for your future going forward."
+
+Ivy: "You're not only helping Jensen through what we both know is a difficult situation, but you are helping yourself have a plan for post graduation. You'd completely secure your visa, and you could remove all of that stress that you have been telling me about for a while now, simply by playing your part."
 
 *["I hadn't thought about it like that." #>> IncrementRelationshipStat Ivy Bronislav Opinion +40]
 Bronislav: "Huh, I hadn't thought about it like that, Ivy."
@@ -185,9 +187,9 @@ Ivy: "Is there a reason you are so intent on being rude? Have you not been liste
 
 Bronislav: "I don't know Ivy, but what I do know is that this idea is not a good one."
 
-Ivy: "Okay, well, can I ask you to at least consider the more than generous offer that is being handed to you?"
+Ivy: "Okay, well, can I ask you to at least consider the more than generous offer that is being handed to you? Can you at least consider helping yourself stay in this country like you want?"
 
-Bronislav: "Okay it's being considered. Now I have some work that I actually need to do, so can I use my desk please?"
+Bronislav: "Okay, it's being considered. Now I have some work that I actually need to do, so can I use my desk please?"
 
 Ivy: "Mature, Bronislav, really mature."
 
@@ -202,7 +204,7 @@ Bronislav: "Oh yeah? What other reason did you think of?"
 
 Ivy: "Well, you and I both know how hard it is to get into grad school, especially without taking part in research like you're engaged in, but I also thought about how hard it is to actually get a job in our field after school."
 
-Ivy: "Helping Jensen would really give you the secruity of having your life after school totally planned out, and all you would be doing would be giving him a leg-up for getting into school. It's a win-win situation no matter how you slice it."
+Ivy: "Helping Jensen would really give you the secruity of having your life after school totally planned out, your visa totally secured, and all you would be doing would be giving him a leg-up for getting into school. It's a win-win situation no matter how you slice it."
 
 *["I hadn't thought about it like that." #>> IncrementRelationshipStat Ivy Bronislav Opinion +40]
 Bronislav: "Huh, I hadn't thought about it like that, Ivy."
