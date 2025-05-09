@@ -214,7 +214,7 @@ Ivy: "I really thought this would've been a great opportunity for all of us. Har
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
 
-*["Disappointed in me?"]
+*["Disappointed in me?" #>> DecrRelationshipStat Ivy Bronislav 20]
 ->BI_RP_Disappointed
 
 === BI_RP_ThanksIvy ===
@@ -277,9 +277,9 @@ She leaves, waving goodbye to you.
 ->DONE
 
 === BI_RP_ItsAnIssue ===
-Bronislav: "You're disappointed in me? Ivy I'm disappointed in seeing how low you'd stoop just to get your student false authorship."
+Bronislav: "You're disappointed in me? Ivy. I'm disappointed in seeing how low you'd stoop just to get your student false authorship."
 
-She lets out a chuckle.
+Ivy scoffs.
 
 Ivy: "Call it what you want Bronislav, Jensen was just really struggling and I thought that I'd help as much as I can. Nothing more."
 
@@ -291,6 +291,16 @@ She leaves promptly after saying this.
 
 === BI_RP_Disappointed ===
 
-This content is not written yet.
+Bronislav: "Disappointed in what? In me? For saying to no to what is very obviously a trap? You have just been dangling my own visa issues in front of me to try an make me do what you want, and I'm tired of it."
+
+Ivy looks furious.
+
+Ivy: "How dare you suggest I am trying to trap you! I have been offering help to you in your situation, which you so clearly need, and instead you are spitting on all of my hard work to try and set up something nice for you."
+
+Bronislav: "In exchange for me giving Jensen false authorship on my paper."
+
+Ivy: "Excuse me for asking for a small something in return for my efforts. You really are something Bronislav, I can't believe you."
+
+Ivy storms off, letting you finally reach your desk.
 
 -> DONE
