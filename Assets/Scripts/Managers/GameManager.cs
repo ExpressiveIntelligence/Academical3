@@ -388,11 +388,11 @@ namespace Academical
 
 		private IEnumerator AdvanceDayCoroutine()
 		{
-			GameEvents.OnFadeToBlack?.Invoke( 1f );
+			GameEvents.OnFadeToBlack?.Invoke( 1.0f );
 
-			yield return new WaitForSeconds( 1f );
+			yield return new WaitForSeconds( 1.1f );
 
-			GameEvents.OnFadeFromBlack?.Invoke( 1f );
+			GameEvents.OnFadeFromBlack?.Invoke( 1.0f );
 
 			m_simulationController.AdvanceToNextDay();
 		}
