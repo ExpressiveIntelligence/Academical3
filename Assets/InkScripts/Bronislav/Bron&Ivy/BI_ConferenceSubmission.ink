@@ -20,7 +20,9 @@ While you are crunching away at your paper, Ivy approaches you.
 //if you said you would add Jensen
 Ivy: "Hey Bronislav. I know you said you'd put Jensen on the paper. If that's still on the table, allow me to explain my proposal."
 
-Ivy: "I've been talking to my uncle about you, and I could arrange a meeting with him as well as a recommendation if you put Jensen as first author on the paper. He's excited to meet you, so please, think about it."
+Ivy: "I've been talking to my uncle about you, and I could arrange a meeting with him as well as a recommendation if you put Jensen as first author on the paper." 
+
+Ivy: "I told him that you are an international student, and he said he would be more than happy to sponsor someone of your talents. He's excited to meet you, so please, think about it."
 -> ChoiceOptionsForDeal
 
 =ChoiceOptionsForDeal
@@ -57,7 +59,7 @@ Ivy: "Thank you, I just hope Jensen can get into grad school with this and a few
 
 Bronislav: "I'm actually not comfortable with this. I don't feel as though Jensen's feedback is enough, and with a generous offer from you on the table like this, I think it would be too risky for the both of us."
 
-Ivy: "Aw, c'mon Bronislav, you know how hard it is to get into Grad School."
+Ivy: "Aw, c'mon Bronislav, you know how hard it is to get into grad school."
 
 Ivy sighs.
 
@@ -101,7 +103,7 @@ Bronislav: "This is Jensen, not me, Ivy. I worked so hard to get in and he's now
 
  Ivy frowns, looking peeved.
 
- Ivy: "Yeah, but what if it does? Jensen would have his credit, and you would have a recommendation."
+ Ivy: "Yeah, but what if it does? Jensen would have his credit, and you would have not only a recommendation, but a sponsor for your visa which by our conversations, I can tell you desperately need."
 
 Ivy sighs, shaking her head.
 
@@ -120,7 +122,7 @@ You hesitantly speak up.
 
 Ivy:"Not sure yet? Things are getting a bit close for the deadline, Bronislav."
 
-Ivy: "Look, you get Jensen on that paper and I'll see what I can do about getting you that recommendation."
+Ivy: "Look, you get Jensen on that paper and I'll see what I can do about getting you that recommendation. You get a visa sponsor, and Jensen gets into grad school, it's as simple as that."
 
 With that, Ivy waves goodbye to you and walks off.
 
@@ -192,7 +194,11 @@ Bronislav: "I'm not sure about this, Ivy. Now that there's an explicit deal on t
 
 You try to come up with the words, your altruistic intentions to help Jensen feeling conflicted with your need for a job.
 
-Ivy: "Hey, no big deal. Just think it over while you're working here, Bronislav."
+Ivy: "Hey, no big deal. But I would like to remind you that you are running on tight deadline to get those visa issues of yours solved, and I just offered you a lifeline."
+
+Ivy drops her tone.
+
+Ivy: "Just think it over while you're working here, Bronislav."
 
 Ivy waves goodbye, taking her leave briskly.
 
@@ -265,9 +271,9 @@ Ivy waves goodbye and leaves without another word.
 ->DONE
 
 === NoWay ===
-Bronislav: "No way for now, Jensen needs to step it up a notch if he wants my help. We would get caught instantly."
+Bronislav: "No way. Jensen would need to step it up a notch if he wants my help. We would get caught instantly."
 
-Ivy: "C'mon Bronislav, this is a big opportunity for you if you just add him to the paper. You're missing out on a lot."
+Ivy: "C'mon Bronislav, this is a big opportunity for you, to secure something you really need, if you just add him to the paper. Think about what you're missing out on by saying no."
 
 Ivy frowns and turns away.
 
