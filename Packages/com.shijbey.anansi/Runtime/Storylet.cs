@@ -34,7 +34,7 @@ namespace Anansi
 		/// <summary>
 		/// The number of Storylets that must elapse before this storylet may be used again.
 		/// </summary>
-		public int CooldownTimeRemaining { get; private set; }
+		public int CooldownTimeRemaining { get; set; }
 
 		/// <summary>
 		/// Can this story be used more than once.
@@ -44,7 +44,7 @@ namespace Anansi
 		/// <summary>
 		/// The number of times this storylet has been seen by the player.
 		/// </summary>
-		public uint TimesPlayed { get; private set; }
+		public int TimesPlayed { get; set; }
 
 		/// <summary>
 		/// Tags associated with this storylet, used when filtering storylets during

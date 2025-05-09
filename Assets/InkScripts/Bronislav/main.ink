@@ -89,8 +89,8 @@ EXTERNAL SetPlayerLocation(locationID)
 // (even when not in dialogue)
 {ShowCharacter("Bronislav", "right", "")}
 
-{SetPlayerLocation("lecture_hall")}
-{LockAllLocations("Must give presentation in lecture hall.")}
+// {SetPlayerLocation("lecture_hall")}
+// {LockAllLocations("Must give presentation in lecture hall.")}
 
 -> DONE
 
