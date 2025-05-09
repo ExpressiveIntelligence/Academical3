@@ -91,7 +91,7 @@ Ivy: "Speaking of getting back to you, I talked to the firm for you."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "They said they would love to have someone of your talent for the position."
+Ivy: "They said they would love to have someone of your talent for the position, and they would be more than happy to sponsor your visa."
 
 *["That's amazing."]
 ->BI_C_ThatsAmazing
@@ -114,7 +114,7 @@ Ivy: "Actually, I was going to tell you, I talked to the firm."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "They said they would love to have someone of your talent for the position."
+Ivy: "They said they would love to have someone of your talent for the position, and they would be more than happy to sponsor your visa."
 
 *["That's amazing."]
 ->BI_C_ThatsAmazing
@@ -148,7 +148,7 @@ Ivy: "Actually, I was going to tell you, I talked to the firm."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "They said they would love to have someone of your talent for the position."
+Ivy: "They said they would love to have someone of your talent for the position, and they would be more than happy to sponsor your visa."
 
 *["That's amazing."]
 ->BI_C_ThatsAmazing
@@ -171,7 +171,7 @@ Ivy: "You know, I actually did talk to the firm for you."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "They said they would definitely be willing to consider someone of your skill for the position."
+Ivy: "They said they would definitely be willing to consider someone of your skill for the position. While sponsoring your visa defintiely is a complication to the whole process, they are still willing to go through with it."
 
 *["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->BI_C_ThatsGreat
@@ -199,7 +199,7 @@ Ivy: "You know, I actually did talk to the firm for you."
 
 Bronislav: "Did you? How'd it go?"
 
-Ivy: "They said they would definitely be willing to consider someone of your skill for the position."
+Ivy: "They said they would definitely be willing to consider someone of your skill for the position. While sponsoring your visa defintiely is a complication to the whole process, they are still willing to go through with it."
 
 *["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->BI_C_ThatsGreat
@@ -225,7 +225,7 @@ Ivy: "As a matter of a fact, I did."
 
 Bronislav: "You did? What did they say?"
 
-Ivy: "They said they would definitely be willing to consider someone of your skill for the position."
+Ivy: "They said they would definitely be willing to consider someone of your skill for the position. While sponsoring your visa defintiely is a complication to the whole process, they are still willing to go through with it."
 
 *["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
 ->BI_C_ThatsGreat
@@ -365,7 +365,7 @@ Bronislav: "No, seriously Ivy, this means so much to me."
 
 Ivy: "What can I say, they were very impressed with you."
 
-You shake your head, trying to process what that means for you and your career.
+You shake your head, trying to process what that means for you and your career. You feel as if a weight is being lifted off of your shoulders. All your concerns about finding a sponsor for your visa, staying in this country, all of them are being solved, right now, by this confirmation.
 
 Ivy: "I'm so glad I could help you out like this Bronislav."
 
@@ -384,7 +384,7 @@ Ivy: "Okay, okay, I told them about your research and they were impressed."
 
 }
 
-You shake your head, trying to process what that means for you and your career.
+You shake your head, trying to process what that means for you and your career. You feel as if a weight is being lifted off of your shoulders. All your concerns about finding a sponsor for your visa, staying in this country, all of them are being solved, right now, by this confirmation.
 
 Bronislav: "I can't believe- this doesn't even feel real."
 
@@ -461,7 +461,7 @@ Ivy: "Give him a call when you get a chance."
 -> BI_C_DealAltOutro
 
 === BI_C_DealAltOutro ===
-You gratefully take the paper, and carefully place it in your pocket.
+You gratefully take the paper, and carefully place it in your pocket. This could be your ticket to solve everything that has been burdening you, to solve all of your stress surronding getting a job, keeping your visa, all of it.
 
 Bronislav: "You know, I had slightly mixed feelings about everything and going through with all of this Jensen stuff, but now it feels like its all going to be worth it."
 
