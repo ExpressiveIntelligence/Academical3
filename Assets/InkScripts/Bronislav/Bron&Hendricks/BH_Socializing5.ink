@@ -71,9 +71,9 @@ Hendricks shifts in her seat.
 
 Hendricks: "Really? How is that going?"
 
-Bronislav: "I considered your words from last we chatted, and decided this was the best course of action."
+Bronislav: "I considered everything you said the last time we spoke, and while it is kind of a slippery slope, I really need what she's offering, and I am definitely not in a position to turn down a sponsor."
 
-Hendricks: "Does this include what Ivy gets out of this deal?"
+Hendricks: "Does this job offer still include what Ivy gets out of this deal?"
 
 *["I get the feeling you don't agree with me."]
 ->BH_Socializing5_IGetTheFeeling
@@ -94,7 +94,7 @@ Bronislav: "I get the feeling that you do not agree with me on this decision."
 
 Hendricks sighs, thinking for a moment.
 
-Hendricks: "As I have told you in the past, quid pro quo exchanges in academics are highly discouraged. I fear you may feel the consequences."
+Hendricks: "As I have told you in the past, quid pro quo exchanges in academics are highly discouraged. I was trying to give you space to handle this before, but I fear you may feel the consequences."
 
 *["I need this job."]
 ->BH_Socializing5_NeedThisJob
@@ -114,29 +114,29 @@ Hendricks: "Unfortunately not. I had wished whatever paper nonsense was going on
 ->BH_Socializing5_ThatsIt
 
 === BH_Socializing5_NeedThisJob ===
-Bronsialv: "I need this job, though; without it, I have nothing."
+Bronsialv: "I need this job, Hendricks. If I don't get this job, I don't have a sponsor for my visa, and I don't want to risk not having that. I don't even want to think about what will happen if I don't have that."
 
-Hendricks sighs once more.
+Hendricks sighs.
 
-Hendricks: "I understand that. I am here if you require any assistance of any sort. You also have your counselor to go to for such questions."
+Hendricks: "I understand where you are coming from, Bronislav, I do. But there's some lines you really can't cross. I really wish you would have come to me with your concern, because I think I could have really helped in your situation."
 
-Bronislav: "Thank you, and I appreciate that, however, I have made my decision."
+Bronislav: "I have made my decision, professor. Ivy promised me what I needed and I took it."
 
-Hendricks: "Alright, I won't pry further, but I just want you to be aware there may be consequences. I fear it may go astray."
+Hendricks: "Alright, I won't pry further, but I just want you to be aware there may be consequences. I fear this may not end as well as you hoped."
 
 Bronislav: "I appreciate your concern. Thank you. I have to go get an assignment done. I'll see you later, Hendricks."
 
-You stand up and leave while Hendricks wears a solom contemplative expression as she opens her book and continues reading. 
+You stand up and leave while Hendricks wears a solemn, contemplative expression as she opens her book and continues reading. 
 
 {HideCharacter("Hendricks")}
 ->DONE
 
 === BH_Socializing5_ItllWorkOut ===
-Bronislav: "I believe things will work out."
+Bronislav: "I believe things will work out. They have to, because I need them to."
 
-Hendrick's face drops.
+Hendrick frowns, but it's hard to get a read on what she's thinking.
 
-Hendricks: "Alright then. I recently had to remove Praveen from editorial work, It was quite disappointing. I just hope the same fate doesn't befall you."
+Hendricks: "Alright then. I recently had to remove Praveen from editorial work, because of his own unethical behavior. I sincerely hope that this isn't something that happens to you."
 
 Bronislav: "Oh wow, I wish things went better for him. I appreciate the concern, but I can handle it. Oh, I gotta head out to finish an assignment. I'll see you later, Professor Hendricks."
 
@@ -150,7 +150,7 @@ Hendricks: "I appreciate that, thank you."
 
 Bronislav: "Oh shoot, I gotta go get an assingment done. Thanks again, Hendricks."
 
-As you walk off you notice a solom expression on Hendricks face as she goes back to her book.
+As you walk off you notice a solemn expression on Hendricks face as she goes back to her book.
 
 {HideCharacter("Hendricks")}
 ->DONE
@@ -187,17 +187,19 @@ Hendricks: "Of course, have a seat. I'm all ears."
 === BH_Socializing5_ConfideinHen ===
 You take a seat across from Hendricks, folding your hands in your lap.
 
-Bronislav: "Well actually, I took your advice and decided not to go forward with Ivy's proposal. It didn't seem right, and I don't wanna go that route."
+Bronislav: "Well actually, I took your advice and decided not to go forward with Ivy's proposal. It didn't feel right, and I don't want to go that route."
 
 Hendricks gives a soft smile.
 
-Hendricks: "That was a tough decision. I'm proud of you, Bronislav; you made a good call."
+Hendricks: "I can imagine that was a really tough decision. I'm proud of you, Bronislav. You made a good call."
 
 *["Thank you."]
 ->BH_Socializing5_ThankYou
 
 === BH_Socializing5_Leave ===
 Bronislav: "Actually, sorry, I just realized I have someplace to be. I just wanted to stop by and say hello again."
+
+Hendricks looks genuinely confused, but shrugs it off.
 
 Hendricks: "No problem, Bronislav. I'm here if you need anything."
 
@@ -207,9 +209,13 @@ Bronislav: "Thank you. I'll see you around, Professor."
 ->DONE
 
 === BH_Socializing5_ThankYou ===
-Bronislav: "Thank you."
+Bronislav: "Thank you. But the reason I wanted to ask your help is I still need a sponsor for my visa, and I am really running out of time. Ivy's deal felt like a lifeline, but since I turned it down, I really feel like I have put myself in deeper trouble for doing the right thing."
 
-Hendricks: "I think we need to put more stress into good ethical practices."
+Hendricks: "Yes of course, I can absolutely help with this. I have a few folks I can talk to about your situation, and I can definitely get something going for you. I need to send some emails and make a few calls, but I will get back to you with help for your sponsor situation as soon as I can, you have my word."
+
+Bronislav: "Thank you professor, I really appreciate it."
+
+Hendricks: "I think we need to put more stress into good ethical practices, these incidents seem to be happening all at once."
 
 Hendricks pinches the bridge of her nose.
 
@@ -226,7 +232,7 @@ Hendricks: "Yes, actually, I unfortunately had to take Praveen off paper editing
 === BH_Socializing5_GladIDidntEndUp ===
 Bronislav: "Glad I didn't end up in that boat."
 
-Hendricks: "Indeed, you made the right call."
+Hendricks: "Indeed, you made the right call getting out of Ivy's deal."
 
 *["I just worry about my friendship with Ivy." #>>IncrementRelationshipStat Hendricks Bronislav 5]
 ->BH_Socializing5_IJustWorryAboutMyFriendship
