@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Ink.Parsed;
 using TDRS;
 using UnityEngine;
 
@@ -38,6 +39,33 @@ namespace Academical
 		private void Update()
 		{
 			UpdateDilemmas();
+		}
+
+		public List<Persistence.DilemmaData> SerializeDilemmas()
+		{
+			List<Persistence.DilemmaData> dilemmaData = new List<Persistence.DilemmaData>();
+
+			foreach ( Dilemma d in m_DilemmaList )
+			{
+				var data = new Persistence.DilemmaData()
+				{
+					dilemmaId = d.Data.id,
+					state = 0
+				};
+
+				if ( d.IsCompleted )
+				{
+					data.state = 2;
+				}
+				else if ( d.IsUnlocked )
+				{
+					data.state = 1;
+				}
+
+				dilemmaData.Add( data );
+			}
+
+			return dilemmaData;
 		}
 
 		private void UpdateDilemmas()

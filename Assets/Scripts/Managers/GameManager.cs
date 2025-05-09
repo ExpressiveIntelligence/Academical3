@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Academical.Persistence;
 using Anansi;
+using RePraxis;
 using TDRS;
+using TDRS.Serialization;
 using UnityEngine;
 
 namespace Academical
@@ -143,7 +146,42 @@ namespace Academical
 
 			CollectEnterExitStorylets();
 
+			m_Player.Location = null;
+
+			if ( saveData != null )
+			{
+				SetPlayerLocation( saveData.currentLocationId );
+				LoadDatabaseSave( saveData );
+				LoadStoryState( saveData );
+				LoadSocialEngineState( saveData );
+				m_simulationController.DateTime = new SimDateTime( saveData.currentDay, Enum.Parse<TimeOfDay>( saveData.currentTimeOfDay ) );
+			}
+
 			StartStory();
+		}
+
+		private void LoadDatabaseSave(SaveData data)
+		{
+			foreach ( string entry in data.databaseEntries )
+			{
+				m_socialEngine.DB.Insert( entry );
+			}
+		}
+
+		private void LoadStoryState(SaveData data)
+		{
+			m_dialogueManager.Story.InkStory.state.LoadJson( data.storyData.inkJson );
+			foreach ( StoryletData entry in data.storyData.storylets )
+			{
+				Storylet storylet = m_dialogueManager.Story.GetStorylet( entry.storyletId );
+				storylet.CooldownTimeRemaining = entry.cooldown;
+				storylet.TimesPlayed = entry.timesVisited;
+			}
+		}
+
+		private void LoadSocialEngineState(SaveData data)
+		{
+			// m_socialEngine.State
 		}
 
 		private void CollectEnterExitStorylets()
@@ -211,7 +249,7 @@ namespace Academical
 		/// </summary>
 		/// <param name="locationID"></param>
 		/// <param name="tags"></param>
-		public void SetPlayerLocation(string locationID)
+		public void SetPlayerLocation(string locationID, bool runStorylets = true)
 		{
 			Location location = m_simulationController.GetLocation( locationID );
 
@@ -815,6 +853,40 @@ namespace Academical
 			SaveGame( true );
 		}
 
+		private string[] SerializeDatabase()
+		{
+			if ( m_simulationController == null || m_simulationController.DB == null )
+			{
+				return new string[0];
+			}
+
+			var nodeStack = new Stack<INode>( m_simulationController.DB.Root.Children );
+			var entryList = new List<string>();
+
+			while ( nodeStack.Count > 0 )
+			{
+				INode node = nodeStack.Pop();
+
+				IEnumerable<INode> children = node.Children;
+
+				if ( children.Count() > 0 )
+				{
+					// Add children to the stack
+					foreach ( var child in children )
+					{
+						nodeStack.Push( child );
+					}
+				}
+				else
+				{
+					// This is a leaf
+					entryList.Add( node.GetPath() );
+				}
+			}
+
+			return entryList.ToArray();
+		}
+
 		public void SaveGame(bool isAutoSave)
 		{
 			GameState gameState = GameStateManager.GetGameState();
@@ -828,7 +900,33 @@ namespace Academical
 			saveData.currentLocationId = m_Player.Location.UniqueID;
 			saveData.isAutoSave = isAutoSave;
 			saveData.totalPlaytime = gameState.TotalPlayTime;
-
+			saveData.databaseEntries = SerializeDatabase();
+			saveData.playerId = gameState.PlayerId.ToString();
+			saveData.dialogueHistory = gameState.DialogueHistory.Select( (h) =>
+			{
+				return new DialogueHistoryEntryData()
+				{
+					speakerId = h.Speaker,
+					text = h.Text,
+				};
+			} ).ToArray();
+			saveData.storyData = new StoryData()
+			{
+				inkJson = m_dialogueManager.Story.InkStory.state.ToJson(),
+				storylets = m_dialogueManager.Story.Storylets.Select( (s) =>
+				{
+					return new StoryletData()
+					{
+						cooldown = s.CooldownTimeRemaining,
+						storyletId = s.ID,
+						timesVisited = (int)s.TimesPlayed,
+					};
+				} ).ToArray()
+			};
+			saveData.socialEngineJson = new TdrsJsonExporter().Export(
+				m_socialEngine.State
+			);
+			saveData.dilemmas = DilemmaManager.Instance.SerializeDilemmas().ToArray();
 
 			DataPersistenceManager.SaveGame( saveData );
 		}

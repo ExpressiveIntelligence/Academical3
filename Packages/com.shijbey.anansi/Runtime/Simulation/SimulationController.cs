@@ -31,7 +31,15 @@ namespace Anansi
 
 		public SimDateTime m_dateTime;
 
-		public SimDateTime DateTime => m_dateTime;
+		public SimDateTime DateTime
+		{
+			get => m_dateTime;
+			set
+			{
+				m_dateTime = value;
+				UpdateTimeInDatabase();
+			}
+		}
 
 		public UnityAction OnTick;
 
