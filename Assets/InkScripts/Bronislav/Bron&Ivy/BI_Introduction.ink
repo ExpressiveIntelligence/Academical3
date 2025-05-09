@@ -20,7 +20,7 @@
 === FirstCoffee ===
 
 {ShowCharacter("Ivy", "left", "")}
-
+// TODO: Um should this still be peers?
 You decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
 
 Ivy: "Hey Bronislav. Good to see you again." {ShowCharacter("Ivy", "left", "")}
@@ -65,7 +65,7 @@ Ivy: "That's great to hear! I know Jensen and he's been having some problems get
 
 ~ temp talkedWithBradAboutJensen = DbAssert("talkedWithBradAboutJensen")
 
-Bronislav: "Getting into grad school wasn't easy for me either, so I see a bit of myself in him. I'll keep him in mind."
+Bronislav: "Getting into grad school wasn't easy for me either, especially being an international student and all, so I see a bit of myself in him. I'll keep him in mind."
 
 Ivy still very cheerful about the good news is also a bit confused.
 
@@ -105,16 +105,16 @@ Bronislav:"It just is way too soon to make a call like that. I'd like to talk wi
 
 She takes a long sip of her drink.
 
-Ivy: "Well ok then, that is fair. At least consider him, ok?"
+Ivy: "Well okay then, that is fair. At least consider him, ok?"
 
 -> Continue
 
 === MoreTime ===
-Bronislav: "As much as I wish I could help right now I just want to keep my options open."
+Bronislav: "As much as I wish I could help right now, I'm really excited about being able to do this research and I really want to keep my options open."
 
 She takes a long sip of her drink.
 
-Ivy: "Well ok then, that is fair. Keep him in mind at least?"
+Ivy: "Well okay then, that is fair. Keep him in mind at least?"
 
 -> Continue
 
