@@ -47,17 +47,17 @@ namespace Academical
 
 		public void StartNewGame()
 		{
-			GameLevelSO scenario =
-				ScenarioManager.GetScenario( GameStateManager.GetGameState().scenarioId );
-			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( scenario.Scene );
+			GameLevelSO level =
+				GameLevelManager.Instance.GetLevelById( GameStateManager.GetGameState().levelId );
+			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( level.scenePath );
 			StartCoroutine( LoadGameScene() );
 		}
 
 		public void StartGameFromSave()
 		{
-			GameLevelSO scenario =
-				ScenarioManager.GetScenario( DataPersistenceManager.SaveData.scenarioId );
-			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( scenario.Scene );
+			GameLevelSO level =
+				GameLevelManager.Instance.GetLevelById( DataPersistenceManager.SaveData.levelId );
+			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( level.scenePath );
 			StartCoroutine( LoadGameScene() );
 		}
 

@@ -13,7 +13,7 @@ namespace Academical
 		#region Fields
 
 		[Header( "UI Elements" )]
-		[SerializeField] private Button m_ScenarioSelectButton;
+		[SerializeField] private Button m_NewGameButton;
 		[SerializeField] private Button m_LoadGameButton;
 		[SerializeField] private Button m_SettingsButton;
 		[SerializeField] private Button m_CreditsButton;
@@ -31,7 +31,7 @@ namespace Academical
 
 		protected override void SubscribeToEvents()
 		{
-			m_ScenarioSelectButton.onClick.AddListener( OnScenarioSelectButtonClicked );
+			m_NewGameButton.onClick.AddListener( OnNewGameButtonClicked );
 			m_LoadGameButton.onClick.AddListener( OnLoadGameButtonClicked );
 			m_SettingsButton.onClick.AddListener( OnSettingsButtonClicked );
 			m_CreditsButton.onClick.AddListener( OnCreditsButtonClicked );
@@ -40,7 +40,7 @@ namespace Academical
 
 		protected override void UnsubscribeFromEvents()
 		{
-			m_ScenarioSelectButton.onClick.RemoveListener( OnScenarioSelectButtonClicked );
+			m_NewGameButton.onClick.RemoveListener( OnNewGameButtonClicked );
 			m_LoadGameButton.onClick.RemoveListener( OnLoadGameButtonClicked );
 			m_SettingsButton.onClick.RemoveListener( OnSettingsButtonClicked );
 			m_CreditsButton.onClick.RemoveListener( OnCreditsButtonClicked );
@@ -51,7 +51,7 @@ namespace Academical
 
 		#region Private Methods
 
-		private void OnScenarioSelectButtonClicked()
+		private void OnNewGameButtonClicked()
 		{
 			AudioManager.PlayDefaultButtonSound();
 		}

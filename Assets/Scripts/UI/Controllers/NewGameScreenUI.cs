@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Academical
 {
-	public class ScenarioSelectScreenController : UIComponent
+	public class NewGameScreenUI : UIComponent
 	{
 		#region Fields
 
@@ -13,13 +13,13 @@ namespace Academical
 		private Button m_BackButton;
 
 		[SerializeField]
-		private GameObject m_ScenarioCardContainer;
+		private GameObject m_LevelCardContainer;
 
 		[Header( "Element Prefabs" )]
 		[SerializeField]
-		private GameObject m_ScenarioCardPrefab;
+		private GameLevelCardUI m_LevelCardUIPrefab;
 
-		private List<ScenarioCard> m_ScenarioCards = new List<ScenarioCard>();
+		private List<GameLevelCardUI> m_LevelCards = new List<GameLevelCardUI>();
 
 		#endregion
 
@@ -28,24 +28,22 @@ namespace Academical
 		public override void Show()
 		{
 			base.Show();
-			UpdateScenarioList();
+			UpdateLevelCards();
 		}
 
-		public void UpdateScenarioList()
+		public void UpdateLevelCards()
 		{
-			ClearScenarioList();
-			GameLevelSO[] scenarios = ScenarioManager.GetAllScenarios();
-			foreach ( var entry in scenarios )
+			ClearCards();
+			GameLevelSO[] levels = GameLevelManager.Instance.GetAllLevels();
+			foreach ( var entry in levels )
 			{
-				GameObject scenarioCard = Instantiate(
-					m_ScenarioCardPrefab, m_ScenarioCardContainer.transform
+				GameLevelCardUI card = Instantiate(
+					m_LevelCardUIPrefab, m_LevelCardContainer.transform
 				);
 
-				var scenarioCardComponent = scenarioCard.GetComponent<ScenarioCard>();
+				card.Initialize( entry );
 
-				scenarioCardComponent.SetScenario( entry );
-
-				m_ScenarioCards.Add( scenarioCardComponent );
+				m_LevelCards.Add( card );
 			}
 		}
 
@@ -73,13 +71,13 @@ namespace Academical
 			AudioManager.PlayDefaultButtonSound();
 		}
 
-		private void ClearScenarioList()
+		private void ClearCards()
 		{
-			foreach ( var card in m_ScenarioCards )
+			foreach ( var card in m_LevelCards )
 			{
 				Destroy( card.gameObject );
 			}
-			m_ScenarioCards.Clear();
+			m_LevelCards.Clear();
 		}
 
 		#endregion

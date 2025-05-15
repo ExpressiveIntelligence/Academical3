@@ -13,7 +13,7 @@ namespace Academical
 		private Image m_LocationPreview;
 
 		[SerializeField]
-		private TMP_Text m_ScenarioName;
+		private TMP_Text m_LevelName;
 
 		[SerializeField]
 		private TMP_Text m_LocationName;
@@ -56,8 +56,8 @@ namespace Academical
 		{
 
 			var timestamp = System.DateTime.Parse( saveSlotData.saveTimeStamp ).ToString();
-			string scenarioName = ScenarioManager.GetScenario( saveSlotData.scenarioId ).Title;
-			m_ScenarioName.text = $"<b>{scenarioName}</b>";
+			string levelName = GameLevelManager.Instance.GetLevelById( saveSlotData.levelId ).displayName;
+			m_LevelName.text = $"<b>{levelName}</b>";
 			m_SaveTimeStamp.text = $"<b>Save Date:</b> {timestamp}";
 			m_AutoSaveIndicator.SetActive( saveSlotData.isAutoSave );
 

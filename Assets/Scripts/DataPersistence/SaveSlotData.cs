@@ -11,9 +11,9 @@ namespace Academical.Persistence
 		public string guid;
 
 		/// <summary>
-		/// The ID of the scenario being played.
+		/// The ID of the level being played.
 		/// </summary>
-		public string scenarioId;
+		public string levelId;
 
 		/// <summary>
 		/// The total number of seconds the game has been played.

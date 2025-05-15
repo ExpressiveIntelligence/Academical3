@@ -149,8 +149,8 @@ interface StoryData {
 }
 
 interface SaveData {
-    // The ID of the scenario being played.
-    scenarioId: string;
+    // The ID of the level being played.
+    levelId: string;
     // Dialogue lines presented in their last conversation / storylet.
     dialogueHistory: DialogueHistoryEntry[];
     // Recorded choices.

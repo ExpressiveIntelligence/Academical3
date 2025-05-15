@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 namespace Academical
 {
-	public class ScenarioCard : UIComponent
+	public class GameLevelCardUI : UIComponent
 	{
 		#region Fields
 
 		[Header( "UI Elements" )]
 		[SerializeField] private Button m_PlayButton;
-		[SerializeField] private TMP_Text m_ScenarioTitle;
-		[SerializeField] private TMP_Text m_ScenarioDescription;
-		[SerializeField] private GameLevelSO m_ScenarioData;
+		[SerializeField] private TMP_Text m_Title;
+		[SerializeField] private TMP_Text m_Description;
+		[SerializeField] private GameLevelSO m_Data;
 		[SerializeField] private Image m_Thumbnail;
 
 		#endregion
@@ -23,9 +23,9 @@ namespace Academical
 		{
 			base.OnEnable();
 
-			if ( m_ScenarioData != null )
+			if ( m_Data != null )
 			{
-				SetScenario( m_ScenarioData );
+				Initialize( m_Data );
 			}
 		}
 
@@ -33,12 +33,12 @@ namespace Academical
 
 		#region Public Methods
 
-		public void SetScenario(GameLevelSO scenarioData)
+		public void Initialize(GameLevelSO data)
 		{
-			m_ScenarioData = scenarioData;
-			m_ScenarioTitle.text = scenarioData.Title;
-			m_ScenarioDescription.text = scenarioData.Description;
-			m_Thumbnail.sprite = scenarioData.Thumbnail;
+			m_Data = data;
+			m_Title.text = data.displayName;
+			m_Description.text = data.description;
+			m_Thumbnail.sprite = data.thumbnail;
 		}
 
 		#endregion
@@ -63,7 +63,7 @@ namespace Academical
 		{
 			AudioManager.PlayDefaultButtonSound();
 			GameStateManager.NewGame();
-			GameStateManager.GetGameState().scenarioId = m_ScenarioData.ScenarioId;
+			GameStateManager.GetGameState().levelId = m_Data.id;
 			MainMenuManager.Instance.StartNewGame();
 		}
 

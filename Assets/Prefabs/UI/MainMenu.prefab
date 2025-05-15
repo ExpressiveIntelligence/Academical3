@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HideOnAwake: 0
-  m_ScenarioSelectButton: {fileID: 7055322208805748857}
+  m_NewGameButton: {fileID: 7055322208805748857}
   m_LoadGameButton: {fileID: 1242282003895513003}
   m_SettingsButton: {fileID: 9207656995254171447}
   m_CreditsButton: {fileID: 6119292905294131571}
