@@ -395,6 +395,8 @@ namespace Academical
 			GameEvents.OnFadeFromBlack?.Invoke( 1.0f );
 
 			m_simulationController.AdvanceToNextDay();
+
+			GameEvents.OnDayAdvanced?.Invoke( m_simulationController.DateTime.Day );
 		}
 
 

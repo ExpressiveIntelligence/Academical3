@@ -85,5 +85,10 @@ namespace Academical
 		public static Action<string> InfoDialogShown;
 
 		public static Action<float> GameLoadingProgressUpdated;
+
+		/// <summary>
+		/// Action invoked when the current day changes.
+		/// </summary>
+		public static Action<int> OnDayAdvanced;
 	}
 }
