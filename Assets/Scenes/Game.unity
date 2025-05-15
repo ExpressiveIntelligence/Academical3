@@ -1734,7 +1734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AutoSaveEnabled: 0
-  m_DefaultScenario: {fileID: 11400000, guid: 366190f1609664c2e8d45025400a417d, type: 2}
+  m_DefaultLevel: {fileID: 0}
   m_Player: {fileID: 1596147016}
   m_simulationController: {fileID: 369746412}
   m_socialEngine: {fileID: 369746416}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2711369399768887878}
   - component: {fileID: 1436880239339088767}
+  - component: {fileID: 8002726002742041593}
   m_Layer: 0
   m_Name: DilemmaSystem
   m_TagString: Untagged
@@ -46,3 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DilemmaData:
   - {fileID: 11400000, guid: 4a039977f94bc4e548ddc0dbb02eae28, type: 2}
+--- !u!114 &8002726002742041593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6672360742235469568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba7e3d09557b6044af87617a0548b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
