@@ -3,15 +3,35 @@ using UnityEngine;
 namespace Academical
 {
 	/// <summary>
-	/// A singleton class that manages the player's setting preferences;
+	/// The <c>SettingsManager</c> is responsible tracking the current values
+	/// for various game settings like audio and text speed. This class is a
+	/// singleton. There should not be more than one instance of this
+	/// MonoBehaviour in a single scene. This class automatically saves and
+	/// load settings values from the current platform's PlayerPrefs
+	/// location.
 	/// </summary>
 	public class SettingsManager : MonoBehaviour
 	{
+		/// <summary>
+		/// The key used to store settings JSON within PlayerPrefs.
+		/// </summary>
 		private const string k_SettingsPlayerPrefKey = "settings";
 
+		/// <summary>
+		/// Toggle if the SettingsManager should be destroyed when loading a new scene.
+		/// </summary>
+		[SerializeField]
+		private bool m_DontDestroyOnLoad;
+
+		/// <summary>
+		/// The current settings values.
+		/// </summary>
 		[SerializeField]
 		private GameSettings m_Settings;
 
+		/// <summary>
+		/// The current SettingsManager singleton instance.
+		/// </summary>
 		public static SettingsManager Instance { get; private set; }
 
 		public static GameSettings Settings => Instance.m_Settings;
@@ -26,6 +46,18 @@ namespace Academical
 			}
 
 			Instance = this;
+
+			if ( m_DontDestroyOnLoad )
+			{
+				DontDestroyOnLoad( this );
+			}
+		}
+
+		private void Start()
+		{
+			// Attempt to load settings from PlayerPrefs
+			// If it succeeds, update the settings with those loaded in
+			// otherwise, just pass a new settings object.
 			GameSettings playerPrefSettings = LoadSettingsFromPlayerPrefs();
 			if ( playerPrefSettings != null )
 			{
@@ -35,9 +67,8 @@ namespace Academical
 			{
 				UpdateSettings( new GameSettings() );
 			}
-
-			DontDestroyOnLoad( this );
 		}
+
 
 		public static void UpdateSettings(GameSettings settings)
 		{
@@ -52,6 +83,10 @@ namespace Academical
 			PlayerPrefs.SetString( k_SettingsPlayerPrefKey, settingsJson );
 		}
 
+		/// <summary>
+		/// Load a GameSettings instance from PlayerPrefs
+		/// </summary>
+		/// <returns>GameSettings or null if none found in PlayerPrefs.</returns>
 		private GameSettings LoadSettingsFromPlayerPrefs()
 		{
 			if ( PlayerPrefs.HasKey( k_SettingsPlayerPrefKey ) )
