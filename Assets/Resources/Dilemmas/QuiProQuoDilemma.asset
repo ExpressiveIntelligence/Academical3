@@ -17,6 +17,11 @@ MonoBehaviour:
   description: Your colleague, Ivy, has issued you a quid pro quo. In exchange for
     adding the undergraduate student, Jensen, to your research paper, she will refer
     you to a job at her uncle's company.
-  steps: []
+  steps:
+  - id: start
+    preconditions:
+    - givenQuidProQuo
+    text: You should talk to someone about this.
+    isDilemmaEnd: 0
   preconditions:
   - givenQuidProQuo

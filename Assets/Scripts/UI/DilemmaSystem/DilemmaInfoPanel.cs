@@ -30,14 +30,20 @@ namespace Academical
 		private GameObject m_DilemmaEntryButtonPrefab;
 
 		[SerializeField]
-		private GameObject m_DilemmaNotePrefab;
+		private Transform m_DilemmaStepContainer;
+
+		[SerializeField]
+		private DilemmaStepUI m_DilemmaStepUIPrefab;
 
 		[SerializeField]
 		private GameObject m_NoDilemmasText;
 
+		[SerializeField]
+		private GameObject m_NoDilemmaStepsText;
+
 		private List<GameObject> m_DilemmaButtons = new List<GameObject>();
 		private List<Dilemma> m_Dilemmas = new List<Dilemma>();
-		private List<GameObject> m_DilemmaNotes = new List<GameObject>();
+		private List<DilemmaStepUI> m_DilemmaSteps = new List<DilemmaStepUI>();
 
 		private int m_DilemmaIndex = 0;
 
@@ -57,7 +63,7 @@ namespace Academical
 		{
 			base.Show();
 			m_DilemmaIndex = 0;
-			UpdateActiveDilemmaList();
+			UpdateDilemmaList();
 		}
 
 		private void HideDilemmaView()
@@ -74,30 +80,36 @@ namespace Academical
 			m_DilemmaIndex = index;
 			Dilemma dilemma = m_Dilemmas[m_DilemmaIndex];
 
-			m_TitleTextMesh.text = dilemma.Name;
-			m_DescriptionTextMesh.text = dilemma.Description;
-
-			ClearDilemmaNotes();
-			InstantiateDilemmaNotes();
+			if ( dilemma.Status == DilemmaStatus.LOCKED )
+			{
+				m_TitleTextMesh.text = "???";
+				m_DescriptionTextMesh.text = "Unlock this dilemma to see the description.";
+				ClearDilemmaSteps();
+			}
+			else
+			{
+				m_TitleTextMesh.text = dilemma.Name;
+				m_DescriptionTextMesh.text = dilemma.Description;
+				ClearDilemmaSteps();
+				InstantiateDilemmaSteps( dilemma );
+			}
 		}
 
-		private void UpdateActiveDilemmaList()
+		private void UpdateDilemmaList()
 		{
-			m_DilemmaIndex = 0;
-
-			m_Dilemmas = DilemmaSystem.GetUnlockedDilemmas();
-			Debug.Log( $"Found {m_Dilemmas.Count} dilemmas." );
+			m_Dilemmas = DilemmaSystem.Instance.GetDilemmas();
 
 			ClearDilemmaButtons();
 			InstantiateDilemmaButtons();
 
-
 			if ( m_Dilemmas.Count != 0 )
 			{
-				ShowDilemma( m_DilemmaIndex );
+				m_NoDilemmasText.SetActive( false );
+				ShowDilemma( 0 );
 			}
 			else
 			{
+				m_NoDilemmasText.SetActive( true );
 				HideDilemmaView();
 			}
 		}
@@ -120,26 +132,53 @@ namespace Academical
 					m_DilemmaEntryButtonPrefab, m_DilemmaListContainer );
 
 				DilemmaEntryButton entryButton = obj.GetComponent<DilemmaEntryButton>();
-				entryButton.SetText( dilemma.Name );
+
+				if ( dilemma.Status == DilemmaStatus.LOCKED )
+				{
+					entryButton.SetText( "???" );
+				}
+				else
+				{
+					entryButton.SetText( dilemma.Name );
+				}
+
 				entryButton.SetDilemmaIndex( i );
+
+				entryButton.OnClick += ShowDilemma;
 
 				m_DilemmaButtons.Add( obj );
 			}
 		}
 
-		private void ClearDilemmaNotes()
+		private void ClearDilemmaSteps()
 		{
-			foreach ( GameObject entry in m_DilemmaNotes )
+			foreach ( DilemmaStepUI entry in m_DilemmaSteps )
 			{
-				Destroy( entry );
+				Destroy( entry.gameObject );
 			}
-			m_DilemmaNotes.Clear();
+			m_DilemmaSteps.Clear();
+			m_NoDilemmaStepsText.SetActive( true );
 		}
 
 
-		private void InstantiateDilemmaNotes()
+		private void InstantiateDilemmaSteps(Dilemma dilemma)
 		{
+			if ( dilemma.CompletedSteps.Count == 0 )
+			{
+				m_NoDilemmaStepsText.SetActive( true );
+				return;
+			}
+			else
+			{
+				m_NoDilemmaStepsText.SetActive( false );
+			}
 
+			foreach ( DilemmaStep step in dilemma.CompletedSteps )
+			{
+				DilemmaStepUI stepUI = Instantiate( m_DilemmaStepUIPrefab, m_DilemmaStepContainer );
+				stepUI.SetText( step.text );
+				m_DilemmaSteps.Add( stepUI );
+			}
 		}
 	}
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a78a85a19da46bbaf9365b46be593e, type: 3}
+  m_Name: IRBFiaso
+  m_EditorClassIdentifier: 
+  id: irb_fiaso
+  displayName: Brad's IRB Fiasco
+  description: 'Brad has collected participant data without receiving proper clearance
+    from the Insitutional Review Board (IRB). This could tarnish both of your reputations
+    if the results were published and an incident is filed to the IRB office. '
+  steps: []
+  preconditions:
+  - knowsAboutIRBFiasco
