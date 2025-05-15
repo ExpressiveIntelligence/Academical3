@@ -29,9 +29,6 @@ namespace Academical
 		private UIComponent m_ActionSelectModal;
 
 		[SerializeField]
-		private UIComponent m_LocationSelectModal;
-
-		[SerializeField]
 		private UIComponent m_DialogueChoiceModal;
 
 		[SerializeField]
@@ -67,7 +64,6 @@ namespace Academical
 			m_ChoiceTooltip.Hide();
 			m_DialogueBox.Hide();
 			m_ActionSelectModal.Hide();
-			m_LocationSelectModal.Hide();
 			m_DialogueChoiceModal.Hide();
 			m_SettingsMenu.Hide();
 			m_DialogueHistoryModal.Hide();
@@ -79,9 +75,7 @@ namespace Academical
 			GameEvents.SettingsScreenHidden += OnSettingsScreenHidden;
 			GameEvents.GameHUDShown += OnHUDShown;
 			GameEvents.ActionSelectModalShown += OnActionSelectModalShown;
-			GameEvents.LocationSelectModalShown += OnLocationSelectModalShown;
 			GameEvents.ActionSelectModalHidden += OnActionSelectModalHidden;
-			GameEvents.LocationSelectModalHidden += OnLocationSelectModalHidden;
 			DialogueEvents.DialogueStarted += OnDialogueStarted;
 			DialogueEvents.ChoicesShown += OnChoicesShown;
 		}
@@ -92,9 +86,7 @@ namespace Academical
 			GameEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
 			GameEvents.GameHUDShown -= OnHUDShown;
 			GameEvents.ActionSelectModalShown -= OnActionSelectModalShown;
-			GameEvents.LocationSelectModalShown -= OnLocationSelectModalShown;
 			GameEvents.ActionSelectModalHidden -= OnActionSelectModalHidden;
-			GameEvents.LocationSelectModalHidden -= OnLocationSelectModalHidden;
 			DialogueEvents.DialogueStarted -= OnDialogueStarted;
 			DialogueEvents.ChoicesShown -= OnChoicesShown;
 		}
@@ -156,19 +148,9 @@ namespace Academical
 			m_ActionSelectModal.Show();
 		}
 
-		void OnLocationSelectModalShown()
-		{
-			m_LocationSelectModal.Show();
-		}
-
 		void OnActionSelectModalHidden()
 		{
 			m_ActionSelectModal.Hide();
-		}
-
-		void OnLocationSelectModalHidden()
-		{
-			m_LocationSelectModal.Hide();
 		}
 
 
