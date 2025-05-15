@@ -74,8 +74,8 @@ namespace Academical
 			m_DilemmaIndex = index;
 			Dilemma dilemma = m_Dilemmas[m_DilemmaIndex];
 
-			m_TitleTextMesh.text = dilemma.Data.name;
-			m_DescriptionTextMesh.text = dilemma.Data.description;
+			m_TitleTextMesh.text = dilemma.Name;
+			m_DescriptionTextMesh.text = dilemma.Description;
 
 			ClearDilemmaNotes();
 			InstantiateDilemmaNotes();
@@ -85,7 +85,7 @@ namespace Academical
 		{
 			m_DilemmaIndex = 0;
 
-			m_Dilemmas = DilemmaManager.GetUnlockedDilemmas();
+			m_Dilemmas = DilemmaSystem.GetUnlockedDilemmas();
 			Debug.Log( $"Found {m_Dilemmas.Count} dilemmas." );
 
 			ClearDilemmaButtons();
@@ -120,7 +120,7 @@ namespace Academical
 					m_DilemmaEntryButtonPrefab, m_DilemmaListContainer );
 
 				DilemmaEntryButton entryButton = obj.GetComponent<DilemmaEntryButton>();
-				entryButton.SetText( dilemma.Data.name );
+				entryButton.SetText( dilemma.Name );
 				entryButton.SetDilemmaIndex( i );
 
 				m_DilemmaButtons.Add( obj );

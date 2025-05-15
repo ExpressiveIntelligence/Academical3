@@ -926,7 +926,7 @@ namespace Academical
 			saveData.socialEngineJson = new TdrsJsonExporter().Export(
 				m_socialEngine.State
 			);
-			saveData.dilemmas = DilemmaManager.Instance.SerializeDilemmas().ToArray();
+			saveData.dilemmas = DilemmaSystem.Instance.SerializeDilemmas().ToArray();
 
 			DataPersistenceManager.SaveGame( saveData );
 		}
