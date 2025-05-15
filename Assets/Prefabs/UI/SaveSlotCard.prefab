@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HideOnAwake: 0
   m_LocationPreview: {fileID: 3398842413257952485}
-  m_ScenarioName: {fileID: 4519178816839641271}
+  m_LevelName: {fileID: 4519178816839641271}
   m_LocationName: {fileID: 3773857478366820050}
   m_SaveTimeStamp: {fileID: 7452410220009393765}
   m_Date: {fileID: 7878511645403090269}
