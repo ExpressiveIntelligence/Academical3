@@ -52,6 +52,10 @@ namespace Academical
 
 		public static Action GameHUDShown;
 
+		public static Action SettingsScreenShown;
+
+		public static Action SettingsScreenHidden;
+
 		public static Action DialoguePanelShown;
 
 		public static Action DialogueHistoryScreenShown;
@@ -79,5 +83,7 @@ namespace Academical
 		public static Action<GameSettings> SettingsUpdated;
 
 		public static Action<string> InfoDialogShown;
+
+		public static Action<float> GameLoadingProgressUpdated;
 	}
 }

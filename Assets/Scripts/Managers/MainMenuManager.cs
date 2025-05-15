@@ -65,7 +65,7 @@ namespace Academical
 		{
 			while ( !m_SceneLoadingOperation.isDone )
 			{
-				MainMenuUIEvents.GameLoadingProgressUpdated?.Invoke(
+				GameEvents.GameLoadingProgressUpdated?.Invoke(
 					m_SceneLoadingOperation.progress );
 
 				yield return null;

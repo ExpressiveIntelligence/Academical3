@@ -14,12 +14,12 @@ namespace Academical
 
 		protected override void SubscribeToEvents()
 		{
-			MainMenuUIEvents.GameLoadingProgressUpdated += UpdateProgressBar;
+			GameEvents.GameLoadingProgressUpdated += UpdateProgressBar;
 		}
 
 		protected override void UnsubscribeFromEvents()
 		{
-			MainMenuUIEvents.GameLoadingProgressUpdated -= UpdateProgressBar;
+			GameEvents.GameLoadingProgressUpdated -= UpdateProgressBar;
 		}
 
 		private void UpdateProgressBar(float progress)

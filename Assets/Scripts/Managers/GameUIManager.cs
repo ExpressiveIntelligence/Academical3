@@ -75,8 +75,8 @@ namespace Academical
 
 		private void SubscribeToEvents()
 		{
-			MainMenuUIEvents.SettingsScreenShown += ShowSettingsModal;
-			MainMenuUIEvents.SettingsScreenHidden += OnSettingsScreenHidden;
+			GameEvents.SettingsScreenShown += ShowSettingsModal;
+			GameEvents.SettingsScreenHidden += OnSettingsScreenHidden;
 			GameEvents.GameHUDShown += OnHUDShown;
 			GameEvents.ActionSelectModalShown += OnActionSelectModalShown;
 			GameEvents.LocationSelectModalShown += OnLocationSelectModalShown;
@@ -88,8 +88,8 @@ namespace Academical
 
 		private void UnsubscribeFromEvents()
 		{
-			MainMenuUIEvents.SettingsScreenShown -= ShowSettingsModal;
-			MainMenuUIEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
+			GameEvents.SettingsScreenShown -= ShowSettingsModal;
+			GameEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
 			GameEvents.GameHUDShown -= OnHUDShown;
 			GameEvents.ActionSelectModalShown -= OnActionSelectModalShown;
 			GameEvents.LocationSelectModalShown -= OnLocationSelectModalShown;
@@ -112,7 +112,6 @@ namespace Academical
 			if ( m_CurrentView != null )
 			{
 				m_CurrentView.Show();
-				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
 			}
 		}
 
@@ -181,7 +180,6 @@ namespace Academical
 			{
 				m_PreviousView.Show();
 				m_CurrentView = m_PreviousView;
-				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
 			}
 		}
 
