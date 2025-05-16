@@ -13,7 +13,7 @@
 {ShowCharacter("Praveen", "left", "")}
 Striding into the student cubicles you spot Praveen clacking away on his computer. He looks concentrated but has a prideful resting face. 
 
-*["Yo Praveen."] 
+*["Hey Praveen."] 
 ->BP_Socializing4_YoPraveen
 
 *["What are you working on?"]
@@ -25,7 +25,7 @@ Striding into the student cubicles you spot Praveen clacking away on his compute
 ->BP_Socializing4_PeekOver
 
 === BP_Socializing4_YoPraveen ===
-Bronislav: "Yo Praveen, whats up?"
+Bronislav: "Hey Praveen, whats up?"
 
 Praveen jumps slightly as he takes off his headphones.
 
@@ -40,13 +40,13 @@ Praveen: "Bronislav, dude warn me next time."
 === BP_Socializing4_WhatYouWorking ===
 Bronislav: "What are you working on? You seemed pretty locked in."
 
-Praveen: "I've been analyzing these papers. It's pretty straightforward and rather effortless."
+Praveen: "I've been looking through these papers. It's pretty straightforward and rather effortless."
 
-Bronislav: "Gotcha, still working on the review process."
+Bronislav: "Gotcha, still working on the review process?"
 
 Praveen: "Yup, it's going quite well. Honestly, I quite enjoy the process."
 
-*["I mean you just giving your advice right?"]
+*["I mean you're just giving your advice right?"]
 ->BP_Socializing4_GivingAdvice
 
 *["Don't you just give comments?"]
@@ -55,7 +55,7 @@ Praveen: "Yup, it's going quite well. Honestly, I quite enjoy the process."
 === BP_Socializing4_PeekOver ===
 Walking towards Praveen you peek over his shoulder. Praveen noticing a presence turns around.
 
-Praveen: "Bronislav, geez, you're gonna kill me."
+Praveen: "Bronislav, geez, you scared me half to death."
 
 Bronislav: "My bad, I should've said something." 
 
@@ -71,7 +71,7 @@ Bronislav: "Locked in I see, what are you working on."
 
 Praveen: "Just working on reviewing some more papers right now." 
 
-Bronislav: "Gotch ya, how's that going." 
+Bronislav: "Gotcha, how's that going." 
 
 Praveen: "Swimingly to say the least, this paper needs some work though so I'm just adding some comments."
 
@@ -95,7 +95,7 @@ Praveen: "Same as last time, reviewing some papers."
 === BP_Socializing4_GivingAdvice ===
 Bronislav: "I mean you're just giving advice right?"
 
-Praveen: "You could say thats the simple way to put it. This paper just needs some work so I'm adding some comments."
+Praveen: "You could say thats the simple way to put it. This paper just needs some work so I'm adding some comments." 
 
 *["Easy work huh?"]
 ->BP_Socializing4_EasyWorkHuh
@@ -122,7 +122,7 @@ Praveen: "Check in by scaring the living daylights out of me?"
 ->BP_Socializing4_ThatWasAnAccident
 
 === BP_Socializing4_ThatWasAnAccident ===
-Bronislav: "Hey hey that was an accident."
+Bronislav: "Hey, that was an accident."
 
 You put your hands up in defense as Praveen shakes his head.
 
@@ -154,23 +154,23 @@ Praveen: "Well they get to determine the outcome of their students, that's quite
 ->BP_Different_Perspective
 
 === BP_Socializing4_PointOfThis ===
-Bronislav: "I'm not sure if that's the point of this assignment...."
+Bronislav: "I'm not sure if that's the point of this...."
 
 Praveen turns towards you his expression more guarded.
 
-Praveen: "What do you mean not the point of this assignment? Do you think I'm doing my job wrong?"
+Praveen: "What do you mean 'not the point of this'? Do you think I'm doing my job wrong?"
 
 Bronislav: "No thats not what I'm saying I just think that this was not what Hendricks had in mind when giving you this task."
 
 Praveen: "I'm not sure what you mean. Look I need to get back to this, I'll talk to you later Bronislav.
 
-Praveen turns back to his assignment ignoring you as his signal to leave. 
+Praveen turns back to the paper, ignoring you as his signal to leave. 
 
 {HideCharacter("Praveen")}
 ->DONE
 
 === BP_Socializing4_TotallyAgree ===
-Bronislav: "Yes I totally agree. Professors get so much power, they literally determine our fates with there grading. You're basically one right now."
+Bronislav: "Yes I totally agree. Professors get so much power, they literally determine our fates with their grading. You're basically one right now."
 
 Praveen: "Yeah I know, right? These papers are in my hands... I should probably be getting back to work. I'll catch you later Bronislav."
 
@@ -182,7 +182,7 @@ Praveen goes back to his work as you walk to settle and get some of your own wor
 ->DONE
 
 === BP_Different_Perspective ===
-Bronislav: "I think of it from a different perspective. Think of it like this way: Professors are given a big responsibility to aid students, like you are doing now."
+Bronislav: "I think of it from a different perspective. Like...professors are given a big responsibility to aid students, like you are doing now."
 
 Praveen nods his head following along.
 

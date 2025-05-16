@@ -31,7 +31,7 @@ Praveen: "Get a load of this: 'We shall be addressing further applications throu
 *["And let me guess... they don't come close to those ambitions." #>>IncrementRelationshipStat Praveen Bronislav 5]
 ->BP_Socializing3_LetMeGuess
 
-*["Oh no. Don't tell me you're destroying another freshman again." #>>DecrRelationshipStat Praveen Bronislav 5]
+*["Oh no. Don't tell me you're tearing into a freshman's work." #>>DecrRelationshipStat Praveen Bronislav 5]
 ->BP_Socializing3_DontTellMe
 
 === BP_Socializing3_WhatAreYouReading ===
@@ -62,7 +62,7 @@ Praveen: "See, I knew we had the same sense of humor. Despite this absolute vagu
 ->BP_Socializing3_ProbsAFreshman
 
 === BP_Socializing3_DontTellMe ===
-Bronislav: "Oh no. Don't tell me you're destroying another freshman again with your grading."
+Bronislav: "Oh no. Don't tell me you're tearing into a freshman's work."
 
 Praveen gives you a half hearted sneer.
 
@@ -103,7 +103,7 @@ Praveen: "Actually, since you're here, I want to run something by you."
 ->BP_Socializing3_OkayWhatsUp
 
 === BP_Socializing3_SharingPeerReview ===
-Bronislav: "Are you supposed to be sharing peer review stuff with me?"
+Bronislav: "Are you supposed to be sharing other people's work with me?"
 
 Praveen rolls his eyes.
 
@@ -116,7 +116,7 @@ Praveen: "Oh great, so now you're the moral police. I was trying to share someth
 ->BP_Socializing3_KeepItQuiet
 
 === BP_Socializing3_WhatIsThisFor ===
-Bronislav: "So what is this paper for then?
+Bronislav: "So what is this paper for then?"
 
 Praveen: "This steaming pile of garbage is the lovely paper Hendricks assigned me to peer review. You know, when she gave me this job, I figured I'd be looking at something a little more important and intersting honestly."
 
@@ -194,7 +194,7 @@ Praveen: "So the wording of this paper is a mess, we've established that. But in
 ->BP_Socializing3_YouShouldntBe
 
 === BP_Socializing3_YouShouldntBe ===
-Bronislav: "Well, you really shouldn't be sharing it. That's a great way to get banned from reviewing period."
+Bronislav: "Well, you really shouldn't be sharing it. That's a great way to get banned from being a peer reviewer."
 
 Praveen's eyes grow wide with surprise.
 
@@ -220,8 +220,8 @@ Praveen: "Well, its a good thing I told you in confidence then, right? But... wa
 *["No, you can't."]
 ->BP_Socializing3_NoYouCant
 
-*["You could, but you really need to be careful."]
-->BP_Socializing3_BeCareful
+*["What do you think?" #>> DecrRelationshipStat Praveen Bronislav 5]
+->BP_Socializing3_WhatDoYouThink
 
 === BP_Socializing3_GreatIdea ===
 Bronislav: "I think that's a great idea! I think there's some taboo around sharing stuff from paper's like that, but it's kinda old school honestly."
@@ -245,8 +245,8 @@ Praveen: "Hmm... I could definitely see that for the horrible wording, but what 
 *["No, you can't."]
 ->BP_Socializing3_NoYouCant
 
-*["You could, but you really need to be careful."]
-->BP_Socializing3_BeCareful
+*["What do you think?" #>> DecrRelationshipStat Praveen Bronislav 5]
+->BP_Socializing3_WhatDoYouThink
 
 
 === BP_Socializing3_NoYouCant ===
@@ -275,17 +275,4 @@ Praveen turns back to his computer as you leave his cubicle.
 {HideCharacter("Praveen")}
 ->DONE
 
-=== BP_Socializing3_BeCareful ===
-// TODO: cement Praveen yapping to the rest of the department
-Bronislav: "You could, but you really need to be careful. You really should only tell people you trust."
 
-Praveen: "Good thing I trust you not to spill on me. I'll keep it quiet then, thanks for the tip Bronislav."
-
-Bronislav: "Sure thing."
-
-Praveen: "I guess I'll be giving this paper my full attention now. I'll chat with you more later."
-
-Praveen turns back to his computer as you leave his cubicle.
-
-{HideCharacter("Praveen")}
-->DONE

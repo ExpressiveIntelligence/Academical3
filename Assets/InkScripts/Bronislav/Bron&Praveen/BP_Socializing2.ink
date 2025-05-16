@@ -122,7 +122,7 @@ Praveen: "Oh, I see. Well, good luck with that. And hopefully you can get more h
 ->BP_Socializing2_HendricksHelpful
 
 === BP_Socializing2_CouldBeBetter ===
-Bronislav: "Things could be better for sure. I just finished getting my own paper ready for IRB review, but I have been busy working on everything else I have been neglecting."
+Bronislav: "Things could be better for sure. I just finished getting my own paper ready for IRB review, but I have been busy working on everything else I have been neglecting." 
 
 Praveen: "That is certainly a lot, especially when you can't exactly expect too much help from Hendricks."
 
@@ -169,7 +169,7 @@ Praveen: "It's not that I'm super interested in talking about her, I just..."
 
 Bronislav: "You're just what?"
 
-Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
+Praveen: "I just really wish Hendricks would ask me to help with getting into a conference. I know she's been helping you and Brad with that other conference, but I found this one and wish I had a volunteer opportunity. I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -184,7 +184,7 @@ Bronislav: "It's just what?"
 
 Praveen sighs as he looks over at you.
 
-Praveen: "I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
+Praveen: "I just really wish Hendricks would ask me to help with getting into a conference. I know she's been helping you and Brad with that other conference, but I found this one and wish I had a volunteer opportunity. I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -197,7 +197,7 @@ Bronislav: "But?"
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "But I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
+Praveen: "I just really wish Hendricks would ask me to help with getting into a conference. I know she's been helping you and Brad with that other conference, but I found this one and wish I had a volunteer opportunity. I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -206,7 +206,7 @@ Bronislav: "I'm not sure I follow."
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "Look, I just really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
+Praveen: "I just really wish Hendricks would ask me to help with getting into a conference. I know she's been helping you and Brad with that other conference, but I found this one and wish I had a volunteer opportunity. I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -217,7 +217,7 @@ Praveen: "Easy for you to say, you're clearly a favorite of hers."
 
 Praveen sighs as he slumps over at his desk dramatically.
 
-Praveen: "It's just... I really wish Hendricks would ask me to help with the conference. I have been subtly trying to suggest she include me in anything, but honestly, I haven't had much luck at all."
+Praveen: "I...just really wish Hendricks would ask me to help with getting into a conference. I know she's been helping you and Brad with that other conference, but I found this one and wish I had a volunteer opportunity. I haven't had much luck at all."
 
 ->BP_Socializing2_Suggestion
 
@@ -256,7 +256,7 @@ Praveen: "Well, then, what would you suggest?"
 *["Ask Hendricks."]
 ->BP_Socializing2_AskHendricks
 
-*["Do you have a plan right now?]
+*["Do you have a plan right now?"]
 ->BP_Socializing2_DoYouHaveAPlan
 
 === BP_Socializing2_GenerallyBetterToAsk
@@ -267,7 +267,7 @@ Praveen: "Hmmm... I guess I hadn't thought about it like that. Okay, so say I be
 *["Ask Hendricks."]
 ->BP_Socializing2_AskHendricks
 
-*["Do you have a plan right now?]
+*["Do you have a plan right now?"]
 ->BP_Socializing2_DoYouHaveAPlan
 
 === BP_Socializing2_ImDirect ===
@@ -369,7 +369,7 @@ Bronislav: "I could do that."
 
 Praveen looks absolutely ecstatic.
 
-Praveen: "Thank you, thank you, thank you. You're the best."
+Praveen: "Thank you, thank you, thank you! You're the best."
 
 Bronislav: "Yeah no problem. I'm going to head out for now, but yeah I can definitely put in a good word for you next time I see Hendricks."
 

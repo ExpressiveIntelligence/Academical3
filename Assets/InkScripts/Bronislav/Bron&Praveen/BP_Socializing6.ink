@@ -70,7 +70,8 @@ Bronislav: "You're right sorry."
 
 Praveen sighs
 
-Praveen: "Look I know we've both had our struggles this year, but we must learn our lessons now. Writing papers takes a lot of work, and I overlooked that fact. I should be treating the authors with more respect."
+Praveen: "Look, I know we've both had our struggles this year, but we must learn our lessons now. Writing papers takes a lot of work, and I overlooked that fact. I was trusted with confidentiality and respect, and I violated both of them."
+
 *["It takes a lot to admit to that."]->BPS6_ItTakesALot
 
 == BPS6_SorryToHearThat ==
@@ -100,7 +101,7 @@ Bronislav: "Oh wow, I see."
 
 Praveen: "I may have underestimated the responsibility I had in my hands."
 
-Praveen: "Writing papers takes time and effort and I took that for granted." 
+Praveen: "Writing papers takes time and effort and I took that for granted.I harshly criticised others' work and stole ideas for my own."" 
 
 *["It takes a lot to admit to that."]->BPS6_ItTakesALot
 *["I think we've all learned some lessons this year..."]->BPS6_LearnedLessons
@@ -180,7 +181,7 @@ Bronislav: "What do you mean, you messed up..."
 
 Praveen: "I may have underestimated the responsibility I had in my hands."
 
-Praveen: "Writing papers takes time and effort and I took that for granted." 
+Praveen: "Writing papers takes time and effort, and I took that for granted. I was trusted with confidentiality and respect, and I violated both of them." 
 
 *["It takes a lot to admit to that."]->BPS6_ItTakesALot
 *["I think we've all learned some lessons this year..."]->BPS6_LearnedLessons
