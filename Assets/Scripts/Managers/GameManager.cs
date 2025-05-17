@@ -23,7 +23,7 @@ namespace Academical
 		public bool m_AutoSaveEnabled;
 
 		[SerializeField]
-		public GameLevelSO m_DefaultScenario;
+		public GameLevelSO m_DefaultLevel;
 
 		[SerializeField]
 		private Character m_Player;
@@ -117,15 +117,15 @@ namespace Academical
 
 			if ( saveData != null )
 			{
-				gameState.scenarioId = saveData.scenarioId;
+				gameState.levelId = saveData.levelId;
 			}
 
-			GameLevelSO currentLevel = (gameState.scenarioId != null) ?
-				ScenarioManager.GetScenario( gameState.scenarioId ) : m_DefaultScenario;
+			GameLevelSO currentLevel = (gameState.levelId != null) ?
+				GameLevelManager.Instance.GetLevelById( gameState.levelId ) : m_DefaultLevel;
 
 			if ( currentLevel != null )
 			{
-				m_dialogueManager.SetStory( new Story( currentLevel.InkScript.text ) );
+				m_dialogueManager.SetStory( new Story( currentLevel.inkScript.text ) );
 			}
 
 			GameEvents.GameHUDShown?.Invoke();
@@ -395,6 +395,8 @@ namespace Academical
 			GameEvents.OnFadeFromBlack?.Invoke( 1.0f );
 
 			m_simulationController.AdvanceToNextDay();
+
+			GameEvents.OnDayAdvanced?.Invoke( m_simulationController.DateTime.Day );
 		}
 
 
@@ -893,7 +895,7 @@ namespace Academical
 
 			SaveData saveData = new SaveData();
 
-			saveData.scenarioId = gameState.scenarioId;
+			saveData.levelId = gameState.levelId;
 			saveData.guid = gameState.guid;
 			saveData.currentDay = m_simulationController.DateTime.Day;
 			saveData.currentTimeOfDay = m_simulationController.DateTime.TimeOfDay.ToString();
@@ -926,7 +928,7 @@ namespace Academical
 			saveData.socialEngineJson = new TdrsJsonExporter().Export(
 				m_socialEngine.State
 			);
-			saveData.dilemmas = DilemmaManager.Instance.SerializeDilemmas().ToArray();
+			saveData.dilemmas = DilemmaSystem.Instance.SerializeDilemmas().ToArray();
 
 			DataPersistenceManager.SaveGame( saveData );
 		}

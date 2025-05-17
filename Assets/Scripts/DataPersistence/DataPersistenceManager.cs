@@ -76,7 +76,7 @@ namespace Academical
 			SaveSlotData saveSlotData = new SaveSlotData()
 			{
 				guid = saveData.guid,
-				scenarioId = saveData.scenarioId,
+				levelId = saveData.levelId,
 				saveTimeStamp = saveData.saveTimeStamp,
 				isAutoSave = saveData.isAutoSave,
 				currentDay = saveData.currentDay,

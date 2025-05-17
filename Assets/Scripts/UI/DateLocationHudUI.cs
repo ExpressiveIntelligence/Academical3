@@ -32,7 +32,7 @@ namespace Academical
 
 		public void UpdateLocation()
 		{
-			m_LocationTextMesh.text = m_GameManager.CurrentLocation.name;
+			m_LocationTextMesh.text = m_GameManager.Player.Location.name;
 		}
 	}
 }

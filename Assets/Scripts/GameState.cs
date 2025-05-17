@@ -14,7 +14,7 @@ namespace Academical
 		/// </summary>
 		public string guid;
 
-		public string scenarioId;
+		public string levelId;
 
 		/// <summary>
 		/// (For experiments) The participants unique ID.

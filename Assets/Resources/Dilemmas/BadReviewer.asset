@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a78a85a19da46bbaf9365b46be593e, type: 3}
+  m_Name: BadReviewer
+  m_EditorClassIdentifier: 
+  id: bad_reviewer
+  displayName: Bad Reviewer
+  description: 'You overheard Jensen say that he intentionally gave a poor review
+    to a paper so that he could take their ideas and republish them as his own. '
+  steps: []
+  preconditions:
+  - overheardJensensPlan

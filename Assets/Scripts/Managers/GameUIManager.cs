@@ -29,9 +29,6 @@ namespace Academical
 		private UIComponent m_ActionSelectModal;
 
 		[SerializeField]
-		private UIComponent m_LocationSelectModal;
-
-		[SerializeField]
 		private UIComponent m_DialogueChoiceModal;
 
 		[SerializeField]
@@ -67,7 +64,6 @@ namespace Academical
 			m_ChoiceTooltip.Hide();
 			m_DialogueBox.Hide();
 			m_ActionSelectModal.Hide();
-			m_LocationSelectModal.Hide();
 			m_DialogueChoiceModal.Hide();
 			m_SettingsMenu.Hide();
 			m_DialogueHistoryModal.Hide();
@@ -75,26 +71,22 @@ namespace Academical
 
 		private void SubscribeToEvents()
 		{
-			MainMenuUIEvents.SettingsScreenShown += ShowSettingsModal;
-			MainMenuUIEvents.SettingsScreenHidden += OnSettingsScreenHidden;
+			GameEvents.SettingsScreenShown += ShowSettingsModal;
+			GameEvents.SettingsScreenHidden += OnSettingsScreenHidden;
 			GameEvents.GameHUDShown += OnHUDShown;
 			GameEvents.ActionSelectModalShown += OnActionSelectModalShown;
-			GameEvents.LocationSelectModalShown += OnLocationSelectModalShown;
 			GameEvents.ActionSelectModalHidden += OnActionSelectModalHidden;
-			GameEvents.LocationSelectModalHidden += OnLocationSelectModalHidden;
 			DialogueEvents.DialogueStarted += OnDialogueStarted;
 			DialogueEvents.ChoicesShown += OnChoicesShown;
 		}
 
 		private void UnsubscribeFromEvents()
 		{
-			MainMenuUIEvents.SettingsScreenShown -= ShowSettingsModal;
-			MainMenuUIEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
+			GameEvents.SettingsScreenShown -= ShowSettingsModal;
+			GameEvents.SettingsScreenHidden -= OnSettingsScreenHidden;
 			GameEvents.GameHUDShown -= OnHUDShown;
 			GameEvents.ActionSelectModalShown -= OnActionSelectModalShown;
-			GameEvents.LocationSelectModalShown -= OnLocationSelectModalShown;
 			GameEvents.ActionSelectModalHidden -= OnActionSelectModalHidden;
-			GameEvents.LocationSelectModalHidden -= OnLocationSelectModalHidden;
 			DialogueEvents.DialogueStarted -= OnDialogueStarted;
 			DialogueEvents.ChoicesShown -= OnChoicesShown;
 		}
@@ -112,7 +104,6 @@ namespace Academical
 			if ( m_CurrentView != null )
 			{
 				m_CurrentView.Show();
-				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
 			}
 		}
 
@@ -157,19 +148,9 @@ namespace Academical
 			m_ActionSelectModal.Show();
 		}
 
-		void OnLocationSelectModalShown()
-		{
-			m_LocationSelectModal.Show();
-		}
-
 		void OnActionSelectModalHidden()
 		{
 			m_ActionSelectModal.Hide();
-		}
-
-		void OnLocationSelectModalHidden()
-		{
-			m_LocationSelectModal.Hide();
 		}
 
 
@@ -181,7 +162,6 @@ namespace Academical
 			{
 				m_PreviousView.Show();
 				m_CurrentView = m_PreviousView;
-				MainMenuUIEvents.CurrentViewChanged?.Invoke( m_CurrentView.GetType().Name );
 			}
 		}
 

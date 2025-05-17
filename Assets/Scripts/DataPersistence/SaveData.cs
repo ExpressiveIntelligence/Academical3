@@ -16,9 +16,9 @@ namespace Academical.Persistence
 		public string playerId;
 
 		/// <summary>
-		/// The ID of the scenario being played.
+		/// The ID of the level being played.
 		/// </summary>
-		public string scenarioId;
+		public string levelId;
 
 		/// <summary>
 		/// Dialogue lines presented in the last conversation
