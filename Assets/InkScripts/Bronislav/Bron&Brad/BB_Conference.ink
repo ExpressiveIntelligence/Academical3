@@ -23,7 +23,7 @@ VAR HappyBrad = true
     HappyBrad = false
 }
 
-{HappyBrad = true: //told him to withdraw and he did
+{HappyBrad == true: //told him to withdraw and he did
 After the conference you talk to some other people, and you are surprised to see Brad there. You don't see Ned with him as he also notices you and walks up.
 
 {ShowCharacter(“Brad”)}
