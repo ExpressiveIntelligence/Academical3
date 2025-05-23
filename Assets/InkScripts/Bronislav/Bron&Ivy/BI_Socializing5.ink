@@ -14,7 +14,7 @@
 // TODO: selection based off of whether or not Jensen is currently on the paper
 
 //currently assumes Jensen was on the paper for both
-{ShowCharacter(“Ivy”)}
+{ShowCharacter("Ivy", "left", "")}
 
 
 // Jensen is on the paper, Bronislav always had him on the paper.
