@@ -3,22 +3,20 @@
 #choiceLabel: Wait for Brad.
 #@query
 # date.day!6
+# 
 #@end.
 #repeatable: false
 #tags: action, cafe
 #===
 # Summary: Ned and Brad overlook the outcome of the options
 
-// TODO: QUERY ABOUT WHETHER OR NOT BRAD WITHDREW THE PAPER
-// else completely block this scene
-
+// show seen if Brad withdrew paper
+VAR withdrewPaperr = DbAssert("BradWithdrawsData")
 VAR BreakFromWriting = false
 VAR CouldNotAgreeMore = false
-VAR count = 0
-{DbInsert("Seen_BB_Socializing6")}
+VAR countBB6 = 0
 
-// TODO: Scene selection based on withdraw
-// current default is paper was not withdrawn
+{DbInsert("Seen_BBS6")}
 
 You sit in the coffee shop, waiting for Brad to show up.
 {ShowCharacter("Brad", "left", "")}
@@ -51,28 +49,30 @@ Brad: "Welp, time for a break huh?"
 Bronislav: "A break from writing at least, definitely still have some extracurricular stuff to catch up on? How about you?"
 
 Brad chuckles.
-
-// TODO: if didn't withdraw
+}
+{!withdrewPaperr:
 Brad: "Yeah, pretty much in the same boat. Those darn trainings certainly don't leave a completely open schedule though."
 
-// if withdrew
-//Brad: "I'll probably be doing much of the same. My schedule is kind of open over the break though so that's nice."
-
+- else:
+Brad: "I'll probably be doing much of the same. My schedule is kind of open over the break though so that's nice."
 }
-~ count += 1
+
+~ countBB6 += 1
 // TODO: ask a writer about this and lab meeting because Ned is asked about in that interaction as well possibly
 *["How's Ned?"]
 ->BB_Socializing6_HowsNed
 
-// TODO: if didn't withdraw
+{!withdrewPaperr:
 *["I'd imagine trainings are keeping you busy."]
 ->BB_Socializing6_IdImagine
-
+}
+{withdrewPaperr:
 // if withdrew
-//*["Great to hear you'll have more time."]
-//->BB_Socializing6_MoreTime
+*["Great to hear you'll have more time."]
+->BB_Socializing6_MoreTime
+}
 
-{count == 2:
+{countBB6 == 2:
 *["What's next for you?]
 ->BB_Socializing6_WhatsNext
 }
@@ -82,31 +82,35 @@ Brad: "Yeah, pretty much in the same boat. Those darn trainings certainly don't 
 ~ CouldNotAgreeMore = true
 Bronislav: "Could not agree more, are you available much to have some more coffee hangouts?"
 
-
-// TODO: if didn't withdraw
+{!withdrewPaperr:
+// if didn't withdraw
 Brad seems unsure.
 
 Brad: "I'm sure I could fit in a few, but I've got trainings for a bit still so I'll be keeping busy with that."
-
+- else:
 // if withdrew
-//Brad nods.
+Brad nods.
 
-//Brad: "Yeah, besides maybe submitting some applications for jobs, I'll be pretty free."
+Brad: "Yeah, besides maybe submitting some applications for jobs, I'll be pretty free."
+}
 
 }
-~ count += 1
+~ countBB6 += 1
 *["How's Ned?"]
 ->BB_Socializing6_HowsNed
 
-// TODO: if didn't withdraw
+{!withdrewPaperr:
 *["I'd imagine trainings are keeping you busy."]
 ->BB_Socializing6_IdImagine
+}
 
+{withdrewPaperr:
 // if withdrew
-//*["Great to hear you'll have more time."]
-//->BB_Socializing6_MoreTime
+*["Great to hear you'll have more time."]
+->BB_Socializing6_MoreTime
+}
 
-{ count == 2:
+{ countBB6 == 2:
 *["What's next for you?]
 ->BB_Socializing6_WhatsNext
 }
@@ -116,11 +120,12 @@ Bronislav: "How's Ned doing?"
 
 Brad shrugs.
 
-// TODO: if didn't withdraw
+{!withdrewPaperr:
 Brad: "Seems fine, if anyone needs a break it's definitely him so I think he's taking that break."
 
-// if withdrew
-//Brad: "Seems fine, still relived that we withdrew the paper. Definitely seems like if anyone needs a break, though, it's him."
+-else:
+Brad: "Seems fine, still relived that we withdrew the paper. Definitely seems like if anyone needs a break, though, it's him."
+}
 
 {BreakFromWriting == true:
 ->BB_Socializing6_BreakfromWriting

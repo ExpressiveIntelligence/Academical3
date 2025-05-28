@@ -1,15 +1,18 @@
 === BB_Socializing1_SceneStart ===
 #---
-# choiceLabel: Go to the student cubicles.
-# hidden: true
-# tags: location
+# choiceLabel: Go to your cube.
+#@query
+# date.day!1
+# @end
+# repeatable: false
+# tags: action, student_cubes
 #===
 
 // Summary: You meet Brad and he expresses stress for the IRB not getting back to him. If you are good enough relationship he tells you about his concern about Jensen
 
 {ShowCharacter("Brad", "left", "")}
 
-VAR BronBradJensenDiscussion = false
+{DBInsert("Seen_BBS1")}
 
 You go back to your cubicle and go over the presentation review with all of the feedback in mind.
 
@@ -331,7 +334,7 @@ He hastily leaves.
 ->DONE
 
 === BB_S1_Jensen ===
-~ BronBradJensenDiscussion = true
+{DBInsert("BronBradJensenDiscussion")}
 Bronislav: "Who? Jensen?"
 
 Brad snaps his fingers.

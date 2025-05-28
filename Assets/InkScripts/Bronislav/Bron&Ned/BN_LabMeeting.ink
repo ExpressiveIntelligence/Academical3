@@ -5,6 +5,7 @@
 # Seen_BNS1
 # @end
 # hidden: true
+# repeatable: false
 # tags: action, neds_office, auxiliary
 # ===
 

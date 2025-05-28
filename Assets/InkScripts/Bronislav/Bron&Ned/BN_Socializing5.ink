@@ -11,6 +11,8 @@
 
 VAR honesty = false
 VAR basics = false
+VAR basicsLie = DbAssert("Seen_BBS4")
+VAR BradWithdrew = DbAssert("BradWithdrawsData")
 
 {DbInsert("Seen_BN_Socializing5")}
 
@@ -41,7 +43,9 @@ Ned: "I'm not sure I can discuss... actually, how much has Brad told you about h
 ->BN_Socializing5_DontReallyRecall
 
 *["Oh, just the basics."]
+{basicsLie:
 ~ basics = true
+}
 ->BN_Socializing5_JustTheBasics
 
 *["He's mentioned some trouble with data." #>> IncrementRelationshipStat Ned Bronislav 5]
@@ -127,32 +131,36 @@ Ned sighs.
 ->BN_Socializing5_Explanation
 
 === BN_Socializing5_Explanation ===
-// TODO: check if Brad withdrew data
-// currently assumes Brad did not withdraw data
+
 
 Ned: "You see, Brad did not wait for IRB approval before collecting data for our research. <>
 
 { honesty == true:
-<> Ned: "As I am sure you are well aware, Brad was likely more worried about making sure things went smoothly, so he was willing to overlook the ethicality of preemptively collecting data without proper IRB approval." <>
+<> Ned: "As I am sure you are well aware, Brad was likely more worried about making sure things went smoothly, so he was willing to overlook the ethicality of preemptively collecting data without proper IRB approval. <>
 }
 
+{!BradWithdrew:
 //if Brad did not withdraw data
-<>Ned: "And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review. This entire process has turned into a headache, where it would have been much simpler if Brad had come clean and told me the situation so I could have withdrawn the paper."
+<> And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review. 
 
-//if Brad withdrew data
-//<>Ned: "Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me. I am very glad he came forward, because the reprocussions had he not would have been severe."
+Ned: This entire process has turned into a headache, where it would have been much simpler if Brad had come clean and told me the situation so I could have withdrawn the paper."
 
-Ned: "While I know this is not something you were directly involved in, its important to remember Brad's mistakes here, so that if you are ever in this situation, you come clean as soon as you realize you have made an ethics violation." <>
-
-//if Brad did not withdraw data
-<>Ned: "If Brad would have just been honest about the situation, I could have helped mitigate the damage done by his reckless actions, but much of this is out of my hands at this point."
+Ned: "If Brad would have just been honest about the situation, I could have helped mitigate the damage done by his reckless actions, but much of this is out of my hands at this point."
 
 Ned: "What's important for you to remember is that it's never worth violating ethics to get a paper published. Not only is it morally wrong, but it can land you in a heap of trouble."
+}
 
+{BradWithdrew:
 //if Brad withdrew data
-//<>Ned: "Thankfully, Brad was honest and came forward about the situation early, and I was able to help mitigate the damage done bt his oversight."
+<> Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me. 
 
-//Ned: "What's important for you to remember is that it's never worth violating ethics just to get a paper published. Not only is it morally wrong, but it can land you in a heap of trouble. I am proud of Brad for realizing what was problematic about his actions and taking ownership of his mistakes."
+Ned: I am very glad he came forward, because the reprocussions had he not would have been severe."
+
+Ned: "While I know this is not something you were directly involved in, it's important to remember Brad's mistakes here, so that if you are ever in this situation, you come clean as soon as you realize you have made an ethics violation. Thankfully, Brad was honest and came forward about the situation early, and I was able to help mitigate the damage done bt his oversight."
+
+Ned: "What's important for you to remember is that it's never worth violating ethics just to get a paper published. Not only is it morally wrong, but it can land you in a heap of trouble. I am proud of Brad for realizing what was problematic about his actions and taking ownership of his mistakes."
+
+}
 
 Ned smiles sadly.
 
@@ -164,9 +172,11 @@ Ned: "Apologies. It's not like you came here to be lectured, but all the same, I
 *["Okay, I'll keep all of this in mind." #>>IncrementRelationshipStat Ned Bronislav 5]
 ->BN_Socializing5_IllKeepThisInMind
 
-//TODO: if Brad withdrew the paper
-//*["I'm so glad Brad decided to withdraw."]
-//->BN_Socializing5_GladHeWithdrew
+// if Brad withdrew the paper
+{BradWithdrew:
+*["I'm so glad Brad decided to withdraw."]
+->BN_Socializing5_GladHeWithdrew
+}
 
 *["Right. Is it okay if I leave now?"]
 ->BN_Socializing5_OkayIfILeave
@@ -196,7 +206,7 @@ Bronislav: "Sure thing."
 === BN_Socializing5_GladHeWithdrew ===
 Bronislav: "I'm so glad Brad decided to withdraw."
 
-{ honesty == true:
+{ honesty == true && basicsLie:
 Ned: "Oh, so Brad did talk to you in depth about his situation then?"
 
 Bronislav: "Yes he did, he was really unsure about the whole situation, and I encouraged him to go with his gut and withdraw."
@@ -206,7 +216,7 @@ Ned nods approvingly.
 Ned: "Well, he's lucky to have a supportive friend like you. I'm glad you supported him in his decision to come forward."
 }
 
-{ basics == true:
+{ basics == true && basicsLie:
 Ned raises an eyebrow. 
 
 Ned: "It seems you remember more than 'just the basics' then?"
