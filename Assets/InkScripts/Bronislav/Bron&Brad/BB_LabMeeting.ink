@@ -7,27 +7,32 @@
 #repeatable: false
 #tags: action, student_cubes
 #===
+#Summary: Brad either goes to ethics training or shares excitement about next conference
 
 {DbInsert("Seen_BB_LabMeeting")}
 
+VAR withdrewPaper = DbAssert("BradWithdrawsData")
+
 
 {ShowCharacter("Brad", "left", "")}
-// TODO: Brad withdrew the paper (use query variable produced by inital check for this)
-// current default is Brad didn't withdraw the paper
-//At the lab meeting, you're approached by Brad. He seems happy to see you.
 
-//Brad: "Hey hey Bronislav! How's it going?"
+{withdrewPaper:
+//paper was withdrawn
+At the lab meeting, you're approached by Brad. He seems happy to see you.
 
-//*["Going great!"]
-//->BB_LabMeeting_GoingGreat
+Brad: "Hey hey Bronislav! How's it going?"
 
-//*["I've been good."]
-//->BB_LabMeeting_Good
+*["Going great!"]
+->BB_LabMeeting_GoingGreat
 
-//*["It's complicated."]
-//->BB_LabMeeting_Complicated
+*["I've been good."]
+->BB_LabMeeting_Good
 
-// assuming paper was not withdrawn
+*["It's complicated."]
+->BB_LabMeeting_Complicated
+}
+{!withdrewPaper:
+//paper was not withdrawn
 ~temp r = GetOpinionState("Brad", "Bronislav")
 {r == OpinionState.Good || r == OpinionState.Excellent:
 While at the lab meeting, Brad runs into you again.
@@ -54,8 +59,9 @@ Brad: "Hey Bronislav."
 ->BB_LabMeeting_HeyBrad
 }
 
-=== BB_LabMeeting_GoingGreat ===
+}
 
+=== BB_LabMeeting_GoingGreat ===
 Bronislav: "It's been going great! I'm curious with how you're doing Brad, you seem to be happy though."
 
 Brad nods.
@@ -94,8 +100,9 @@ Bronislav: "It's a bit complicated right now, but it's not a big deal. How're yo
 
 Brad thinks for a moment.
 
-// TODO: I think we're missing a choice option in here? This looks like it was written exclusively for brad ending bad
 
+// TODO: I think we're missing a choice option in here? This looks like it was written exclusively for brad good ending
+{withdrewPaper:
 Brad: "Well, on one hand I'm excited to work on a new paper next year, but this ethics training is going to be a sink into my freetime. Overall, not too bad though."
 
 *["Glad to hear!"]
@@ -106,6 +113,7 @@ Brad: "Well, on one hand I'm excited to work on a new paper next year, but this 
 
 *["Any ideas for next year?"]
 ->->BB_LabMeeting_AnyIdeas
+}
 
 === BB_LabMeeting_HeyBrad ===
 Bronislav: "Hey Brad, how's it going?"

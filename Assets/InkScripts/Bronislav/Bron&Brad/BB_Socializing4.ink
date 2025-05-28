@@ -1,5 +1,4 @@
-=== library ===
-
+=== BB_Socializing4_SceneStart ===
 #---
 #choiceLabel: Wait for Brad.
 #@query
@@ -8,14 +7,18 @@
 #repeatable: false
 #tags: action, library
 #===
+#Summary: Brad is contemplating withdrawing paper
 
-=== BB_Socializing4_SceneStart ===
+{DbInsert("Seen_BBS4")}
+
+// Check if Conference Submission Deadline Happened
+VAR confided = DbAssert("Seen_BB_ConferenceSubmissionDeadline")
 
 Brad called you a bit ago, sounding distressed and wanting to meet with you in the library. You wait for him, taking a much needed break in the meantime. 
 
 In the middle of your reading you hear Brad.
 
-{ShowCharacter(“Brad”)}
+{ShowCharacter(“Brad”, "left", "")}
 
 Brad: "You're already here! Hope I didn't keep you waiting too long Bronislav."
 
@@ -26,20 +29,21 @@ Brad: "You're already here! Hope I didn't keep you waiting too long Bronislav."
 ->BB_Socializing4_TookYourTime
 
 === BB_Socializing4_NoProblem ===
-// TODO: query whether or not you told Brad to tell someone about his data
-// currently assumes you told Brad to tell someone.
+{confided:
 Bronislav: "No problem Brad. Any thoughts on what you're planning on doing with your paper?"
 
 Brad sighs. 
 
 Brad: "I unfortunately have, ever since you said that I should tell someone about it I... It's just hard to. I was thinking I might just withdraw the paper. I'd hate to break the news to Ned."
 
-//else didnt
-//Bronislav: "No problem Brad. How's the paper coming along?"
+- else:
 
-//Brad sighs. 
+Bronislav: "No problem Brad. How's the paper coming along?"
 
-//Brad: "It's coming along, but it doesn't feel right. I don't want to keep Ned in the dark on this, but I also don't want to waste both of our hard work."
+Brad sighs. 
+
+Brad: "It's coming along, but it doesn't feel right. I don't want to keep Ned in the dark on this, but I also don't want to waste both of our hard work."
+}
 
 *["You really should withdraw." #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Socializing4_ShouldWithdraw
@@ -47,13 +51,16 @@ Brad: "I unfortunately have, ever since you said that I should tell someone abou
 *["Ned still doesn't know?"] 
 ->BB_Socializing4_NedStillDoesntKnow
 
-//if told him to tell someone
+{confided:
 *["You've got to do something soon."]
 ->BB_Socializing4_YouveGottaDoSomething
 
-//else
-//*["That seems unnecessary."]
-//->BB_Socializing4_SeemsUnnecessary
+- else:
+
+*["That seems unnecessary."]
+->BB_Socializing4_SeemsUnnecessary
+
+}
 
 === BB_Socializing4_TookYourTime ===
 Bronislav: "You definitely took your time for something that sounded so urgent. What are your plans with the paper?"
@@ -69,6 +76,8 @@ Brad: "Oh, I was... going to tell someone, or at least withdraw the paper. It's 
 ->BB_Socializing4_SeemsUnnecessary
 
 === BB_Socializing4_ShouldWithdraw ===
+// Brad will withdraw
+{DB_Insert("BradWithdrawsData")}
 Brad: "I think you should just withdraw the paper Brad. A lot worse can happen if you submit unapproved data than just cutting your, and Ned's, losses."
 
 Brad thinks for a bit then mumbles, 
@@ -223,6 +232,8 @@ He gets up and leaves with a friendly wave before he walks out.
 ->DONE
 
 === BB_Socializing4_MakeSure ===
+// Brad will withdraw
+{DB_Insert("BradWithdrawsData")}
 Bronislav: "Make sure you commit to it this time."
 
 Brad nods. 

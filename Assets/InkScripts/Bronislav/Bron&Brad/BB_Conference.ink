@@ -1,5 +1,4 @@
-=== conference_hall ===
-
+=== BB_Conference_SceneStart ===
 #---
 #choiceLabel: Go to a talk.
 #@query
@@ -8,25 +7,21 @@
 #repeatable: false
 #tags: action, conference_hall
 #===
+#Summary: Brad discusses rejected paper/confronted about IRB stuff w/ Ned, talks to Bronislav about Jensen being on paper 
 
+{DbInsert("Seen_BB_Conference")}
+VAR withdrew = DbAssert("BradWithdrawsData")
 VAR HappyBrad = true
-
-=== BB_Conference_SceneStart ===
-//TODO: query whether or not you told Brad to withdraw
-// currently assumes you did
-
-//TODO: query whether or not Brad actually withdrew
-// currently assumes he did
 
 ~temp r = GetOpinionState("Brad", "Bronislav")
 {r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
     HappyBrad = false
 }
 
-{HappyBrad == true: //told him to withdraw and he did
+{HappyBrad && withdrew: //told him to withdraw
 After the conference you talk to some other people, and you are surprised to see Brad there. You don't see Ned with him as he also notices you and walks up.
 
-{ShowCharacter(“Brad”)}
+{ShowCharacter(“Brad”, "left", "")}
 Brad: "Bronislav! Just the guy I wanted to see." 
 
 *["You withdrew right?" #>>IncrementRelationshipStat Brad Bronislav 10] 
@@ -39,7 +34,7 @@ Brad: "Bronislav! Just the guy I wanted to see."
 ->BB_Conference_DidntWithdraw
 
 }
-//{HappyBrad = true: //told him to withdraw and he didnt
+//{HappyBrad = true: //told him not withdraw and he didnt
 //After the conference you talk to some other people, and you are surprised to see Brad there. You don't see Ned with him and he awkwardly glances at you, takes a deep breath and slowly approaches you.
 
 //{ShowCharacter(“Brad”)}
@@ -54,25 +49,27 @@ Brad: "Bronislav! Just the guy I wanted to see."
 //*["You didn't withdraw, did you?" #>>IncrementRelationshipStat Brad Bronislav 5]
 //->BB_Conference_DidntWithdrawBad
 
-//{HappyBrad = true: //didnt tell him, good relationship
-//After the conference you talk to some other people. You see Brad, but no Ned, and he approaches you deafeatedly. 
+{HappyBrad && !withdrew: //didnt tell him, good relationship
+After the conference you talk to some other people. You see Brad, but no Ned, and he approaches you deafeatedly. 
 
-//{ShowCharacter(“Brad”)}
-//Brad: "I have some bad news Bronislav."
+{ShowCharacter(“Brad”, "left", "")}
+Brad: "I have some bad news Bronislav."
 
-//*["Did you withdraw?"] 
-//->BB_Conference_DidYouWithdraw
+*["Did you withdraw?"] 
+->BB_Conference_DidYouWithdraw
 
-//*["Did something go wrong?"] 
-//->BB_Conference_DidSomethingGoWrong
+*["Did something go wrong?"] 
+->BB_Conference_DidSomethingGoWrong
 
-//*["It got rejected?"]
-//->BB_Conference_ItGotRejected
+*["It got rejected?"]
+->BB_Conference_ItGotRejected
 
-//}
+}
 
-{HappyBrad = false://didnt tell him, bad relationship
+{!withdrew://didnt tell him, bad relationship
 After the conference you talk to some other people. You see Brad, but no Ned. Brad walks up to you.
+
+{ShowCharacter(“Brad”, "left", "")}
 
 Brad: "Well, it happened Bronislav."
 

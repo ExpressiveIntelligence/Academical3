@@ -1,14 +1,14 @@
 === BN_S1_SceneStart ===
 # ---
-# choiceLabel: Meet with Ned
+# choiceLabel: Meet with Ned.
 # @query
 # Seen_BJS1
+# date.day!1
 # @end
 # hidden: true
+# repeatable: false
 # tags: action, library, auxiliary
 # ===
-
-// TODO: MAKE SURE QUERY IS CORRECT
 
 {DbInsert("Seen_BNS1")}
 
