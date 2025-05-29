@@ -1,3 +1,6 @@
+VAR basicsLie = false
+VAR BradWithdrew = false
+
 === BN_Socializing5_SceneStart ===
 #---
 #choiceLabel: Drop in to talk with Ned.
@@ -7,12 +10,13 @@
 #repeatable: false
 #tags: action, neds_office
 #===
-# Summary: Confronting Bronislav on what he knows about Brad's work 
+# Summary: Confronting Bronislav on what he knows about Brad's work
 
 VAR honesty = false
 VAR basics = false
-VAR basicsLie = DbAssert("Seen_BBS4")
-VAR BradWithdrew = DbAssert("BradWithdrawsData")
+
+~ basicsLie = DbAssert("Seen_BBS4")
+~ BradWithdrew = DbAssert("BradWithdrawsData")
 
 {DbInsert("Seen_BN_Socializing5")}
 
@@ -57,7 +61,7 @@ Bronislav: "You know, I don't really recall him mentioning anything. Why?"
 
 Ned's brow furrows slightly.
 
-Ned: "I find that really interesting Bronislav, because he did mention talking to you about it breifly when we spoke yesterday." 
+Ned: "I find that really interesting Bronislav, because he did mention talking to you about it breifly when we spoke yesterday."
 
 Ned: "I understand you are trying to be a good friend to Brad and not say anything that might get him in trouble, but lying to me is not a good idea."
 
@@ -139,9 +143,9 @@ Ned: "You see, Brad did not wait for IRB approval before collecting data for our
 <> Ned: "As I am sure you are well aware, Brad was likely more worried about making sure things went smoothly, so he was willing to overlook the ethicality of preemptively collecting data without proper IRB approval. <>
 }
 
-{!BradWithdrew:
+{not BradWithdrew:
 //if Brad did not withdraw data
-<> And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review. 
+<> And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review.
 
 Ned: This entire process has turned into a headache, where it would have been much simpler if Brad had come clean and told me the situation so I could have withdrawn the paper."
 
@@ -152,7 +156,7 @@ Ned: "What's important for you to remember is that it's never worth violating et
 
 {BradWithdrew:
 //if Brad withdrew data
-<> Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me. 
+<> Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me.
 
 Ned: I am very glad he came forward, because the reprocussions had he not would have been severe."
 
@@ -217,7 +221,7 @@ Ned: "Well, he's lucky to have a supportive friend like you. I'm glad you suppor
 }
 
 { basics == true && basicsLie:
-Ned raises an eyebrow. 
+Ned raises an eyebrow.
 
 Ned: "It seems you remember more than 'just the basics' then?"
 
