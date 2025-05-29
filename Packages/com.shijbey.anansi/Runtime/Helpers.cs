@@ -46,8 +46,8 @@ namespace Anansi
 			List<(T, int)> matches = new List<(T, int)>();
 			int maxMatchScore = 0;
 
-			HashSet<string> mandatoryTags = new HashSet<string>( tags.Where( t => t[0] != '~' ) );
-			HashSet<string> optionalTags = new HashSet<string>( tags.Where( t => t[0] == '~' ) );
+			HashSet<string> mandatoryTags = new HashSet<string>( tags.Where( t => t.Length > 0 && t[0] != '~' ) );
+			HashSet<string> optionalTags = new HashSet<string>( tags.Where( t => t.Length > 0 && t[0] == '~' ) );
 
 			foreach ( var entry in items )
 			{
