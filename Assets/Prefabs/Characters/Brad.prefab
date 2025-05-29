@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5410023178538769126}
   - component: {fileID: 4715349776466158749}
   - component: {fileID: 541263839015048599}
+  - component: {fileID: 3118345349303024267}
   m_Layer: 0
   m_Name: Brad
   m_TagString: Untagged
@@ -151,3 +152,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Brad
   m_UniqueID: Brad
+--- !u!114 &3118345349303024267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541229167508773965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd923a7fe19a463ca73f69e530992d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sprites:
+  - spriteName: angry
+    sprite: {fileID: 21300000, guid: 1d45c50ff4b864a67afd5495f1cf2667, type: 3}
+    tags:
+    - angry
+    isFallback: 0
+  - spriteName: happy
+    sprite: {fileID: 21300000, guid: 1ac77fa16ea8b49bbbf986eb4520c55e, type: 3}
+    tags:
+    - happy
+    isFallback: 0
+  - spriteName: neutral
+    sprite: {fileID: 21300000, guid: facb73c35f08d48febb36325180c9edd, type: 3}
+    tags:
+    - neutral
+    isFallback: 0
+  - spriteName: neutral
+    sprite: {fileID: 21300000, guid: facb73c35f08d48febb36325180c9edd, type: 3}
+    tags:
+    - neutral
+    isFallback: 1
+  - spriteName: sad
+    sprite: {fileID: 21300000, guid: 08f68337d00694ed284bfc8ae8531e19, type: 3}
+    tags:
+    - sad
+    isFallback: 0
+  - spriteName: serious
+    sprite: {fileID: 21300000, guid: 74285ccb378084b19b6c87cb7890357a, type: 3}
+    tags:
+    - serious
+    isFallback: 0
+  - spriteName: surprised
+    sprite: {fileID: 21300000, guid: e57481179bb0a402da4d53fe1016747d, type: 3}
+    tags:
+    - surprised
+    isFallback: 0
+  - spriteName: uncomfy
+    sprite: {fileID: 21300000, guid: a3575bc6891f046bcbbb5dc503ba34dc, type: 3}
+    tags:
+    - uncomfy
+    isFallback: 0

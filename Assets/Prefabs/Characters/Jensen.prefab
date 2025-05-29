@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8996738731871853452}
   - component: {fileID: 5915605418196858956}
   - component: {fileID: 3764708953441839080}
+  - component: {fileID: 2545556221302327395}
   m_Layer: 0
   m_Name: Jensen
   m_TagString: Untagged
@@ -153,6 +154,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Jensen
   m_UniqueID: Jensen
+--- !u!114 &2545556221302327395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003132531775335040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd923a7fe19a463ca73f69e530992d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sprites:
+  - spriteName: angry
+    sprite: {fileID: 21300000, guid: 2e8a027719bfc49daadb9f24c7f8bf42, type: 3}
+    tags:
+    - angry
+    isFallback: 0
+  - spriteName: happy
+    sprite: {fileID: 21300000, guid: 5c35786940fbf452cbd024bb247cdbed, type: 3}
+    tags:
+    - happy
+    isFallback: 0
+  - spriteName: neutral
+    sprite: {fileID: 21300000, guid: 9229523434bea4779b046a0d0831726c, type: 3}
+    tags:
+    - neutral
+    isFallback: 1
+  - spriteName: sad
+    sprite: {fileID: 21300000, guid: 7b3a2e0cb9f8a4998beb39a36e029feb, type: 3}
+    tags:
+    - sad
+    isFallback: 0
+  - spriteName: serious
+    sprite: {fileID: 21300000, guid: 8184e27fff3e14eb09c14050969e7a84, type: 3}
+    tags:
+    - serious
+    isFallback: 0
+  - spriteName: surprised
+    sprite: {fileID: 21300000, guid: 4462f22ed9bcc419b95cb026d92c90a5, type: 3}
+    tags:
+    - surprised
+    isFallback: 0
+  - spriteName: uncomfy
+    sprite: {fileID: 21300000, guid: 78166a9275b7e4c398639fcb55203ef6, type: 3}
+    tags:
+    - uncomfy
+    isFallback: 0
 --- !u!1 &6752447865381531116
 GameObject:
   m_ObjectHideFlags: 0

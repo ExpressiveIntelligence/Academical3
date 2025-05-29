@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3388544814914182058}
   - component: {fileID: 9177742595663928302}
   - component: {fileID: 8721216228984253476}
+  - component: {fileID: 599834801003744596}
   m_Layer: 0
   m_Name: Ivy
   m_TagString: Untagged
@@ -151,3 +152,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Ivy
   m_UniqueID: Ivy
+--- !u!114 &599834801003744596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729043420659906418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd923a7fe19a463ca73f69e530992d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sprites:
+  - spriteName: angry
+    sprite: {fileID: 21300000, guid: fb7e13a34bb204411a30d2c9925d19c1, type: 3}
+    tags:
+    - angry
+    isFallback: 0
+  - spriteName: happy
+    sprite: {fileID: 21300000, guid: 0f6940666ceff4095aebb899234686a7, type: 3}
+    tags:
+    - happy
+    isFallback: 0
+  - spriteName: neutral
+    sprite: {fileID: 21300000, guid: bad6056e77a7f43a1825d42d437fda0b, type: 3}
+    tags:
+    - neutral
+    isFallback: 1
+  - spriteName: sad
+    sprite: {fileID: 21300000, guid: 7d5a57333f6cb413c9814533277f025e, type: 3}
+    tags:
+    - sad
+    isFallback: 0
+  - spriteName: serious
+    sprite: {fileID: 21300000, guid: e1f69130e73db4416abd0b0f28dd0119, type: 3}
+    tags:
+    - serious
+    isFallback: 0
+  - spriteName: surprised
+    sprite: {fileID: 21300000, guid: 5aa1600f479e54b9faf85649d1cf88d7, type: 3}
+    tags:
+    - surprised
+    isFallback: 0
+  - spriteName: uncomfy
+    sprite: {fileID: 21300000, guid: 90ad1d6a9e7d948c1bef163f70bfd130, type: 3}
+    tags:
+    - uncomfy
+    isFallback: 0
