@@ -12,7 +12,7 @@
 
 {ShowCharacter("Brad", "left", "")}
 
-{DBInsert("Seen_BBS1")}
+{DbInsert("Seen_BBS1")}
 
 You go back to your cubicle and go over the presentation review with all of the feedback in mind.
 
@@ -334,7 +334,7 @@ He hastily leaves.
 ->DONE
 
 === BB_S1_Jensen ===
-{DBInsert("BronBradJensenDiscussion")}
+{DbInsert("BronBradJensenDiscussion")}
 Bronislav: "Who? Jensen?"
 
 Brad snaps his fingers.

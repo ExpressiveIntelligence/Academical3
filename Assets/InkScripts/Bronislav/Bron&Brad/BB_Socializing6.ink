@@ -1,9 +1,11 @@
+VAR withdrewPaperr = false
+
 === BB_Socializing6_SceneStart ===
 #---
 #choiceLabel: Wait for Brad.
 #@query
 # date.day!6
-# 
+#
 #@end.
 #repeatable: false
 #tags: action, cafe
@@ -11,7 +13,7 @@
 # Summary: Ned and Brad overlook the outcome of the options
 
 // show seen if Brad withdrew paper
-VAR withdrewPaperr = DbAssert("BradWithdrawsData")
+~ withdrewPaperr = DbAssert("BradWithdrawsData")
 VAR BreakFromWriting = false
 VAR CouldNotAgreeMore = false
 VAR countBB6 = 0
@@ -50,7 +52,7 @@ Bronislav: "A break from writing at least, definitely still have some extracurri
 
 Brad chuckles.
 }
-{!withdrewPaperr:
+{not withdrewPaperr:
 Brad: "Yeah, pretty much in the same boat. Those darn trainings certainly don't leave a completely open schedule though."
 
 - else:
@@ -62,7 +64,7 @@ Brad: "I'll probably be doing much of the same. My schedule is kind of open over
 *["How's Ned?"]
 ->BB_Socializing6_HowsNed
 
-{!withdrewPaperr:
+{not withdrewPaperr:
 *["I'd imagine trainings are keeping you busy."]
 ->BB_Socializing6_IdImagine
 }
@@ -82,7 +84,7 @@ Brad: "I'll probably be doing much of the same. My schedule is kind of open over
 ~ CouldNotAgreeMore = true
 Bronislav: "Could not agree more, are you available much to have some more coffee hangouts?"
 
-{!withdrewPaperr:
+{not withdrewPaperr:
 // if didn't withdraw
 Brad seems unsure.
 
@@ -99,7 +101,7 @@ Brad: "Yeah, besides maybe submitting some applications for jobs, I'll be pretty
 *["How's Ned?"]
 ->BB_Socializing6_HowsNed
 
-{!withdrewPaperr:
+{not withdrewPaperr:
 *["I'd imagine trainings are keeping you busy."]
 ->BB_Socializing6_IdImagine
 }
@@ -120,7 +122,7 @@ Bronislav: "How's Ned doing?"
 
 Brad shrugs.
 
-{!withdrewPaperr:
+{not withdrewPaperr:
 Brad: "Seems fine, if anyone needs a break it's definitely him so I think he's taking that break."
 
 -else:

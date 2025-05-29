@@ -1,3 +1,5 @@
+VAR withdrewPaper = false
+
 === BB_LabMeeting_SceneStart ===
 #---
 #choiceLabel: Sit and relax.
@@ -11,7 +13,7 @@
 
 {DbInsert("Seen_BB_LabMeeting")}
 
-VAR withdrewPaper = DbAssert("BradWithdrawsData")
+~ withdrewPaper = DbAssert("BradWithdrawsData")
 
 
 {ShowCharacter("Brad", "left", "")}
@@ -31,7 +33,7 @@ Brad: "Hey hey Bronislav! How's it going?"
 *["It's complicated."]
 ->BB_LabMeeting_Complicated
 }
-{!withdrewPaper:
+{not withdrewPaper:
 //paper was not withdrawn
 ~temp r = GetOpinionState("Brad", "Bronislav")
 {r == OpinionState.Good || r == OpinionState.Excellent:
