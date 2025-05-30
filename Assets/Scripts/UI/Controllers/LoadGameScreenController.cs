@@ -56,7 +56,7 @@ namespace Academical
 				{
 					SaveData saveData = DataPersistenceManager.LoadGame( entry.guid );
 					DataPersistenceManager.SaveData = saveData;
-					MainMenuManager.Instance.StartGameFromSave();
+					MainMenuManager.Instance.StartGame();
 				};
 
 				saveSlotCard.OnDeleteClicked += () =>

@@ -7,9 +7,14 @@ namespace Academical
 	/// </summary>
 	public class GameStateManager : MonoBehaviour
 	{
+		[SerializeField]
+		private GameLevelSO m_LevelData;
+
 		private GameState m_GameState;
 
 		public static GameStateManager Instance { get; private set; }
+
+		public GameLevelSO LevelData => m_LevelData;
 
 		private void Awake()
 		{

@@ -9,11 +9,6 @@ namespace Academical
 	[Serializable]
 	public class GameState
 	{
-		/// <summary>
-		/// Unique ID used when saving this game state.
-		/// </summary>
-		public string guid;
-
 		public string levelId;
 
 		/// <summary>
@@ -30,7 +25,6 @@ namespace Academical
 
 		public GameState()
 		{
-			guid = Guid.NewGuid().ToString();
 			PlayerId = -1;
 			DialogueHistory = new List<DialogueHistoryEntry>();
 		}

@@ -19,6 +19,9 @@ namespace Academical
 		[SerializeField]
 		private GameLevelCardUI m_LevelCardUIPrefab;
 
+		[SerializeField]
+		private GameLevelSO[] m_LevelData;
+
 		private List<GameLevelCardUI> m_LevelCards = new List<GameLevelCardUI>();
 
 		#endregion
@@ -34,8 +37,7 @@ namespace Academical
 		public void UpdateLevelCards()
 		{
 			ClearCards();
-			GameLevelSO[] levels = GameLevelManager.Instance.GetAllLevels();
-			foreach ( var entry in levels )
+			foreach ( var entry in m_LevelData )
 			{
 				GameLevelCardUI card = Instantiate(
 					m_LevelCardUIPrefab, m_LevelCardContainer.transform

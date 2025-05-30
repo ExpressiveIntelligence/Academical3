@@ -23,9 +23,6 @@ namespace Academical
 		public bool m_AutoSaveEnabled;
 
 		[SerializeField]
-		public GameLevelSO m_DefaultLevel;
-
-		[SerializeField]
 		private Character m_Player;
 
 		private Location m_CurrentLocation;
@@ -114,14 +111,7 @@ namespace Academical
 		{
 			SaveData saveData = DataPersistenceManager.SaveData;
 			GameState gameState = GameStateManager.GetGameState();
-
-			if ( saveData != null )
-			{
-				gameState.levelId = saveData.levelId;
-			}
-
-			GameLevelSO currentLevel = (gameState.levelId != null) ?
-				GameLevelManager.Instance.GetLevelById( gameState.levelId ) : m_DefaultLevel;
+			GameLevelSO currentLevel = GameStateManager.Instance.LevelData;
 
 			if ( currentLevel != null )
 			{
@@ -237,10 +227,16 @@ namespace Academical
 		{
 			GameEvents.OnStoryStart?.Invoke();
 
-			if ( m_dialogueManager.Story.StoryletExists( "start" ) )
+			// This should not be hard coded, but we only have one level.
+			DialogueEvents.CharacterShown?.Invoke( "Bronislav", "right", "" );
+
+			if ( DataPersistenceManager.SaveData == null )
 			{
-				Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
-				m_dialogueManager.RunStorylet( startStorylet );
+				if ( m_dialogueManager.Story.StoryletExists( "start" ) )
+				{
+					Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
+					m_dialogueManager.RunStorylet( startStorylet );
+				}
 			}
 		}
 
@@ -893,10 +889,15 @@ namespace Academical
 		{
 			GameState gameState = GameStateManager.GetGameState();
 
+
 			SaveData saveData = new SaveData();
 
+			if ( DataPersistenceManager.SaveData != null )
+			{
+				saveData = DataPersistenceManager.SaveData;
+			}
+
 			saveData.levelId = gameState.levelId;
-			saveData.guid = gameState.guid;
 			saveData.currentDay = m_simulationController.DateTime.Day;
 			saveData.currentTimeOfDay = m_simulationController.DateTime.TimeOfDay.ToString();
 			saveData.currentLocationId = m_Player.Location.UniqueID;
@@ -931,6 +932,8 @@ namespace Academical
 			saveData.dilemmas = DilemmaSystem.Instance.SerializeDilemmas().ToArray();
 
 			DataPersistenceManager.SaveGame( saveData );
+
+			NotificationManager.Instance.QueueNotification( "Game saved!" );
 		}
 	}
 }

@@ -114,6 +114,7 @@ MonoBehaviour:
   m_AutoSaveIndicator: {fileID: 3119970841372130026}
   m_PlayButton: {fileID: 976055420869367159}
   m_DeleteButton: {fileID: 4802451048546090449}
+  m_LocationDb: {fileID: 11400000, guid: f768e204ba66e4165a5fdbf2ab2cefb4, type: 2}
 --- !u!114 &8775904582579885566
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -500,5 +500,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e0fa9067c6247139aaf3368f2a567c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HideOnAwake: 0
+  m_HideOnAwake: 1
   m_LoadingProgressBar: {fileID: 1111393373064801376}

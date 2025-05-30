@@ -7,6 +7,18 @@ namespace Academical
 	public class LocationDatabaseSO : ScriptableObject
 	{
 		public LocationData[] locations;
+
+		public LocationData GetLocationData(string uid)
+		{
+			foreach ( LocationData entry in locations )
+			{
+				if ( entry.uid == uid )
+				{
+					return entry;
+				}
+			}
+			return null;
+		}
 	}
 
 	[Serializable]

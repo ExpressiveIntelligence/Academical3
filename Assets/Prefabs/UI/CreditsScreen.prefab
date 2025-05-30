@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3521526282549c692ad4caaa192f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HideOnAwake: 0
+  m_HideOnAwake: 1
   m_BackButton: {fileID: 5704464062693240967}
 --- !u!225 &5574543925150726468
 CanvasGroup:
