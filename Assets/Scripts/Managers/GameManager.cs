@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Academical.Persistence;
 using Anansi;
+using Ink.Parsed;
 using RePraxis;
 using TDRS;
 using TDRS.Serialization;
@@ -68,6 +69,8 @@ namespace Academical
 
 		#region Properties
 
+		public static GameManager Instance { get; private set; }
+
 		/// <summary>
 		/// A reference to the simulations database.
 		/// </summary>
@@ -88,6 +91,13 @@ namespace Academical
 
 		private void Awake()
 		{
+			if ( Instance != null )
+			{
+				Destroy( gameObject );
+				return;
+			}
+
+			Instance = this;
 			m_locationStorylets = new Dictionary<string, Storylet>();
 			m_actionStorylets = new Dictionary<string, Storylet>();
 			m_LocationEnterStorylets = new Dictionary<string, List<Storylet>>();
@@ -118,7 +128,7 @@ namespace Academical
 
 			if ( currentLevel != null )
 			{
-				m_dialogueManager.SetStory( new Story( currentLevel.inkScript.text ) );
+				m_dialogueManager.SetStory( new Anansi.Story( currentLevel.inkScript.text ) );
 			}
 
 			GameEvents.GameHUDShown?.Invoke();
@@ -551,6 +561,38 @@ namespace Academical
 			return false;
 		}
 
+		public bool ExistsUnseenRequiredContentForDay()
+		{
+			foreach ( var (_, actionStorylet) in m_actionStorylets )
+			{
+				if ( !actionStorylet.Tags.Contains( "required" ) ) continue;
+
+				// Skip storylets still on cooldown
+				if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;
+
+				// Skip storylets that are not repeatable
+				if ( !actionStorylet.IsRepeatable && actionStorylet.TimesPlayed > 0 ) continue;
+
+				// Query the social engine database. If the query passes, then
+				// this action still need to be taken.
+				if ( actionStorylet.Precondition != null )
+				{
+					var results = actionStorylet.Precondition.Query.Run( DB );
+
+					if ( results.Success )
+					{
+						return true;
+					}
+				}
+				else
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
 		/// <summary>
 		/// Get a list of all action storylets a player could execute.
 		/// </summary>
@@ -708,37 +750,7 @@ namespace Academical
 
 			story.BindExternalFunction(
 				"HasUnseenRequiredActions",
-				() =>
-				{
-					foreach ( var (_, actionStorylet) in m_actionStorylets )
-					{
-						if ( !actionStorylet.Tags.Contains( "required" ) ) continue;
-
-						// Skip storylets still on cooldown
-						if ( actionStorylet.CooldownTimeRemaining > 0 ) continue;
-
-						// Skip storylets that are not repeatable
-						if ( !actionStorylet.IsRepeatable && actionStorylet.TimesPlayed > 0 ) continue;
-
-						// Query the social engine database. If the query passes, then
-						// this action still need to be taken.
-						if ( actionStorylet.Precondition != null )
-						{
-							var results = actionStorylet.Precondition.Query.Run( DB );
-
-							if ( results.Success )
-							{
-								return true;
-							}
-						}
-						else
-						{
-							return true;
-						}
-					}
-
-					return false;
-				}
+				() => { return ExistsUnseenRequiredContentForDay(); }
 			);
 
 			story.BindExternalFunction(

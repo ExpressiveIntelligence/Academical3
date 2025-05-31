@@ -17,6 +17,7 @@ namespace Academical
 			if ( Instance != null )
 			{
 				Destroy( gameObject );
+				return;
 			}
 
 			Instance = this;

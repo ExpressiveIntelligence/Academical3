@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Anansi;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Academical
 {
@@ -14,12 +13,13 @@ namespace Academical
 		private List<MapLocationButton> m_Buttons;
 
 		[SerializeField]
-		private Button m_AdvanceDayButton;
+		private MapEndDayButton m_AdvanceDayButton;
 
 		public override void Show()
 		{
 			base.Show();
 			UpdateLocationButtons();
+			UpdateAdvanceDayButton();
 		}
 
 		protected override void SubscribeToEvents()
@@ -29,7 +29,7 @@ namespace Academical
 				locationButton.OnClick += HandleLocationSelected;
 			}
 
-			m_AdvanceDayButton.onClick.AddListener( HandleAdvanceDayClicked );
+			m_AdvanceDayButton.OnClick += HandleAdvanceDayClicked;
 		}
 
 		protected override void UnsubscribeFromEvents()
@@ -39,7 +39,7 @@ namespace Academical
 				locationButton.OnClick -= HandleLocationSelected;
 			}
 
-			m_AdvanceDayButton.onClick.RemoveListener( HandleAdvanceDayClicked );
+			m_AdvanceDayButton.OnClick -= HandleAdvanceDayClicked;
 		}
 
 		private void HandleLocationSelected(Location location)
@@ -54,6 +54,15 @@ namespace Academical
 			AudioManager.PlayDefaultButtonSound();
 			Hide();
 			m_GameManager.AdvanceDay();
+		}
+
+		private void UpdateAdvanceDayButton()
+		{
+			// Check if the player has required content they need to visit
+			bool unseenContentPresent =
+				GameManager.Instance.ExistsUnseenRequiredContentForDay();
+
+			m_AdvanceDayButton.SetButtonLocked( unseenContentPresent );
 		}
 
 		private void UpdateLocationButtons()

@@ -95,48 +95,5 @@ EXTERNAL SetPlayerLocation(locationID)
 {ShowCharacter("Bronislav", "right", "")}
 
 {SetPlayerLocation("lecture_hall")}
-{LockAllLocations("Must give presentation in lecture hall.")}
-
--> DONE
-
-=== go_home ===
-# ---
-# choiceLabel: Go Home
-# repeatable: true
-# tags: action, student_cubes
-# ===
-
-{
-   - HasUnseenRequiredActions():
-      There are still things you must do. Look for locations with unvisited actions.
-   - HasUnseenAuxiliaryActions():
-      There are still some things you could do.
-      -> check_advance_day
-   - else:
-      It's been a busy day.
-      -> check_advance_day
-}
-
--> DONE
-
-=== check_advance_day ===
-
-Do you still want to advance the day?
-+ [Yes]
-   -> advance_day
-+ [No]
--
-
--> DONE
-
-=== advance_day ===
-
-You go home for the day. {FadeToBlack(0)} {HideCharacter("Bronislav")}
-
-{AdvanceDay()}
-
-New day. New things to do. {FadeFromBlack(1)} {ShowCharacter("Bronislav", "right", "")}
-
--> DONE
 
 -> DONE
