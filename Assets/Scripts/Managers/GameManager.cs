@@ -153,6 +153,7 @@ namespace Academical
 
 			if ( saveData != null )
 			{
+				PlayTimeTracker.Instance.SetTotalPlayTime( saveData.totalPlaytime );
 				SetPlayerLocation( saveData.currentLocationId );
 				LoadDatabaseSave( saveData );
 				LoadStoryState( saveData );
@@ -922,7 +923,7 @@ namespace Academical
 			saveData.currentTimeOfDay = m_simulationController.DateTime.TimeOfDay.ToString();
 			saveData.currentLocationId = m_Player.Location.UniqueID;
 			saveData.isAutoSave = isAutoSave;
-			saveData.totalPlaytime = gameState.TotalPlayTime;
+			saveData.totalPlaytime = (int)PlayTimeTracker.Instance.GetTotalPlayTime();
 			saveData.databaseEntries = SerializeDatabase();
 			saveData.playerId = gameState.PlayerId.ToString();
 			saveData.dialogueHistory = gameState.DialogueHistory.Select( (h) =>

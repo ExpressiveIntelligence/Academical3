@@ -68,7 +68,8 @@ namespace Academical
 
 			m_LocationName.text = $"<b>Current Location:</b> {locationData.displayName}";
 			m_Date.text = $"<b>Current Date:</b> {saveSlotData.currentTimeOfDay}, Day {saveSlotData.currentDay}";
-			m_TotalPlayTime.text = $"<b>Play Time:</b> {saveSlotData.totalPlaytime / 60} minutes";
+			m_TotalPlayTime.text = $"<b>Play Time:</b> {saveSlotData.totalPlaytime / 60} minutes"
+				+ $", {saveSlotData.totalPlaytime % 60} seconds";
 
 			m_LocationPreview.sprite = locationData.sprite;
 		}
