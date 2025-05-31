@@ -16,8 +16,8 @@ MonoBehaviour:
   targetType: {fileID: 11400000, guid: 1d1b1f6badf744392ae3d91db6965dea, type: 2}
   stats:
   - statName: Opinion
-    baseValue: 128
-    maxValue: 255
+    baseValue: 50
+    maxValue: 100
     minValue: 0
     isDiscrete: 1
   - statName: Tension
