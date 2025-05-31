@@ -73,16 +73,22 @@ namespace Anansi
 		public override void SetSpriteFromTags(params string[] tags)
 		{
 			SpriteEntry chosenSprite = m_spriteLookupTable[m_fallbackSpriteName];
-			List<SpriteEntry> bestMatches = ContentSelection.GetWithTags(
-				m_sprites.Select( a => (a, new HashSet<string>( a.tags )) ),
-				tags
-			);
 
-			if ( bestMatches.Count > 0 )
+			List<string> nonEmptyTags = tags.Where( t => t != "" ).ToList();
+
+			if ( nonEmptyTags.Count > 0 )
 			{
-				chosenSprite = bestMatches[
-					UnityEngine.Random.Range( 0, bestMatches.Count )
-				];
+				List<SpriteEntry> bestMatches = ContentSelection.GetWithTags(
+					m_sprites.Select( a => (a, new HashSet<string>( a.tags )) ),
+					nonEmptyTags
+				);
+
+				if ( bestMatches.Count > 0 )
+				{
+					chosenSprite = bestMatches[
+						UnityEngine.Random.Range( 0, bestMatches.Count )
+					];
+				}
 			}
 
 			m_image.sprite = chosenSprite.sprite;
