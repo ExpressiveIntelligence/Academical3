@@ -1,3 +1,6 @@
+VAR withdrew = false
+VAR HappyBrad = true
+
 === BB_Conference_SceneStart ===
 #---
 #choiceLabel: Go to a talk.
@@ -7,27 +10,27 @@
 #repeatable: false
 #tags: action, conference_hall
 #===
-#Summary: Brad discusses rejected paper/confronted about IRB stuff w/ Ned, talks to Bronislav about Jensen being on paper 
+#Summary: Brad discusses rejected paper/confronted about IRB stuff w/ Ned, talks to Bronislav about Jensen being on paper
 
 {DbInsert("Seen_BB_Conference")}
-VAR withdrew = DbAssert("BradWithdrawsData")
-VAR HappyBrad = true
+
+~ withdrew = DbAssert("BradWithdrawsData")
 
 ~temp r = GetOpinionState("Brad", "Bronislav")
 {r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
     HappyBrad = false
 }
 
-{HappyBrad && withdrew: //told him to withdraw
+{HappyBrad and withdrew: //told him to withdraw
 After the conference you talk to some other people, and you are surprised to see Brad there. You don't see Ned with him as he also notices you and walks up.
 
-{ShowCharacter(“Brad”, "left", "")}
-Brad: "Bronislav! Just the guy I wanted to see." 
+{ShowCharacter("Brad", "left", "")}
+Brad: "Bronislav! Just the guy I wanted to see."
 
-*["You withdrew right?" #>>IncrementRelationshipStat Brad Bronislav 10] 
+*["You withdrew right?" #>>IncrementRelationshipStat Brad Bronislav 10]
 ->BB_Conference_YouWithdrewRight
 
-*["Brad, why are you here?" #>>IncrementRelationshipStat Brad Bronislav 10] 
+*["Brad, why are you here?" #>>IncrementRelationshipStat Brad Bronislav 10]
 ->BB_Conference_WhyAreYouHere
 
 *["You didn't withdraw, did you?" #>>IncrementRelationshipStat Brad Bronislav 5]
@@ -37,28 +40,28 @@ Brad: "Bronislav! Just the guy I wanted to see."
 //{HappyBrad = true: //told him not withdraw and he didnt
 //After the conference you talk to some other people, and you are surprised to see Brad there. You don't see Ned with him and he awkwardly glances at you, takes a deep breath and slowly approaches you.
 
-//{ShowCharacter(“Brad”)}
+//{ShowCharacter("Brad")}
 //Brad: "Hey Bronislav..."
 
-//*["You withdrew right?"] 
+//*["You withdrew right?"]
 //->BB_Conference_YouWithdrewRightBad
 
-//*["Brad, why are you here?"] 
+//*["Brad, why are you here?"]
 //->BB_Conference_WhyAreYouHereBad
 
 //*["You didn't withdraw, did you?" #>>IncrementRelationshipStat Brad Bronislav 5]
 //->BB_Conference_DidntWithdrawBad
 
 {HappyBrad && !withdrew: //didnt tell him, good relationship
-After the conference you talk to some other people. You see Brad, but no Ned, and he approaches you deafeatedly. 
+After the conference you talk to some other people. You see Brad, but no Ned, and he approaches you deafeatedly.
 
-{ShowCharacter(“Brad”, "left", "")}
+{ShowCharacter("Brad", "left", "")}
 Brad: "I have some bad news Bronislav."
 
-*["Did you withdraw?"] 
+*["Did you withdraw?"]
 ->BB_Conference_DidYouWithdraw
 
-*["Did something go wrong?"] 
+*["Did something go wrong?"]
 ->BB_Conference_DidSomethingGoWrong
 
 *["It got rejected?"]
@@ -66,17 +69,17 @@ Brad: "I have some bad news Bronislav."
 
 }
 
-{!withdrew://didnt tell him, bad relationship
+{not withdrew://didnt tell him, bad relationship
 After the conference you talk to some other people. You see Brad, but no Ned. Brad walks up to you.
 
-{ShowCharacter(“Brad”, "left", "")}
+{ShowCharacter("Brad", "left", "")}
 
 Brad: "Well, it happened Bronislav."
 
 *["What happened?"]
 ->BB_Conference_WhatHappened
 
-*["Did you withdraw?"] 
+*["Did you withdraw?"]
 ->BB_Conference_DidYouWithdraw
 
 *["It got rejected?"]
@@ -87,14 +90,14 @@ Brad: "Well, it happened Bronislav."
 === BB_Conference_YouWithdrewRight ===
 Bronislav: "You withdrew the paper, right Brad?"
 
-Brad smiles. 
+Brad smiles.
 
 Brad: "I did! It was, not an easy conversation to have with Ned, but he and I both realized that it was our best option. No hassle with the IRB, and everything is still in tact."
 
 *["That's great to hear!" #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_GreatToHear
 
-*["Ned isn't mad?"] 
+*["Ned isn't mad?"]
 ->BB_Conference_NedIsntMad
 
 *["You came to your senses."]
@@ -103,14 +106,14 @@ Brad: "I did! It was, not an easy conversation to have with Ned, but he and I bo
 === BB_Conference_WhyAreYouHere ===
 Bronislav: "Brad, why are you here? I thought you were going to withdraw."
 
-Brad seems confused. 
+Brad seems confused.
 
 Brad: "Well I did. I'm just here because I wanted to catch you and tell you thanks. Obviously Ned was a bit mad at first, but he's glad that I told him. So, no more worries!"
 
 *["That's great to hear!" #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_GreatToHear
 
-*["Ned isn't mad?"] 
+*["Ned isn't mad?"]
 ->BB_Conference_NedIsntMad
 
 *["You came to your senses."]
@@ -119,30 +122,30 @@ Brad: "Well I did. I'm just here because I wanted to catch you and tell you than
 === BB_Conference_DidntWithdraw ===
 Bronislav: "You didn't withdraw, did you Brad?"
 
-Brad rolls his eyes. 
+Brad rolls his eyes.
 
 Brad: "I did this time Bronislav, seriously. I talked with Ned and he okayed it too. He definitely wasn't happy with me, but he knew it was the right thing to do. So, thanks for leading me in the right direction Bronislav."
 
-*["Ned isn't mad?"] 
+*["Ned isn't mad?"]
 ->BB_Conference_NedIsntMad
 
 *["You came to your senses."]
 ->BB_Conference_CametoYourSenses
 
 === BB_Conference_YouWithdrewRightBad ===
-Bronislav: "You withdrew the paper, right Brad?" 
+Bronislav: "You withdrew the paper, right Brad?"
 
-Brad struggles to speak for a moment. 
+Brad struggles to speak for a moment.
 
 BradL "I... I didn't withdraw the paper Bronislav. Somehow the IRB found out and our paper has been rejected. Ned is furious with me, and now I've got ethics trainings I've got to go to."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10] 
+*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5] 
+*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_Liveandlearn
 
-*["You should have listened."] 
+*["You should have listened."]
 ->BB_Conference_YouShouldhaveListened
 
 *["That was really dumb."  #>>DecrRelationshipStat Brad Bronislav 10]
@@ -151,14 +154,14 @@ BradL "I... I didn't withdraw the paper Bronislav. Somehow the IRB found out and
 === BB_Conference_WhyAreYouHereBad ===
 Bronislav: "Brad, why are you here? I thought you were going to withdraw."
 
-Brad scratches his head. 
+Brad scratches his head.
 
 Brad: "I kind of thought I would too. Something in me told me not to and now the IRB rejected our paper, Ned is angry with me, and I've got ethics trainings to go to."
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5] 
+*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_Liveandlearn
 
-*["You should have listened."] 
+*["You should have listened."]
 ->BB_Conference_YouShouldhaveListened
 
 *["That was really dumb."  #>>DecrRelationshipStat Brad Bronislav 10]
@@ -167,14 +170,14 @@ Brad: "I kind of thought I would too. Something in me told me not to and now the
 === BB_Conference_DidntWithdrawBad ===
 Bronislav: "You didn't withdraw, did you Brad?"
 
-Brad looks at the ground. 
+Brad looks at the ground.
 
 Brad: "No, I didn't. You were right all along, the IRB rejected our paper, Ned doesn't want to talk with me, and now I have ethics trainings on my plate."
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5] 
+*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_Liveandlearn
 
-*["You should have listened."] 
+*["You should have listened."]
 ->BB_Conference_YouShouldhaveListened
 
 *["That was really dumb."  #>>DecrRelationshipStat Brad Bronislav 10]
@@ -183,14 +186,14 @@ Brad: "No, I didn't. You were right all along, the IRB rejected our paper, Ned d
 === BB_Conference_DidYouWithdraw ===
 Bronislav: "Did you withdraw the paper Brad?"
 
-Brad shakes his head. 
+Brad shakes his head.
 
 Brad: "No I didn't, I swear! I thought this plan would work but somehow the IRB found out and now our paper is rejected, Ned is furious with me, and I've got ethics trainings to go to."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10] 
+*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5] 
+*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -199,14 +202,14 @@ Brad: "No I didn't, I swear! I thought this plan would work but somehow the IRB 
 === BB_Conference_DidSomethingGoWrong ===
 Bronislav: "Did something go wrong?"
 
-Brad grimaces. 
+Brad grimaces.
 
 Brad: "It all went very wrong Bronislav. The IRB rejected our paper because of my data, Ned is angry with me, and I've got ethics trainings to go to."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10] 
+*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5] 
+*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -215,14 +218,14 @@ Brad: "It all went very wrong Bronislav. The IRB rejected our paper because of m
 === BB_Conference_ItGotRejected ===
 Bronislav: "It got rejected?"
 
-Brad looks surprised. 
+Brad looks surprised.
 
 Brad: "It did! I thought it would be ok, I really did. First, the IRB rejected our paper, Ned finds out it is because of my data and now he doesn't want to talk with me, and I've got to fit in ethics trainings into my schedule now."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10] 
+*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5] 
+*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -231,11 +234,11 @@ Brad: "It did! I thought it would be ok, I really did. First, the IRB rejected o
 === BB_Conference_WhatHappened ===
 Bronislav: "What do you mean? What happened?"
 
-Brad looks shocked that you don't know. 
+Brad looks shocked that you don't know.
 
 Brad: "The IRB found out Bronislav! They rejected the paper, and now Ned isn't talking to me because I told him about using the data. Now I've also got to go to ethics trainings because of this."
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5] 
+*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -244,11 +247,11 @@ Brad: "The IRB found out Bronislav! They rejected the paper, and now Ned isn't t
 === BB_Conference_GreatToHear ===
 Bronislav: "That's great to hear Brad! I know it was a tough decision to make, but you made the right choice."
 
-Brad is overjoyed. 
+Brad is overjoyed.
 
 Brad: "I wouldn't have done it without you Bronislav. Thanks for guiding me in the right direction."
 
-*["Glad things worked out."] 
+*["Glad things worked out."]
 ->BB_Conference_GladThingsWokedOut
 
 *["Don't mention it."]
@@ -257,11 +260,11 @@ Brad: "I wouldn't have done it without you Bronislav. Thanks for guiding me in t
 === BB_Conference_NedIsntMad ===
 Bronislav: "Ned isn't mad?"
 
-Brad shrugs. 
+Brad shrugs.
 
 Brad: "I mean, reasonably I think, he was pretty mad initially. After he took some time to cool down though he seems to be fine now, and appreciated me telling him about it."
 
-*["Glad things worked out."] 
+*["Glad things worked out."]
 ->BB_Conference_GladThingsWokedOut
 
 *["What now?"]
@@ -270,11 +273,11 @@ Brad: "I mean, reasonably I think, he was pretty mad initially. After he took so
 === BB_Conference_CametoYourSenses ===
 Bronislav: "You came to your senses. It's about time."
 
-Brad awkwardly laughs. 
+Brad awkwardly laughs.
 
 Brad: "Yeah I guess I did. Thanks again Bronislav for, I guess bringing me to my senses."
 
-*["Glad things worked out."] 
+*["Glad things worked out."]
 ->BB_Conference_GladThingsWokedOut
 
 *["Anytime."]
@@ -283,7 +286,7 @@ Brad: "Yeah I guess I did. Thanks again Bronislav for, I guess bringing me to my
 === BB_Conference_SorrytoHear ===
 Bronislav: "I'm sorry to hear that Brad. I really thought it would work too. I should've told you to withdraw."
 
-Brad sighs. 
+Brad sighs.
 
 Brad: "It's not your fault Bronislav. I really should have known I was doing something wrong and withdrew my paper because of it."
 
@@ -296,7 +299,7 @@ Brad: "It's not your fault Bronislav. I really should have known I was doing som
 === BB_Conference_YouShouldhaveListened ===
 Bronislav: "You really should have listened when I told you to withdraw the paper Brad."
 
-Brad grumbles. 
+Brad grumbles.
 
 Brad: "Yeah yeah yeah. You were right Bronislav, I know, but I just really thought it would all be ok. It's whatever now."
 
@@ -309,7 +312,7 @@ Brad: "Yeah yeah yeah. You were right Bronislav, I know, but I just really thoug
 === BB_Conference_ThatWasDumb ===
 Bronislav: "That was really dumb Brad."
 
-Brad scoffs. 
+Brad scoffs.
 
 Brad: "You really think I don't know that Bronislav? I know that I messed everything up, you don't need to patronize me."
 
@@ -322,11 +325,11 @@ Brad: "You really think I don't know that Bronislav? I know that I messed everyt
 === BB_Conference_ShouldHaveExpected ===
 Bronislav: "This really is something we really should have expected. This was always going to happen."
 
-Brad looks at you confused. 
+Brad looks at you confused.
 
 Brad: "What? Bronislav, if it was always going to happen why didn't you tell me? Are you serious?"
 
-*["I thought about it." #>> DecrRelationshipStat Brad Bronislav 5] 
+*["I thought about it." #>> DecrRelationshipStat Brad Bronislav 5]
 ->BB_Conference_ThoughtAbtIt
 
 *["It's in the past now."]
@@ -335,9 +338,9 @@ Brad: "What? Bronislav, if it was always going to happen why didn't you tell me?
 === BB_Conference_GladThingsWokedOut ===
 Bronislav: "I'm just really glad that things worked out in their own way, even if it definitely wasn't the best in the end."
 
-Brad nods. 
+Brad nods.
 
-Bronislav: "Not the best outcome, but it could've gone way worse. I've got to head out now, but just wanted to let you know about everything going on. Thanks!" 
+Bronislav: "Not the best outcome, but it could've gone way worse. I've got to head out now, but just wanted to let you know about everything going on. Thanks!"
 
 {HideCharacter("Brad")}
 ->DONE
@@ -345,7 +348,7 @@ Bronislav: "Not the best outcome, but it could've gone way worse. I've got to he
 === BB_Conference_DontMentionIt ===
 Bronislav: "Don't mention it, Brad. Wish your paper went in a better direction, but glad to help where I could."
 
-Brad nods. 
+Brad nods.
 
 Brad: "Definitely in the same boat, but it's just how it goes. I'll see you later Bronislav, sorry to catch you off guard here at the conference."
 
@@ -357,7 +360,7 @@ Bronislav: "No worries Brad, take care."
 === BB_Conference_WhatNow ===
 Bronislav: "So, what now Brad? I'm curious."
 
-Brad thinks for a bit. 
+Brad thinks for a bit.
 
 Brad: "I'm... not really sure. I think, I just need to get some rest asap. With that being said, I'll see you later Bronislav."
 
@@ -369,9 +372,9 @@ Bronislav: "Rest well Brad."
 === BB_Conference_Anytime ===
 Bronislav: "Anytime! Happy to help."
 
-Brad: "Yeah, thanks." 
+Brad: "Yeah, thanks."
 
-Brad says and starts ot pack up to leave. 
+Brad says and starts ot pack up to leave.
 
 Brad: "I've got somewhere to be now, I'll talk to you later then."
 
@@ -381,7 +384,7 @@ Brad: "I've got somewhere to be now, I'll talk to you later then."
 === BB_Conference_WishYouTheBest ===
 Bronislav: "I wish you the best Brad. I've got to head out now."
 
-Brad: "I should just head home too, hope to see you later." 
+Brad: "I should just head home too, hope to see you later."
 
 Brad says as he waves goodbye.
 
@@ -391,9 +394,9 @@ Brad says as he waves goodbye.
 === BB_Conference_GoodLuck ===
 Bronislav: "Good luck on your future endeavours Brad. Hope they go better."
 
-Brad: "Me too Bronislav, me too." 
+Brad: "Me too Bronislav, me too."
 
-Brad says as he stands up. 
+Brad says as he stands up.
 
 Brad: "Well, I'm going to head home now but thanks for talking. See you."
 
@@ -403,7 +406,7 @@ Brad: "Well, I'm going to head home now but thanks for talking. See you."
 === BB_Conference_WhateverYouSay ===
 Bronislav: "Whatever you say, Brad."
 
-Brad turns his head. 
+Brad turns his head.
 
 Brad: "What? Ok. Bronislav, I get it. I'll just leave then. Thanks for nothing."
 
@@ -419,9 +422,9 @@ Bronislav: "I'm sorry Brad, I should've said it differently. Sad things couldn't
 ->DONE
 
 === BB_Conference_ThoughtAbtIt ===
-Bronislav: "I thought about it recently, but I would've told you if I thought it was really going to happen." 
+Bronislav: "I thought about it recently, but I would've told you if I thought it was really going to happen."
 
-Brad groans. "Well, it did actually happen Bronislav. Thanks for not telling me." 
+Brad groans. "Well, it did actually happen Bronislav. Thanks for not telling me."
 He silently packs his things up and leaves the conference hall.
 
 {HideCharacter("Brad")}
@@ -431,9 +434,18 @@ He silently packs his things up and leaves the conference hall.
 
 Bronislav: "It's in the past now anyway Brad. No need to dwell on it."
 
-Brad seems to begrugingly agree. 
+Brad seems to begrugingly agree.
 
 Brad: "Yeah, I guess that's true. Maybe talk with you later Bronislav, see you later."
 
 {HideCharacter("Brad")}
 ->DONE
+
+=== BB_Conference_Liveandlearn ===
+
+// TODO: This is missing content
+
+Brad: "Yeah, you live and learn."
+
+{HideCharacter("Brad")}
+-> DONE

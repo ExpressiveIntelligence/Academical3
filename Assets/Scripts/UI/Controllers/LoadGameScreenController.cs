@@ -43,6 +43,8 @@ namespace Academical
 			ClearSaveSlotCards();
 			SaveSlotManifestFile saveSlotData = DataPersistenceManager.LoadSaveSlots();
 
+			Debug.Log( "Save slot data: " + saveSlotData.saves.Count );
+
 			m_NoSavesPlaceholder.SetActive( saveSlotData.saves.Count == 0 );
 
 			foreach ( SaveSlotData entry in saveSlotData.saves )
@@ -56,7 +58,7 @@ namespace Academical
 				{
 					SaveData saveData = DataPersistenceManager.LoadGame( entry.guid );
 					DataPersistenceManager.SaveData = saveData;
-					MainMenuManager.Instance.StartGameFromSave();
+					MainMenuManager.Instance.StartGame();
 				};
 
 				saveSlotCard.OnDeleteClicked += () =>

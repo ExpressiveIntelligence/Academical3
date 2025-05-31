@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 namespace Academical
 {
-	[DefaultExecutionOrder( 2 )]
 	public class MainMenuManager : MonoBehaviour
 	{
 		#region Fields
@@ -35,29 +34,25 @@ namespace Academical
 
 		void OnEnable()
 		{
-			GameEvents.LevelSelected += StartNewGame;
+			GameEvents.LevelSelected += StartGame;
 		}
 
 		void OnDisable()
 		{
-			GameEvents.LevelSelected -= StartNewGame;
+			GameEvents.LevelSelected -= StartGame;
 		}
 
 		#endregion
 
-		public void StartNewGame()
+		public void StartGame()
 		{
-			GameLevelSO level =
-				GameLevelManager.Instance.GetLevelById( GameStateManager.GetGameState().levelId );
-			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( level.scenePath );
-			StartCoroutine( LoadGameScene() );
-		}
+			if ( DataPersistenceManager.SaveData == null )
+			{
+				GameStateManager.NewGame();
+			}
 
-		public void StartGameFromSave()
-		{
-			GameLevelSO level =
-				GameLevelManager.Instance.GetLevelById( DataPersistenceManager.SaveData.levelId );
-			m_SceneLoadingOperation = SceneManager.LoadSceneAsync( level.scenePath );
+			m_SceneLoadingOperation = SceneManager.LoadSceneAsync(
+				GameStateManager.Instance.LevelData.scenePath );
 			StartCoroutine( LoadGameScene() );
 		}
 

@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b7549738eaa45dfab62e263d70c5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: 'The game state manager tracks the state of the game while the gmae is running.
-    It also allows us to transfer information between scenes when loading new games.
-    The game state manager is NOT destroyed when loading new scenes. '
+  note: The game state manager tracks the state of the game while the game is running.
+    It also allows us to transfer information between scenes. The game state manager
+    is NOT destroyed when loading new scenes.
 --- !u!114 &69658808234927450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,4 +60,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4d0b8ef204e4069a936f370934c4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameLevel: {fileID: 0}
+  m_LevelData: {fileID: 11400000, guid: 366190f1609664c2e8d45025400a417d, type: 2}

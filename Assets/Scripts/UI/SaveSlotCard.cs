@@ -36,6 +36,9 @@ namespace Academical
 		[SerializeField]
 		private Button m_DeleteButton;
 
+		[SerializeField]
+		private LocationDatabaseSO m_LocationDb;
+
 		public Action OnPlayClicked;
 
 		public Action OnDeleteClicked;
@@ -56,13 +59,12 @@ namespace Academical
 		{
 
 			var timestamp = System.DateTime.Parse( saveSlotData.saveTimeStamp ).ToString();
-			string levelName = GameLevelManager.Instance.GetLevelById( saveSlotData.levelId ).displayName;
+			string levelName = GameStateManager.Instance.LevelData.displayName;
 			m_LevelName.text = $"<b>{levelName}</b>";
 			m_SaveTimeStamp.text = $"<b>Save Date:</b> {timestamp}";
 			m_AutoSaveIndicator.SetActive( saveSlotData.isAutoSave );
 
-			LocationData locationData
-				= BackgroundManager.GetLocationData( saveSlotData.currentLocationId );
+			LocationData locationData = m_LocationDb.GetLocationData( saveSlotData.currentLocationId );
 
 			m_LocationName.text = $"<b>Current Location:</b> {locationData.displayName}";
 			m_Date.text = $"<b>Current Date:</b> {saveSlotData.currentTimeOfDay}, Day {saveSlotData.currentDay}";

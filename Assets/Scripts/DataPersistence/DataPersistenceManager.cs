@@ -35,13 +35,24 @@ namespace Academical
 			}
 		}
 
+		public static string GetPersistentDataPath()
+		{
+#if UNITY_EDITOR
+			return Application.persistentDataPath;
+#elif UNITY_WEBGL
+			return "";
+#else
+			return Application.persistentDataPath;
+#endif
+		}
+
 		/// <summary>
 		/// Loads save slots from the manifest data stored on the persistent data path.
 		/// </summary>
 		public static SaveSlotManifestFile LoadSaveSlots()
 		{
 			string manifestPath = Path.Combine(
-				Application.persistentDataPath, "saves", "manifest.json" );
+				GetPersistentDataPath(), "manifest.json" );
 
 			if ( !Instance.m_DataService.FileExists( manifestPath ) )
 			{
@@ -102,17 +113,17 @@ namespace Academical
 			}
 
 			string manifestPath = Path.Combine(
-				Application.persistentDataPath, "saves", "manifest.json" );
+				GetPersistentDataPath(), "manifest.json" );
 
 			Instance.m_DataService.SaveData( manifestPath, manifest );
 
-			string savesDataPath = Path.Combine( Application.persistentDataPath, "saves" );
+			string savesDataPath = Path.Combine( GetPersistentDataPath() );
 
 			string fullPath = Path.Combine( savesDataPath, $"{saveData.guid}.save" );
 
 			Instance.m_DataService.SaveData( fullPath, saveData );
 
-			Debug.Log( "Saved game to: " + savesDataPath );
+			Debug.Log( "Saved game to: " + fullPath );
 
 			GameEvents.OnGameSaved?.Invoke( GameSavedEventResult.Success() );
 		}
@@ -125,7 +136,7 @@ namespace Academical
 		public static SaveData LoadGame(string guid)
 		{
 			string saveFilePath = Path.Combine(
-				Application.persistentDataPath, "saves", $"{guid}.save" );
+				GetPersistentDataPath(), $"{guid}.save" );
 
 			SaveData saveData = Instance.m_DataService.LoadData<SaveData>(
 				saveFilePath );
@@ -154,13 +165,20 @@ namespace Academical
 			}
 
 			string manifestPath = Path.Combine(
-				Application.persistentDataPath, "saves", "manifest.json" );
+				GetPersistentDataPath(), "manifest.json" );
 
 			Instance.m_DataService.SaveData( manifestPath, manifest );
 			Debug.Log( "Updated manifest json" );
 
 
-			string fullPath = Path.Combine( Application.persistentDataPath, "saves", $"{guid}.save" );
+			string fullPath = Path.Combine( GetPersistentDataPath(), $"{guid}.save" );
+
+#if UNITY_WEBGL
+			if ( PlayerPrefs.HasKey( fullPath ) )
+			{
+				PlayerPrefs.DeleteKey( fullPath );
+			}
+#else
 			try
 			{
 				// ensure the data file exists at this path before deleting the directory
@@ -182,6 +200,7 @@ namespace Academical
 				Debug.LogError( "Failed to delete save slot data for slot: "
 					+ guid + " at path: " + fullPath + "\n" + e );
 			}
+#endif
 		}
 	}
 }

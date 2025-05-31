@@ -3919,7 +3919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1eee92f5500d415d80781445018ae9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HideOnAwake: 0
+  m_HideOnAwake: 1
   m_BackButton: {fileID: 4897541498689541252}
   m_TextSpeedDropdown: {fileID: 6136830447117702544}
   m_MasterVolumeSlider: {fileID: 4678166958454530400}

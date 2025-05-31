@@ -4,69 +4,69 @@ using UnityEngine.UI;
 
 namespace Academical
 {
-	public class GameLevelCardUI : UIComponent
-	{
-		#region Fields
+    public class GameLevelCardUI : UIComponent
+    {
+        #region Fields
 
-		[Header( "UI Elements" )]
-		[SerializeField] private Button m_PlayButton;
-		[SerializeField] private TMP_Text m_Title;
-		[SerializeField] private TMP_Text m_Description;
-		[SerializeField] private GameLevelSO m_Data;
-		[SerializeField] private Image m_Thumbnail;
+        [Header( "UI Elements" )]
+        [SerializeField] private Button m_PlayButton;
+        [SerializeField] private TMP_Text m_Title;
+        [SerializeField] private TMP_Text m_Description;
+        [SerializeField] private GameLevelSO m_Data;
+        [SerializeField] private Image m_Thumbnail;
 
-		#endregion
+        #endregion
 
-		#region Unity Messages
+        #region Unity Messages
 
-		protected override void OnEnable()
-		{
-			base.OnEnable();
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-			if ( m_Data != null )
-			{
-				Initialize( m_Data );
-			}
-		}
+            if ( m_Data != null )
+            {
+                Initialize( m_Data );
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Public Methods
+        #region Public Methods
 
-		public void Initialize(GameLevelSO data)
-		{
-			m_Data = data;
-			m_Title.text = data.displayName;
-			m_Description.text = data.description;
-			m_Thumbnail.sprite = data.thumbnail;
-		}
+        public void Initialize(GameLevelSO data)
+        {
+            m_Data = data;
+            m_Title.text = data.displayName;
+            m_Description.text = data.description;
+            m_Thumbnail.sprite = data.thumbnail;
+        }
 
-		#endregion
+        #endregion
 
-		#region ProtectedMethods
+        #region ProtectedMethods
 
-		protected override void SubscribeToEvents()
-		{
-			m_PlayButton.onClick.AddListener( OnPlayButtonClicked );
-		}
+        protected override void SubscribeToEvents()
+        {
+            m_PlayButton.onClick.AddListener( OnPlayButtonClicked );
+        }
 
-		protected override void UnsubscribeFromEvents()
-		{
-			m_PlayButton.onClick.RemoveListener( OnPlayButtonClicked );
-		}
+        protected override void UnsubscribeFromEvents()
+        {
+            m_PlayButton.onClick.RemoveListener( OnPlayButtonClicked );
+        }
 
-		#endregion
+        #endregion
 
-		#region Private Methods
+        #region Private Methods
 
-		private void OnPlayButtonClicked()
-		{
-			AudioManager.PlayDefaultButtonSound();
-			GameStateManager.NewGame();
-			GameStateManager.GetGameState().levelId = m_Data.id;
-			MainMenuManager.Instance.StartNewGame();
-		}
+        private void OnPlayButtonClicked()
+        {
+            AudioManager.PlayDefaultButtonSound();
+            GameStateManager.NewGame();
+            GameStateManager.GetGameState().levelId = m_Data.id;
+            MainMenuManager.Instance.StartGame();
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
