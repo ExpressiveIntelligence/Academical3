@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,11 +9,17 @@ namespace Academical
 
 		public static Action OnUserClick;
 		public static Action OnSpaceBarUp;
+		public static Action OnEscapeKeyUp;
+		public static InputManager Instance { get; private set; }
 
-		// Start is called before the first frame update
-		void Start()
+		void Awake()
 		{
+			if ( Instance != null )
+			{
+				Destroy( gameObject );
+			}
 
+			Instance = this;
 		}
 
 		// Update is called once per frame
@@ -23,6 +27,7 @@ namespace Academical
 		{
 			CheckUserClick();
 			CheckSpaceBarUp();
+			CheckEscapeKeyUp();
 		}
 
 		private void CheckUserClick()
@@ -31,7 +36,6 @@ namespace Academical
 			{
 				if ( !EventSystem.current.IsPointerOverGameObject() )
 				{
-					Debug.Log( "User click" );
 					OnUserClick?.Invoke();
 				}
 			}
@@ -44,6 +48,13 @@ namespace Academical
 				OnSpaceBarUp?.Invoke();
 			}
 		}
+
+		private void CheckEscapeKeyUp()
+		{
+			if ( Input.GetKeyUp( KeyCode.Escape ) )
+			{
+				OnEscapeKeyUp?.Invoke();
+			}
+		}
 	}
 }
-

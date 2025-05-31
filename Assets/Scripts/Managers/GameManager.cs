@@ -9,6 +9,7 @@ using RePraxis;
 using TDRS;
 using TDRS.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Academical
 {
@@ -623,6 +624,11 @@ namespace Academical
 			}
 
 			return actionInfo;
+		}
+
+		public void NavigateToMainMenu()
+		{
+			SceneManager.LoadScene( "Scenes/MainMenu" );
 		}
 
 		private void RegisterExternalInkFunctions(Ink.Runtime.Story story)
