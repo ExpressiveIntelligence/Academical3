@@ -43,6 +43,8 @@ namespace Academical
 			ClearSaveSlotCards();
 			SaveSlotManifestFile saveSlotData = DataPersistenceManager.LoadSaveSlots();
 
+			Debug.Log( "Save slot data: " + saveSlotData.saves.Count );
+
 			m_NoSavesPlaceholder.SetActive( saveSlotData.saves.Count == 0 );
 
 			foreach ( SaveSlotData entry in saveSlotData.saves )

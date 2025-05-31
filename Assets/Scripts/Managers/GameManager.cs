@@ -98,6 +98,7 @@ namespace Academical
 			GameEvents.LocationSelectModalShown += OnLocationSelectModalShown;
 			GameEvents.ActionSelectModalShown += OnActionSelectModalShown;
 			GameEvents.ActionSelected += OnActionSelected;
+			GameEvents.OnGameSaved += OnGameSaved;
 		}
 
 		private void OnDisable()
@@ -105,6 +106,7 @@ namespace Academical
 			GameEvents.LocationSelectModalShown -= OnLocationSelectModalShown;
 			GameEvents.ActionSelectModalShown -= OnActionSelectModalShown;
 			GameEvents.ActionSelected -= OnActionSelected;
+			GameEvents.OnGameSaved -= OnGameSaved;
 		}
 
 		private void Start()
@@ -932,8 +934,19 @@ namespace Academical
 			saveData.dilemmas = DilemmaSystem.Instance.SerializeDilemmas().ToArray();
 
 			DataPersistenceManager.SaveGame( saveData );
+		}
 
-			NotificationManager.Instance.QueueNotification( "Game saved!" );
+		private void OnGameSaved(GameSavedEventResult result)
+		{
+			if ( result.success )
+			{
+				NotificationManager.Instance.QueueNotification( "Game saved!" );
+			}
+			else
+			{
+				NotificationManager.Instance.QueueNotification( "Save failed: " + result.message );
+				Debug.LogError( "Save failed: " + result.message );
+			}
 		}
 	}
 }
