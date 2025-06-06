@@ -425,7 +425,7 @@ Ivy: "Well, I know Jensen is looking to get on a research paper to help his chan
 
 === JensensGotIt ===
 
-Bronislav: "Jensen will figure it out, Ivy. If he's smart enough to get this far, he can figure out how to get into grad school."
+Bronislav: "Jensen will figure it out, Ivy. If he's smart enough to get this far, he can figure out how to get in."
 
 Ivy: "Maybe you're right," Ivy says with a sigh.
 
@@ -445,7 +445,7 @@ Ivy: "He just keeps talking about needing to get on a research paper to help his
 
 === IWouldntWorry ===
 
-Bronislav: "While it's nice of you to be concerned, I wouldn't worry about Jensen. If he's as hard of a worker as you say, and he's got the will to go to grad school, he can make it. Just like I did."
+Bronislav: "While it's nice of you to be concerned, I wouldn't worry about Jensen. If he's as hard of a worker as you say, and he's got the will to get in, he can make it. Just like I did."
 
 Ivy: "Maybe you're right," Ivy says with a small smile.
 
@@ -465,7 +465,7 @@ Ivy: "The last time he talked he seemed pretty hellbent on getting on a research
 
 === HeShouldBeWorried ===
 
-Bronislav: "Jensen should be worried. If he isn't on top of his game, he simply won't get in to grad school."
+Bronislav: "Jensen should be worried. If he isn't on top of his game, he simply won't get in."
 
 Ivy shoots you a look of annoyance.
 
@@ -493,13 +493,13 @@ Ivy: "You'd consider doing something like that?"
 
 You can't remember any other work he contributed, but he did feedback he gave at your presentation. Maybe that's enough to consider him an author?
 
-Bronislav: "Hey, I was in his shoes at one point, I do know how hard it is to get into grad school."
+Bronislav: "Hey, I was in his shoes at one point, I do know how hard it is to get in."
 
 ->ContinueYES
 
 === ThatsAToughie ===
 
-Bronislav: "That's a tough one. I'm not sure that there are a lot of research opportunities available to undergrads like that."
+Bronislav: "That's a tough one. I'm not sure that there are a lot of research opportunities available right now."
 
 Ivy: "Yeah, that's exactly what I told him. But he's very determined, and I would hate to seem him crushed by this,"
 
@@ -509,7 +509,7 @@ Ivy looks as though she is considering something, and resolves to ask you.
 
 === IsntMakeOrBreak ===
 
-Bronislav: "A research paper isn't make or break. There's lot of other ways to stand out getting into grad school, he just needs to look into them."
+Bronislav: "A research paper isn't make or break. There's lot of other ways to stand out to get into the psych program, he just needs to look into them."
 
 Ivy: "Yeah, maybe you're right. Still, he's certain it's the only path for him, no matter what I say to dissuade him."
 
@@ -529,7 +529,7 @@ Ivy looks as though she is considering asking you something, and decides to ask.
 
 === GiveQuidProQuo ===
 
-Ivy: "Do you think you'd be willing to put Jensen on your paper?"
+Ivy: "Do you think you'd be willing to put Jensen on your paper? If you do, I'll promise to give you a recommendation to my uncle."
 
 {DbInsert("givenQuidProQuo")}
 
