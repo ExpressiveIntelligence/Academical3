@@ -22,7 +22,7 @@ VAR BI_FirstCoffee_InternationalMentioned = false
 
 {ShowCharacter("Ivy", "left", "")}
 
-You decide to catch up with one of your peers, Ivy. She sits down across the table from you, setting down her coffee and smiling.
+You decide to catch up with one of your department's professors, Ivy. She sits down across the table from you, setting down her coffee and smiling.
 
 Ivy: "Hey Bronislav. Good to see you again." {ShowCharacter("Ivy", "left", "")}
 
@@ -51,7 +51,7 @@ Ivy: "That's great to hear. Did you happen to catch his name?"
 == JensenByName ===
 Bronislav: "His name was Jensen."
 
-Ivy: "Oh sweet! I know Jensen and he's been having some problems getting into grad school. Being on this paper would be great for him."
+Ivy: "Oh how funny! That's my nephew! He's been having some problems transfering from his masters to a Ph.D program. Being on this paper would be great for him."
 
 *["I see a bit of myself in him."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 5 ]
     ->BronislavSympathizes
@@ -67,9 +67,9 @@ Ivy: "Oh sweet! I know Jensen and he's been having some problems getting into gr
 ~ temp talkedWithBradAboutJensen = DbAssert("talkedWithBradAboutJensen")
 ~ BI_FirstCoffee_InternationalMentioned = true 
 
-Bronislav: "Getting into grad school wasn't easy for me either, especially being an international student and all, so I see a bit of myself in him. I'll keep him in mind."
+Bronislav: "Getting into this program wasn't easy for me either, especially being an international student and all, so I see a bit of myself in him. I'll keep him in mind."
 
-Ivy still very cheerful about the good news is also a bit confused.
+Ivy, while very cheerful about the good news, is also confused.
 
 Ivy: "Do you have some reservations about Jensen?"
 
@@ -139,7 +139,8 @@ Bronislav: "No, not yet."
 
 Ivy stirs her coffee.
 
-Ivy: "Well I have a student who is struggling to get into grad school right now named Jensen. Getting on such a big paper would certainly help him."
+Ivy: "Well my nephew Jensen is having alot of trouble transferring
+ from his masters into a Ph.D program. Getting on such a big paper would certainly help him."
 
 *["It is just too soon."]
     -> TooSoon

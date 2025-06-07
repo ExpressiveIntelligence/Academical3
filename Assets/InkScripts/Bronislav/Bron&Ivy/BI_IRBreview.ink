@@ -30,25 +30,25 @@ Bronislav: "I'm doing pretty well. I feel like I should be more nervous about th
 
 Ivy: "That's great to hear! I know the anticipation can definitely be overwhelming sometimes. Actually, that reminds me..."
 
-*[What's up?]
+*["What's up?"]
     ->WhatsUp
 
 === Alright ===
 
-Bronislav: "I'm alright, I've just been a bit preoccupied while waiting on the results of the IRB review."
+Bronislav: "I'm alright, I've just been a bit preoccupied while waiting on the IRB ."
 
 Ivy: "That's fair, I can understand why that would be daunting. Actually, that reminds me..."
 
-*[What's up?]
+*["What's up?"]
     ->WhatsUp
 
 === BI_IRB_Terrible ===
 
-Bronislav: "I'm actually kind of wreck right now. I know I shouldn't be, but I'm pretty nervous about the IRB review."
+Bronislav: "I'm actually kind of wreck right now. I know I shouldn't be, but I'm pretty nervous about getting IRB approval."
 
 Ivy: "Oh man Bronislav, I'm sorry! If I know anything about you, I'm sure you did everything that was required, so don't stress too much. Actually, that reminds me, I have something that might cheer you up."
 
-*[What's up?]
+*["What's up?"]
     ->WhatsUp
 
 === WhatsUp ===
@@ -66,6 +66,7 @@ Ivy: "You remember the firm I work at with my uncle, right?"
 
 = offerAJobThought
 I've been wanting a job at her uncle's firm for months, is she finally going to offer me a job? I'd do anything to work there. -> TrapDoorResearchFirm
+
 = VisaIssues
 Graduation is around the corner and I could really use this job. I've been talking to her about my issues for a while so I hope she remembers. If I don't land anything soon, I may not be able to stay. -> TrapDoorResearchFirm
 
@@ -184,9 +185,9 @@ Ivy: "I didn't ask him for too many details, he just said to pass off the info t
 
 Bronislav: "You could talk to your Uncle for me."
 
-Ivy: "I mean, yeah I could, but it's not like you'd do something like that for me."
+Ivy: "I mean...I guess I could."
 
-Bronislav: "What's that supposed to mean?" You ask, a bit surprised.
+Bronislav: "Is something wrong?" 
 
 Ivy: "Oh, don't play dumb Bronislav. You haven't exactly been shy about your dislike for me."
 
@@ -225,7 +226,7 @@ Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
 
     Ivy smiles, as though a lightbulb went off in her head.
 
-    Ivy: "Actually, I'm realizing I might be able to mention you to my uncle to help you get the position."
+    Ivy: "Actually, I might be able to mention you to my uncle to help you get the position."
 
     Bronislav: "You'd do that?"
 
@@ -241,9 +242,9 @@ Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
 
     You decide not to push you luck, especially since you don't want to come off as ungrateful.
 
-    Bronislav: "I now have something to look into while I wait for this review," you say excitedly.
+    Bronislav: "Now I have something to look into while I wait for this review," you say excitedly.
 
-    Ivy: "Now that I think about it, I could probably mention you to my uncle to help with your application."
+    Ivy: "Actually, I could probably mention you to my uncle to help with your application."
 
     Bronislav: "Wait, really?"
 
@@ -259,7 +260,7 @@ Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
 
     You decide not to push your luck, especially since you and Ivy are not the closest.
 
-    Bronislav: "I definitely now have something to look into while I wait for my review." You say appreciatively.
+    Bronislav: "I definitely now have something to look into while I wait for IRB approval." You say appreciatively.
 
     Ivy nods.
 
@@ -318,7 +319,7 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
 
 Bronislav: "What's going on with him?"
 
-Ivy: "He's been really stressed. He's such a hard worker, but he's always worried about not doing enough, and that is certainly not helping his anxiousness about grad school."
+Ivy: "He's been really stressed. He's such a hard worker, but he's always worried about not doing enough. It's certainly not helping his anxiousness about getting into the program."
 
 *["I know the feeling." #>> ChangeOpinion Ivy Bronislav ++++]
     ->IKnowTheFeeling
@@ -354,7 +355,7 @@ Ivy: "Yeah," Ivy says with a smile, "I guess you do, huh."
 
 Bronislav: "Yeah, that's a tough spot to be in. I hope he can figure it all out."
 
-Ivy: "Me too," Ivy says with a sigh, "He definitely belongs in grad school."
+Ivy: "Me too," Ivy says with a sigh, "He definitely belongs here."
 
 *["Is there any way I can help him?" #>> ChangeOpinion Ivy Bronislav ++]
     ->AnyWayICanHelp
@@ -408,7 +409,7 @@ Ivy: "Yeah, no kidding." Ivy says shaking her head, "It's always a grind."
 
 Bronislav: "Is there a way I can help him at all? I know I went through my own challenges getting into grad school, and I'd be willing to pass along some of my own knowledge."
 
-Ivy: "Well, I know Jensen is looking to get on a research paper to help his chances. He thinks that by having authorship on something, he really will be able to make an impression."
+Ivy: "Well, I know Jensen is looking to get on a research paper to help his chances. He thinks that having authorship on something, would really help make an impression."
 
 *["Maybe I could put him on my paper?" #>> ChangeOpinion Ivy Bronislav +++]
     ->PutHimOn
@@ -424,7 +425,7 @@ Ivy: "Well, I know Jensen is looking to get on a research paper to help his chan
 
 === JensensGotIt ===
 
-Bronislav: "Jensen will figure it out, Ivy. If he's smart enough to get this far, he can figure out how to get into grad school."
+Bronislav: "Jensen will figure it out, Ivy. If he's smart enough to get this far, he can figure out how to get in."
 
 Ivy: "Maybe you're right," Ivy says with a sigh.
 
@@ -444,7 +445,7 @@ Ivy: "He just keeps talking about needing to get on a research paper to help his
 
 === IWouldntWorry ===
 
-Bronislav: "While it's nice of you to be concerned, I wouldn't worry about Jensen. If he's as hard of a worker as you say, and he's got the will to go to grad school, he can make it. Just like I did."
+Bronislav: "While it's nice of you to be concerned, I wouldn't worry about Jensen. If he's as hard of a worker as you say, and he's got the will to get in, he can make it. Just like I did."
 
 Ivy: "Maybe you're right," Ivy says with a small smile.
 
@@ -464,7 +465,7 @@ Ivy: "The last time he talked he seemed pretty hellbent on getting on a research
 
 === HeShouldBeWorried ===
 
-Bronislav: "Jensen should be worried. If he isn't on top of his game, he simply won't get in to grad school."
+Bronislav: "Jensen should be worried. If he isn't on top of his game, he simply won't get in."
 
 Ivy shoots you a look of annoyance.
 
@@ -492,13 +493,13 @@ Ivy: "You'd consider doing something like that?"
 
 You can't remember any other work he contributed, but he did feedback he gave at your presentation. Maybe that's enough to consider him an author?
 
-Bronislav: "Hey, I was in his shoes at one point, I do know how hard it is to get into grad school."
+Bronislav: "Hey, I was in his shoes at one point, I do know how hard it is to get in."
 
 ->ContinueYES
 
 === ThatsAToughie ===
 
-Bronislav: "That's a tough one. I'm not sure that there are a lot of research opportunities available to undergrads like that."
+Bronislav: "That's a tough one. I'm not sure that there are a lot of research opportunities available right now."
 
 Ivy: "Yeah, that's exactly what I told him. But he's very determined, and I would hate to seem him crushed by this,"
 
@@ -508,7 +509,7 @@ Ivy looks as though she is considering something, and resolves to ask you.
 
 === IsntMakeOrBreak ===
 
-Bronislav: "A research paper isn't make or break. There's lot of other ways to stand out getting into grad school, he just needs to look into them."
+Bronislav: "A research paper isn't make or break. There's lot of other ways to stand out to get into the psych program, he just needs to look into them."
 
 Ivy: "Yeah, maybe you're right. Still, he's certain it's the only path for him, no matter what I say to dissuade him."
 
@@ -528,7 +529,7 @@ Ivy looks as though she is considering asking you something, and decides to ask.
 
 === GiveQuidProQuo ===
 
-Ivy: "Do you think you'd be willing to put Jensen on your paper?"
+Ivy: "Do you think you'd be willing to put Jensen on your paper? If you do, I'll promise to give you a recommendation to my uncle."
 
 {DbInsert("givenQuidProQuo")}
 

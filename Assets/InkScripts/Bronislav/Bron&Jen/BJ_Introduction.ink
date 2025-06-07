@@ -25,7 +25,7 @@ As Bronislav, you must chose how to approach this situation.
 {UnlockAllLocations()}
 {DbInsert("Seen_BJ_INTRO")}
 
-Today you are presenting a practice paper talk at the weekly department seminar.
+Today you are presenting a practice paper talk at the weekly psychology department seminar.
 
 You go to the front of the room and speak for about 45 minutes.
 
