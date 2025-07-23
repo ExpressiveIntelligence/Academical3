@@ -137,6 +137,8 @@ namespace Academical
 			m_simulationController.Initialize();
 			m_dialogueManager.Story.DB = SocialEngineController.Instance.DB;
 			m_dialogueManager.Initialize();
+
+
 			RegisterExternalInkFunctions( m_dialogueManager.Story.InkStory );
 
 			this.m_actionStorylets = m_dialogueManager.Story

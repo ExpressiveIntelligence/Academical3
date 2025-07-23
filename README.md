@@ -6,6 +6,14 @@
 
 Academical 3.0 is rendition of the experimental research game *Academical*, originally made using Twine. Academical is an educational game that teaches players about the Responsible Conduct of Research and ethics. In this version, players must do their best to resolve scenarios that place ethical decision making in conflict with navigating social relationships. The design is meant to showcase how ethical decision-making is more difficult when you factor in the social realities realities of the workplace (friendships, power imbalances, personal goals, etc.).
 
+## Getting Started
+
+### Local Environment
+
+1. Clone the repository into the folder of your choosing.
+2. Switch to the "MainMenu" scene (Assets/Scenes/MainMenu).
+3. Ensure that Ink has compiled. This can be done through the engine menu at Assets > Recompile Ink. You should see the file "main.json" appear under Assets/InkScripts/Bronislav/. If you do not see this file, your local environment will not run and you need to recompile Ink.
+
 ## Previous Academical Versions
 
 - [The original Academical game](https://mkremins.github.io/rcr/)

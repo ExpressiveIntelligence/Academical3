@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Anansi;
 using TDRS;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -183,6 +184,29 @@ namespace Academical
 			IsWaitingForInput = false;
 			CurrentSpeaker = null;
 			CurrentBackground = null;
+
+			//Safety check for assignment before loading.
+			//TODO: Refactor into a util class - used in multiple classes.
+			if ( m_InkStoryJson == null )
+			{
+				string[] searchFolder = new string[] { "Assets" };
+				string[] guids = AssetDatabase.FindAssets( "glob:main.json", searchFolder );
+				//TODO: Move Logging errors to a constants file.
+				if ( guids.Length == 0 )
+				{
+					Debug.LogError( "No main.json found in assets! Build will not execute properly." );
+				}
+				else if ( guids.Length > 1 )
+				{
+					Debug.LogError( "More than one main.json found in assets! Please ensure there is only one entry (main) JSON in the project." );
+				}
+				else
+				{
+					var inkStoryJsonPath = AssetDatabase.GUIDToAssetPath( guids[0] );
+					m_InkStoryJson = (TextAsset)AssetDatabase.LoadAssetAtPath( inkStoryJsonPath, typeof( TextAsset ) );
+				}
+			}
+
 			m_story = new Story( m_InkStoryJson.text );
 
 			m_Characters = new Dictionary<string, Character>();

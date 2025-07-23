@@ -86,7 +86,7 @@ dist/
 **/.DS_Store
 
 # !Build/
-# !Build/Academical3_Web/Build
+!Build/Academical3_Web/.gitkeep
 
 node_modules
 .vsconfig
