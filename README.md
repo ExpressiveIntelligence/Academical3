@@ -12,7 +12,7 @@ Academical 3.0 is rendition of the experimental research game *Academical*, orig
 
 1. Clone the repository into the folder of your choosing.
 2. Switch to the "MainMenu" scene (Assets/Scenes/MainMenu).
-3. Ensure that Ink has compiled. This can be done through the engine menu at Assets > Recompile Ink. You should see the file "main.json" appear under Assets/InkScripts/Bronislav/. If you do not see this file, your local environment will not run and you need to recompile Ink.
+3. Ensure that Ink has compiled. This can be done through the engine menu at Assets > Recompile Ink. You should see the file "main.json" appear under Assets/Resources/. If you do not see this file, your local environment will not run and you need to recompile Ink.
 
 ## Previous Academical Versions
 

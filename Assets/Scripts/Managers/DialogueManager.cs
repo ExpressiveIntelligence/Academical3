@@ -185,25 +185,14 @@ namespace Academical
 			CurrentSpeaker = null;
 			CurrentBackground = null;
 
-			//Safety check for assignment before loading.
+			//Safety check for assignment before loading. If there's no main.json, game crashes. This attempts to load main.json from the resources folder.
 			//TODO: Refactor into a util class - used in multiple classes.
 			if ( m_InkStoryJson == null )
 			{
-				string[] searchFolder = new string[] { "Assets" };
-				string[] guids = AssetDatabase.FindAssets( "glob:main.json", searchFolder );
-				//TODO: Move Logging errors to a constants file.
-				if ( guids.Length == 0 )
+				m_InkStoryJson = Resources.Load<TextAsset>( "main" );
+				if ( m_InkStoryJson == null )
 				{
-					Debug.LogError( "No main.json found in assets! Build will not execute properly." );
-				}
-				else if ( guids.Length > 1 )
-				{
-					Debug.LogError( "More than one main.json found in assets! Please ensure there is only one entry (main) JSON in the project." );
-				}
-				else
-				{
-					var inkStoryJsonPath = AssetDatabase.GUIDToAssetPath( guids[0] );
-					m_InkStoryJson = (TextAsset)AssetDatabase.LoadAssetAtPath( inkStoryJsonPath, typeof( TextAsset ) );
+					Debug.LogError( "No main.json in Resources! Please recompile Ink; game will crash without it." );
 				}
 			}
 

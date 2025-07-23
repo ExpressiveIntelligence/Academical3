@@ -93,5 +93,5 @@ node_modules
 
 # Ignore the Ink story build. Let Unity rebuild it when
 # you open the project.
-Assets/InkScripts/Bronislav/main.json
-Assets/InkScripts/Bronislav/main.json.meta
+Assets/Resources/main.json
+Assets/Resources/main.json.meta
