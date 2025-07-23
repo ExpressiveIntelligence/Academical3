@@ -8,8 +8,9 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
+/[Bb]uild/**
+!/[Bb]uild/**/
+!/[Bb]uild/**/.gitkeep
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
@@ -79,6 +80,7 @@ crashlytics-build.properties
 # Keep the following
 !Documentation~/
 !Samples~/
+!/Build/**/.gitkeep
 
 dist/
 
@@ -86,12 +88,18 @@ dist/
 **/.DS_Store
 
 # !Build/
-# !Build/Academical3_Web/Build
+!/Build/Academical3_Web/.gitkeep
 
 node_modules
 .vsconfig
 
 # Ignore the Ink story build. Let Unity rebuild it when
 # you open the project.
+Assets/Resources/main.json
+Assets/Resources/main.json.meta
+Assets/Resources/hendricks_main.json
+Assets/Resources/hendricks_main.json.meta
 Assets/InkScripts/Bronislav/main.json
 Assets/InkScripts/Bronislav/main.json.meta
+Assets/InkScripts/Hendricks/hendricks_main.json.meta
+Assets/InkScripts/Hendricks/hendricks_main.json

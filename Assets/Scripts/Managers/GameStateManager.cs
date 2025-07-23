@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 
 namespace Academical
 {
@@ -28,6 +29,18 @@ namespace Academical
 			Instance = this;
 			m_GameState = new GameState();
 			DontDestroyOnLoad( gameObject );
+
+			//Safety check GameLevelSO. If there's no main.json, the game crashes. This will attempt to load the main.json from the resources folder.
+			//TODO: Refactor into a util class - used in multiple classes.
+			if ( m_LevelData.inkScript == null )
+			{
+				m_LevelData.inkScript = Resources.Load<TextAsset>( "main" );
+				//If we still failed to fetch, log an error
+				if ( m_LevelData.inkScript == null )
+				{
+					Debug.LogError( "No main.json in Resources! Please recompile Ink; game will crash without it." );
+				}
+			}
 		}
 
 		public static void NewGame()

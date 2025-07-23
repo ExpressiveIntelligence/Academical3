@@ -3,7 +3,10 @@ guid: a5ab339b2de3b4d148f1232a882555be
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_InkStoryJson: {instanceID: 0}
+  - m_simulationController: {instanceID: 0}
+  - m_ChoiceFilteringStrategy: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   templateFile: {fileID: 0}
-  defaultJsonAssetPath: {fileID: 0}
+  defaultJsonAssetPath: {fileID: 102900000, guid: cd2d47689eb2b4bdfb17087ed7d9a85f, type: 3}
   compileAllFilesAutomatically: 1
   includeFilesToCompileAsMasterFiles: []
   filesToCompileAutomatically: []
@@ -22,3 +22,4 @@ MonoBehaviour:
   compileTimeout: 30
   printInkLogsInConsoleOnCompile: 0
   suppressStartupWindow: 0
+  automaticallyAddDefineSymbols: 1

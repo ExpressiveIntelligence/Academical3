@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Anansi;
 using TDRS;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -183,6 +184,18 @@ namespace Academical
 			IsWaitingForInput = false;
 			CurrentSpeaker = null;
 			CurrentBackground = null;
+
+			//Safety check for assignment before loading. If there's no main.json, game crashes. This attempts to load main.json from the resources folder.
+			//TODO: Refactor into a util class - used in multiple classes.
+			if ( m_InkStoryJson == null )
+			{
+				m_InkStoryJson = Resources.Load<TextAsset>( "main" );
+				if ( m_InkStoryJson == null )
+				{
+					Debug.LogError( "No main.json in Resources! Please recompile Ink; game will crash without it." );
+				}
+			}
+
 			m_story = new Story( m_InkStoryJson.text );
 
 			m_Characters = new Dictionary<string, Character>();

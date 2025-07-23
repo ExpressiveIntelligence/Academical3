@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "f7a5ed16b93fe2d220d8833a82e0324276cd2d0e"
+      "hash": "2b6b4fc41b040202b929a8b7ba76e45a17867b8c"
     },
     "com.shijbey.anansi": {
       "version": "file:com.shijbey.anansi",
