@@ -95,3 +95,9 @@ node_modules
 # you open the project.
 Assets/Resources/main.json
 Assets/Resources/main.json.meta
+Assets/Resources/hendricks_main.json
+Assets/Resources/hendricks_main.json.meta
+Assets/InkScripts/Bronislav/main.json
+Assets/InkScripts/Bronislav/main.json.meta
+Assets/InkScripts/Hendricks/hendricks_main.json.meta
+Assets/InkScripts/Hendricks/hendricks_main.json
