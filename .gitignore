@@ -8,8 +8,9 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
+/[Bb]uild/**
+!/[Bb]uild/**/
+!/[Bb]uild/**/.gitkeep
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
@@ -79,6 +80,7 @@ crashlytics-build.properties
 # Keep the following
 !Documentation~/
 !Samples~/
+!/Build/**/.gitkeep
 
 dist/
 
@@ -86,7 +88,7 @@ dist/
 **/.DS_Store
 
 # !Build/
-!Build/Academical3_Web/.gitkeep
+!/Build/Academical3_Web/.gitkeep
 
 node_modules
 .vsconfig
