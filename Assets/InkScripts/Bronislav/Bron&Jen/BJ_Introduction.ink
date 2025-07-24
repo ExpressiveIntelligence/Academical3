@@ -29,9 +29,9 @@ Today you are presenting a practice paper talk at the weekly psychology departme
 
 You go to the front of the room and speak for about 45 minutes.
 
-Surprisingly, the audience seemed to enjoy your work. A few tough questions, but nothing you couldn't handle.
+Surprisingly, your peers seemed to enjoy your work. A few tough questions, but nothing you couldn't handle.
 
-Afterward, while packing up your laptop, a student approaches you, eager to talk.
+Afterward, while packing up your laptop, someone approaches you, eager to talk.
 
 Jensen: "Bronislav, right? Nice to meet you. I'm Jensen." {ShowCharacter("Jensen", "left", "")}
 
@@ -118,7 +118,7 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 
 === BJIntro_mention_cafe_with_ivy ===
 
-Bronislav: Glad that's done.
+Bronislav: "Glad that's done."
 
 You check the time on your phone. You promised to meet Professor Ivy for coffee later at the cafe, but you may have a little time for something else.
 
