@@ -2,7 +2,7 @@
 # ---
 # choiceLabel: Meet with Ned.
 # @query
-# Seen_BJS1
+# Seen_BJ_INTRO
 # date.day!1
 # @end
 # hidden: true
