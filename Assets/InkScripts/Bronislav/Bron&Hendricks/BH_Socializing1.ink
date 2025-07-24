@@ -2,13 +2,12 @@
 
 \*Buzz Buzz\* Your phone vibrates with a notification.
 
-It's an email from you advisor, Hendricks.
+It's an email from your advisor, Hendricks.
 
 She wants to talk about your research progress.
 
 * [Agree to meet her later today #>> ChangeOpinion Hendricks Bronislav +]
-    You reply to her email. The two of you agree to meet at the library later
-    today.
+    You reply to her email. The two of you agree to meet at the library later today.
     {DbInsert("BHS1_unlocked")}
 * [Ignore the email #>> ChangeOpinion Hendricks Bronislav -]
     You put your phone back in your pocket.
@@ -226,18 +225,47 @@ Hendricks silently looks at you with her "non-judgemental" stare.
 ===BHS1_TrapDoorPraveen===
 *["I told you he was a good student."] -> BHS1_TrapDoorPraveenGoodStudent
 *["He's been doing great."] -> BHS1_TrapDoorPraveenGreat
-*["He's struggling."] -> BHS1_PraveenConvoEnding
+*["He's struggling."] -> BHS1_PraveenRecommendation
 
 =BHS1_TrapDoorPraveenGreat
 You prepare to say this but hold back. Hendricks knows Praveen's been struggling since he's arrived. Even though you have hopes for him, you probably should be truthful about what's actually happening. ->BHS1_TrapDoorPraveen
 
 =BHS1_TrapDoorPraveenGoodStudent
-You prepare to say this but hold back. Sure, he may have the grades, but that hasn't been his struggle. Even though you have hopes for him, you probably should be truthful about what's actually happening. -> BHS1_TrapDoorPraveen
+You want to say this but hold back. Sure, he may have the grades, but that hasn't been his struggle. Even though you have hopes for him, you probably should be truthful about what's actually happening. -> BHS1_TrapDoorPraveen
 
-===BHS1_PraveenConvoEnding===
-Bronislav: "Sure, he may be struggling a bit but that's just kind of how the first year goes."
+==BHS1_PraveenRecommendation==
+
+Bronislav: "Sure, he may be struggling a bit, but that's just kind of how the first year goes."
 
 Hendricks: "You're right. Well I'd have to wish you the best of luck on your endeavour Bronislav. If you need some more helpful advice on your paper you can always reach out."
+
+*["Actually, one more thing"] -> BHS1_PraveenContemplate 
+*["Bye Hendricks"] -> BHS1_PraveenConvoEnding
+
+= BHS1_PraveenContemplate  
+
+Even though he is struggling, Praveen could succeed if given an opportunity. Recommending him would be greatly appreciated. 
+
+*["Have you considered putting Praveen as a reviewer?"] -> BHS1_PraveenReviewer 
+*["Nevermind."] -> BHS1_BeginningOfGoodbye 
+
+= BHS1_PraveenReviewer  
+Bronislav: "It would be a great opportunity for him, and I think he's going to do a good job." 
+
+Hendricks: "Hm, I haven't. I'll consider it, but for now I need to go. See you later!" 
+
+Bronislav: "Thanks, Hendricks! Bye!" 
+
+-> BHS1_PraveenConvoEnding
+
+= BHS1_BeginningOfGoodbye 
+Hendricks: "Alright then, if you have anything you'd like to talk about, I'm here to help. Doesn't only need to be about your paper." 
+
+Bronislav: "Thank you, Hendricks" 
+
+-> BHS1_PraveenConvoEnding
+
+===BHS1_PraveenConvoEnding===
 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
