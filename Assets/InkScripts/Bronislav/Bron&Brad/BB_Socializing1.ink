@@ -22,7 +22,7 @@ Brad: "It's the IRB! Stop working on that paper right now!"
 
 You see your friend, Brad.
 
-Brad: "Just joking!"
+Brad: "Just kidding!"
 
 *["They let anyone in the IRB."]
 ->BB_S1_LetAnyoneIn
@@ -56,6 +56,9 @@ Brad takes a chair and sits down in your cubicle.
 
 Brad: "It went alright, I've been a bit stressed about the paper so I really only half absorbed the feedback we got."
 
+*[Did something go wrong with our paper?]
+->BB_S1_PaperExposition
+
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
 
@@ -67,7 +70,7 @@ You just keep working.
 
 Brad rolls his eyes and brings a chair into your cubicle.
 
-Brad: "Always the hard worker Bronislav. How was that lab meeting for you?"
+Brad: "Always a hard worker, Bronislav. How was the lab meeting for you?"
 
 *["Going good."]
 ->BB_S1_GoingGood
@@ -143,6 +146,11 @@ Brad: "It's just... it feels like the IRB has been taking a long time to approve
 
 *["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav 10]
 ->BB_S1_StressedAbtThat
+
+==BB_S1_PaperExposition==
+You and Brad have been working on a paper together for the past couple of weeks, but recently you've been so busy with other things that Brad has been the primary author. The survey is expected to receive IRB approval soon, but with deadlines approaching, it has been a source of stress for both of you. 
+
+-> BB_S1_HeyBrad
 
 === BB_S1_SorryToHear ===
 Bronislav: "I'm sorry to hear that Brad. What's going on?"
@@ -339,12 +347,12 @@ Bronislav: "Who? Jensen?"
 
 Brad snaps his fingers.
 
-Brad: "Right, Jensen. Something about him really sets off some alarms. I don't have anything direct, but he also talked with me and didn't seem fit for something like this."
+Brad: "Right, Jensen. Something about him really sets off some alarms. I don't have anything direct, but he also talked with me and...well, I hope you're not considering putting him on this paper. He doesn't seem fit for something like this."
 
 *["I wasn't planning on it."]
 ->BB_S1_WasntPlanningOnIt
 
-*["Could be nervous."]
+*["He could be nervous."]
 ->BB_S1_CouldBeNervous
 
 *["Pretty harsh."]
