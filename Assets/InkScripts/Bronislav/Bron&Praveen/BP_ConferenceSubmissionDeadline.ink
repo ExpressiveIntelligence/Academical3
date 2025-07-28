@@ -3,8 +3,6 @@
 # choiceLabel: Talk with Praveen.
 # hidden: true
 # @query
-# metPraveen
-# metHendricks
 # Seen_BI_CONF
 # @end
 # tags: action, library, auxiliary
