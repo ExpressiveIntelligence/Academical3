@@ -2,7 +2,7 @@
 # ---
 # choiceLabel: Talk to Jensen
 # @query
-# Seen_BJ_CONF
+# Seen_BI_CONF
 # date.day!3
 # @end
 # repeatable: false

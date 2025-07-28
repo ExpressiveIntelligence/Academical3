@@ -3,6 +3,7 @@
 #choiceLabel: Chat with Praveen.
 #@query
 # date.day!3
+#Seen_BP_ConferenceSubmissionDeadline
 #@end.
 #repeatable: false
 #tags: action, student_cubicles
