@@ -20,9 +20,7 @@ She smiles gently as she turns her full attention to you.
 Hendricks: "Good to see you, Bronislav, how is the week treating you so far?"
 
 *["I'm exhausted. But at least the paper is ready."]
-    Bronislav: "I'm exhausted. But my paper is finally ready to recieve reviews, thankfully."
-    
-    She makes a face somewhere between a grimace and a smile.
+    Bronislav: "I'm exhausted. But my paper is finally ready for review, thankfully."
     
     Hendricks: "I understand the feeling. I'm proud of you."
 
@@ -70,7 +68,7 @@ Hendricks: "Is there anything I can do to help you succeed in this next stage of
 *["Convenient."]
     Bronislav: "Convenient."
 *["That's great!"]
-    Bronislav: "That's rad!"
+    Bronislav: "That's great!"
 *["Do you think he will have good feedback?"]
     Bronislav: "Do you think he will have good feedback?"
 
