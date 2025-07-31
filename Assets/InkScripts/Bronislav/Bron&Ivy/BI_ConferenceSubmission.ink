@@ -47,7 +47,7 @@ All he gave was that one piece of feedback, is that enough to be put as first au
 ->ChoiceOptionsForDeal
 
 === ThanksIvy ===
-Bronislav: "That's really generous of you. Thank you Ivy. If I get this done in time, I'll be heavily considering adding him to the paper."
+Bronislav: "That's really generous of you. Thank you Ivy. If I get this done in time, I'll be heavily considering putting him as first author."
 
 Ivy: "Thank you, I just hope Jensen can get into grad school with this and a few more papers under his belt. It's really important to him."
 
@@ -120,7 +120,7 @@ Bronislav: "Look, I'm not sure yet Ivy..."
 
 You hesitantly speak up.
 
-Ivy:"Not sure yet? Things are getting a bit close for the deadline, Bronislav."
+Ivy:"Not sure yet? We are right on the deadline, Bronislav."
 
 Ivy: "Look, you get Jensen on that paper and I'll see what I can do about getting you that recommendation. You get a visa sponsor, and Jensen gets into grad school, it's as simple as that."
 
@@ -147,7 +147,7 @@ Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the 
 *{internalReflectionPositive2}["Thanks, but are you sure?" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
 ->YouSure
 
-*{internalReflectionPositive2}[I'm not sure about this?"]
+*{internalReflectionPositive2}[I'm not sure about this]
 ->ImNotSure
 
 =internalReflectionPositive
@@ -207,7 +207,7 @@ Ivy waves goodbye, taking her leave briskly.
 ->DONE
 
 // if neutral or negative relationship
-Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed Jensen."
+Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed about Jensen."
 
 She looks dejected.
 
@@ -252,7 +252,7 @@ Ivy walks away, not even waving goodbye.
 ->DONE
 
 === ThatWontHelp ===
-Bronislav: "Look, it won't really help with how the feedback from Jensen is."
+Bronislav: "Look, it won't really help with the feedback he gave."
 
 You smile a little.
 

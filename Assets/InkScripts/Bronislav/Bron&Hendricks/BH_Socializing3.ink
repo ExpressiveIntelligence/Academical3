@@ -13,17 +13,17 @@
 
 {ShowCharacter("Hendricks", "left", "")}
 
-You take a seat next to the professor where she sits at a desk in the library, a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought.
+You take a seat across from Hendricks, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought.
 
 
-*[Clear your throat]
+*[Clear your throat.]
 Bronislav: "Ahem."
 *["Hello professor."]
 Bronislav: "Hello professor."
 
 - Hendricks: "Bronislav!"
 
-She turns to you, hand over her heart, smiling.
+She turns to you smiling.
 
 Hendricks: "I didn't see you there, take a seat! How are you doing? You seem... introspective. Did something happen?"
 
@@ -62,7 +62,7 @@ Bronislav: "Why not?"
 
 Hendricks: "It brings bias into your work that undermines its integrity. What Ivy is offering sounds like "quid pro quo", which is essentially trading one favor for another. Its a slippery slope of conflicting interests.
 
-*["I see.*]
+*["I see."]
 Bronislav: I see...
 
 ->BHS3_HowDoYouMeanISee
@@ -86,7 +86,7 @@ Hendricks: "It's odd... this isn't the only strange thing I've seen happen aroun
 *["What do you mean?"]
     Bronislav: "What do you mean?"
 
--Hendricks: "To speak candidly, something is not quite... adding up- with Brad and his research. At least, according to what I've heard from Ned. Neither of us can quite put our finger on the problem, though."
+-Hendricks: "To speak candidly, something is not quite... adding up with Brad and his research. At least, according to what I've heard from Ned. Neither of us can quite put our finger on the problem, though."
 
 She seems to consider asking your opinion, but holds her tongue.
 
@@ -128,7 +128,7 @@ She seems to be telling half the truth, put off by your curtness.
     Bronislav: "No, I just wanted to say hello."
         Hendricks: "Well, it was good to see you! I should probably get back to my reading. It was just getting good."
 
-    As far as you can tell, she is reading a calculus textbook. She smiles and waves as you take your leave.
+   She smiles and waves as you take your leave.
     
     ->BHS3_HideHenAndEnd
     

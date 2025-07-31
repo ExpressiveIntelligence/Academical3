@@ -20,7 +20,7 @@ After submitting your paper you sit down and try to finally get a second of rest
 
 {ShowCharacter("Brad", "left", "")}
 
-Brad: "Hey Bronislav. Nice to see you! How've you been?" He says nervously.
+Brad: "Hey Bronislav. Nice to see you! How've you been?" 
 
 *["Relieved."]
 ->BB_CSD_Relieved
@@ -89,7 +89,7 @@ Brad: "I just need your input on something."
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_AnywayICouldHelp ===
-Bronislav: "Is there some way I can help? I know it's the submission deadline, but I'll help where I can."
+Bronislav: "Is there some way I can help? I know the conference submission deadline is soon, but I'll help where I can."
 
 Brad shrugs.
 
@@ -159,7 +159,7 @@ Bronislav: "Go ahead!"
 
 Brad beams happily.
 
-Brad: "Great! I did submit the paper, I used the data I gathered, and I got the IRB's approval on my research."
+Brad: "Great! I used the data I gathered, submitted the paper, and got the IRB's approval on my research."
 
 He pauses for a bit.
 
@@ -175,7 +175,7 @@ Brad: "The only problem is I got the data before the IRB approved it. That can't
 ->BB_CSD_ShouldntBeThatBad
 
 === BB_CSD_ThatsReallyBad ===
-Bronislav: "Brad, that is a really bad thing to do. Even if they did approve you doing your research doesn't mean you can use your data before you got approval."
+Bronislav: "Brad, that is a really bad thing to do. Even if they did approve you doing your research doesn't mean you can get data before you got approval."
 
 Brad looks even more nervous.
 

@@ -90,7 +90,7 @@ Ivy: "Yeah, I totally can send you the job listing."
 
     Bronislav: "That would be great Ivy! I really appreciate it!" # >> ChangeOpinion Ivy Bronislav ++
 
-    Ivy: "Of course, I am happy to help a student out!" She says with a big smile.
+    Ivy: "Of course, I am happy to help a student out!" 
 
     - ivyOpinion == OpinionState.Neutral:
 
@@ -98,7 +98,7 @@ Ivy: "Yeah, I totally can send you the job listing."
 
     Ivy: "Don't mention it. I figured it might be something to look into while you wait to hear about your paper."
 
-    Bronislav: "Yeah, definitely," You say with a nod.
+    Bronislav: "Yeah, definitely!" 
 
     - else:
 
@@ -106,7 +106,7 @@ Ivy: "Yeah, I totally can send you the job listing."
 
     Ivy:  "Yeah, sure. I figured you'd want to know about the job all the same."
 
-    Bronislav: "Yes, definitely, I appreciate it." You say, with a smile.
+    Bronislav: "Yes, definitely, I appreciate it." 
 }
 
 You wonder if you should ask her if there's a way to get an edge on the application.
@@ -126,7 +126,7 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
 
     Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
 
-    Ivy: "Maybe," Ivy says as she thinks, "I suppose it would be possible for me to talk to my uncle about you a bit."
+    Ivy: "Maybe...I suppose it would be possible for me to talk to my uncle about you a bit."
 
     ["Really? You would do that?"]
         ->ReallyYouWould
@@ -135,9 +135,7 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
 
     Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
 
-    Ivy: "Possibly."
-
-    Ivy says with a shrug.
+    Ivy: "Possibly..."
 
     Ivy: "I could ask my Uncle about it more, and let you know what he says."
 
@@ -148,7 +146,7 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
 
     Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
 
-    Ivy: "How do you mean?" Ivy asks, uncertain.
+    Ivy: "What do you mean?" 
 
     *["You could talk to your Uncle for me." #>> DecrRelationshipStat Ivy Bronislav Opinion 20]
         ->YouCouldTalkToHim
@@ -165,7 +163,7 @@ Ivy: "I can definitely mention you if it comes up in conversation."
 
 Bronislav: "Thank you so much Ivy! I really appreciate it."
 
-Ivy: "Yeah, no problem." Ivy says softly.
+Ivy: "Yeah, no problem." 
 
 ->ShiftToJensen
 
@@ -177,7 +175,7 @@ Ivy: "I didn't ask him for too many details, he just said to pass off the info t
 
 "I would definitely appreciate that if you could."
 
-"I'll try to remember to ask for you." Ivy says with a small smile.
+"I'll try to remember to ask for you." 
 
 ->ShiftToJensen
 
@@ -199,7 +197,7 @@ Ivy: "Look, I brought up the job as a way to make amends. I figured it would be 
 
 Bronislav: "I suppose I can understand that. I appreciate you mentioning the job least."
 
-"Yeah, sure." Ivy says quietly
+Ivy: "Yeah, sure." 
 
 ->ShiftToJensen
 
@@ -211,8 +209,7 @@ Ivy: "I didn't ask him for too many details, he just said to pass off the info t
 
 Bronislav: "I would definitely appreciate that if you could."
 
-Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
-
+Ivy: "I'll try to remember to ask for you." 
 ->ShiftToJensen
 
 === DontAsk ===
@@ -230,11 +227,11 @@ Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
 
     Bronislav: "You'd do that?"
 
-    Ivy: "Yeah, of course," Ivy says with a smile, "As long as I actually remember to."
+    Ivy: "Yeah, of course, as long as I actually remember to."
 
-    Bronislav: "Thank you so much Ivy!" You say with excitement, "I really appreciate it."
+    Bronislav: "Thank you so much Ivy! I really appreciate it."
 
-    "Mhm." Ivy says quietly.
+    Ivy: "Mhm." 
 
     ->ShiftToJensen
 
@@ -242,17 +239,17 @@ Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
 
     You decide not to push you luck, especially since you don't want to come off as ungrateful.
 
-    Bronislav: "Now I have something to look into while I wait for this review," you say excitedly.
-
+    Bronislav: "Now I have something to look into while I wait for this"
+    
     Ivy: "Actually, I could probably mention you to my uncle to help with your application."
 
     Bronislav: "Wait, really?"
 
-    Ivy: "Yeah I could definitely do that. Well, as long as I remember to." She says with a laugh.
+    Ivy: "Yeah I could definitely do that. Well, as long as I remember to." 
 
-    Bronislav: "Heh, anything you feel comfortable doing I would definitely be grateful for." You say with a smile.
+    Bronislav: "Heh, anything you feel comfortable doing I would definitely be grateful for." 
 
-    Ivy: "Okay..." Ivy says, as she trails off.
+    Ivy: "Okay..." 
 
     ->ShiftToJensen
 
@@ -260,15 +257,15 @@ Ivy: "I'll try to remember to ask for you." Ivy says with a small smile.
 
     You decide not to push your luck, especially since you and Ivy are not the closest.
 
-    Bronislav: "I definitely now have something to look into while I wait for IRB approval." You say appreciatively.
+    Bronislav: "I definitely now have something to look into while I wait for IRB approval." 
 
     Ivy nods.
 
     Ivy: "I could maybe even put in a good word for you if I talk to my uncle about it again."
 
-    Bronislav: "Anything that would help me get the position would be super helpful," You say with a small smile.
+    Bronislav: "Anything that would help me get the position would be super helpful." 
 
-    "Yeah..." Ivy says softly.
+    Ivy: "Yeah..." 
 
     ->ShiftToJensen
 }
@@ -298,7 +295,7 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
 
     - ivyOpinion == OpinionState.Neutral:
 
-    Ivy: "Huh?" Ivy says as her attention turns back to you.
+    Ivy: "Huh?" 
 
     Ivy: "Yeah, I guess I am a bit worried about Jensen."
 
@@ -335,9 +332,9 @@ Ivy: "He's been really stressed. He's such a hard worker, but he's always worrie
 
 === IKnowTheFeeling ===
 
-Bronislav: "I know the feeling." You say with a chuckle.
+Bronislav: "I know the feeling." 
 
-Ivy: "Yeah," Ivy says with a smile, "I guess you do, huh."
+Ivy: "Yeah, I guess you do, huh."
 
 *["Is there any way I can help him?" #>> ChangeOpinion Ivy Bronislav ++++]
     ->AnyWayICanHelp
@@ -355,7 +352,7 @@ Ivy: "Yeah," Ivy says with a smile, "I guess you do, huh."
 
 Bronislav: "Yeah, that's a tough spot to be in. I hope he can figure it all out."
 
-Ivy: "Me too," Ivy says with a sigh, "He definitely belongs here."
+Ivy: "Me too, he definitely belongs here."
 
 *["Is there any way I can help him?" #>> ChangeOpinion Ivy Bronislav ++]
     ->AnyWayICanHelp
@@ -371,9 +368,11 @@ Ivy: "Me too," Ivy says with a sigh, "He definitely belongs here."
 
 === ThatsRough ===
 
-Bronislav: "That's really rough," You say nonchalantly.
+Bronislav: "That's really rough." 
 
-Ivy: "Well of course it is." Ivy says flatly, "I'm just surprised you don't have more sympathy for the situation considering you also had a similar struggle."
+Ivy turns away at the nonchalant tone in your voice. 
+
+Ivy: "Well of course it is. I'm just surprised you don't have more sympathy for the situation considering you also had a similar struggle."
 
 *["Is there any way I can help him?" #>> ChangeOpinion Ivy Bronislav +++]
     ->AnyWayICanHelp
@@ -389,9 +388,9 @@ Ivy: "Well of course it is." Ivy says flatly, "I'm just surprised you don't have
 
 === EveryoneExperiencesThat ===
 
-Bronislav: "I think just about everyone in grad school has experienced those feelings." You say sympathetically.
+Bronislav: "I think just about everyone in grad school has experienced those feelings." 
 
-Ivy: "Yeah, no kidding." Ivy says shaking her head, "It's always a grind."
+Ivy: "Yeah, no kidding. It's always a grind."
 
 *["Is there any way I can help him?" #>> ChangeOpinion Ivy Bronislav +++]
     ->AnyWayICanHelp
@@ -411,6 +410,8 @@ Bronislav: "Is there a way I can help him at all? I know I went through my own c
 
 Ivy: "Well, I know Jensen is looking to get on a research paper to help his chances. He thinks that having authorship on something, would really help make an impression."
 
+*[Should you offer him authorship?] -> authorshipExpositionLoop 
+
 *["Maybe I could put him on my paper?" #>> ChangeOpinion Ivy Bronislav +++]
     ->PutHimOn
 
@@ -427,9 +428,11 @@ Ivy: "Well, I know Jensen is looking to get on a research paper to help his chan
 
 Bronislav: "Jensen will figure it out, Ivy. If he's smart enough to get this far, he can figure out how to get in."
 
-Ivy: "Maybe you're right," Ivy says with a sigh.
+Ivy: "Maybe you're right." 
 
 Ivy: "He just keeps talking about needing to get on a research paper to help his chances, and the last time we talked he seemed pretty desperate."
+
+*[Should you offer him authorship?] -> authorshipExpositionLoop 
 
 *["Maybe I could put him on my paper?" #>>ChangeOpinion Ivy Bronislav ++]
     ->PutHimOn
@@ -447,9 +450,11 @@ Ivy: "He just keeps talking about needing to get on a research paper to help his
 
 Bronislav: "While it's nice of you to be concerned, I wouldn't worry about Jensen. If he's as hard of a worker as you say, and he's got the will to get in, he can make it. Just like I did."
 
-Ivy: "Maybe you're right," Ivy says with a small smile.
+Ivy: "Maybe you're right," 
 
 Ivy: "The last time he talked he seemed pretty hellbent on getting on a research paper. I'm just not sure how he's going to do it going forward."
+
+*[Should you offer him authorship?] -> authorshipExpositionLoop 
 
 *["Maybe I could put him on my paper?" #>>ChangeOpinion Ivy Bronislav ++]
     ->PutHimOn
@@ -470,6 +475,23 @@ Bronislav: "Jensen should be worried. If he isn't on top of his game, he simply 
 Ivy shoots you a look of annoyance.
 
 Ivy: "Yeah I think he's painfully aware of that, which is why he has been so stressed. He keeps bringing up that he needs to get on a research paper to solidify his chances, and I'm not sure how he's going to do it."
+
+*[Should you offer him authorship?] -> authorshipExpositionLoop 
+
+*["Maybe I could put him on my paper?" #>>ChangeOpinion Ivy Bronislav ++]
+    ->PutHimOn
+
+*["That's a tough one."]
+    ->ThatsAToughie
+
+*["A research paper isn't make or break."]
+    ->IsntMakeOrBreak
+
+*["He's in trouble if that's what he's gunning for."  #>>ChangeOpinion Ivy Bronislav ---]
+    ->HesInTrouble
+    
+==authorshipExpositionLoop==
+The only thing Jensen did to participant on this paper was give that piece of feedback the other day. Is that enough to consider authorship? 
 
 *["Maybe I could put him on my paper?" #>>ChangeOpinion Ivy Bronislav ++]
     ->PutHimOn
@@ -519,7 +541,7 @@ Ivy looks as though she is considering asking you something, and resolves to ask
 
 === HesInTrouble ===
 
-Bronislav: "He's in trouble if that's what he's gunning for." You scoff.
+Bronislav: "He's in trouble if that's what he's gunning for." 
 
 Ivy: "Well, maybe, but I still want to try and help him, since that's what he wants to do."
 
@@ -552,13 +574,13 @@ Ivy perks up.
 
 Ivy: "Really? You'd be willing to do something like that?"
 
-Bronislav: "Probably, yeah." You say with a shrug.
+Bronislav: "Probably, yeah." 
 
 ->ContinueYES
 
 === NotSure ===
 
-Bronislav: "I'm not sure that I could." You say hesitantly, "I don't think I can just add him without causing some problems for the paper."
+Bronislav: "I'm not sure that I could. I don't think I can just add him without causing some problems for the paper."
 
 Ivy: "Oh, alright. Well, if you could, I would ask that you at least consider it, just because I know it would help Jensen a lot. And it would certainly make me feel a lot less worried."
 
@@ -568,9 +590,9 @@ Bronislav: "Sure, I can keep it mind."
 
 === No ===
 
-Bronislav: "No, I definitely can't do that. It would be very unethical for me to do something like that."
+Bronislav: "No, I definitely can't. It would be very unethical for me to do something like that."
 
-Ivy: "Well, I guess it was worth an ask." Ivy says with a shrug.
+Ivy: "Well, I guess it was worth an ask." 
 
 Ivy: "You're one of the main people I know who has an active research paper, so it would be a big help if you could get him on it"
 
@@ -587,11 +609,11 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 {
     - ivyOpinion >= OpinionState.Good:
 
-        Ivy: "I'm really glad that you're willing to help Jensen." Ivy says, practically glowing.
+        Ivy: "I'm really glad that you're willing to help Jensen." 
 
         Ivy: "I know this will definitely settle his nerves."
 
-        Bronislav: "I'm happy to help," You say with a smile.
+        Bronislav: "I'm happy to help."
 
         Ivy: "Thanks Bronislav, you really are a true friend."
 
@@ -599,7 +621,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
     - ivyOpinion == OpinionState.Neutral:
 
-        Ivy: "That's really nice of you to be willing to help Jensen." Ivy says with a smile, "It certainly will not go unappreciated."
+        Ivy: "That's really nice of you to be willing to help Jensen. It certainly will not go unappreciated."
 
         Bronislav: "Don't mention it."
 
@@ -665,7 +687,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
     - else:
 
-        Ivy: "I know you're insistent on being stubborn, but I really hope you'll come around." Ivy says pointedly.
+        Ivy: "I know you're insistent on being stubborn, but I really hope you'll come around." 
 
         ->ContinueOutro
 }
@@ -677,7 +699,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 {
     - ivyOpinion >= OpinionState.Good:
 
-        Ivy looks down to her watch and a look of surprise washes over her face.
+        Ivy looks down to her watch.
 
         Ivy: "Wow. I really got swept up in this conversation. I've gotta go for now Bronislav, but it was nice chatting."
 
@@ -685,7 +707,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
     - ivyOpinion == OpinionState.Neutral:
 
-        Ivy looks down to her watch and a look of surprise washes over her face.
+        Ivy looks down to her watch.
 
         Ivy: "Wow. I really got swept up in the conversation. I've gotta go for now Bronislav, but we'll chat again soon."
 
@@ -693,7 +715,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
     - else:
 
-        Ivy looks down at her watch and a look of surprise washes over her face.
+        Ivy looks down at her watch.
 
         Ivy: "Wow. I really got swept up in this conversation. I've gotta got Bronislav, but see you around, I guess?"
 
