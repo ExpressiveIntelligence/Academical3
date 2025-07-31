@@ -99,6 +99,8 @@ Praveen: "Oh wow, that is a lot. Hopefully the stress hasn't been too much for y
 *["I'm not stressed about it."]
 ->BP_Socializing2_NotStressed
 
+*[Why does he think Hendricks is a problem?] -> HendricksExpositionLoop
+
 *["Hendricks? How is she a problem?"]
 ->BP_Socializing2_ShesNotAProblem
 
@@ -114,6 +116,8 @@ Praveen: "Oh, I see. Well, good luck with that. And hopefully you can get more h
 *["I'm not stressed about it."]
 ->BP_Socializing2_NotStressed
 
+*[Why does he think Hendricks is a problem?] -> HendricksExpositionLoop
+
 *["Hendricks? How is she a problem?"]
 ->BP_Socializing2_ShesNotAProblem
 
@@ -125,6 +129,21 @@ Praveen: "Oh, I see. Well, good luck with that. And hopefully you can get more h
 Bronislav: "Things could be better for sure. I just finished getting my own paper ready for IRB review, but I have been busy working on everything else I have been neglecting." 
 
 Praveen: "That is certainly a lot, especially when you can't exactly expect too much help from Hendricks."
+
+*["I'm not stressed about it."]
+->BP_Socializing2_NotStressed
+
+*[Why does he think Hendricks is a problem?] -> HendricksExpositionLoop
+
+*["Hendricks? How is she a problem?"]
+->BP_Socializing2_ShesNotAProblem
+
+// TODO: MAKE A SELECTOR FOR YOU HAVE PREVIOUSLY TALKED TO HEDRICKS
+*["Hendricks has been helpful."]
+->BP_Socializing2_HendricksHelpful
+
+==HendricksExpositionLoop==
+Praveen has been struggling quite a bit to get involved in the community, and tends to put the blame on Hendricks for not telling him of more opportunities.
 
 *["I'm not stressed about it."]
 ->BP_Socializing2_NotStressed
@@ -309,7 +328,7 @@ Praveen shoots you a look of annoyamce.
 
 Praveen: "I suppose I can, but I was kind of thinking I could enlist your help Bronislav."
 
-Bronislav: "How would I play into all of this?"
+Bronislav: "What do you need my help with?" 
 
 Praveen: "Well, I know Hendricks likes you, or at least respects your opinion. I was wondering if you would be willing to just put in a good word for me next time you talk to Hendricks."
 
