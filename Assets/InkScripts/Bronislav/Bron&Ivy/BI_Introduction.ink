@@ -75,9 +75,14 @@ Ivy: "Do you have some reservations about Jensen?"
 
 *{talkedWithBradAboutJensen} ["I talked with Brad about Jensen."]
     ->IvySpite
+    
+*[It's not me who has reservations...] -> BradExpositionLoop
 
 *["It's just too soon."]
     ->TooSoon
+    
+==BradExpositionLoop==
+You recall hearing Brad's opinion of Jensen, calling him "shady" and "off". You're not sure why, but others seem to have the same opinion despite not being as vocal. -> BronislavSympathizes
 
 === IvySpite ===
 # Should bring down the relationship
