@@ -48,7 +48,7 @@ Jensen: "Bronislav!"
 
 Jensen says as he walks up to you.
 
-Jensen: "I've heard that my feedback on your presentation got me co-authorship."
+Jensen: "I heard that my feedback on your presentation got me co-authorship."
 
 *["Keep on hustling." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
 // Jensen: +Hopeful
@@ -314,7 +314,7 @@ He gets up and leaves.
 {ShowCharacter("Jensen", "left", "ashamed")}
 Bronislav: "I've made up my mind Jensen, you're not getting co-authorship and that's final."
 
-His innocent gaze contorts into disappointment, and guilt.
+His gaze goes from disappointment to guilt.
 
 Jensen: "Oh, alright. I was really hoping on getting my name on a paper."
 
