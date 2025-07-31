@@ -98,7 +98,6 @@ Ivy: "Yeah, I totally can send you the job listing."
 
     Ivy: "Don't mention it. I figured it might be something to look into while you wait to hear about your paper."
 
-    Bronislav: "Yeah, definitely," You say with a nod.
     Bronislav: "Yeah, definitely!" 
 
     - else:
