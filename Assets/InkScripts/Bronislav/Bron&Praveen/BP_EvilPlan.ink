@@ -1,6 +1,9 @@
 === BP_EvilPlan_SceneStart ===
 #---
-# choiceLabel: Talk with Praveen.
+# choiceLabel: Overhear Praveen.
+# @query
+# date.day!5
+# @end
 # hidden: true
 # tags: action, student_cubes, auxiliary
 # repeatable: false
@@ -25,4 +28,7 @@ Praveen: "But he did make a couple good points in some sections. I wasn't planni
 Praveen: "But yeah it's overall going well. How about you? How's your work going?..."
 
 You walk away before listening to the rest of the conversation
+
+{HideCharacter("Praveen")}
+
 ->DONE
