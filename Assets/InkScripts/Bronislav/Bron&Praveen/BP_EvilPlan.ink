@@ -1,6 +1,6 @@
 === BP_EvilPlan_SceneStart ===
 #---
-# choiceLabel: Overhear Praveen.
+# choiceLabel: Eavesdrop on Praveen
 # @query
 # date.day!5
 # @end
@@ -10,8 +10,6 @@
 #===
 
 // Summary: Praveen spills his evil plan
-
-
 
 {DbInsert("Seen_BP_EvilPlan")}
 

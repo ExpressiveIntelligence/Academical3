@@ -1,12 +1,13 @@
 === BB_ConferenceSubmissionDeadline_SceneStart ===
-#---
-#choiceLabel: Sit and relax.
-#@query
+# ---
+# choiceLabel: Sit and relax.
+# @query
 # date.day!3
-#@end.
-#repeatable: false
-#tags: action, student_cubes
-#===
+# @end
+# hidden: true
+# repeatable: false
+# tags: action, student_cubes
+# ===
 # Summary: Brad confides in Bronislav about using pre-IRB data
 
 ~temp r = GetOpinionState("Brad", "Bronislav")

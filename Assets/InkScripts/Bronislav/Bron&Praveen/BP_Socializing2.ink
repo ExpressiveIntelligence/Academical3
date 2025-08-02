@@ -8,8 +8,11 @@ VAR BP_S2_AskDirectly = false
 === BP_Socializing2_SceneStart ===
 #---
 # choiceLabel: Talk with Praveen.
+# @query
+# date.day!2
+# @end
 # hidden: true
-# tags: action, student_cubes, auxiliary
+# tags: action, student_cubes, auxiliary, required
 # repeatable: false
 #===
 

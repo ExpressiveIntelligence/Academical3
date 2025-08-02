@@ -3,7 +3,7 @@
 #choiceLabel: Chat with Praveen.
 #@query
 # date.day!3
-#Seen_BP_ConferenceSubmissionDeadline
+# Seen_BP_ConferenceSubmissionDeadline
 #@end.
 #repeatable: false
 #tags: action, student_cubicles
@@ -14,7 +14,7 @@
 {ShowCharacter("Praveen", "left", "")}
 As you approach Praveen, he seems to be chuckling to himself at his desk.
 
-Praveen: "Ho boy Bronislav, you're never going to believe this."
+Praveen: "Oh boy Bronislav, you're never going to believe this."
 
 *["What's up?"]
 ->BP_Socializing3_WhatsUp

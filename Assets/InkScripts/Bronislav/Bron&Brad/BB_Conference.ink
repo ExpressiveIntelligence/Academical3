@@ -2,19 +2,19 @@ VAR withdrew = false
 VAR HappyBrad = true
 
 === BB_Conference_SceneStart ===
-#---
-#choiceLabel: Go to a talk.
-#@query
+# ---
+# choiceLabel: Go to a talk.
+# @query
 # date.day!5
-#@end.
-#repeatable: false
-#tags: action, conference_hall
-#===
-#Summary: Brad discusses rejected paper/confronted about IRB stuff w/ Ned, talks to Bronislav about Jensen being on paper
+# @end
+# repeatable: false
+# tags: action, lecture_hall
+# ===
+# Summary: Brad discusses rejected paper/confronted about IRB stuff w/ Ned, talks to Bronislav about Jensen being on paper
 
 {DbInsert("Seen_BB_Conference")}
 
-~ withdrew = DbAssert("BradWithdrawsData")
+~withdrew = DbAssert("BradWithdrawsData")
 
 ~temp r = GetOpinionState("Brad", "Bronislav")
 {r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
