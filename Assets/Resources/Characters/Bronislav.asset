@@ -18,12 +18,12 @@ MonoBehaviour:
   bio: "You play as Bronislav, an international PhD student that is studying Developmental
     Psychology under Dr. Hendricks. You are fairly advanced in your degree and are
     trying to finish up your last round of studies before you author your dissertation.
-    The pressure is on! Your success this term and at upcoming conferences will help
-    determine if you get your dream position (and extend your Visa to stay near your
-    friends). \n\nYou have good friends in Brad and frequently ask Dr. Ned Smith
-    (he insists you call him Ned) for guidance. Dr. Ivy Li is well-known and intimidates
-    you somewhat. There are several younger students joining your lab, and everyone
-    in the department is somewhat frazzled as they prepare for their upcoming research
+    The pressure is on! Your success this term and at the upcoming conferences will
+    help determine if you get your dream position (and extend your Visa to stay near
+    your friends). \n\nYou are good friends with Brad and frequently ask Dr. Ned
+    Smith (he insists you call him Ned) for guidance. You find that Dr. Ivy Li is
+    somewhat intimidating. Several younger students are joining your lab, and everyone
+    in the department is slightly frazzled as they prepare for their upcoming research
     and publications."
   poses:
   - poseName: default
