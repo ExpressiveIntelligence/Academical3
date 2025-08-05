@@ -25,6 +25,12 @@ namespace Academical
 		[Tooltip( "The default pose to use." )]
 		public Sprite defaultPose;
 
+		[Tooltip( "The default background color to use. Will be used as a solid background if background image is not found." )]
+		public Color defaultBackgroundColor;
+
+		[Tooltip( "The default background for characters to use." )]
+		public Sprite background;
+
 		[Tooltip( "Starting relationship settings." )]
 		public CharacterRelationshipData[] relationships;
 	}

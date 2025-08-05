@@ -20,5 +20,7 @@ MonoBehaviour:
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: 010a4b6913e274069af81d0adc0fabaa, type: 3}
-  defaultPose: {fileID: 21300000, guid: 010a4b6913e274069af81d0adc0fabaa, type: 3}
+  defaultPose: {fileID: 21300000, guid: 9023f98b25aac4910bbdd36bb275dcdc, type: 3}
+  defaultBackgroundColor: {r: 0.9294118, g: 0.8862746, b: 0.8000001, a: 1}
+  background: {fileID: 0}
   relationships: []

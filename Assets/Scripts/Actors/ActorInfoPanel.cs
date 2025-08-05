@@ -14,6 +14,10 @@ namespace Academical
 		[SerializeField]
 		private Image m_CharacterImage;
 
+		//Used to set background. Current setting is to look for a sprite, and if it's not found, use a color.
+		[SerializeField]
+		private Image m_Background;
+
 		[SerializeField]
 		private TMP_Text m_CharacterNameText;
 
@@ -62,6 +66,16 @@ namespace Academical
 			m_CharacterNameText.text = characterData.displayName;
 			m_CharacterBioText.text = characterData.bio;
 			m_CharacterImage.sprite = characterData.defaultPose;
+
+			if ( characterData.background )
+			{
+				m_Background.sprite = characterData.background;
+			}
+			else
+			{
+				m_Background.color = characterData.defaultBackgroundColor;
+			}
+
 			if ( characterData.uid == m_GameManager.Player.UniqueID )
 			{
 				m_RelationshipMeter.gameObject.SetActive( false );
@@ -83,7 +97,7 @@ namespace Academical
 				m_RelationshipMeter.gameObject.SetActive( true );
 				m_TensionMeter.gameObject.SetActive( true );
 
-				m_RelationshipMeter.SetValueLabel(opinion);
+				m_RelationshipMeter.SetValueLabel( opinion );
 				m_RelationshipMeter.FillAmount = (float)opinion / 255f;
 
 				m_TensionMeter.SetValueLabel( tension );

@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uid: Bronislav
   displayName: Bronislav
-  nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
+  nameColor: {r: 0.0627451, g: 0.39607847, b: 0.427451, a: 0}
   bio: 'Bronislav is an international graduate student studying <MAJOR>. His advisor
     is Dr. Hendricks in the <MAJOR> Department. Bronislav is described by his friends
     as <CHARACTER TRAITS>. '
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: ad9954a5f432c4100ac74e9c65e4bc4a, type: 3}
-  defaultPose: {fileID: 21300000, guid: ad9954a5f432c4100ac74e9c65e4bc4a, type: 3}
+  defaultPose: {fileID: 21300000, guid: 1e95ffeb886b26a41b251165b5ad45f3, type: 3}
+  defaultBackgroundColor: {r: 0.0627451, g: 0.39607847, b: 0.427451, a: 1}
+  background: {fileID: 0}
   relationships: []
