@@ -25,7 +25,7 @@ Ivy: "Hey Bronislav. Got some helpful feedback?"
 
 // TODO: if negative relationship with Jensen
 // NOTE: THIS CURRENTLY ASSUMES PLAYER'S RELATIONSHIP WITH JENSEN IS NEGATIVE
-*["Better than Jensen's." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["Better than Jensen's." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_BetterThanJ
 
 
@@ -42,10 +42,10 @@ Ivy: "That's great to hear! I know that you are already in the review period, bu
 *["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["I don't think I will." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I don't think I will." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_DontThinkSo
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_DefNot
 
 === BI_RP_SoSo ===
@@ -61,10 +61,10 @@ Ivy: "I'm sorry to hear that. You know... if you need someone to bounce ideas an
 *["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["I don't think I will." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I don't think I will." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_DontThinkSo
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 -> DONE
 
 === BI_RP_NotReally ===
@@ -77,10 +77,10 @@ Ivy: "O-oh? Well I'm sorry that nothing has been that helpful Bronislav. If I ca
 *["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["I don't think I will." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I don't think I will." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_DontThinkSo
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_DefNot
 
 === BI_RP_BetterThanJ ===
@@ -97,7 +97,7 @@ Ivy: "Look, you don't even need to have Jensen do anything. Just say he was a co
 *["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_DefNot
 
 === BI_RP_PlanningOnIt ===
@@ -214,7 +214,7 @@ Ivy: "I really thought this would've been a great opportunity for all of us. Har
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
 
-*["Disappointed in me?" #>> DecrRelationshipStat Ivy Bronislav 20]
+*["Disappointed in me?" #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_Disappointed
 
 === BI_RP_ThanksIvy ===

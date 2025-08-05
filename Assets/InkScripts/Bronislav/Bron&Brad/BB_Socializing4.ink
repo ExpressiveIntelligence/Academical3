@@ -27,7 +27,7 @@ Brad: "You're already here! Hope I didn't keep you waiting too long Bronislav."
 *["No problem."]
 ->BB_Socializing4_NoProblem
 
-*["You took your time." #>>DecrRelationshipStat Brad Bronislav 5]
+*["You took your time." #>>ChangeOpinion Brad Bronislav -]
 ->BB_Socializing4_TookYourTime
 
 === BB_Socializing4_NoProblem ===

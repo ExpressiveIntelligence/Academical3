@@ -33,7 +33,7 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 
 ->BI_C_ItsBeenAlright
 
-*["Ehhh..."  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["Ehhh..."  #>> ChangeOpinion Ivy Bronislav -]
 
 ->BI_C_Ehhh
 
@@ -47,7 +47,7 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 //*["Good to see you too, Ivy." #>> ChangeOpinion Ivy Bronislav +]
 //->BI_C_GoodToSeeYouTooIvy
 
-//*["Have you talked to the firm yet?"  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+//*["Have you talked to the firm yet?"  #>> ChangeOpinion Ivy Bronislav -]
 //->BI_C_HaveYouTalked
 
 // if you didn't accept Ivy's Deal
@@ -61,7 +61,7 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 //*["It's all been pretty standard."]
 //->BI_C_PrettyStandard
 
-//*["It's been pretty slow honestly." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+//*["It's been pretty slow honestly." #>> ChangeOpinion Ivy Bronislav -]
 //->BI_C_Slow
 
 // neutral or negative relationship
@@ -73,7 +73,7 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 //*["How are you doing?"  #>> ChangeOpinion Ivy Bronislav +]
 //->BI_C_HowAreYouDoing
 
-//*["You know, I wish I hadn't."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+//*["You know, I wish I hadn't."  #>> ChangeOpinion Ivy Bronislav --]
 //->BI_C_WishIHadnt
 
 === BI_C_YeahIAm ===
@@ -99,7 +99,7 @@ Ivy: "They said they would love to have someone of your talent for the position,
 *["Wait, seriously?"]
 ->BI_C_Seriously
 
-*["I kind of wish you hadn't gone through with it."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["I kind of wish you hadn't gone through with it."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_WishYouHadnt
 
 
@@ -122,7 +122,7 @@ Ivy: "They said they would love to have someone of your talent for the position,
 *["Wait, seriously?"]
 ->BI_C_Seriously
 
-*["I kind of wish you hadn't gone through with it."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["I kind of wish you hadn't gone through with it."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_WishYouHadnt
 
 
@@ -156,7 +156,7 @@ Ivy: "They said they would love to have someone of your talent for the position,
 *["Wait, seriously?"]
 ->BI_C_Seriously
 
-*["I kind of wish you hadn't gone through with it."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["I kind of wish you hadn't gone through with it."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_WishYouHadnt
 
 
@@ -179,7 +179,7 @@ Ivy: "They said they would definitely be willing to consider someone of your ski
 *["Is there something else I could do to improve his opinion of me?"]
 ->BI_C_SomethingElse
 
-*["I kind of wish you hadn't gone through with it."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["I kind of wish you hadn't gone through with it."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_WishYouHadnt
 
 === BI_C_GoodToSeeYouTooIvy ===
@@ -207,7 +207,7 @@ Ivy: "They said they would definitely be willing to consider someone of your ski
 *["Is there something else I could do to improve his opinion of me?"]
 ->BI_C_SomethingElse
 
-*["I kind of wish you hadn't gone through with it."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["I kind of wish you hadn't gone through with it."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_WishYouHadnt
 
 === BI_C_HaveYouTalked ===
@@ -233,7 +233,7 @@ Ivy: "They said they would definitely be willing to consider someone of your ski
 *["Is there something else I could do to improve his opinion of me?"]
 ->BI_C_SomethingElse
 
-*["I kind of wish you hadn't gone through with it."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["I kind of wish you hadn't gone through with it."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_WishYouHadnt
 
 
@@ -317,7 +317,7 @@ Ivy: "No, I guess not. It's just... you seem like you don't like me very much, a
 *["I'm sorry if I came off that way, but I would like an apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_ApologyNotHate
 
-*["You're not wrong, but I was trying to be polite."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["You're not wrong, but I was trying to be polite."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_YoureNotWrong
 
 === BI_C_HowAreYouDoing ===
@@ -333,7 +333,7 @@ Ivy: "You clearly didn't like me very much before, but maybe you had a good reas
 *["I'm sorry if I came off that way, but I would like an apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_ApologyNotHate
 
-*["You're not wrong, but I was trying to be polite."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["You're not wrong, but I was trying to be polite."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_YoureNotWrong
 
 === BI_WishIHadnt ===
@@ -350,7 +350,7 @@ Ivy: "I don't know what I did to make you hate me, but I apologize for even brin
 *["I'm sorry if I came off that way, but I would like an apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_ApologyNotHate
 
-*["And you clearly don't care about integrity." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["And you clearly don't care about integrity." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_C_Integrity
 
 
@@ -489,7 +489,7 @@ Ivy: "I genuinely don't want all of this to mess with us working together in the
 *["We definitely will."  #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_C_WeAreStillFriends
 
-*["I'm not sure anymore."  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I'm not sure anymore."  #>> ChangeOpinion Ivy -]
 ->BI_C_NotSureAnymore
 
 === BI_C_DontBringUp ===
@@ -502,7 +502,7 @@ Ivy: "I know I said a lot of things I regret, and I think that was just because 
 *["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_AppreciateApology
 
-*["You should be sorry." #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*["You should be sorry." #>> ChangeOpinion Ivy --]
 ->BI_C_YouShouldBe
 
 === BI_C_WeAreStillFriends ===
@@ -543,7 +543,7 @@ Ivy: "Do you think we will still be able to work together, after all this?"
 *["Definately."  #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_C_WeAreStillFriends
 
-*["I'm not sure anymore."  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I'm not sure anymore."  #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_NotSureAnymore
 
 === BI_C_YouShouldBe ===
@@ -653,7 +653,7 @@ While this certainly hasn't been the cleanest resolution to the whole situation,
 
 ->DONE
 
-*[Don't apologize.#>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*[Don't apologize.#>> ChangeOpinion Ivy -]
 You remain silent as you look at Ivy. Sure you're behavior wasn't perfect, but apologizing to her when she was the one in the wrong doesn't feel right.
 
 Ivy appears frustrated with your lack of response.

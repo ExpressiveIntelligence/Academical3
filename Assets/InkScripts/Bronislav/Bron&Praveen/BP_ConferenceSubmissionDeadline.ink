@@ -66,10 +66,10 @@ Praveen: "Well, I was hoping that Hendricks would invite me to help with the con
 *["Sorry to hear that."]
 ->BP_ConferenceSubmissionDeadline_OhSorry
 
-*["She's missing out." #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["She's missing out." #>> ChangeOpinion Praveen Bronislav +]
 ->BP_ConferenceSubmissionDeadline_ThatsTough
 
-*["You can't expect too much." #>> DecrRelationshipStat Praveen Bronislav 10]
+*["You can't expect too much." #>> ChangeOpinion Praveen Bronislav --]
 ->BP_ConferenceSubmissionDeadline_CantExpectTooMuch
 }
 
@@ -111,10 +111,10 @@ Bronislav: "What's wrong?"
 
 Praveen: "It seems even you putting in a good word for me wasn't enough to get Hendricks to ask me to help. I don't know how to feel about all this, but saying I feel really inadequate doesn't even begin to cover it."
 
-*["I can't believe she didn't consider you." #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["I can't believe she didn't consider you." #>> ChangeOpinion Praveen Bronislav +]
 ->BP_ConferenceSubmissionDeadline_CantBelieve
 
-*["I didn't actually talk to her about you." #>> DecrRelationshipStat Praveen Bronislav 15]
+*["I didn't actually talk to her about you." #>> ChangeOpinion Praveen Bronislav ---]
 ->BP_ConferenceSubmissionDeadline_IDidntTalkToHer
 
 === BP_ConferenceSubmissionDeadline_IDidntTalkToHer ===
@@ -124,7 +124,7 @@ Praveen slams the book he's holding closed, utterly stunned.
 
 Praveen: "You... what? Bronislav, I... why wouldn't you talk to her? You knew it would help me if you did."
 
-*["It just didn't come up."  #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["It just didn't come up."  #>> ChangeOpinion Praveen Bronislav +]
 Bronislav: "I'm sorry, it didn't come up."
 
 Praveen sighs, and rolls his eyes.
@@ -139,7 +139,7 @@ Bronislav: "See you."
 
 ->DONE
 
-*["You wouldn't do the same for me." #>> DecrRelationshipStat Praveen Bronislav 5]
+*["You wouldn't do the same for me." #>> ChangeOpinion Praveen Bronislav -]
 Bronislav: "You wouldn't exactly do the same for me Praveen."
 
 Praveen: "Well, you're right, now I definitely wouldn't. Whatever, Bronislav, be like that."
@@ -152,7 +152,7 @@ Praveen walks past you with a hurt look on his face as he leaves.
 
 ->DONE
 
-*["I didn't think you were worth praising to Hendricks." #>> DecrRelationshipStat Praveen Bronislav 20]
+*["I didn't think you were worth praising to Hendricks." #>> ChangeOpinion Praveen Bronislav ----]
 Bronislav: "I didn't think you were actually worth praising to Hendricks. Unlike you, I actually care what she thinks about me."
 
 Praveen looks disgusted and hurt.

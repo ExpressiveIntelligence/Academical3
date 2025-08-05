@@ -148,7 +148,7 @@ BradL "I... I didn't withdraw the paper Bronislav. Somehow the IRB found out and
 *["You should have listened."]
 ->BB_Conference_YouShouldhaveListened
 
-*["That was really dumb."  #>>DecrRelationshipStat Brad Bronislav 10]
+*["That was really dumb."  #>>ChangeOpinion Brad Bronislav --]
 ->BB_Conference_ThatWasDumb
 
 === BB_Conference_WhyAreYouHereBad ===
@@ -164,7 +164,7 @@ Brad: "I kind of thought I would too. Something in me told me not to and now the
 *["You should have listened."]
 ->BB_Conference_YouShouldhaveListened
 
-*["That was really dumb."  #>>DecrRelationshipStat Brad Bronislav 10]
+*["That was really dumb."  #>>ChangeOpinion Brad Bronislav --]
 ->BB_Conference_ThatWasDumb
 
 === BB_Conference_DidntWithdrawBad ===
@@ -180,7 +180,7 @@ Brad: "No, I didn't. You were right all along, the IRB rejected our paper, Ned d
 *["You should have listened."]
 ->BB_Conference_YouShouldhaveListened
 
-*["That was really dumb."  #>>DecrRelationshipStat Brad Bronislav 10]
+*["That was really dumb."  #>>ChangeOpinion Brad Bronislav --]
 ->BB_Conference_ThatWasDumb
 
 === BB_Conference_DidYouWithdraw ===
@@ -196,7 +196,7 @@ Brad: "No I didn't, I swear! I thought this plan would work but somehow the IRB 
 *["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
-*["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
+*["Should have expected that." #>>ChangeOpinion Brad Bronislav -]
 ->BB_Conference_ShouldHaveExpected
 
 === BB_Conference_DidSomethingGoWrong ===
@@ -212,7 +212,7 @@ Brad: "It all went very wrong Bronislav. The IRB rejected our paper because of m
 *["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
-*["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
+*["Should have expected that." #>>ChangeOpinion Brad Bronislav -]
 ->BB_Conference_ShouldHaveExpected
 
 === BB_Conference_ItGotRejected ===
@@ -228,7 +228,7 @@ Brad: "It did! I thought it would be ok, I really did. First, the IRB rejected o
 *["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
-*["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
+*["Should have expected that." #>>ChangeOpinion Brad Bronislav -]
 ->BB_Conference_ShouldHaveExpected
 
 === BB_Conference_WhatHappened ===
@@ -241,7 +241,7 @@ Brad: "The IRB found out Bronislav! They rejected the paper, and now Ned isn't t
 *["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
-*["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
+*["Should have expected that." #>>ChangeOpinion Brad Bronislav -]
 ->BB_Conference_ShouldHaveExpected
 
 === BB_Conference_GreatToHear ===
@@ -306,7 +306,7 @@ Brad: "Yeah yeah yeah. You were right Bronislav, I know, but I just really thoug
 *["Good luck."]
 ->BB_Conference_GoodLuck
 
-*["Whatever you say." #>> DecrRelationshipStat Brad Bronislav 10]
+*["Whatever you say." #>> ChangeOpinion Brad Bronislav --]
 ->BB_Conference_WhateverYouSay
 
 === BB_Conference_ThatWasDumb ===
@@ -319,7 +319,7 @@ Brad: "You really think I don't know that Bronislav? I know that I messed everyt
 *["Sorry."]
 ->BB_Conference_Sorry
 
-*["Whatever you say." #>> DecrRelationshipStat Brad Bronislav 10]
+*["Whatever you say." #>> ChangeOpinion Brad Bronislav --]
 ->BB_Conference_WhateverYouSay
 
 === BB_Conference_ShouldHaveExpected ===
@@ -329,7 +329,7 @@ Brad looks at you confused.
 
 Brad: "What? Bronislav, if it was always going to happen why didn't you tell me? Are you serious?"
 
-*["I thought about it." #>> DecrRelationshipStat Brad Bronislav 5]
+*["I thought about it." #>> ChangeOpinion Brad Bronislav -]
 ->BB_Conference_ThoughtAbtIt
 
 *["It's in the past now."]

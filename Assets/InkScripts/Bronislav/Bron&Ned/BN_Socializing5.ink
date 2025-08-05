@@ -43,7 +43,7 @@ Bronislav: "What's going on?"
 
 Ned: "I'm not sure I can discuss... actually, how much has Brad told you about his work with me?"
 
-*["You know, I don't really recall him mentioning anything." #>> DecrRelationshipStat Ned Bronislav 5]
+*["You know, I don't really recall him mentioning anything." #>> ChangeOpinion Ned Bronislav -]
 ->BN_Socializing5_DontReallyRecall
 
 *["Oh, just the basics."]
@@ -52,7 +52,7 @@ Ned: "I'm not sure I can discuss... actually, how much has Brad told you about h
 }
 ->BN_Socializing5_JustTheBasics
 
-*["He's mentioned some trouble with data." #>> IncrementRelationshipStat Ned Bronislav 5]
+*["He's mentioned some trouble with data." #>> ChangeOpinion Ned Bronislav +]
 ~ honesty = true
 ->BN_Socializing5_SomeTroubleWithData
 
@@ -170,10 +170,10 @@ Ned smiles sadly.
 
 Ned: "Apologies. It's not like you came here to be lectured, but all the same, I think its important that we learn from more than just our own mistakes."
 
-*["I appreciate the insight, Ned." #>>IncrementRelationshipStat Ned Bronislav 10]
+*["I appreciate the insight, Ned." #>>ChangeOpinion Ned Bronislav ++]
 ->BN_Socializing5_AppreciatetheInsight
 
-*["Okay, I'll keep all of this in mind." #>>IncrementRelationshipStat Ned Bronislav 5]
+*["Okay, I'll keep all of this in mind." #>>ChangeOpinion Ned Bronislav +]
 ->BN_Socializing5_IllKeepThisInMind
 
 // if Brad withdrew the paper

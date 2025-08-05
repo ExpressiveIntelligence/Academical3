@@ -86,7 +86,7 @@ Brad: "I just need your input on something."
 *["Input on what?"]
 ->BB_CSD_InputOnWhat
 
-*["What did you do?" #>> DecrRelationshipStat Brad Bronislav 5]
+*["What did you do?" #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_AnywayICouldHelp ===
@@ -99,7 +99,7 @@ Brad: "There's nothing really to do now. I appreciate the offer, but can I just.
 *["Go ahead."]
 ->BB_CSD_GoAhead
 
-*["What did you do?" #>> DecrRelationshipStat Brad Bronislav 5]
+*["What did you do?" #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_ItsStressful ===
@@ -112,7 +112,7 @@ Brad: "Thanks Bronislav, means a lot, really.  Also, could I ask you something?"
 *["Go ahead."]
 ->BB_CSD_GoAhead
 
-*["What did you do?" #>> DecrRelationshipStat Brad Bronislav 5]
+*["What did you do?" #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_InputOnWhat ===
@@ -185,7 +185,7 @@ Brad: "They wouldn't know though, so what difference does it make?"
 *["It makes a huge difference." #>> ChangeOpinion Brad Bronislav +]
 ->BB_CSD_HugeDifference
 
-*["Don't be dumb Brad." #>> DecrRelationshipStat Brad Bronislav 5]
+*["Don't be dumb Brad." #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_DontBeDumb
 
 === BB_CSD_NotSure ===
@@ -195,7 +195,7 @@ Brad thinks for a moment.
 
 Brad: "I probably should, but I don't want to waste all the research I did. I'll think on it."
 
-*["Should do it soon."  #>> DecrRelationshipStat Brad Bronislav 5]
+*["Should do it soon."  #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_ShouldDoItSoon
 
 *["Definitely think on it."]

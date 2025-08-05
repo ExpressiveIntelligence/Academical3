@@ -61,7 +61,7 @@ You take a seat across from Hendricks.
 *[Tell Hendricks about taking Ivy's deal. #>>ChangeOpinion Hendricks Bronislav +]
 ->BH_Socializing5_TellHendricks
 
-*[Don't tell Hendricks. #>> DecrRelationshipStat Hendricks Bronislav 5]
+*[Don't tell Hendricks. #>> ChangeOpinion Hendricks Bronislav -]
 ->BH_Socializing5_DontTellHendricks
 
 === BH_Socializing5_TellHendricks ===
@@ -78,7 +78,7 @@ Hendricks: "Does this job offer still include what Ivy gets out of this deal?"
 *["I get the feeling you don't agree with me."]
 ->BH_Socializing5_IGetTheFeeling
 
-*[Dodge the question. #>> DecrRelationshipStat Hendricks Bronislav 5]
+*[Dodge the question. #>> ChangeOpinion Hendricks Bronislav -]
 ->BH_Socializing5_DontTellHendricks
 
 === BH_Socializing5_DontTellHendricks ===

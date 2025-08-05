@@ -59,7 +59,7 @@ Ivy: "Oh how funny! That's my nephew! He's been having some problems transfering
 *["I wish I could help."]
     ->MoreTime
 
-*["He needs an opportunity more at his level."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10 ]
+*["He needs an opportunity more at his level."  #>> ChangeOpinion Ivy Bronislav -]
     ->TooSoon
 
 === BronislavSympathizes ===

@@ -74,7 +74,7 @@ Brad: "Always a hard worker, Bronislav. How was the lab meeting for you?"
 
 *["Going good."]
 ->BB_S1_GoingGood
-*["Fine." #>> DecrRelationshipStat Brad Bronislav Opinion 5]
+*["Fine." #>> ChangeOpinion Brad Bronislav -]
 ->BB_S1_Fine
 *["Could have gone better."]
 ->BB_S1_CouldHaveBeenBetter

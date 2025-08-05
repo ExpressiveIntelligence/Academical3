@@ -59,7 +59,7 @@ Ivy: "Why so cold all of a sudden?"
 
 ->WhyShouldIHelp
 
-*["Excuse me, Ivy." #>> DecrRelationshipStat Ivy Bronislav Opinion -50]
+*["Excuse me, Ivy." #>> ChangeOpinion Ivy Bronislav --]
 Bronislav: "Excuse me, Ivy."
 
 You try to deliberately move around her to your desk.
@@ -107,7 +107,7 @@ Ivy: "I know I kind of caught you off guard with our conversation earlier, but I
 
 ->WhyShouldIHelp
 
-*["Learn to read the room Ivy."#>> DecrRelationshipStat Ivy Bronislav Opinion -80 ]
+*["Learn to read the room Ivy."#>> ChangeOpinion Ivy Bronislav --- ]
 Bronislav: "Learn to read the room Ivy."
 
 You say harshly as you sit down, ignoring Ivy completely as you start using your computer.
@@ -180,7 +180,7 @@ Ivy leaves you to your work.
 
 ->DONE
 
-*["You're trying too hard." #>> DecrRelationshipStat Ivy Bronislav Opinion -50]
+*["You're trying too hard." #>> ChangeOpinion Ivy Bronislav --]
 Bronislav: "You're trying too hard. Is there a reason you are this desperate for me to help Jensen?"
 
 Ivy: "Is there a reason you are so intent on being rude? Have you not been listening to a word I've been saying?"
@@ -240,7 +240,7 @@ Ivy leaves with a pep in her step.
 
 ->DONE
 
-*["I'm not so sure it will pan out that way." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["I'm not so sure it will pan out that way." #>> ChangeOpinion Ivy Bronislav -]
 Bronislav: "I'm not so sure it will pan out that way, Ivy. Consider realisitically, the possibility of everything working out that nicely."
 
 Ivy: "I have, and this is fool proof. It's simple straightforwad logic, and you of all people should be on board."

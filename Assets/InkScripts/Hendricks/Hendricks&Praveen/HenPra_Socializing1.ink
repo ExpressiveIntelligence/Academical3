@@ -36,9 +36,9 @@ Hendricks: "I see, can you tell me more?"
 
 Praveen: "I feel as if I lack the means of things to do, spending most of my time looking for research and academic projects. Other than when me and Jensen hang out I lack activities to do."
 
-*["Did you seek out clubs or other opportunities for graduate students?" #>> DecrementRelationshipStat Praveen Hendricks Opinion -50] -> SeekOutClubs
+*["Did you seek out clubs or other opportunities for graduate students?" #>> ChangeOpinion Praveen Hendricks --] -> SeekOutClubs
 
-*["You are a smart and capable student, would you like some help in finding some clubs or organizaions for graduate students?"#>> IncrementRelationshipStat Praveen Hendricks Opinion 50] -> HelpFindClubs
+*["You are a smart and capable student, would you like some help in finding some clubs or organizaions for graduate students?"#>> ChangeOpinion Praveen Hendricks ++] -> HelpFindClubs
 
 == HowResearchSearch ==
 Hendricks: "I heard you were searching for a research project to work on, how is that going?"
