@@ -79,7 +79,7 @@ Bronislav: "I'm really excited, feels rare that everyone gets what they want."
 
 Ivy: "You can say that again. Seeing Jensen so happy is a relief, feels like a big weight is taken off of his shoulders."
 
-*["I'd feel the same." #>>IncrementRelationshipStat Ivy Bronislav 50]
+*["I'd feel the same." #>>ChangeOpinion Ivy Bronislav ++++]
 ->BI_Socializing5_IdFeelTheSame
 
 *[Take a relieved sip.]
