@@ -27,13 +27,13 @@ After the conference you talk to some other people, and you are surprised to see
 {ShowCharacter("Brad", "left", "")}
 Brad: "Bronislav! Just the guy I wanted to see."
 
-*["You withdrew right?" #>>IncrementRelationshipStat Brad Bronislav 10]
+*["You withdrew right?" #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Conference_YouWithdrewRight
 
-*["Brad, why are you here?" #>>IncrementRelationshipStat Brad Bronislav 10]
+*["Brad, why are you here?" #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Conference_WhyAreYouHere
 
-*["You didn't withdraw, did you?" #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You didn't withdraw, did you?" #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_DidntWithdraw
 
 }
@@ -49,7 +49,7 @@ Brad: "Bronislav! Just the guy I wanted to see."
 //*["Brad, why are you here?"]
 //->BB_Conference_WhyAreYouHereBad
 
-//*["You didn't withdraw, did you?" #>>IncrementRelationshipStat Brad Bronislav 5]
+//*["You didn't withdraw, did you?" #>>ChangeOpinion Brad Bronislav +]
 //->BB_Conference_DidntWithdrawBad
 
 {HappyBrad && !withdrew: //didnt tell him, good relationship
@@ -94,7 +94,7 @@ Brad smiles.
 
 Brad: "I did! It was, not an easy conversation to have with Ned, but he and I both realized that it was our best option. No hassle with the IRB, and everything is still in tact."
 
-*["That's great to hear!" #>>IncrementRelationshipStat Brad Bronislav 5]
+*["That's great to hear!" #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_GreatToHear
 
 *["Ned isn't mad?"]
@@ -110,7 +110,7 @@ Brad seems confused.
 
 Brad: "Well I did. I'm just here because I wanted to catch you and tell you thanks. Obviously Ned was a bit mad at first, but he's glad that I told him. So, no more worries!"
 
-*["That's great to hear!" #>>IncrementRelationshipStat Brad Bronislav 5]
+*["That's great to hear!" #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_GreatToHear
 
 *["Ned isn't mad?"]
@@ -139,10 +139,10 @@ Brad struggles to speak for a moment.
 
 BradL "I... I didn't withdraw the paper Bronislav. Somehow the IRB found out and our paper has been rejected. Ned is furious with me, and now I've got ethics trainings I've got to go to."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
+*["I'm sorry to hear that."  #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
 *["You should have listened."]
@@ -158,7 +158,7 @@ Brad scratches his head.
 
 Brad: "I kind of thought I would too. Something in me told me not to and now the IRB rejected our paper, Ned is angry with me, and I've got ethics trainings to go to."
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
 *["You should have listened."]
@@ -174,7 +174,7 @@ Brad looks at the ground.
 
 Brad: "No, I didn't. You were right all along, the IRB rejected our paper, Ned doesn't want to talk with me, and now I have ethics trainings on my plate."
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
 *["You should have listened."]
@@ -190,10 +190,10 @@ Brad shakes his head.
 
 Brad: "No I didn't, I swear! I thought this plan would work but somehow the IRB found out and now our paper is rejected, Ned is furious with me, and I've got ethics trainings to go to."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
+*["I'm sorry to hear that."  #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -206,10 +206,10 @@ Brad grimaces.
 
 Brad: "It all went very wrong Bronislav. The IRB rejected our paper because of my data, Ned is angry with me, and I've got ethics trainings to go to."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
+*["I'm sorry to hear that."  #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -222,10 +222,10 @@ Brad looks surprised.
 
 Brad: "It did! I thought it would be ok, I really did. First, the IRB rejected our paper, Ned finds out it is because of my data and now he doesn't want to talk with me, and I've got to fit in ethics trainings into my schedule now."
 
-*["I'm sorry to hear that."  #>>IncrementRelationshipStat Brad Bronislav 10]
+*["I'm sorry to hear that."  #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Conference_SorrytoHear
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -238,7 +238,7 @@ Brad looks shocked that you don't know.
 
 Brad: "The IRB found out Bronislav! They rejected the paper, and now Ned isn't talking to me because I told him about using the data. Now I've also got to go to ethics trainings because of this."
 
-*["You live and learn."  #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You live and learn."  #>>ChangeOpinion Brad Bronislav +]
 ->BB_Conference_Liveandlearn
 
 *["Should have expected that." #>>DecrRelationshipStat Brad Bronislav 5]
@@ -275,7 +275,7 @@ Bronislav: "You came to your senses. It's about time."
 
 Brad awkwardly laughs.
 
-Brad: "Yeah I guess I did. Thanks again Bronislav for, I guess bringing me to my senses."
+Brad: "Yeah I guess I did. Thanks again Bronislav for, I guess, bringing me to my senses."
 
 *["Glad things worked out."]
 ->BB_Conference_GladThingsWokedOut
