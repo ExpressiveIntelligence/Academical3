@@ -1,6 +1,7 @@
 using TDRS;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Academical
@@ -13,6 +14,10 @@ namespace Academical
 
 		[SerializeField]
 		private Image m_CharacterImage;
+
+		//Used to set background. Current setting is to look for a sprite, and if it's not found, use a color.
+		[SerializeField]
+		private Image m_Background;
 
 		[SerializeField]
 		private TMP_Text m_CharacterNameText;
@@ -28,6 +33,9 @@ namespace Academical
 
 		[SerializeField]
 		private CharacterSO m_DefaultCharacterShown;
+
+		[SerializeField]
+		private Button m_DefaultCharacterShownButton;
 
 		[SerializeField]
 		private GameManager m_GameManager;
@@ -50,6 +58,7 @@ namespace Academical
 		public override void Show()
 		{
 			base.Show();
+			EventSystem.current.SetSelectedGameObject( m_DefaultCharacterShownButton.gameObject );
 			ShowCharacter( m_DefaultCharacterShown );
 		}
 
@@ -59,9 +68,19 @@ namespace Academical
 		/// <param name="characterData"></param>
 		public void ShowCharacter(CharacterSO characterData)
 		{
-			m_CharacterNameText.text = characterData.displayName;
+			//Ensure button is selected
 			m_CharacterBioText.text = characterData.bio;
 			m_CharacterImage.sprite = characterData.defaultPose;
+
+			if ( characterData.background )
+			{
+				m_Background.sprite = characterData.background;
+			}
+			else
+			{
+				m_Background.color = characterData.defaultBackgroundColor;
+			}
+
 			if ( characterData.uid == m_GameManager.Player.UniqueID )
 			{
 				m_RelationshipMeter.gameObject.SetActive( false );
@@ -83,7 +102,7 @@ namespace Academical
 				m_RelationshipMeter.gameObject.SetActive( true );
 				m_TensionMeter.gameObject.SetActive( true );
 
-				m_RelationshipMeter.SetValueLabel(opinion);
+				m_RelationshipMeter.SetValueLabel( opinion );
 				m_RelationshipMeter.FillAmount = (float)opinion / 255f;
 
 				m_TensionMeter.SetValueLabel( tension );

@@ -15,10 +15,20 @@ MonoBehaviour:
   uid: Hendricks
   displayName: Hendricks
   nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
-  bio: Hendricks is a professor in the <MAJOR> Department. Hendricks is described
-    by her friends as <CHARACTER TRAITS>. She advises Bronislav.
+  bio: Dr. Matilda Hendricks (who just goes by Hendricks, as she dislikes her first
+    name) is your advisor. She is a newly minted associate professor, but has not
+    yet been tenured. She is quick-witted, hard-working, and understanding. You are
+    grateful to have such a wise and caring mentor, and generally feel like you can
+    share anything in confidence with her. That being said, it's been a bit hard
+    to get time with her lately - she's been taking on more and more commitments
+    over the last year as she seeks to bolster her record for a potential tenure
+    position. She's currently feeling frazzled over an upcoming conference that she's
+    chairing. You can tell she worries about letting anything drop, but she always
+    manages to keep everything together and deliver according to expectations.
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: c96dfda4c91fd4819b08d9091cad825f, type: 3}
-  defaultPose: {fileID: 21300000, guid: c96dfda4c91fd4819b08d9091cad825f, type: 3}
+  defaultPose: {fileID: 21300000, guid: a42a2bb696da742b381bd660d48f06d7, type: 3}
+  defaultBackgroundColor: {r: 0.04705883, g: 0.20784315, b: 0.2784314, a: 1}
+  background: {fileID: 0}
   relationships: []
