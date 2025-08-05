@@ -132,7 +132,7 @@ Brad: "It shouldn't be that big of a deal though, right?"
 *["I'm not sure."]
 ->BB_CSD_NotSure
 
-*["It shouldn't be that bad." #>> IncrementRelationshipStat Brad Bronislav 10]
+*["It shouldn't be that bad." #>>ChangeOpinion Brad Bronislav ++]
 ->BB_CSD_ShouldntBeThatBad
 
 === BB_CSD_WhatDidYouDo ===
@@ -152,7 +152,7 @@ Brad: "I just really wanted to start on the paper, and didn't want to stress abo
 *["I'm not sure."]
 ->BB_CSD_NotSure
 
-*["It shouldn't be that bad." #>> IncrementRelationshipStat Brad Bronislav 10]
+*["It shouldn't be that bad." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_CSD_ShouldntBeThatBad
 
 === BB_CSD_GoAhead ===
@@ -172,7 +172,7 @@ Brad: "The only problem is I got the data before the IRB approved it. That can't
 *["I'm not sure."]
 ->BB_CSD_NotSure
 
-*["It shouldn't be that bad." #>> IncrementRelationshipStat Brad Bronislav 10]
+*["It shouldn't be that bad." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_CSD_ShouldntBeThatBad
 
 === BB_CSD_ThatsReallyBad ===
@@ -182,7 +182,7 @@ Brad looks even more nervous.
 
 Brad: "They wouldn't know though, so what difference does it make?"
 
-*["It makes a huge difference." #>> IncrementRelationshipStat Brad Bronislav 5]
+*["It makes a huge difference." #>> ChangeOpinion Brad Bronislav +]
 ->BB_CSD_HugeDifference
 
 *["Don't be dumb Brad." #>> DecrRelationshipStat Brad Bronislav 5]
