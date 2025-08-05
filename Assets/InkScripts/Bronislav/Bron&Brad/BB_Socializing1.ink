@@ -62,7 +62,7 @@ Brad: "It went alright, I've been a bit stressed about the paper so I really onl
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
 
-*["Sorry to hear." #>> IncrementRelationshipStatus Brad Bronislav 5]
+*["Sorry to hear." #>> ChangeOpinion Brad Bronislav +]
 ->BB_S1_SorryToHear
 
 === BB_S1_KeepWorking ===
@@ -89,7 +89,7 @@ Brad: "I mean it felt like it went fine, I've been a bit distracted recently. Pr
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
 
-*["Sorry to hear." #>> IncrementRelationshipStatus Brad Bronislav 5]
+*["Sorry to hear." #>> ChangeOpinion Brad Bronislav +]
 ->BB_S1_SorryToHear
 
 === BB_S1_Alright ===
@@ -102,7 +102,7 @@ Brad: "I'd say it went about the same for me. I've just been stressed recently, 
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
 
-*["Sorry to hear." #>> IncrementRelationshipStatus Brad Bronislav 5]
+*["Sorry to hear." #>> ChangeOpinion Brad Bronislav +]
 ->BB_S1_SorryToHear
 
 === BB_S1_CouldHaveBeenBetter ===
@@ -115,7 +115,7 @@ Brad: "I also didn't get much out of it. To be fair, I've had something kind of 
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
 
-*["Sorry to hear." #>> IncrementRelationshipStatus Brad Bronislav 5]
+*["Sorry to hear." #>> ChangeOpinion Brad Bronislav +]
 ->BB_S1_SorryToHear
 
 === BB_S1_Fine ===
@@ -138,7 +138,7 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
-*["Sounds stressful." #>> IncrementRelationshipStatus Brad Bronislav 10]
+*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
 *["They do take a bit."]
@@ -159,7 +159,7 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
-*["Sounds stressful." #>> IncrementRelationshipStatus Brad Bronislav 10]
+*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
 *["They do take a bit."]
@@ -172,7 +172,7 @@ Brad smiles.
 
 Brad: "Yeah, tell me about it. The IRB is taking forever to approve my research and it's just been this looming cloud over me."
 
-*["Sounds stressful." #>> IncrementRelationshipStatus Brad Bronislav 10]
+*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
 *["They do take a bit."]
@@ -188,7 +188,7 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my research. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
-*["Sounds stressful." #>> IncrementRelationshipStatus Brad Bronislav 10]
+*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
 *["They do take a bit."]
