@@ -15,8 +15,14 @@ MonoBehaviour:
   uid: Brad
   displayName: Brad
   nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
-  bio: 'Brad is a graduate student studying <MAJOR>. His advisor is Ned in the <MAJOR>
-    Department. Brad is described by his friends as <CHARACTER TRAITS>. '
+  bio: Brad is a good friend of yours. He is studying under Ned, is also in the Psychology
+    Department, and is working with you on an exciting study that will really push
+    both of your CVs. He is bright, friendly, and wants the best for those around
+    him. That being said, he can also be a bit hasty and rash, and sometimes trips
+    over himself or overshares while pursuing his next goals and socializing with
+    others. These tendencies can sometimes leave him in sticky situations and hurt
+    others, but he is quick to rectify his mistakes with a little help, awareness,
+    and guidance. He is skeptical about the new students coming into the department.
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: d8b16217e61b64c889595344387b86d2, type: 3}

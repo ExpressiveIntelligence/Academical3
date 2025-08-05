@@ -15,8 +15,13 @@ MonoBehaviour:
   uid: Ivy
   displayName: Ivy
   nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
-  bio: 'Ivy is a graduate student studying <MAJOR>. Ivy is described by their friends
-    as <CHARACTER TRAITS>. '
+  bio: Dr. Ivy Li is an all-star in both the department as well as the field of Psychology
+    overall. She has more publications than you can count, and even more citations
+    from other academics. She was made a tenured professor very quickly, and has
+    an uncanny ability to land grants and partnerships with large companies with
+    ease. She is brilliant, well-connected, and quite frankly, a bit intimidating.
+    Getting on her good side can get you set up with amazing opportunities, but getting
+    on her bad side... Well, you really don't want to be on her bad side.
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: 2033d991fe4bd40feadb636afa0dd3bc, type: 3}

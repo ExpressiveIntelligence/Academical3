@@ -1,6 +1,7 @@
 using TDRS;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Academical
@@ -34,6 +35,9 @@ namespace Academical
 		private CharacterSO m_DefaultCharacterShown;
 
 		[SerializeField]
+		private Button m_DefaultCharacterShownButton;
+
+		[SerializeField]
 		private GameManager m_GameManager;
 
 		[SerializeField]
@@ -54,6 +58,7 @@ namespace Academical
 		public override void Show()
 		{
 			base.Show();
+			EventSystem.current.SetSelectedGameObject( m_DefaultCharacterShownButton.gameObject );
 			ShowCharacter( m_DefaultCharacterShown );
 		}
 
@@ -63,7 +68,7 @@ namespace Academical
 		/// <param name="characterData"></param>
 		public void ShowCharacter(CharacterSO characterData)
 		{
-			m_CharacterNameText.text = characterData.displayName;
+			//Ensure button is selected
 			m_CharacterBioText.text = characterData.bio;
 			m_CharacterImage.sprite = characterData.defaultPose;
 

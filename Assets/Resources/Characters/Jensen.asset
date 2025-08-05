@@ -15,7 +15,15 @@ MonoBehaviour:
   uid: Jensen
   displayName: Jensen
   nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
-  bio: 'Jensen is an undergraduate student studying <MAJOR>. '
+  bio: 'You don''t know Jensen very well, but you''ve started to see them hang out
+    around the department more and more often recently. They particularly follow
+    Ivy around closely, tagging into meetings and asking questions incessantly. You
+    know they are an undergraduate student and are hustling to land a PhD somewhere,
+    but you haven''t heard much about what contributions they have made to any given
+    project. You''ve heard unsubstantiated whispers here and there about some strange
+    connections Jensen has with the faculty. Regardless of their experience or history,
+    it''s nice to see someone with bright eyes and ambition around the department,
+    even if it brings a little naivete with it.  '
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: 010a4b6913e274069af81d0adc0fabaa, type: 3}
