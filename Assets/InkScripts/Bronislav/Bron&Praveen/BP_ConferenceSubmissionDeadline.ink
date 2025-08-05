@@ -20,7 +20,7 @@ You approach Praveen, who is currently skimming what appears to be a textbook.
 
 Bronislav: "How's it going Praveen?"
 
-{DbAssert("metPraveen"):
+{DbAssert("metPraveen")}
 
 Praveen: "Hey Bronislav! It's actually been amazing, and I have you to thank for it."
 
