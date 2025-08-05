@@ -44,7 +44,7 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 //*["Neither was I."]
 //->BI_C_NeitherWasI
 
-//*["Good to see you too, Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
+//*["Good to see you too, Ivy." #>> ChangeOpinion Ivy Bronislav +]
 //->BI_C_GoodToSeeYouTooIvy
 
 //*["Have you talked to the firm yet?"  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
@@ -67,10 +67,10 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 // neutral or negative relationship
 //Ivy: "Um, hi Bronislav. Is there a reason you came over here?"
 
-//*["I wanted to say hi."  #>> IncreaseRelationshipStat Ivy Bronislav Opinion 5]
+//*["I wanted to say hi."  #>> ChangeOpinion Ivy Bronislav +]
 //->BI_C_WantedToSayHi
 
-//*["How are you doing?"  #>> IncreaseRelationshipStat Ivy Bronislav Opinion 5]
+//*["How are you doing?"  #>> ChangeOpinion Ivy Bronislav +]
 //->BI_C_HowAreYouDoing
 
 //*["You know, I wish I hadn't."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
@@ -173,7 +173,7 @@ Bronislav: "Did you? How'd it go?"
 
 Ivy: "They said they would definitely be willing to consider someone of your skill for the position. While sponsoring your visa defintiely is a complication to the whole process, they are still willing to go through with it."
 
-*["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["That's great!" #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_C_ThatsGreat
 
 *["Is there something else I could do to improve his opinion of me?"]
@@ -201,7 +201,7 @@ Bronislav: "Did you? How'd it go?"
 
 Ivy: "They said they would definitely be willing to consider someone of your skill for the position. While sponsoring your visa defintiely is a complication to the whole process, they are still willing to go through with it."
 
-*["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["That's great!" #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_C_ThatsGreat
 
 *["Is there something else I could do to improve his opinion of me?"]
@@ -227,7 +227,7 @@ Bronislav: "You did? What did they say?"
 
 Ivy: "They said they would definitely be willing to consider someone of your skill for the position. While sponsoring your visa defintiely is a complication to the whole process, they are still willing to go through with it."
 
-*["That's great!" #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
+*["That's great!" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_ThatsGreat
 
 *["Is there something else I could do to improve his opinion of me?"]
@@ -311,10 +311,10 @@ Bronislav: "Is it a crime to just want to say hello now?"
 
 Ivy: "No, I guess not. It's just... you seem like you don't like me very much, and maybe you have reason to, but yeah, that's why I'm surprised you even want to talk."
 
-*["I don't have a problem with you as a person Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
+*["I don't have a problem with you as a person Ivy." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_C_NoProblemWithYou
 
-*["I'm sorry if I came off that way, but I would like an apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
+*["I'm sorry if I came off that way, but I would like an apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_ApologyNotHate
 
 *["You're not wrong, but I was trying to be polite."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
@@ -327,10 +327,10 @@ Ivy: "I guess about as good as you would expect, given everything. I came here t
 
 Ivy: "You clearly didn't like me very much before, but maybe you had a good reason to. Why would that be any different now?"
 
-*["I don't have a problem with you as a person Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
+*["I don't have a problem with you as a person Ivy." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_C_NoProblemWithYou
 
-*["I'm sorry if I came off that way, but I would like an apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
+*["I'm sorry if I came off that way, but I would like an apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_ApologyNotHate
 
 *["You're not wrong, but I was trying to be polite."  #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
@@ -344,10 +344,10 @@ Ivy: "Okay Bronislav. You know I really didn't want to do this in a professional
 
 Ivy: "I don't know what I did to make you hate me, but I apologize for even bringing the deal up to you in the first place because clearly you don't care about other people or their feelings."
 
-*["I don't have a problem with you as a person Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
+*["I don't have a problem with you as a person Ivy." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_C_NoProblemWithYou
 
-*["I'm sorry if I came off that way, but I would like an apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
+*["I'm sorry if I came off that way, but I would like an apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_ApologyNotHate
 
 *["And you clearly don't care about integrity." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
@@ -486,7 +486,7 @@ Ivy trails off as she searches for her next words.
 
 Ivy: "I genuinely don't want all of this to mess with us working together in the future."
 
-*["We definitely will."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["We definitely will."  #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_C_WeAreStillFriends
 
 *["I'm not sure anymore."  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
@@ -499,7 +499,7 @@ Ivy: "Uh... Bronislav, I just wanted to apologize, about putting you in that pos
 
 Ivy: "I know I said a lot of things I regret, and I think that was just because I was so desperate to help Jensen. You don't have to respond to any of this, but just know I'm sorry."
 
-*["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
+*["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_AppreciateApology
 
 *["You should be sorry." #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
@@ -540,7 +540,7 @@ Bronislav: "I appreciate your apology. I certainly wasn't perfect in my own hand
 
 Ivy: "Do you think we will still be able to work together, after all this?"
 
-*["Definately."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["Definately."  #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_C_WeAreStillFriends
 
 *["I'm not sure anymore."  #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
@@ -638,7 +638,7 @@ Bronislav: "Look Ivy, you and I both know you were in the wrong, but I would fee
 
 Ivy: "Sure, I had some part in this situation Bronislav, but acting like you were a perfect in this situation is far from the truth. So I guess I'm sorry for trying to pressure you, but you owe me an apology as much as I owe you one. You were really rude to me, and its not really something that I can just move on from."
 
-*["I'm sorry for my behavior." #>> IncrementRelationshipStat Ivy Bronislav Opinion 5]
+*["I'm sorry for my behavior." #>> ChangeOpinion Ivy Bronislav +]
 Bronislav: "I'm sorry for the way I acted too, Ivy. I shouldn't have been so harsh about everything, I guess I was just uncomfortable with the whole situation, but that doesn't mean I have the right to treat you poorly."
 
 Ivy smiles slightly.
