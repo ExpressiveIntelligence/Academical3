@@ -45,7 +45,7 @@ Bronislav: "Remember how Ivy offered me a job opportunity with her Uncle?"
 
 Hendricks: "Yes, I recall."
 
-*[Tell Hendricks about taking Ivy's deal. #>> IncrementRelationshipStat Hendricks Bronislav 5]
+*[Tell Hendricks about taking Ivy's deal. #>>ChangeOpinion Hendricks Bronislav +]
 ->BH_Socializing5_TellHendricks
 
 *[Don't tell Hendricks.]
@@ -58,7 +58,7 @@ Hendricks: "Do you? Have a seat, I'm all ears."
 
 You take a seat across from Hendricks.
 
-*[Tell Hendricks about taking Ivy's deal. #>> IncrementRelationshipStat Hendricks Bronislav 5]
+*[Tell Hendricks about taking Ivy's deal. #>>ChangeOpinion Hendricks Bronislav +]
 ->BH_Socializing5_TellHendricks
 
 *[Don't tell Hendricks. #>> DecrRelationshipStat Hendricks Bronislav 5]
@@ -178,7 +178,7 @@ Bronislav: "I was actually wondering if you could possibly help me out."
 
 Hendricks: "Of course, have a seat. I'm all ears."
 
-*[Confide in Hendricks. #>>IncrementRelationshipStat Hendricks Bronislav 5]
+*[Confide in Hendricks. #>>ChangeOpinion Hendricks Bronislav +]
 ->BH_Socializing5_ConfideinHen
 
 *[Leave.]
@@ -234,7 +234,7 @@ Bronislav: "Glad I didn't end up in that boat."
 
 Hendricks: "Indeed, you made the right call getting out of Ivy's deal."
 
-*["I just worry about my friendship with Ivy." #>>IncrementRelationshipStat Hendricks Bronislav 5]
+*["I just worry about my friendship with Ivy." #>>ChangeOpinion Hendricks Bronislav +]
 ->BH_Socializing5_IJustWorryAboutMyFriendship
 
 === BH_Socializing5_OhWow ===
@@ -244,7 +244,7 @@ Hendricks: "Indeed, which is why I hope we can prevent mishaps like this from oc
 
 Hendricks: "I have a feeling something else is on your mind."
 
-*["I just worry about my friendship with Ivy." #>>IncrementRelationshipStat Hendricks Bronislav 5] 
+*["I just worry about my friendship with Ivy." #>>ChangeOpinion Hendricks Bronislav +] 
 ->BH_Socializing5_IJustWorryAboutMyFriendship
 
 *["Nope, thats it."]
