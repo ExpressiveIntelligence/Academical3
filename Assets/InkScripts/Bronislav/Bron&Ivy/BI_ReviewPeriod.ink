@@ -25,7 +25,7 @@ Ivy: "Hey Bronislav. Got some helpful feedback?"
 
 // TODO: if negative relationship with Jensen
 // NOTE: THIS CURRENTLY ASSUMES PLAYER'S RELATIONSHIP WITH JENSEN IS NEGATIVE
-*["Better than Jensen's." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["Better than Jensen's." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_BetterThanJ
 
 
@@ -36,16 +36,16 @@ Ivy gives a thumbs up.
 
 Ivy: "That's great to hear! I know that you are already in the review period, but I just really want to push how helpful Jensen could be for the paper. He's really smart, and well-spoken, and you'd be helping him more than you know."
 
-*["I was planning on it." #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["I was planning on it." #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_RP_PlanningOnIt
 
-*["As long as I get something." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
+*["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["I don't think I will." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I don't think I will." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_DontThinkSo
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_DefNot
 
 === BI_RP_SoSo ===
@@ -55,16 +55,16 @@ Ivy shrugs sympathetically.
 
 Ivy: "I'm sorry to hear that. You know... if you need someone to bounce ideas and feedback off of Jensen is really good for it. All he needs is just a good mentor like yourself!"
 
-*["I was planning on it." #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["I was planning on it." #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_RP_PlanningOnIt
 
-*["As long as I get something." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
+*["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["I don't think I will." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I don't think I will." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_DontThinkSo
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 -> DONE
 
 === BI_RP_NotReally ===
@@ -74,13 +74,13 @@ Ivy raises her eyebrow.
 
 Ivy: "O-oh? Well I'm sorry that nothing has been that helpful Bronislav. If I can suggest something, I know Jensen did give you some good feedback a while ago, maybe good enough for you to consider our deal?"
 
-*["As long as I get something." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
+*["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["I don't think I will." #>> DecrRelationshipStat Ivy Bronislav Opinion -5]
+*["I don't think I will." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_RP_DontThinkSo
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_DefNot
 
 === BI_RP_BetterThanJ ===
@@ -94,10 +94,10 @@ She takes a deep breath.
 
 Ivy: "Look, you don't even need to have Jensen do anything. Just say he was a co-author and I'll leave my offer on the table."
 
-*["As long as I get something." #>> IncrementRelationshipStat Ivy Bronislav Opinion 10]
+*["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["Definitely not." #>> DecrRelationshipStat Ivy Bronislav Opinion -20]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_DefNot
 
 === BI_RP_PlanningOnIt ===
@@ -214,7 +214,7 @@ Ivy: "I really thought this would've been a great opportunity for all of us. Har
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
 
-*["Disappointed in me?" #>> DecrRelationshipStat Ivy Bronislav 20]
+*["Disappointed in me?" #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_Disappointed
 
 === BI_RP_ThanksIvy ===

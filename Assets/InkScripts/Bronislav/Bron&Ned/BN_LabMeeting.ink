@@ -22,7 +22,7 @@ Creaking open the door I step into the office as Ned motions for me to have a se
 Ned: "Hello Bronislav, have a seat. How are you today?" 
 
 *["I'm doing okay."]
-    You give a small sigh 
+    You give a small sigh. 
 
     Bronislav: "I'm doing okay."
 

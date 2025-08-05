@@ -27,7 +27,7 @@ Brad: "You're already here! Hope I didn't keep you waiting too long Bronislav."
 *["No problem."]
 ->BB_Socializing4_NoProblem
 
-*["You took your time." #>>DecrRelationshipStat Brad Bronislav 5]
+*["You took your time." #>>ChangeOpinion Brad Bronislav -]
 ->BB_Socializing4_TookYourTime
 
 === BB_Socializing4_NoProblem ===
@@ -47,7 +47,7 @@ Brad sighs.
 Brad: "It's coming along, but it doesn't feel right. I don't want to keep Ned in the dark on this, but I also don't want to waste both of our hard work."
 }
 
-*["You really should withdraw." #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You really should withdraw." #>>ChangeOpinion Brad Bronislav +]
 ->BB_Socializing4_ShouldWithdraw
 
 *["Ned still doesn't know?"]
@@ -107,10 +107,10 @@ Bronislav: "No wonder you haven't withdrawn then."
 
 Brad: "So this can still be salvaged?"
 
-*["You really should withdraw." #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You really should withdraw." #>>ChangeOpinion Brad Bronislav +]
 ->BB_Socializing4_ShouldWithdraw
 
-*["You shouldn't withdraw." #>>IncrementRelationshipStat Brad Bronislav 10]
+*["You shouldn't withdraw." #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Socializing4_ShouldntWithdraw
 
 === BB_Socializing4_YouveGottaDoSomething ===
@@ -120,10 +120,10 @@ Brad groans.
 
 Brad: "I just want someone else's input on it Bronislav. Really, what do you think?"
 
-*["You really should withdraw." #>>IncrementRelationshipStat Brad Bronislav 5]
+*["You really should withdraw." #>>ChangeOpinion Brad Bronislav +]
 ->BB_Socializing4_ShouldWithdraw
 
-*["You shouldn't withdraw." #>>IncrementRelationshipStat Brad Bronislav 10]
+*["You shouldn't withdraw." #>>ChangeOpinion Brad Bronislav ++]
 ->BB_Socializing4_ShouldntWithdraw
 
 === BB_Socializing4_SeemsUnnecessary ===

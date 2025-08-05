@@ -8,8 +8,11 @@ VAR BP_S2_AskDirectly = false
 === BP_Socializing2_SceneStart ===
 #---
 # choiceLabel: Talk with Praveen.
+# @query
+# date.day!2
+# @end
 # hidden: true
-# tags: action, student_cubes, auxiliary
+# tags: action, student_cubes, auxiliary, required
 # repeatable: false
 #===
 
@@ -32,10 +35,10 @@ Praveen: "I was just working on this paper on the multitude of perspectives rega
 *["Oh, nice." ]
 ->BP_Socializing2_OhNice
 
-*["Well, that sounds like a lot." #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["Well, that sounds like a lot." #>> ChangeOpinion Praveen Bronislav +]
 ->BP_Socializing2_SoundsLikeALot
 
-*["As pretentious as ever." #>> DecrRelationshipStat Praveen Bronislav 10]
+*["As pretentious as ever." #>> ChangeOpinion Praveen Bronislav --]
 ->BP_Socializing2_AsPretentious
 
 === BP_Socializing2_OhNice ===
@@ -75,7 +78,7 @@ You say with an unmasked eye roll.
 
 Praveen: "And here I hoped that you were less self-important than you used to be. Whatever, you clearly didn't come over here to talk about me. How have you been doing?"
 
-*["I've had a lot on my plate as well."  #>> DecrRelationshipStat Praveen Bronislav 5]
+*["I've had a lot on my plate as well."  #>> ChangeOpinion Praveen Bronislav -]
 ~ BP_S2_Pretentious = true
 Bronislav: "I've had a lot on my plate. I just finished getting my own paper ready for IRB review."
 
@@ -176,7 +179,7 @@ Praveen: "Why is she helpful to everyone else besides me?"
 *["I'm not sure I follow."]
 ->BP_Socializing2_NotSureIFollow
 
-*["What are you whinning about?"  #>> DecrRelationshipStat Praveen Bronislav 5]
+*["What are you whinning about?"  #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing2_Whinning
 
 === BP_Socializing2_InterestedHendricks ===
@@ -246,10 +249,10 @@ You notice that despite all of his theatrics, he is genuinely stressed about the
 *["Have you tried just asking her directly?"]
 ->BP_Socializing2_AskDirectly
 
-*["Is there anything I could do to help?"  #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["Is there anything I could do to help?"  #>> ChangeOpinion Praveen Bronislav +]
 ->BP_Socializing2_CouldIHelp
 
-*["Surely this is something you can figure out yourself?" #>> DecrRelationshipStat Praveen Bronislav 5]
+*["Surely this is something you can figure out yourself?" #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing2_SurelyYouCanFigure
 
 === BP_Socializing2_AskDirectly ===
@@ -318,7 +321,7 @@ Praveen: "Well, I know Hendricks likes you, or at least respects your opinion. I
 *["Why can't you just ask Hendricks?"]
 ->BP_Socializing2_AskHendricks
 
-*["I could do that."  #>> IncrementRelationshipStat Praveen Bronislav 10]
+*["I could do that."  #>> ChangeOpinion Praveen Bronislav ++]
 ->BP_Socializing2_ICanDoThat
 
 === BP_Socializing2_SurelyYouCanFigure ===
@@ -335,7 +338,7 @@ Praveen: "Well, I know Hendricks likes you, or at least respects your opinion. I
 *["Why can't you just ask Hendricks?"]
 ->BP_Socializing2_AskHendricks
 
-*["I could do that."  #>> IncrementRelationshipStat Praveen Bronislav 10]
+*["I could do that."  #>> ChangeOpinion Praveen Bronislav ++]
 ->BP_Socializing2_ICanDoThat
 
 === BP_Socializing2_AskHendricks ===
@@ -358,13 +361,13 @@ Praveen: "Well, I know Hendricks likes you, or at least respects your opinion. I
 
 Praveen: "So, what do you say?"
 
-*["I could do that."  #>> IncrementRelationshipStat Praveen Bronislav 10]
+*["I could do that."  #>> ChangeOpinion Praveen Bronislav ++]
 ->BP_Socializing2_ICanDoThat
 
 *["Maybe, I'm not sure."]
 ->BP_Socializing2_MaybeNotSure
 
-*["I think this is something you should handle yourself." #>> DecrRelationshipStat Praveen Bronislav 5]
+*["I think this is something you should handle yourself." #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing2_HandleYourself
 
 === BP_Socializing2_DoYouHaveAPlan ===
@@ -374,13 +377,13 @@ Praveen: "Well, not really, but I was thinking since it's a bit weird if I just 
 
 Praveen: "How does this all sound?"
 
-*["I could do that." #>> IncrementRelationshipStat Praveen Bronislav 10]
+*["I could do that." #>> ChangeOpinion Praveen Bronislav ++]
 ->BP_Socializing2_ICanDoThat
 
 *["Maybe, I'm not sure."]
 ->BP_Socializing2_MaybeNotSure
 
-*["I think this is something you should handle yourself." #>> DecrRelationshipStat Praveen Bronislav 5]
+*["I think this is something you should handle yourself." #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing2_HandleYourself
 
 === BP_Socializing2_ICanDoThat ===

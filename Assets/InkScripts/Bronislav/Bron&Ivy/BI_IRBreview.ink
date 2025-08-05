@@ -148,10 +148,10 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
 
     Ivy: "What do you mean?" 
 
-    *["You could talk to your Uncle for me." #>> DecrRelationshipStat Ivy Bronislav Opinion 20]
+    *["You could talk to your Uncle for me." #>> ChangeOpinion Ivy Bronislav --]
         ->YouCouldTalkToHim
 
-    *["Do you know anything else about the position?" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+    *["Do you know anything else about the position?" #>> ChangeOpinion Ivy Bronislav ++]
         ->DoYouKnowAnythingElse
 }
 

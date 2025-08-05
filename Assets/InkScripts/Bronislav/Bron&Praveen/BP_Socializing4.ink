@@ -34,7 +34,7 @@ Praveen: "Bronislav, dude warn me next time."
 *["Locked in I see?"]
 ->BP_Socializing4_LockedIn
 
-*["Don't be a scaredy cat." #>> DecrRelationshipStat Praveen Bronislav 5]
+*["Don't be a scaredy cat." #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing4_ScaredyCat
 
 === BP_Socializing4_WhatYouWorking ===
@@ -144,13 +144,13 @@ Bronislav: "What do you mean?"
 
 Praveen: "Well they get to determine the outcome of their students, that's quite the power no?
 
-*["I'm not sure if that is the point of this..." #>> DecrRelationshipStat Praveen Bronislav 10]
+*["I'm not sure if that is the point of this..." #>> ChangeOpinion Praveen Bronislav --]
 ->BP_Socializing4_PointOfThis
 
-*["Yeah I totally agree!" #>> IncrementRelationshipStat Praveen Bronislav 10]
+*["Yeah I totally agree!" #>> ChangeOpinion Praveen Bronislav ++]
 ->BP_Socializing4_TotallyAgree
 
-*["I think of it from a different perspective." #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["I think of it from a different perspective." #>> ChangeOpinion Praveen Bronislav +]
 ->BP_Different_Perspective
 
 === BP_Socializing4_PointOfThis ===

@@ -1,12 +1,13 @@
 === BB_ConferenceSubmissionDeadline_SceneStart ===
-#---
-#choiceLabel: Sit and relax.
-#@query
+# ---
+# choiceLabel: Sit and relax.
+# @query
 # date.day!3
-#@end.
-#repeatable: false
-#tags: action, student_cubes
-#===
+# @end
+# hidden: true
+# repeatable: false
+# tags: action, student_cubes
+# ===
 # Summary: Brad confides in Bronislav about using pre-IRB data
 
 ~temp r = GetOpinionState("Brad", "Bronislav")
@@ -85,7 +86,7 @@ Brad: "I just need your input on something."
 *["Input on what?"]
 ->BB_CSD_InputOnWhat
 
-*["What did you do?" #>> DecrRelationshipStat Brad Bronislav 5]
+*["What did you do?" #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_AnywayICouldHelp ===
@@ -98,7 +99,7 @@ Brad: "There's nothing really to do now. I appreciate the offer, but can I just.
 *["Go ahead."]
 ->BB_CSD_GoAhead
 
-*["What did you do?" #>> DecrRelationshipStat Brad Bronislav 5]
+*["What did you do?" #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_ItsStressful ===
@@ -111,7 +112,7 @@ Brad: "Thanks Bronislav, means a lot, really.  Also, could I ask you something?"
 *["Go ahead."]
 ->BB_CSD_GoAhead
 
-*["What did you do?" #>> DecrRelationshipStat Brad Bronislav 5]
+*["What did you do?" #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_InputOnWhat ===
@@ -131,7 +132,7 @@ Brad: "It shouldn't be that big of a deal though, right?"
 *["I'm not sure."]
 ->BB_CSD_NotSure
 
-*["It shouldn't be that bad." #>> IncrementRelationshipStat Brad Bronislav 10]
+*["It shouldn't be that bad." #>>ChangeOpinion Brad Bronislav ++]
 ->BB_CSD_ShouldntBeThatBad
 
 === BB_CSD_WhatDidYouDo ===
@@ -151,7 +152,7 @@ Brad: "I just really wanted to start on the paper, and didn't want to stress abo
 *["I'm not sure."]
 ->BB_CSD_NotSure
 
-*["It shouldn't be that bad." #>> IncrementRelationshipStat Brad Bronislav 10]
+*["It shouldn't be that bad." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_CSD_ShouldntBeThatBad
 
 === BB_CSD_GoAhead ===
@@ -171,7 +172,7 @@ Brad: "The only problem is I got the data before the IRB approved it. That can't
 *["I'm not sure."]
 ->BB_CSD_NotSure
 
-*["It shouldn't be that bad." #>> IncrementRelationshipStat Brad Bronislav 10]
+*["It shouldn't be that bad." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_CSD_ShouldntBeThatBad
 
 === BB_CSD_ThatsReallyBad ===
@@ -181,10 +182,10 @@ Brad looks even more nervous.
 
 Brad: "They wouldn't know though, so what difference does it make?"
 
-*["It makes a huge difference." #>> IncrementRelationshipStat Brad Bronislav 5]
+*["It makes a huge difference." #>> ChangeOpinion Brad Bronislav +]
 ->BB_CSD_HugeDifference
 
-*["Don't be dumb Brad." #>> DecrRelationshipStat Brad Bronislav 5]
+*["Don't be dumb Brad." #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_DontBeDumb
 
 === BB_CSD_NotSure ===
@@ -194,7 +195,7 @@ Brad thinks for a moment.
 
 Brad: "I probably should, but I don't want to waste all the research I did. I'll think on it."
 
-*["Should do it soon."  #>> DecrRelationshipStat Brad Bronislav 5]
+*["Should do it soon."  #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_ShouldDoItSoon
 
 *["Definitely think on it."]

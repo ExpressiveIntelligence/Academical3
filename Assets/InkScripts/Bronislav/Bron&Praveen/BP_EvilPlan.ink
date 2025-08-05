@@ -1,14 +1,15 @@
 === BP_EvilPlan_SceneStart ===
 #---
-# choiceLabel: Talk with Praveen.
+# choiceLabel: Eavesdrop on Praveen
+# @query
+# date.day!5
+# @end
 # hidden: true
 # tags: action, student_cubes, auxiliary
 # repeatable: false
 #===
 
 // Summary: Praveen spills his evil plan
-
-
 
 {DbInsert("Seen_BP_EvilPlan")}
 
@@ -25,4 +26,7 @@ Praveen: "But he did make a couple good points in some sections. I wasn't planni
 Praveen: "But yeah it's overall going well. How about you? How's your work going?..."
 
 You walk away before listening to the rest of the conversation
+
+{HideCharacter("Praveen")}
+
 ->DONE

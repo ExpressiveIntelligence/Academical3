@@ -124,7 +124,7 @@ Brad: "Fine." Brad says coldly.
 
 Brad: "Busy with my ethics training recently, not much going on outside of that though now."
 
-*["That's all you're doing?" #>> DecrRelationshipStat Brad Bronislav 10]
+*["That's all you're doing?" #>> ChangeOpinion Brad Bronislav --]
 ->BB_LabMeeting_ThatsAll
 
 *["I'm sorry to hear that."]

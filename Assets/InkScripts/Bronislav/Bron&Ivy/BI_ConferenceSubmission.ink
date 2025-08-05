@@ -29,7 +29,7 @@ Ivy: "I told him that you are an international student, and he said he would be 
 *[This could really help me...] -> internalReflectionAddJensen
 *[What has Jensen done for authorship...?] -> internalReflectionAddJensen2
 
-*{internalReflectionAddJensen2}["Thanks Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+*{internalReflectionAddJensen2}["Thanks Ivy." #>> ChangeOpinion Ivy Bronislav ++++]
 ->ThanksIvy
 
 *{internalReflectionAddJensen2}["I've changed my mind."]
@@ -65,7 +65,7 @@ Ivy sighs.
 
 Ivy: "Jensen needs all the help he can get, wouldn't you have liked help like this back then?"
 
-*["You're right." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+*["You're right." #>> ChangeOpinion Ivy Bronislav ++++]
 ->YouAreRight
 
 *["It's hard, but..."]
@@ -141,10 +141,10 @@ Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the 
 *[This could really help me...] -> internalReflectionPositive
 *[What has Jensen done for authorship...?] -> internalReflectionPositive2
 
-*{internalReflectionPositive2}["That's really helpful."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+*{internalReflectionPositive2}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
 ->ThatsReallyHelpful
 
-*{internalReflectionPositive2}["Thanks, but are you sure?" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*{internalReflectionPositive2}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
 ->YouSure
 
 *{internalReflectionPositive2}[I'm not sure about this]

@@ -50,7 +50,7 @@ Jensen says as he walks up to you.
 
 Jensen: "I heard that my feedback on your presentation got me co-authorship."
 
-*["Keep on hustling." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Keep on hustling." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_KeepOnHustling
@@ -60,7 +60,7 @@ Jensen: "I heard that my feedback on your presentation got me co-authorship."
 // Bronsilav: + Supportive
 ->BJS3_HeresHowYouAuthor
 
-*["Only doing it for the job." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Only doing it for the job." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: + Ashamed
 // Bronislav: + Petty
 ->BJS3_OnlyDoingItForTheJob
@@ -70,7 +70,7 @@ Jensen sits down at your table quietly, then eventually speaks up with a smile,
 
 Jensen: "I hope my feedback is helping the paper come along well."
 
-*["There's a good chance." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["There's a good chance." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_GoodChance
@@ -79,7 +79,7 @@ Jensen: "I hope my feedback is helping the paper come along well."
 
 ->BJS3_AlreadyDone
 
-*["It doesn't feel right." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["It doesn't feel right." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: + Ashamed
 // Bronislav: + Petty
 ->BJS3_DoesntFeelRight
@@ -89,7 +89,7 @@ Jensen sits down at your table, and smiles.
 
 Jensen: "Hey Bronislav, I just wanted to catch up with you. As much as I hope you change your mind on my inclusion on the paper, I can understand your position."
 
-*["I'll consider changing." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I'll consider changing." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_ConsiderChanging
@@ -98,7 +98,7 @@ Jensen: "Hey Bronislav, I just wanted to catch up with you. As much as I hope yo
 
 ->BJS3_FiguringItOut
 
-*["I've made up my mind." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I've made up my mind." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: + Ashamed
 // Bronislav: + Petty
 ->BJS3_MadeUpMyMind
@@ -124,7 +124,7 @@ Jensen: "Hey, Bronislav, I was wondering, am I joining the paper?"
 
 He looks at you with an attempt at puppy-eyes.
 
-*["There's a good chance." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["There's a good chance." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_GoodChance
@@ -133,14 +133,14 @@ He looks at you with an attempt at puppy-eyes.
 
 ->BJS3_AlreadyDone
 
-*["It doesn't feel right." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["It doesn't feel right." #>> ChangeOpinion Jensen Bronislav --]
 
 ->BJS3_DoesntFeelRight
 
 === BJS3_sceneNeutralNo ===
 
 
-*["I'll consider changing." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I'll consider changing." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_ConsiderChanging
@@ -149,7 +149,7 @@ He looks at you with an attempt at puppy-eyes.
 
 ->BJS3_FiguringItOut
 
-*["I've made up my mind." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I've made up my mind." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: + Ashamed
 // Bronislav: + Petty
 ->BJS3_MadeUpMyMind
@@ -159,7 +159,7 @@ Jensen sits down across the table from you, setting down his coffee and smiling.
 
 Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that you decided to include me as a co-author on your paper."
 
-*["Keep on hustling." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Keep on hustling." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_KeepOnHustling
@@ -169,7 +169,7 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 // Bronislav: +Supportive
 ->BJS3_HeresHowYouAuthor
 
-*["Only doing it for the job." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Only doing it for the job." #>> ChangeOpinion Jensen Bronislav --]
 //Jensen: +Ashamed
 //Bronislav: +Petty
 ->BJS3_OnlyDoingItForTheJob
@@ -177,7 +177,7 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 === BJS3_sceneNegativeNo ===
 
 
-*["I'll consider changing." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I'll consider changing." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_ConsiderChanging
@@ -186,14 +186,14 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 
 ->BJS3_FiguringItOut
 
-*["I've made up my mind." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I've made up my mind." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: + Ashamed
 // Bronislav: + Petty
 ->BJS3_MadeUpMyMind
 
 === BJS3_sceneNegativeIvy ===
 
-*["There's a good chance." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["There's a good chance." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 // Bronislav: +Bad Advisor
 ->BJS3_GoodChance
@@ -202,7 +202,7 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 
 ->BJS3_AlreadyDone
 
-*["It doesn't feel right." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["It doesn't feel right." #>> ChangeOpinion Jensen Bronislav --]
 
 ->BJS3_DoesntFeelRight
 

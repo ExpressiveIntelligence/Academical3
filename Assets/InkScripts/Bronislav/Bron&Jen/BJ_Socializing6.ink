@@ -24,7 +24,7 @@ You run into Jensen grabbing a coffee. He sees you and gives you a quick wave, b
 *["Are you doing okay?"]
 ->AreYouDoingOkay
 
-*["We should have expected this." #>> DecrementRelationshipStat Jensen Bronislav Opinion -50]
+*["We should have expected this." #>> ChangeOpinion Jensen Bronislav --]
 ->WeShouldHaveExpected
 
 //if neutral relationship
@@ -52,13 +52,13 @@ He sighs.
 
 Jensen: "Not really no. Ever since Ned removed me from the lab meetings, all of my applications have gone about how I suspected them to. I appreciate your effort to help me though Bronislav, I really do."
 
-*["I hope things get better." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I hope things get better." #>> ChangeOpinion Jensen Bronislav ++]
 ->HopeThingsGetBetter
 
 *["See you later."]
 ->SeeYouLater
 
-*["I can't blame them." #>> DecrementRelationshipStat Jensen Bronislav Opinion -50]
+*["I can't blame them." #>> ChangeOpinion Jensen Bronislav --]
 ->CantBlameThem
 
 === HopeThingsGetBetter ===
@@ -107,13 +107,13 @@ Bronislav: "How are you doing Jensen?"
 
 Jensen: "I'm not doing the best Bronislav. My application is getting denied everywhere even with the paper. It really, really sucks."
 
-*["I hope things get better." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I hope things get better." #>> ChangeOpinion Jensen Bronislav ++]
 ->HopeThingsGetBetter
 
 *["See you later."]
 ->SeeYouLater
 
-*["I can't blame them." #>> DecrementRelationshipStat Jensen Bronislav Opinion -50]
+*["I can't blame them." #>> ChangeOpinion Jensen Bronislav --]
 ->CantBlameThem
 
 === CanWeTalk ===
@@ -126,7 +126,7 @@ Jensen: "There isn't much to talk about Bronislav. My application is getting me 
 *["I'll leave you alone."]
 ->LeaveYouAlone
 
-*["I can't blame them." #>> DecrementRelationshipStat Jensen Bronislav Opinion -50]
+*["I can't blame them." #>> ChangeOpinion Jensen Bronislav --]
 ->CantBlameThem
 
 === LeaveYouAlone ===
@@ -162,7 +162,7 @@ He looks up and notices you as well, waving at you.
 *["What are you up to?"]
 ->WhatAreYouUpTo
 
-*["Now you want to put in the work." #>> DecrementRelationshipStat Jensen Bronislav Opinion -50]
+*["Now you want to put in the work." #>> ChangeOpinion Jensen Bronislav --]
 ->NowYouPutInTheWork
 
 === WhatAreYouUpTo ===
@@ -173,7 +173,7 @@ Jensen: "Well I've been doing some coursework and I've been talking some more wi
 *["That's great to hear!"]
 ->ThatsGreat
 
-*["Now you want to put in the work." #>> DecrementRelationshipStat Jensen Bronislav Opinion -50]
+*["Now you want to put in the work." #>> ChangeOpinion Jensen Bronislav --]
 ->NowYouPutInTheWork
 
 === ThatsGreat ===
