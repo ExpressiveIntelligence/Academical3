@@ -15,7 +15,7 @@
 
 As you walk towards your desk, you notice that Ivy steps into your path.
 
-*["Hey Ivy." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+*["Hey Ivy." #>> ChangeOpinion Ivy Bronislav ++++]
 Bronislav: "Hey Ivy."
 
 You say as you stop in front of her.
@@ -89,7 +89,7 @@ Ivy: "Why so cold all of a sudden?"
 
 === SoCold ===
 
-*["I'm sorry, I didn't mean to come off cold." #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+*["I'm sorry, I didn't mean to come off cold." #>> ChangeOpinion Ivy Bronislav ++]
 Bronislav: "Sorry Ivy, I didn't mean to come off cold, I just have a lot on my plate right this second and I just need to get to work."
 
 Ivy: "Oh, sorry. I won't take up too much of your time then, I just thought about it a bit more, and I thought of another reason why you should help Jensen."
@@ -127,7 +127,7 @@ Ivy: "I've heard so many horror stories about the whole process, and I am realiz
 
 Ivy: "You're not only helping Jensen through what we both know is a difficult situation, but you are helping yourself have a plan for post graduation. You'd completely secure your visa, and you could remove all of that stress that you have been telling me about for a while now, simply by playing your part."
 
-*["I hadn't thought about it like that." #>> IncrementRelationshipStat Ivy Bronislav Opinion +40]
+*["I hadn't thought about it like that." #>> ChangeOpinion Ivy Bronislav +++]
 Bronislav: "Huh, I hadn't thought about it like that, Ivy."
 
 Ivy: "What I'm trying to say is that I think you should defintiely put Jensen on the paper, because you're not only helping him, but you're helping yourself."
@@ -163,7 +163,7 @@ Ivy turns and leaves the room.
 
 ->DONE
 
-*["This is making me uncomfortable." #>> IncrementRelationshipStat Ivy Bronislav Opinion +20]
+*["This is making me uncomfortable." #>> ChangeOpinion Ivy Bronislav ++]
 Bronislav: "Okay, this is making me uncomfortable, Ivy."
 
 Ivy: "Oh, my bad. I didn't realize I was making this weird, I appreciate you being honest."
@@ -206,7 +206,7 @@ Ivy: "Well, you and I both know how hard it is to get into grad school, especial
 
 Ivy: "Helping Jensen would really give you the secruity of having your life after school totally planned out, your visa totally secured, and all you would be doing would be giving him a leg-up for getting into school. It's a win-win situation no matter how you slice it."
 
-*["I hadn't thought about it like that." #>> IncrementRelationshipStat Ivy Bronislav Opinion +40]
+*["I hadn't thought about it like that." #>> ChangeOpinion Ivy Bronislav +++]
 Bronislav: "Huh, I hadn't thought about it like that, Ivy."
 
 Ivy: "Yeah, what I'm trying to say here is that I think you should defintiely put Jensen on the paper, because you're not only helping him, but you're helping yourself."
@@ -221,7 +221,7 @@ Ivy leaves with a pep in her step.
 
 ->DONE
 
-*["I guess you're right." #>> IncrementRelationshipStat Ivy Bronislav Opinion +20]
+*["I guess you're right." #>> ChangeOpinion Ivy Bronislav ++]
 Bronislav: "Yeah, I guess you're right, Ivy."
 
 Ivy: "Of course I am. When have I ever not been on the mark?"
