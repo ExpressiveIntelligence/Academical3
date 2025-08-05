@@ -49,10 +49,10 @@ She shakes her hed sadly.
 
 Ivy: "I took advantage of you, and for that I am truly sorry."
 
-*["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+*["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav ++]
 ->AppreciateYourApology
 
-*["You should be sorry." #>> DecrRelationshipStat Ivy Bronislav Opinion -50]
+*["You should be sorry." #>> ChangeOpinion Ivy Bronislav --]
 ->YouShouldBe
 
 *[Say nothing.]
@@ -69,10 +69,10 @@ Ivy: "I took advantage of you, and for that I am truly sorry."
 
 // Ivy: "I tried to leverage my knowledge of your situation and my connections to force you to help, and for that I am truly sorry."
 
-// *["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+// *["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav ++]
 // ->AppreciateYourApology
 
-// *["You should be sorry." #>> DecrRelationshipStat Ivy Bronislav Opinion -50]
+// *["You should be sorry." #>> ChangeOpinion Ivy Bronislav --]
 // ->YouShouldBe
 
 // *[Say nothing.]
@@ -93,10 +93,10 @@ Ivy: "I took advantage of you, and for that I am truly sorry."
 
 // Ivy: "Look, I want to apologize. I know we aren't close or anything, but that was no excuse to pressure you like I did to try and help Jensen. I used my knowledge of your situation and problems to try and help him, and it was so wrong. I feel awful about what I did, and I am truly sorry, for all of it."
 
-// *["I appreciate your apology." #>> IncrementRelationshipStat Ivy Bronislav Opinion 50]
+// *["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav ++]
 // ->AppreciateYourApology
 
-// *["You should be sorry." #>> DecrRelationshipStat Ivy Bronislav Opinion -80]
+// *["You should be sorry." #>> ChangeOpinion Ivy Bronislav ---]
 // ->YouShouldBe
 
 // *[Say nothing.]
@@ -146,7 +146,7 @@ Ivy: "I just, um... wanted to say that I'm sorry. To you, about... well a lot of
 *["I'm listening."]
 ->ImListening
 
-*[Walk away. #>> DecrRelationshipStat Ivy Bronislav Opinion -10]
+*[Walk away. #>> ChangeOpinion Ivy Bronislav -]
 ->WalkAway
 
 -else:
