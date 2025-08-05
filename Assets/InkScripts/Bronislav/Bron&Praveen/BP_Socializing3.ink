@@ -46,7 +46,7 @@ Praveen: "Oh, you know, the latest and greatest submitted for peer review. I swe
 *["Sure, maybe their wording is clunky, but is the content actually any good?"]
 ->BP_Socializing3_ContentActually
 
-*["Are you supposed to be sharing peer review stuff with me?"]
+*["Are you supposed to be sharing other people's stuff with me?"]
 ->BP_Socializing3_SharingPeerReview
 
 === BP_Socializing3_LetMeGuess ===
