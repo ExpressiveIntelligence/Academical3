@@ -151,7 +151,7 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
     *["You could talk to your Uncle for me." #>> DecrRelationshipStat Ivy Bronislav Opinion 20]
         ->YouCouldTalkToHim
 
-    *["Do you know anything else about the position?" #>> IncrementRelationshipStat Ivy Bronislav Opinion 20]
+    *["Do you know anything else about the position?" #>> ChangeOpinion Ivy Bronislav ++]
         ->DoYouKnowAnythingElse
 }
 

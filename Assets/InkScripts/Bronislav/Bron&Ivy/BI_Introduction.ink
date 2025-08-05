@@ -53,7 +53,7 @@ Bronislav: "His name was Jensen."
 
 Ivy: "Oh how funny! That's my nephew! He's been having some problems transfering from his masters to a Ph.D program. Being on this paper would be great for him."
 
-*["I see a bit of myself in him."  #>> IncrementRelationshipStat Ivy Bronislav Opinion 5 ]
+*["I see a bit of myself in him."  #>> ChangeOpinion Ivy Bronislav +]
     ->BronislavSympathizes
 
 *["I wish I could help."]
