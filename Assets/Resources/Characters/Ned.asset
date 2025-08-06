@@ -15,10 +15,18 @@ MonoBehaviour:
   uid: Ned
   displayName: Ned
   nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
-  bio: Ned is a professor in the <MAJOR> Department. He advises Brad. Ned is described
-    by his friends as <CHARACTER TRAITS>.
+  bio: Dr. Ned Smith is a brilliant, easy-going, and kind professor in you department.
+    While he isn't your direct advisor, you have taken many of his classes and collaborate
+    with him on many projects. He directly advises Brad, and the three of you have
+    gotten coffee on many occasions. Despite his relaxed demeanor, Ned is serious
+    about his work and operates by-the-book. He is known in the department for his
+    clean, well-documented studies and data alongside a history of successful students.
+    He is passionate about his work and always excited for the next discovery. He
+    dislikes when people address him as "Dr. Smith".
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: b65cc60c90e8d49ccaa1d6a2d202de66, type: 3}
-  defaultPose: {fileID: 21300000, guid: b65cc60c90e8d49ccaa1d6a2d202de66, type: 3}
+  defaultPose: {fileID: 21300000, guid: 054828ddd76bd40b5933d6b9c53fbe14, type: 3}
+  defaultBackgroundColor: {r: 0.34901962, g: 0.56078434, b: 0.5686275, a: 1}
+  background: {fileID: 0}
   relationships: []

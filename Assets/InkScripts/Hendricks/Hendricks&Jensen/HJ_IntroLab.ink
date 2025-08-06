@@ -122,7 +122,7 @@ Jensen: "He said reviews are especially the thing to watch out for, because they
 
 === consoleOptions ===
 
-*["Of course you are."  #>> IncrementRelationshipStat Jensen Hendricks Opinion 50]
+*["Of course you are."  #>> ChangeOpinion Jensen Hendricks ++]
 Hendricks: "Of course you are cut out for grad school. Self doubt would be what's holding you back there."
 
 Jensen: "That and a thousand hurdles."
@@ -133,7 +133,7 @@ Jensen: "Maybe... yeah I guess you're right."
 
 ->HJ_INTRO_sceneStart
 
-*["You don't have to do it if you don't want to." #>> DecrementRelationshipStat Jensen Hendricks Opinion -20]
+*["You don't have to do it if you don't want to." #>> ChangeOpinion Jensen Hendricks -]
 Hendricks: "You know Jensen, you don't have to go to grad school if you don't want to."
 
 Jensen: "Are you saying I shouldn't?"

@@ -3,7 +3,7 @@
 #choiceLabel: Chat with Praveen.
 #@query
 # date.day!3
-#Seen_BP_ConferenceSubmissionDeadline
+# Seen_BP_ConferenceSubmissionDeadline
 #@end.
 #repeatable: false
 #tags: action, student_cubicles
@@ -14,7 +14,7 @@
 {ShowCharacter("Praveen", "left", "")}
 As you approach Praveen, he seems to be chuckling to himself at his desk.
 
-Praveen: "Ho boy Bronislav, you're never going to believe this."
+Praveen: "Oh boy Bronislav, you're never going to believe this."
 
 *["What's up?"]
 ->BP_Socializing3_WhatsUp
@@ -29,10 +29,10 @@ Praveen: "Get a load of this: 'We shall be addressing further applications throu
 *["What are you reading?"]
 ->BP_Socializing3_WhatAreYouReading
 
-*["And let me guess... they don't come close to those ambitions." #>>IncrementRelationshipStat Praveen Bronislav 5]
+*["And let me guess... they don't come close to those ambitions." #>>ChangeOpinion Praveen Bronislav +]
 ->BP_Socializing3_LetMeGuess
 
-*["Oh no. Don't tell me you're tearing into a freshman's work." #>>DecrRelationshipStat Praveen Bronislav 5]
+*["Oh no. Don't tell me you're tearing into a freshman's work." #>>ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_DontTellMe
 
 === BP_Socializing3_WhatAreYouReading ===
@@ -40,7 +40,7 @@ Bronislav: "What are you reading?"
 
 Praveen: "Oh, you know, the latest and greatest submitted for peer review. I swear they let anyone into grad school these days."
 
-*["Well, everyone except for Jensen." #>>DecrRelationshipStat Praveen Bronislav 10]
+*["Well, everyone except for Jensen." #>>ChangeOpinion Praveen Bronislav --]
 ->BP_Socializing3_ExceptforJensen
 
 *["Sure, maybe their wording is clunky, but is the content actually any good?"]
@@ -59,7 +59,7 @@ Praveen: "See, I knew we had the same sense of humor. Despite this absolute vagu
 *["So what is this paper for then?"]
 ->BP_Socializing3_WhatIsThisFor
 
-*["Hey, take it easy, it's probably a freshman."  #>>DecrRelationshipStat Praveen Bronislav 5]
+*["Hey, take it easy, it's probably a freshman."  #>>ChangeOpinion Praveen Bronislav +]
 ->BP_Socializing3_ProbsAFreshman
 
 === BP_Socializing3_DontTellMe ===
@@ -69,7 +69,7 @@ Praveen gives you a half hearted sneer.
 
 "Of course you'd think I'd pick on a freshman. No Bronislav. This is the paper I was assigned to review by Hendricks."
 
-*["Are you seriously complaining about the thing you so desperately wanted?"  #>>DecrRelationshipStat Praveen Bronislav 5]
+*["Are you seriously complaining about the thing you so desperately wanted?"  #>>ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_AreYouSerious
 
 *["Okay sure, maybe their wording is clunky, but is the content actually any good?"]
@@ -85,7 +85,7 @@ Praveen gives you a sideways glare.
 
 Praveen: "Really, Bronislav? Who am I kidding, of course you would say something like that. You know he's my friend right?"
 
-*["Interesting choice in friends." #>>DecrRelationshipStat Praveen Bronislav 15]
+*["Interesting choice in friends." #>>ChangeOpinion Praveen Bronislav ---]
 ->BP_Socializing3_InterestingChoice
 
 *["Sorry, I didn't know."]
@@ -113,7 +113,7 @@ Praveen: "Oh great, so now you're the moral police. I was trying to share someth
 *["Well, you shouldn't be sharing it."]
 ->BP_Socializing3_YouShouldntBe
 
-*["Okay, but you should definitely keep it quiet." #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["Okay, but you should definitely keep it quiet." #>> ChangeOpinion Praveen Bronislav +]
 ->BP_Socializing3_KeepItQuiet
 
 === BP_Socializing3_WhatIsThisFor ===
@@ -121,7 +121,7 @@ Bronislav: "So what is this paper for then?"
 
 Praveen: "This steaming pile of garbage is the lovely paper Hendricks assigned me to peer review. You know, when she gave me this job, I figured I'd be looking at something a little more important and intersting honestly."
 
-*["Are you seriously complaining about the thing you so desperately wanted?"  #>>DecrRelationshipStat Praveen Bronislav 5]
+*["Are you seriously complaining about the thing you so desperately wanted?"  #>>ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_AreYouSerious
 
 *["Okay sure, maybe their wording is clunky, but is the content actually any good?"]
@@ -185,7 +185,7 @@ Bronislav: "Okay, what's up?"
 
 Praveen: "So the wording of this paper is a mess, we've established that. But in between that mess, it really does have some good information, information I think could be really beneficial to share with the rest of the department. What do you think of the idea of me doing it?"
 
-*["I think that's a great idea!" #>> IncrementRelationshipStat 10]
+*["I think that's a great idea!" #>> ChangeOpinion Praveen Bronislav ++]
 ->BP_Socializing3_GreatIdea
 
 *["I'm not sure, I think there are rules against it."]
@@ -205,10 +205,10 @@ Bronislav: "No, I'm not. Talking about papers like that is absolutely not allowe
 
 Praveen: "Well... shoot. Wait, so if I can't talk about the paper, I'm assuming that means I probably can't talk about the good stuff in this paper either then, huh?"
 
-*["No, you can't." #>> IncrementRelationshipStat Praveen Bronislav 5]
+*["No, you can't." #>> ChangeOpinion Praveen Bronislav +]
 ->BP_Socializing3_NoYouCant
 
-*["What do you think?" #>> DecrRelationshipStat Praveen Bronislav 5]
+*["What do you think?" #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_WhatDoYouThink
 
 === BP_Socializing3_KeepItQuiet ===
@@ -221,7 +221,7 @@ Praveen: "Well, its a good thing I told you in confidence then, right? But... wa
 *["No, you can't."]
 ->BP_Socializing3_NoYouCant
 
-*["What do you think?" #>> DecrRelationshipStat Praveen Bronislav 5]
+*["What do you think?" #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_WhatDoYouThink
 
 === BP_Socializing3_GreatIdea ===
@@ -246,7 +246,7 @@ Praveen: "Hmm... I could definitely see that for the horrible wording, but what 
 *["No, you can't."]
 ->BP_Socializing3_NoYouCant
 
-*["What do you think?" #>> DecrRelationshipStat Praveen Bronislav 5]
+*["What do you think?" #>> ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_WhatDoYouThink
 
 

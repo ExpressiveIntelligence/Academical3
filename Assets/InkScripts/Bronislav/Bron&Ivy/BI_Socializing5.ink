@@ -79,7 +79,7 @@ Bronislav: "I'm really excited, feels rare that everyone gets what they want."
 
 Ivy: "You can say that again. Seeing Jensen so happy is a relief, feels like a big weight is taken off of his shoulders."
 
-*["I'd feel the same." #>>IncrementRelationshipStat Ivy Bronislav 50]
+*["I'd feel the same." #>>ChangeOpinion Ivy Bronislav ++++]
 ->BI_Socializing5_IdFeelTheSame
 
 *[Take a relieved sip.]
@@ -231,7 +231,7 @@ Ivy: "Don't mention it. Just happy to help where I can, and get everyone pushed 
 *["So what now?"]
 ->BI_Socializing5_SoWhatNow2
 
-*["Classic Ivy." #>> DecrRelationshipStat Ivy Bronislav 50]
+*["Classic Ivy." #>> ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_ClassicIvy
 
 === BI_Socializing5_AnyNewNews ===
@@ -380,7 +380,7 @@ She pauses.
 *["I just can't."]
 ->BI_Socializing5_IJustCant
 
-*["It's not happening." #>>DecrRelationshipStat Ivy Bronislav 50]
+*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_WishICouldHelp ===
@@ -394,7 +394,7 @@ Ivy: "I know. He's just really struggling to get into grad school, and that's al
 *["I've made my decision."]
 ->BI_Socializing5_IveMadeMyDecision
 
-*["It's not happening." #>>DecrRelationshipStat Ivy Bronislav 50]
+*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_JensenShouldDoThat ===
@@ -405,7 +405,7 @@ Ivy: "I know, it's just never a bad thing to help a friend. Especially someone w
 *["I've made my decision."]
 ->BI_Socializing5_IveMadeMyDecision
 
-*["It's not happening." #>>DecrRelationshipStat Ivy Bronislav 50]
+*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_ChangeYourApproach ===
@@ -419,7 +419,7 @@ Ivy: "Yeah I'll think about that Bronislav. Nothing wrong with helping a student
 *["Just being honest."]
 ->BI_Socializing5_JustBeingHonest
 
-*["Even if something bad happens?" #>>DecrRelationshipStat Ivy Bronislav 50]
+*["Even if something bad happens?" #>>ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_EvenIfSomethingBad
 
 === BI_Socializing5_IJustCant ===
@@ -430,7 +430,7 @@ Ivy: "Mhm... just wish that Jensen had an easier time getting into grad school, 
 *["I've made my decision."]
 ->BI_Socializing5_IveMadeMyDecision
 
-*["It's not happening." #>>DecrRelationshipStat Ivy Bronislav 50]
+*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_ItsNotHappening ===
@@ -547,7 +547,7 @@ Ivy: "Well? We're not going to talk about it Bronislav? You really betrayed mine
 *["Sorry Ivy."]
 ->BI_Socializing5_SorryIvy4
 
-*["I expected better from you." #>>DecrRelationshipStat Ivy Bronislav 100]
+*["I expected better from you." #>>ChangeOpinion Ivy Bronislav --]
 ->BI_Socializing5_IExpectedBetter
 
 === BI_Socializing5_IJustCant4 ===
@@ -555,7 +555,7 @@ Bronislav: "I just can't Ivy. I can't have Jensen on the paper."
 
 Ivy: "Mhm... just wish that Jensen had an easier time getting into grad school, this really could have helped him."
 
-*["I've made my decision." #>>DecrRelationshipStat Ivy Bronislav 50]
+*["I've made my decision." #>>ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_IveMadeMyDecision4
 
 

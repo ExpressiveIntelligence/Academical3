@@ -15,10 +15,19 @@ MonoBehaviour:
   uid: Praveen
   displayName: Praveen
   nameColor: {r: 0, g: 0.754717, b: 0.70803463, a: 0}
-  bio: Praveen is an undergraduate student in the <MAJOR> department. He works with
-    Hendricks for independent study credit.
+  bio: Praveen is a young PhD in the department who is trying to build out his network
+    and research strategy. Like most early graduate students, he balances a mixture
+    of natural intellectual talent and eagerness with a lack of focus and inability
+    to scope his projects. He is currently trying to figure out where he "belongs"
+    in his field, and is trying to build professional relationships with different
+    departments and research organizations by volunteering where ever he can. He's
+    spinning a few paper and research projects right now, but is having trouble nailing
+    down what exactly he wants to say through them. You generally are on good terms
+    with Praveen, but you don't really go out of your way to hang out with him.
   poses:
   - poseName: default
     sprite: {fileID: 21300000, guid: 010a4b6913e274069af81d0adc0fabaa, type: 3}
-  defaultPose: {fileID: 21300000, guid: 010a4b6913e274069af81d0adc0fabaa, type: 3}
+  defaultPose: {fileID: 21300000, guid: 9023f98b25aac4910bbdd36bb275dcdc, type: 3}
+  defaultBackgroundColor: {r: 0.9294118, g: 0.8862746, b: 0.8000001, a: 1}
+  background: {fileID: 0}
   relationships: []

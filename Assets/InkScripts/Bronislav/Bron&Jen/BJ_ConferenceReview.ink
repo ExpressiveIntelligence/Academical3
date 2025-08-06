@@ -61,7 +61,7 @@ Jensen looks over to you nervously, as though he is debating something. He appea
 
 Jensen: "Hi Bronislav, I uh… would like to ask you something, if that’s okay."
 }
-*["Sure, what's up? #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Sure, what's up? #>> ChangeOpinion Jensen Bronislav ++]
 
 ->BJS3_SureWhat
 
@@ -69,7 +69,7 @@ Jensen: "Hi Bronislav, I uh… would like to ask you something, if that’s okay
 
 ->BJS3_YeahIG
 
-*["I'm kind of busy, actually." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I'm kind of busy, actually." #>> ChangeOpinion Jensen Bronislav --]
 
 ->BJS3_KindaBusy
 
@@ -78,34 +78,34 @@ Bronislav: "Sure, what’s up?" You prompt back, with a smile.
 
 Jensen: "I would like to ask you to reconsider adding me to the paper."
 
-*["Actually, I have been thinking about it more." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Actually, I have been thinking about it more." #>> ChangeOpinion Jensen Bronislav ++]
 //Bronislav: + Supportive
 ->BJS3_ActuallyIhave
 
 *["What is your reasoning?"]
 ->BJS3_Reasoning
 
-*["Not this again." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Not this again." #>> ChangeOpinion Jensen Bronislav --]
 ->BJS3_NotThis
 
-*["There’s nothing to reconsider." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["There’s nothing to reconsider." #>> ChangeOpinion Jensen Bronislav --]
 //Bronislav: Petty
 ->BJS3_NothingtoReconsider
 
 === BJS3_YeahIG ===
 Bronislav: "Yeah, I guess you can. What’s up?"
 Jensen: "I want to ask you to reconsider adding me to the paper."
-*["Actually, I have been thinking about it more." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Actually, I have been thinking about it more." #>> ChangeOpinion Jensen Bronislav ++]
 //Bronislav: + Supportive
 ->BJS3_ActuallyIhave
 
 *["What is your reasoning?"]
 ->BJS3_Reasoning
 
-*["Not this again." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Not this again." #>> ChangeOpinion Jensen Bronislav --]
 ->BJS3_NotThis
 
-*["There’s nothing to reconsider." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["There’s nothing to reconsider." #>> ChangeOpinion Jensen Bronislav --]
 //Bronislav: Petty
 ->BJS3_NothingtoReconsider
 
@@ -117,17 +117,17 @@ You try to leave.
 Jensen’s face shifts to a look of panic.
 
 Jensen: "Wait, I just wanted to ask you to reconsider adding me to the paper."
-*["Actually, I have been thinking about it more." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Actually, I have been thinking about it more." #>> ChangeOpinion Jensen Bronislav ++]
 //Bronislav: + Supportive
 ->BJS3_ActuallyIhave
 
 *["What is your reasoning?"]
 ->BJS3_Reasoning
 
-*["Not this again." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["Not this again." #>> ChangeOpinion Jensen Bronislav --]
 ->BJS3_NotThis
 
-*["There’s nothing to reconsider." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["There’s nothing to reconsider." #>> ChangeOpinion Jensen Bronislav --]
 //Bronislav: Petty
 ->BJS3_NothingtoReconsider
 
@@ -135,17 +135,17 @@ Jensen: "Wait, I just wanted to ask you to reconsider adding me to the paper."
 Bronislav: "Actually, I have been reconsidering, I think I was a bit harsh with you before."
 
 Jensen: "Well, when I last talked with Ivy, she mentioned that she offered you a sweet job position in exchange for helping me out, but you turned that down too. I know you have some concerns, but all of this is simply friends helping friends out."
-*["I’d love to help one of my friends out, maybe..." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+*["I’d love to help one of my friends out, maybe..." #>> ChangeOpinion Jensen Bronislav ++++]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> ChangeOpinion Jensen ++]
 ->BJS3_ExceptionforYou
 
 *["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> ChangeOpinion Jensen Bronislav ----]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
@@ -154,17 +154,17 @@ Bronislav: "Why should I reconsider?"
 
 Jensen: "I know you are hesitant about the whole authorship thing, so I talked with Ivy. Apparently, she offered you a sweet job position in exchange for helping me, which seems like a more than generous reason to help a friend."
 
-*["I’d love to help one of my friends out, maybe..." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+*["I’d love to help one of my friends out, maybe..." #>> ChangeOpinion Jensen Bronislav ++++]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> ChangeOpinion Jensen Bronislav ++]
 ->BJS3_ExceptionforYou
 
 *["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> ChangeOpinion Jensen Bronislav ----]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
@@ -177,17 +177,17 @@ Bronislav: "I thought I was clear with you that I wasn’t going through with th
 
 Jensen: "I know you told me that you didn’t want to add me to the paper, but I talked with Ivy, and I think what she’s offering you in return for helping me is pretty generous. All of this is a simple as friends helping friends."
 
-*["I’d love to help one of my friends out, maybe..." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+*["I’d love to help one of my friends out, maybe..." #>> ChangeOpinion Jensen Bronislav ++++]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> ChangeOpinion Jensen Bronislav ++]
 ->BJS3_ExceptionforYou
 
 *["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> ChangeOpinion Jensen Bronislav ----]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
@@ -198,17 +198,17 @@ You scoff.
 
 Jensen: "Look, Bronislav, I know you’re feeling that way, but I talked to Ivy. Even though you turned it down, I think what she’s offering you for helping me is pretty generous. All of this is a simple as friends helping friends."
 
-*["I’d love to help one of my friends out, maybe..." #>> IncrementRelationshipStat Jensen Bronislav Opinion 100]
+*["I’d love to help one of my friends out, maybe..." #>> ChangeOpinion Jensen Bronislav ++++]
 //Bronislav: +Bad Advisor
 ->BJS3_HelpAFriend
 
-*["I think it’s worth making an exception for you." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["I think it’s worth making an exception for you." #>> ChangeOpinion Jensen Bronislav ++]
 ->BJS3_ExceptionforYou
 
 *["I don’t think I can help."]
 ->BJS3_DontThinkICan
 
-*["We’re not friends." #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*["We’re not friends." #>> ChangeOpinion Jensen Bronislav ----]
 //Bronislav: +Petty
 ->BJS3_NotFriends
 
@@ -228,7 +228,7 @@ While it is great to see Jensen so happy, you can’t shake the feeling that thi
 *["I am happy to help a friend, no matter what."]
 ->BJS3_HappyToHelp
 
-*[ Maybe I should reconsider... #>> DecrRelationshipStat Jensen Bronislav Opinion -100]
+*[ Maybe I should reconsider... #>> ChangeOpinion Jensen Bronislav ----]
 // Bronislav: +Guilty
 ~badidea = true
 ->BJS3_Reconsider
@@ -245,7 +245,7 @@ While it feels great to help Jensen out, you can’t shake the feeling that this
 *["I am happy to help a friend, no matter what."]
 ->BJS3_HappyToHelp
 
-*[ Maybe I should reconsider... #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*[ Maybe I should reconsider... #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
 ->BJS3_Reconsider
 
@@ -370,7 +370,7 @@ Jensen approaches you with a bright smile.
 
 Jensen: "Hey Bronislav, just checking in! You put me as co-author, right?"
 
-*["Of course!" #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: Hopeful
 // Bronislav: Bad Advisor
 ->BJS3_OfCourse
@@ -380,7 +380,7 @@ Jensen: "Hey Bronislav, just checking in! You put me as co-author, right?"
 // Bronislav: Bad Advisor
 ->BJS3_DontSeeWhyNot
 
-*["I may have reconsidered." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
 }
@@ -391,7 +391,7 @@ Jensen sees you in the distance and starts walking over to your table.
 
 Jensen: "Bronislav! Glad I caught up with you, I just had some questions about the paper."
 
-*["Of course!" #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: Hopeful
 // Bronislav: Bad Advisor
 ->BJS3_OfCourse
@@ -401,7 +401,7 @@ Jensen: "Bronislav! Glad I caught up with you, I just had some questions about t
 // Bronislav: Bad Advisor
 ->BJS3_DontSeeWhyNot
 
-*["I may have reconsidered." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
 }
@@ -412,7 +412,7 @@ Jensen walks up to you tightly clutching one of his bag's shoulder straps.
 
 Jensen: "Hey Bronislav, I still have co-authorship... right?"
 
-*["Of course!" #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: Hopeful
 // Bronislav: Bad Advisor
 ->BJS3_OfCourse
@@ -422,7 +422,7 @@ Jensen: "Hey Bronislav, I still have co-authorship... right?"
 // Bronislav: Bad Advisor
 ->BJS3_DontSeeWhyNot
 
-*["I may have reconsidered." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
 }
@@ -472,11 +472,11 @@ He looks absolutely crushed.
 
 Bronislav: "I wish it were easier to explain Jensen, it's a lot more than just a single thing."
 
-*["Just work on yourself." #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Just work on yourself." #>> ChangeOpinion Jensen Bronislav ++]
 // Bronislav: +Supportive
 ->BJS3_WorkOnYourself
 
-*["This just wasn't for you." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["This just wasn't for you." #>> ChangeOpinion Jensen Bronislav --]
 // Bronislav: Petty
 ->BJS3_WasntForYou
 
@@ -563,7 +563,7 @@ Jensen approaches you with a bright smile.
 
 Jensen: "Hey Bronislav, just checking in! You put me as co-author, right? Ivy mentioned you told her that you weren't interested in having me, but I know you said before that you did so I just want to make sure that you still want to add me."
 
-*["Of course!" #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: Hopeful
 // Bronislav: Bad Advisor
 ->BJS3_OfCourse
@@ -573,7 +573,7 @@ Jensen: "Hey Bronislav, just checking in! You put me as co-author, right? Ivy me
 // Bronislav: Bad Advisor
 ->BJS3_DontSeeWhyNot
 
-*["I may have reconsidered." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
 }
@@ -584,7 +584,7 @@ Jensen sees you in the distance and starts walking over to your table.
 
 Jensen: "Bronislav! Glad I caught up with you, I just had some questions about the paper. Ivy mentioned that you told her something different than me about having me on the paper, so I just want to double check that you do want to have me still."
 
-*["Of course!" #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: Hopeful
 // Bronislav: Bad Advisor
 ->BJS3_OfCourse
@@ -594,7 +594,7 @@ Jensen: "Bronislav! Glad I caught up with you, I just had some questions about t
 // Bronislav: Bad Advisor
 ->BJS3_DontSeeWhyNot
 
-*["I may have reconsidered." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
 }
@@ -605,7 +605,7 @@ Jensen walks up to you tightly clutching one of his bag's shoulder straps.
 
 Jensen: "Hey Bronislav, I still have co-authorship... right? Ivy told me you told her you weren't interested in having me on the paper, so now I am really confused, do you still plan on adding me?"
 
-*["Of course!" #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: Hopeful
 // Bronislav: Bad Advisor
 ->BJS3_OfCourse
@@ -615,7 +615,7 @@ Jensen: "Hey Bronislav, I still have co-authorship... right? Ivy told me you tol
 // Bronislav: Bad Advisor
 ->BJS3_DontSeeWhyNot
 
-*["I may have reconsidered." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
 }
@@ -643,7 +643,7 @@ Jensen looks over to you nervously, as though he is debating something. He appea
 Jensen: "Hi Bronislav, I uh… would like to ask you something, if that’s okay."
 }
 
-*["Sure, what's up? #>> IncrementRelationshipStat Jensen Bronislav Opinion 50]
+*["Sure, what's up? #>> ChangeOpinion Jensen Bronislav ++]
 
 ->BJS3_SureWhat
 
@@ -651,6 +651,6 @@ Jensen: "Hi Bronislav, I uh… would like to ask you something, if that’s okay
 
 ->BJS3_YeahIG
 
-*["I'm kind of busy, actually." #>> DecrRelationshipStat Jensen Bronislav Opinion -50]
+*["I'm kind of busy, actually." #>> ChangeOpinion Jensen Bronislav --]
 
 ->BJS3_KindaBusy
