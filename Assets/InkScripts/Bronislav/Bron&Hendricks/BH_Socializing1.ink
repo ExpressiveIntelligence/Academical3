@@ -22,7 +22,7 @@ She wants to talk about your research progress.
 # BHS1_unlocked
 # date.day!1
 # @end
-# tags: action, library, auxiliary
+# tags: action, library, required
 # repeatable: false
 # ===
 

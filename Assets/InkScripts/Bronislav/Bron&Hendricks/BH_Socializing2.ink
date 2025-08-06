@@ -4,6 +4,7 @@
 # choiceLabel: Meet with Hendricks.
 # @query
 # Seen_BHS1
+# date.day!2
 # @end
 # tags: action, library, auxiliary
 # repeatable: false

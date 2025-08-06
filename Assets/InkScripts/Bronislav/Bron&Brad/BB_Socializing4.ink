@@ -1,15 +1,15 @@
 VAR confided = false
 
 === BB_Socializing4_SceneStart ===
-#---
-#choiceLabel: Wait for Brad.
-#@query
+# ---
+# choiceLabel: Wait for Brad.
+# @query
 # date.day!4
-#@end.
-#repeatable: false
-#tags: action, library
-#===
-#Summary: Brad is contemplating withdrawing paper
+# @end
+# repeatable: false
+# tags: action, library, auxiliary
+# ===
+# Summary: Brad is contemplating withdrawing paper
 
 {DbInsert("Seen_BBS4")}
 

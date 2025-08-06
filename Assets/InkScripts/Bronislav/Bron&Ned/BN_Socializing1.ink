@@ -7,7 +7,7 @@
 # @end
 # hidden: true
 # repeatable: false
-# tags: action, library, auxiliary
+# tags: action, library, required
 # ===
 
 {DbInsert("Seen_BNS1")}

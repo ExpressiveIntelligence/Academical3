@@ -16,7 +16,7 @@ library after ... <TODO:: WHEN DOES THIS HAPPEN??>.
 # date.day!5
 # @end
 # hidden: true
-# tags: action, library, auxiliary
+# tags: action, library, required
 # ===
 # Summary: Jensen asks to meet at the conference to talk about his feelings of the outcome. 
 
