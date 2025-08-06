@@ -1,12 +1,12 @@
 === BH_Socializing5_SceneStart ===
-#---
-#choiceLabel: Peruse library.
-#@query
+# ---
+# choiceLabel: Peruse library.
+# @query
 # date.day!5
-#@end.
-#repeatable: false
-#tags: action, library
-#===
+# @end
+# repeatable: false
+# tags: action, library, required
+# ===
 
 // current default is took the deal
 Today has been going incredibly well, and the excitement of your upcoming job came with a sense of accomplishment. 

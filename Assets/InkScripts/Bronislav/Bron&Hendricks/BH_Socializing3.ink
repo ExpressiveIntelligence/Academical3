@@ -4,6 +4,7 @@
 # choiceLabel: Find Hendricks in the Library
 # @query
 # Seen_BHS2
+# date.day!3
 # @end
 # tags: action, library, auxiliary
 # repeatable: false

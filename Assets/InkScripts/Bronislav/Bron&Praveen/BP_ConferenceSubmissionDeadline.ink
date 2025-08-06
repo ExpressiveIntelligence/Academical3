@@ -4,6 +4,7 @@
 # hidden: true
 # @query
 # Seen_BI_CONF
+# date.day!3
 # @end
 # tags: action, library, auxiliary
 # repeatable: false

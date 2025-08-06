@@ -12,7 +12,7 @@ VAR BP_S2_AskDirectly = false
 # date.day!2
 # @end
 # hidden: true
-# tags: action, student_cubes, auxiliary, required
+# tags: action, student_cubes, required
 # repeatable: false
 #===
 

@@ -3,10 +3,11 @@
 # choiceLabel: Meet with Ned in the Lab
 # @query
 # Seen_BNS1
+# date.day!6
 # @end
 # hidden: true
 # repeatable: false
-# tags: action, neds_office, auxiliary
+# tags: action, neds_office, required
 # ===
 
 {DbInsert("Seen_BNLM")}

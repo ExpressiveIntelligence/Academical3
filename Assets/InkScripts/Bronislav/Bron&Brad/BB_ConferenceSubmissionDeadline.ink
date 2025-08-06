@@ -6,7 +6,7 @@
 # @end
 # hidden: true
 # repeatable: false
-# tags: action, student_cubes
+# tags: action, student_cubes, auxiliary
 # ===
 # Summary: Brad confides in Bronislav about using pre-IRB data
 

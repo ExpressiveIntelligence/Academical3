@@ -3,9 +3,10 @@
 # choiceLabel: Visit the Cafe and see Praveen
 # @query
 # Seen_BPS3
+# date.day!6
 # @end
 # hidden: true
-# tags: action, cafe, auxiliary
+# tags: action, cafe, required
 # ===
 
 {DbInsert("Seen_BPS6")}

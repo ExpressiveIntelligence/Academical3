@@ -8,7 +8,7 @@ VAR HappyBrad = true
 # date.day!5
 # @end
 # repeatable: false
-# tags: action, lecture_hall
+# tags: action, lecture_hall, required
 # ===
 # Summary: Brad discusses rejected paper/confronted about IRB stuff w/ Ned, talks to Bronislav about Jensen being on paper
 

@@ -1,13 +1,13 @@
 === BP_Socializing3_SceneStart ===
-#---
-#choiceLabel: Chat with Praveen.
-#@query
+# ---
+# choiceLabel: Chat with Praveen.
+# @query
 # date.day!3
 # Seen_BP_ConferenceSubmissionDeadline
-#@end.
-#repeatable: false
-#tags: action, student_cubicles
-#===
+# @end
+# repeatable: false
+# tags: action, student_cubicles
+# ===
 
 {DbInsert("Seen_BP_Socializing3")}
 
