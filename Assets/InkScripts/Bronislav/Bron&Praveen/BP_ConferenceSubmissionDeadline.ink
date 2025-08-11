@@ -5,7 +5,7 @@
 # @query
 # Seen_BI_CONF
 # @end
-# tags: action, library, auxiliary
+# tags: action, library, required 
 # repeatable: false
 
 #===

@@ -9,7 +9,7 @@
 # @end
 # hidden: true
 # repeatable: false
-# tags: action, required, student_cubes
+# tags: action, auxiliary, student_cubes
 # ===
 #Summary: Ivy continues pushing the deal. 
 

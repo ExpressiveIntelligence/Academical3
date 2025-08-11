@@ -1,11 +1,27 @@
 // Author: Ivy Dudzik
+
+=== BHS3_Hint ===
+
+\*Buzz Buzz\* Your phone vibrates with a notification.
+
+It's a reminder of your meeting with Hendricks today, maybe it would be a good idea to get a second opinion on this? 
+
+* [Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +]
+    You will be meeting her in the library today. 
+    {DbInsert("BHS3_unlocked")}
+* [Cancel meeting #>> ChangeOpinion Hendricks Bronislav -]
+    You write an email stating that you can not make it today, and she gives a short response. 
+-
+
+->DONE
+
 === BHS3_sceneStart ===
 # ---
 # choiceLabel: Find Hendricks in the Library
 # @query
-# Seen_BHS2
+# BHS3_unlocked
 # @end
-# tags: action, library, auxiliary
+# tags: action, library, required
 # repeatable: false
 # ===
 

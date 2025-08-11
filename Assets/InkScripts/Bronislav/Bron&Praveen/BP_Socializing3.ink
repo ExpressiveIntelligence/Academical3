@@ -6,7 +6,7 @@
 # Seen_BP_ConferenceSubmissionDeadline
 #@end.
 #repeatable: false
-#tags: action, student_cubicles
+#tags: action, student_cubes
 #===
 
 {DbInsert("Seen_BP_Socializing3")}

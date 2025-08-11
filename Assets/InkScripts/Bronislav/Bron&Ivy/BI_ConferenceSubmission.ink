@@ -53,6 +53,8 @@ Ivy: "Thank you, I just hope Jensen can get into grad school with this and a few
 
 {HideCharacter("Ivy")}
 
+->BHS3_Hint->
+
 ->DONE
 
 === ChangedMyMind ===
@@ -83,6 +85,8 @@ Ivy: "Yeah, back then it was a struggle getting onto papers, and I feel like Jen
 
 {HideCharacter("Ivy")}
 
+->BHS3_Hint->
+
 ->DONE
 
 === ItsHardBut ===
@@ -95,6 +99,8 @@ Ivy: "Look, if you pull this off, I'll give you that recommendation. You and I k
 She walks off with a huff.
 
 {HideCharacter("Ivy")}
+
+->BHS3_Hint->
 
 ->DONE
 
@@ -113,6 +119,8 @@ Ivy turns away, heading out.
 
 {HideCharacter("Ivy")}
 
+->BHS3_Hint->
+
 ->DONE
 
 === NotSureYet ===
@@ -127,6 +135,8 @@ Ivy: "Look, you get Jensen on that paper and I'll see what I can do about gettin
 With that, Ivy waves goodbye to you and walks off.
 
 {HideCharacter("Ivy")}
+
+->BHS3_Hint->
 
 ->DONE
 
@@ -171,6 +181,8 @@ Ivy walks off with a pleased pep in her step.
 
 {HideCharacter("Ivy")}
 
+->BHS3_Hint->
+
 ->DONE
 
 === YouSure ===
@@ -185,6 +197,8 @@ Ivy: "I'll keep in touch, hope to see you again soon!"
 Ivy walks off with a pleased pep in her step.
 
 {HideCharacter("Ivy")}
+
+->BHS3_Hint->
 
 ->DONE
 
@@ -203,6 +217,8 @@ Ivy: "Just think it over while you're working here, Bronislav."
 Ivy waves goodbye, taking her leave briskly.
 
 {HideCharacter("Ivy")}
+
+->BHS3_Hint->
 
 ->DONE
 
@@ -249,6 +265,8 @@ Ivy walks away, not even waving goodbye.
 
 {HideCharacter("Ivy")}
 
+->BHS3_Hint->
+
 ->DONE
 
 === ThatWontHelp ===
@@ -268,6 +286,8 @@ Ivy waves goodbye and leaves without another word.
 
 {HideCharacter("Ivy")}
 
+->BHS3_Hint->
+
 ->DONE
 
 === NoWay ===
@@ -282,5 +302,7 @@ Ivy: "Think it over, okay?"
 Ivy leaves wordlessly.
 
 {HideCharacter("Ivy")}
+
+->BHS3_Hint->
 
 ->DONE
