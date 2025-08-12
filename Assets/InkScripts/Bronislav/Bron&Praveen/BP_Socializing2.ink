@@ -9,7 +9,7 @@ VAR BP_S2_AskDirectly = false
 #---
 # choiceLabel: Talk with Praveen.
 # @query
-# date.day!2
+# date.day!1
 # @end
 # hidden: true
 # tags: action, student_cubes, required

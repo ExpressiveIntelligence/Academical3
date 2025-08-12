@@ -12,21 +12,19 @@
 
 {DbInsert("Seen_BHS2")}
 
-Hendricks lets out a sigh as she sits next to you, surely coming from a boring meeting or a long talk with a student. 
-
 {ShowCharacter("Hendricks", "left", "")}
 
-She smiles gently as she turns her full attention to you.
+You approach Hendricks, and she smiles gently as she turns her full attention to you.
 
-Hendricks: "Good to see you, Bronislav, how is the week treating you so far?"
+Hendricks: "Hello Bronislav! Good to see you, how is the week treating you so far?"
 
 *["I'm exhausted. But at least the paper is ready."]
-    Bronislav: "I'm exhausted. But my paper is finally ready for review, thankfully."
+    Bronislav: "I'm exhausted. But my paper is finally ready for feedback, thankfully."
     
     Hendricks: "I understand the feeling. I'm proud of you."
 
-*["I'm thrilled! My paper is ready to recieve reviews!"]
-    Bronislav: "I'm thrilled! My paper is finally ready to recieve reviews."
+*["I'm thrilled! My paper is ready for feedback!"]
+    Bronislav: "I'm thrilled! My paper is finally ready for feedback."
     
     She looks relieved.
     
@@ -49,15 +47,15 @@ Hendricks: "Is there anything I can do to help you succeed in this next stage of
     Hendricks: "Trust yourself. Now, besides that..."
 ->BHS2_WhatCanIDo
     
-*["Would you be willing to give the paper a formal review?"]
-    Bronislav: "Would you be willing to give my paper a formal review? I trust your judgement and would be very grateful."
+*["Would you be willing to give the paper feedback?"]
+    Bronislav: "Would you be willing to give my paper feedback? I trust your judgement and would be very grateful."
     
     Hendricks: "I would be more than happy to, but I worry that I might not be able to provide you an unbiased perspective. Maybe another one of my students could be a better fit?"
     
     Bronislav: "That would be wonderful! Do you have anyone in mind?"
     
-*["Do you know anyone who could provide reviews?"]
-    Bronislav: "Do you know anyone who could provide reviews? The paper is ready for it, and I would appreciate hearing from reviewers who I could trust."
+*["Do you know anyone who could provide some feedback?"]
+    Bronislav: "Do you know anyone who could provide feedback? The paper is ready for it, and I would appreciate hearing from reviewers who I could trust."
     
     Hendricks: "Absolutely! I have some students who would love the opportunity to offer their experience and insight on a paper like yours."
     

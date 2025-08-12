@@ -6,8 +6,9 @@
 # Seen_BP_ConferenceSubmissionDeadline
 # @end
 # repeatable: false
-# tags: action, student_cubicles
+# tags: action, student_cubes, auxiliary
 # ===
+
 
 {DbInsert("Seen_BP_Socializing3")}
 
@@ -46,7 +47,7 @@ Praveen: "Oh, you know, the latest and greatest submitted for peer review. I swe
 *["Sure, maybe their wording is clunky, but is the content actually any good?"]
 ->BP_Socializing3_ContentActually
 
-*["Are you supposed to be sharing peer review stuff with me?"]
+*["Are you supposed to be sharing other people's stuff with me?"]
 ->BP_Socializing3_SharingPeerReview
 
 === BP_Socializing3_LetMeGuess ===

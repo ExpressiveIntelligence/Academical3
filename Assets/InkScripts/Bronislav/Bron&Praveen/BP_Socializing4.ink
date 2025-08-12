@@ -1,12 +1,16 @@
+VAR heardPraveenPlan = false 
 == BP_Socializing4_SceneStart ===
 #---
 #choiceLabel: Chat with Praveen.
 #@query
 # date.day!4
+#Seen_BBS4
 #@end.
 #repeatable: false
-#tags: action, student_cubicles
+#tags: action, student_cubicles, auxiliary 
 #===
+
+~ heardPraveenPlan = DbAssert("Seen_BP_EvilPlan") 
 
 {DbInsert("Seen_BP_Socializing4")}
 
@@ -42,7 +46,7 @@ Bronislav: "What are you working on? You seemed pretty locked in."
 
 Praveen: "I've been looking through these papers. It's pretty straightforward and rather effortless."
 
-Bronislav: "Gotcha, still working on the review process?"
+Bronislav: "Gotcha, still working on the feedback?"
 
 Praveen: "Yup, it's going quite well. Honestly, I quite enjoy the process."
 
@@ -142,7 +146,15 @@ Praveen: "Well, in all honesty in a way I understand why professors like being p
 
 Bronislav: "What do you mean?"
 
-Praveen: "Well they get to determine the outcome of their students, that's quite the power no?
+Praveen: "Well they get to determine the outcome of their students, that's quite the power no?"
+
+->EasyWorkChoices
+
+=EasyWorkChoices
+
+* {heardPraveenPlan} [Should you confront Praveen?] -> confrontLoop
+
+* {confrontLoop}["I overheard your conversation in the library..."] -> BP_LibraryTalk
 
 *["I'm not sure if that is the point of this..." #>> ChangeOpinion Praveen Bronislav --]
 ->BP_Socializing4_PointOfThis
@@ -152,6 +164,32 @@ Praveen: "Well they get to determine the outcome of their students, that's quite
 
 *["I think of it from a different perspective." #>> ChangeOpinion Praveen Bronislav +]
 ->BP_Different_Perspective
+
+= confrontLoop
+You had overheard him talking to a friend about potentially taking the ideas from these papers to do his own work. Maybe this should be something you talk about. 
+
+*[Or maybe it's none of your buisness] -> EasyWorkChoices
+*[You should tell him] -> EasyWorkChoices
+
+=== BP_LibraryTalk === 
+Praveen: "Ok...?" 
+
+Bronislav: "And I overheard you saying you wanted to take the ideas for yourself." 
+
+Praveen: "Yeah...I mean the papers are terrible but I really think the lab could use the same ideas and make it better!" 
+
+Bronislav: "No, Praveen you can get in serious trouble over that! Even worse if Hendricks or Ned figure out you're trying to take information while reviewing." 
+
+Praveen: "Really?" 
+
+Bronislav: "Yes, between the paper slandering and possibly idea stealing you can be facing serious consequences." 
+
+Praveen: "I had no idea, thank you for warning me Bronislav" 
+
+Bronislav: "Of course." 
+
+{HideCharacter("Praveen")}
+->DONE
 
 === BP_Socializing4_PointOfThis ===
 Bronislav: "I'm not sure if that's the point of this...."

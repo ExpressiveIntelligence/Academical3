@@ -1,6 +1,6 @@
 === BB_ConferenceSubmissionDeadline_SceneStart ===
 # ---
-# choiceLabel: Sit and relax.
+# choiceLabel: Check in with Brad.
 # @query
 # date.day!3
 # @end

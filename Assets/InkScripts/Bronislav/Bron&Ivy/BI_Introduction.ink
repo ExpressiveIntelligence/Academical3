@@ -8,7 +8,7 @@
 # Seen_BJ_INTRO
 # @end
 # repeatable: false
-# tags: action, cafe, auxiliary
+# tags: action, cafe, required 
 #===
 VAR BI_FirstCoffee_InternationalMentioned = false
 
@@ -155,15 +155,13 @@ She looks down at her watch.
 
 Ivy: "Oh! I actually need to go to a meeting. Thanks for organizing this Bronislav, hope to hear from you again soon."
 
-She waves goodbye and leaves. {HideCharacter("Ivy")}
+Bronislav: "Ok! See you later!" 
 
-*[Leave.]
+She waves goodbye and leaves. {HideCharacter("Ivy")}
     ->Exit
 
 === Exit ===
 
 {HideCharacter("Ivy")}
-
-Its getting late, but there's enough time chat a bit more with someone else. 
 
 -> DONE

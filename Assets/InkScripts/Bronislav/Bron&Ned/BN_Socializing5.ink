@@ -6,7 +6,7 @@ VAR BradWithdrew = false
 # choiceLabel: Drop in to talk with Ned.
 # @query
 # date.day!5
-# @end.
+# @end
 # repeatable: false
 # tags: action, neds_office, auxiliary
 # ===

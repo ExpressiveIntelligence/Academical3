@@ -1,3 +1,5 @@
+VAR ignoredHendricks = false 
+
 === BHS1_Hint ===
 
 \*Buzz Buzz\* Your phone vibrates with a notification.
@@ -7,7 +9,7 @@ It's an email from your advisor, Hendricks.
 She wants to talk about your research progress.
 
 * [Agree to meet her later today #>> ChangeOpinion Hendricks Bronislav +]
-    You reply to her email. The two of you agree to meet at the library later today.
+    You reply to her email. The two of you agree to meet at her office later today.
     {DbInsert("BHS1_unlocked")}
 * [Ignore the email #>> ChangeOpinion Hendricks Bronislav -]
     You put your phone back in your pocket.
@@ -22,7 +24,7 @@ She wants to talk about your research progress.
 # BHS1_unlocked
 # date.day!1
 # @end
-# tags: action, library, required
+# tags: action, hendricks_office, required 
 # repeatable: false
 # ===
 

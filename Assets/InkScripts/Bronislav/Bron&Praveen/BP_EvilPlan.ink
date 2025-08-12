@@ -1,6 +1,5 @@
 === BP_EvilPlan_SceneStart ===
 #---
-# choiceLabel: Eavesdrop on Praveen
 # @query
 # date.day!5
 # @end
@@ -17,7 +16,7 @@ As you begin to head out, you overhear Praveen talking with another student.
 
 {ShowCharacter("Praveen", "left", "")}
 
-Praveen: "...and you know, now I'm peer reviewing his work."
+Praveen: "...and you know, now I'm reviewing his work."
 
 Praveen: "It's honestly pretty garbage. He starts at one point and then jumps between twenty different topics before hardly returning to his original point. Such a long paper to say nothing at all."
 

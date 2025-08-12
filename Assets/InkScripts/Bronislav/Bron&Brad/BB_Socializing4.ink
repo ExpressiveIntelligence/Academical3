@@ -7,9 +7,10 @@ VAR confided = false
 # date.day!4
 # @end
 # repeatable: false
-# tags: action, library, auxiliary
+# tags: action, library, required
 # ===
-# Summary: Brad is contemplating withdrawing paper
+#Summary: Brad is contemplating withdrawing paper
+
 
 {DbInsert("Seen_BBS4")}
 
@@ -207,7 +208,7 @@ Brad: "You know what Bronislav, I will do what I think is right. Because you cle
 He leaves without another word.
 
 {HideCharacter("Brad")}
-->DONE
+-> BP_EvilPlan_SceneStart-> 
 
 === BB_Socializing4_NoWorries ===
 Bronislav: "No worries. Glad I could help."
@@ -219,7 +220,7 @@ Brad: "You've helped a ton, more than you know Bronislav. Thanks."
 He gets up and leaves with a friendly wave before he walks out.
 
 {HideCharacter("Brad")}
-->DONE
+-> BP_EvilPlan_SceneStart-> 
 
 === BB_Socializing4_GoodLuck ===
 Bronislav: "Good luck to both you and Ned."
@@ -231,7 +232,7 @@ Bronislav: "Good luck on your paper too Bronislav. Thanks for all the help."
 He gets up and leaves with a friendly wave before he walks out.
 
 {HideCharacter("Brad")}
-->DONE
+-> BP_EvilPlan_SceneStart-> 
 
 === BB_Socializing4_MakeSure ===
 // Brad will withdraw
@@ -247,4 +248,4 @@ He gets up awkwardly.
 Brad: "Th-thanks Bronislav."
 
 {HideCharacter("Brad")}
-->DONE
+-> BP_EvilPlan_SceneStart-> 
