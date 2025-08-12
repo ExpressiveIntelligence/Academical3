@@ -11,13 +11,11 @@
 
 {DbInsert("Seen_BHS2")}
 
-Hendricks lets out a sigh as she sits next to you, surely coming from a boring meeting or a long talk with a student. 
-
 {ShowCharacter("Hendricks", "left", "")}
 
-She smiles gently as she turns her full attention to you.
+You approach Hendricks, and she smiles gently as she turns her full attention to you.
 
-Hendricks: "Good to see you, Bronislav, how is the week treating you so far?"
+Hendricks: "Hello Bronislav! Good to see you, how is the week treating you so far?"
 
 *["I'm exhausted. But at least the paper is ready."]
     Bronislav: "I'm exhausted. But my paper is finally ready for feedback, thankfully."

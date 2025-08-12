@@ -1,17 +1,32 @@
 // Author: Ivy Dudzik
+VAR metHendricksDay1 = false 
 
 === BHS3_Hint ===
 
 \*Buzz Buzz\* Your phone vibrates with a notification.
 
-It's a reminder of your meeting with Hendricks today, maybe it would be a good idea to get a second opinion on this? 
+It's a reminder of your meeting with Hendricks today. 
 
 * [Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +]
-    You will be meeting her in the library today. 
+    You will be meeting Hendricks in her office today. 
     {DbInsert("BHS3_unlocked")}
-* [Cancel meeting #>> ChangeOpinion Hendricks Bronislav -]
-    You write an email stating that you can not make it today, and she gives a short response. 
--
+* [Cancel meeting] -> attemptToIgnoreHendricks
+
+=attemptToIgnoreHendricks
+ You think about cancelling, but remember that it's been a while since you've updated her on any of your progress. 
+ 
+ ~metHendricksDay1 = DbAssert("Seen_BHS1") 
+ {not metHendricksDay1: 
+ Evenmoreso, she's unaware of Ivy's offer. Maybe it would be a good idea to get a second opinion on this? 
+ }
+ 
+ * [Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +] 
+ You will be meeting Hendricks in her office today. 
+    {DbInsert("BHS3_unlocked")}
+* [Cancel meeting #>> ChangeOpinion Hendricks Bronislav --] -> ignoredHendricks 
+
+= ignoredHendricks
+You write a brief email saying that you can not make it to today's meeting. She gives a short response. 
 
 ->DONE
 
@@ -21,7 +36,7 @@ It's a reminder of your meeting with Hendricks today, maybe it would be a good i
 # @query
 # BHS3_unlocked
 # @end
-# tags: action, library, required
+# tags: action, hendricks_office, required
 # repeatable: false
 # ===
 
@@ -29,8 +44,13 @@ It's a reminder of your meeting with Hendricks today, maybe it would be a good i
 
 {ShowCharacter("Hendricks", "left", "")}
 
-You take a seat across from Hendricks, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought.
+You take a seat across from Hendricks, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought. 
 
+~metHendricksDay1 = DbAssert("Seen_BHS1") 
+
+{not metHendricksDay1: 
+It's been a while since you've talked to her, and with everything going on it's hard to know what to say. 
+}
 
 *[Clear your throat.]
 Bronislav: "Ahem."
@@ -41,7 +61,18 @@ Bronislav: "Hello professor."
 
 She turns to you smiling.
 
-Hendricks: "I didn't see you there, take a seat! How are you doing? You seem... introspective. Did something happen?"
+Hendricks: "I didn't see you there, take a seat!" 
+
+{not metHendricksDay1: 
+Hendricks: "It's been quite some time since we've talked." 
+}
+
+Hendricks: "How are you doing?"
+
+{not metHendricksDay1: 
+Hendricks: "You seem like you have something on your mind." 
+}
+
 
 *["I'm fine, how are things with you?"]->BHS3_ImFine
 
@@ -112,6 +143,8 @@ She seems to consider asking your opinion, but holds her tongue.
     She nods in appreciation. 
     
     Hendricks: "I'm sure he is. Hopefully Ned is overthinking things."
+    
+    Maybe you should check in on your friend to get some clarification. 
     **["Should I let you get back to your book?"]
 *["Should I let you get back to your book?"]
 
@@ -122,6 +155,8 @@ She laughs gently.
 Hendricks: "Sure. Thank you for sharing about your situation with Ivy, I hope you can navigate it without too much stress. Make sure you are honoring your principles."
 
 Bronislav: "Of course. Thank you for the advice. I hope the situation with Brad works out well."
+
+ Maybe you should check in on your friend to get some clarification. 
 
 ->BHS3_HideHenAndEnd
 
