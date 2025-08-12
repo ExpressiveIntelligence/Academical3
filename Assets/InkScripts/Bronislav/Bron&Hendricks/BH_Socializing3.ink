@@ -11,7 +11,7 @@ It's a reminder of your meeting with Hendricks today.
     You will be meeting Hendricks in her office today. 
     {DbInsert("BHS3_unlocked")}
     
-* [Cancel meeting] -> attemptToIgnoreHendricks
+* [Cancel meeting] 
  You think about cancelling, but remember that it's been a while since you've updated her on any of your progress. Evenmoreso maybe you should get a second opinion on Ivy's offer? 
  
 **[Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +] 
