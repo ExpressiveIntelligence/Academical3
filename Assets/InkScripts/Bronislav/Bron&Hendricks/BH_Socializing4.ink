@@ -31,7 +31,7 @@ VAR BHS4_tension = 0
 # AcceptedIvyDeal
 # date.day!4
 # @end
-# tags: hendricks_office, auxiliary
+# tags: action, hendricks_office, auxiliary
 # ---
 
 You knock Hendricks' office door.

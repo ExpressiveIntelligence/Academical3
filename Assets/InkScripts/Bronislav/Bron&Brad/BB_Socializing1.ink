@@ -1,12 +1,12 @@
 === BB_Socializing1_SceneStart ===
-#---
+# ---
 # choiceLabel: Go to your cube.
-#@query
+# @query
 # date.day!1
 # @end
 # repeatable: false
 # tags: action, student_cubes, required
-#===
+# ===
 
 // Summary: You meet Brad and he expresses stress for the IRB not getting back to him. If you are good enough relationship he tells you about his concern about Jensen
 

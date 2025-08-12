@@ -1,12 +1,12 @@
 === BH_Socializing6_SceneStart ===
-#---
-#choiceLabel: Speak with Hendricks.
-#@query
+# ---
+# choiceLabel: Speak with Hendricks.
+# @query
 # date.day!6
-#@end.
-#repeatable: false
-#tags: action, hendricks_office
-#===
+# @end
+# repeatable: false
+# tags: action, hendricks_office, auxiliary
+# ===
 
 //TODO: Create a variable to see if Bronislav took the quid pro quo deal
 

@@ -28,6 +28,7 @@ You write a brief email saying that you can not make it to today's meeting. She 
 # choiceLabel: Find Hendricks in the Library
 # @query
 # BHS3_unlocked
+# date.day!3
 # @end
 # tags: action, hendricks_office, required
 # repeatable: false
