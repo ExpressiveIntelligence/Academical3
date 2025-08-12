@@ -12,12 +12,7 @@ It's a reminder of your meeting with Hendricks today.
     {DbInsert("BHS3_unlocked")}
     
 * [Cancel meeting] -> attemptToIgnoreHendricks
- You think about cancelling, but remember that it's been a while since you've updated her on any of your progress. 
- 
- ~metHendricksDay1 = DbAssert("Seen_BHS1") 
- {not metHendricksDay1: 
- Evenmoreso, she's unaware of Ivy's offer. Maybe it would be a good idea to get a second opinion on this? 
- }
+ You think about cancelling, but remember that it's been a while since you've updated her on any of your progress. Evenmoreso maybe you should get a second opinion on Ivy's offer? 
  
 **[Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +] 
  You will be meeting Hendricks in her office today. 
