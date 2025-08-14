@@ -2,7 +2,7 @@
 # ---
 # choiceLabel: Check in with Brad.
 # @query
-# date.day!3
+# date.day!2
 # @end
 # hidden: true
 # repeatable: false
