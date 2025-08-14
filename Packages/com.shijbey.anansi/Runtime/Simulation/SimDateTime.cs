@@ -17,6 +17,9 @@ namespace Anansi
 		[SerializeField]
 		private TimeOfDay m_timeOfDay;
 
+		[SerializeField]
+		private string m_dayEventLabel;
+
 		#endregion
 
 		#region Properties
@@ -37,6 +40,15 @@ namespace Anansi
 		public int Week => (m_day / 7) + 1;
 
 		/// <summary>
+		/// Provide a string description for this date
+		/// </summary>
+		public string DayEventLabel
+		{
+			get => m_dayEventLabel;
+			set => m_dayEventLabel = value;
+		}
+
+		/// <summary>
 		/// Get the day of the week
 		/// </summary>
 		public WeekDay WeekDay => (WeekDay)(m_day % 7);
@@ -49,6 +61,7 @@ namespace Anansi
 		{
 			m_day = 0;
 			m_timeOfDay = TimeOfDay.Morning;
+			m_dayEventLabel = "" + m_day;
 		}
 
 		public SimDateTime(int day, TimeOfDay timeOfDay)
@@ -60,12 +73,26 @@ namespace Anansi
 
 			m_day = day - 1;
 			m_timeOfDay = timeOfDay;
+			m_dayEventLabel = "" + m_day;
+		}
+
+		public SimDateTime(int day, TimeOfDay timeOfDay, String dayEventLabel)
+		{
+			if ( day < 1 )
+			{
+				throw new ArgumentException( "Argument 'day' for SimDateTime must be 1 or greater" );
+			}
+
+			m_day = day - 1;
+			m_timeOfDay = timeOfDay;
+			m_dayEventLabel = dayEventLabel;
 		}
 
 		public SimDateTime(SimDateTime other)
 		{
 			m_day = other.m_day;
 			m_timeOfDay = other.m_timeOfDay;
+			m_dayEventLabel = other.m_dayEventLabel;
 		}
 
 		#endregion
@@ -92,6 +119,14 @@ namespace Anansi
 		{
 			m_day += 1;
 			m_timeOfDay = TimeOfDay.Morning;
+			m_dayEventLabel = m_day + "";
+		}
+
+		public void AdvanceToNextDay(String dayEventLabel)
+		{ 
+			m_day += 1;
+			m_timeOfDay = TimeOfDay.Morning;
+			m_dayEventLabel = dayEventLabel;
 		}
 
 		public override string ToString()
