@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Academical.Persistence;
@@ -135,6 +136,8 @@ namespace Academical
 			SocialEngineController.Instance.Initialize();
 			SocialEngineController.Instance.RegisterAgentsAndRelationships();
 			m_simulationController.Initialize();
+			//Set day label here, as Anansi doesn't natively support day labels.
+			m_simulationController.DateTime.DayEventLabel = DateLabelConstants.GetLabelForDay(m_simulationController.DateTime.Day);
 			m_dialogueManager.Story.DB = SocialEngineController.Instance.DB;
 			m_dialogueManager.Initialize();
 
@@ -406,7 +409,11 @@ namespace Academical
 
 			GameEvents.OnFadeFromBlack?.Invoke( 1.0f );
 
-			m_simulationController.AdvanceToNextDay();
+			//Fetch day event label based on our constants defintion.
+			int nextDayNum = m_simulationController.DateTime.Day + 1;
+			string dateLabel = DateLabelConstants.GetLabelForDay( nextDayNum );
+
+			m_simulationController.AdvanceToNextDay(dateLabel);
 
 			GameEvents.OnDayAdvanced?.Invoke( m_simulationController.DateTime.Day );
 		}

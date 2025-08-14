@@ -157,6 +157,12 @@ namespace Anansi
 			UpdateTimeInDatabase();
 		}
 
+		public void AdvanceToNextDay(String dayEventLabel)
+		{
+			m_dateTime.AdvanceToNextDay(dayEventLabel);
+			UpdateTimeInDatabase();
+		}
+
 		private void UpdateTimeInDatabase()
 		{
 			DB.Insert(
