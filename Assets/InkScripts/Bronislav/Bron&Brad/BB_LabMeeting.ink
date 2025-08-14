@@ -1,13 +1,13 @@
 VAR withdrewPaper = false
 
 === BB_LabMeeting_SceneStart ===
-#---
-#choiceLabel: Sit and relax.
-#@query
+# ---
+# choiceLabel: Sit and relax.
+# @query
 # date.day!6
-#@end.
-#repeatable: false
-#tags: action, student_cubes
+# @end
+# repeatable: false
+# tags: action, student_cubes, auxiliary
 #===
 #Summary: Brad either goes to ethics training or shares excitement about next conference
 

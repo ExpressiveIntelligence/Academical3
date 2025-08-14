@@ -1,11 +1,11 @@
 === BI_Socializing5_SceneStart ===
-#---
-#choiceLabel: Meet with Ivy.
-#@query
+# ---
+# choiceLabel: Meet with Ivy.
+# @query
 # date.day!5
-#@end.
-#repeatable: false
-#tags: action, cafe
+# @end
+# repeatable: false
+# tags: action, cafe, required
 #===
 
 // TODO: selection based off of whether Jensen was ever on the paper

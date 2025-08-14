@@ -1,15 +1,14 @@
 VAR withdrewPaperr = false
 
 === BB_Socializing6_SceneStart ===
-#---
-#choiceLabel: Wait for Brad.
-#@query
+# ---
+# choiceLabel: Wait for Brad.
+# @query
 # date.day!6
-#
-#@end.
-#repeatable: false
-#tags: action, cafe
-#===
+# @end
+# repeatable: false
+# tags: action, cafe, auxiliary
+# ===
 # Summary: Ned and Brad overlook the outcome of the options
 
 // show seen if Brad withdrew paper

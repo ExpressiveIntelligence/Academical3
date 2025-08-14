@@ -2,14 +2,14 @@ VAR basicsLie = false
 VAR BradWithdrew = false
 
 === BN_Socializing5_SceneStart ===
-#---
-#choiceLabel: Drop in to talk with Ned.
-#@query
-#date.day!5
-#@end.
-#repeatable: false
-#tags: action, neds_office
-#===
+# ---
+# choiceLabel: Drop in to talk with Ned.
+# @query
+# date.day!5
+# @end
+# repeatable: false
+# tags: action, neds_office, auxiliary
+# ===
 # Summary: Confronting Bronislav on what he knows about Brad's work
 
 VAR honesty = false
