@@ -1,6 +1,13 @@
+VAR IvyDealAccepted = false 
+VAR IvyDealConsidered = false
+VAR IvyDealDenied = false
+VAR SwitchingOpinionsReject = false 
+VAR SwitchingOpinionsAccept = false
+
+
 === BI_ReviewPeriod_SceneStart ===
 # ---
-# choiceLabel: Talk to Ivy about review period.
+# choiceLabel: Work on paper 
 # @query
 # Seen_BI_CONF
 # date.day!4
@@ -10,7 +17,20 @@
 # tags: action, required, student_cubes
 # ===
 
+~IvyDealAccepted = DbAssert("IvyDealAccepted")
+
+~IvyDealConsidered = DbAssert("IvyDealConsidered")
+
+~IvyDealDenied = DbAssert ("IvyDealDenied") 
+
+~SwitchingOpinionsReject = DBAssert ("BI_SwitchingOpinions_Reject")
+
+~SwitchingOpinionsAccept = DBAssert ("BI_SwitchingOpinions_Accept")
+
 You sit down to go over the feedback. Ivy approaches you seeing you work on edits.
+
+{ShowCharacter("Ivy", "left", "")}
+{DbInsert("Seen_BI_ReviewPeriod")}
 
 Ivy: "Hey Bronislav. Got some helpful feedback?"
 
@@ -25,8 +45,13 @@ Ivy: "Hey Bronislav. Got some helpful feedback?"
 
 // TODO: if negative relationship with Jensen
 // NOTE: THIS CURRENTLY ASSUMES PLAYER'S RELATIONSHIP WITH JENSEN IS NEGATIVE
-*["Better than Jensen's." #>> ChangeOpinion Ivy Bronislav -]
-->BI_RP_BetterThanJ
+
+~ temp jensenOpinion = GetOpinionState("Jensen", "Bronislav")
+{
+- jensenOpinion <= OpinionState.Good:
+    *["Better than Jensen's." #>> ChangeOpinion Ivy Bronislav -]
+    ->BI_RP_BetterThanJ
+}
 
 
 === BI_RP_IDid ===
@@ -34,7 +59,9 @@ Bronislav: "Yep! Got some real helpful feedback that I'm editing to the paper ri
 
 Ivy gives a thumbs up.
 
-Ivy: "That's great to hear! I know that you are already in the review period, but I just really want to push how helpful Jensen could be for the paper. He's really smart, and well-spoken, and you'd be helping him more than you know."
+Ivy: "That's great to hear! I know that you are already getting feedback, but I just really want to push how helpful Jensen could be for the paper. He's really smart, and well-spoken, and you'd be helping him more than you know."
+
+With the conference around the corner, this will be your final say of how you want to manage this deal. 
 
 *["I was planning on it." #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_RP_PlanningOnIt
@@ -55,6 +82,8 @@ Ivy shrugs sympathetically.
 
 Ivy: "I'm sorry to hear that. You know... if you need someone to bounce ideas and feedback off of Jensen is really good for it. All he needs is just a good mentor like yourself!"
 
+With the conference around the corner, this will be your final say of how you want to manage this deal. 
+
 *["I was planning on it." #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_RP_PlanningOnIt
 
@@ -73,6 +102,8 @@ Bronislav: "Not really, I've been pretty uninterested in all the feedback I have
 Ivy raises her eyebrow.
 
 Ivy: "O-oh? Well I'm sorry that nothing has been that helpful Bronislav. If I can suggest something, I know Jensen did give you some good feedback a while ago, maybe good enough for you to consider our deal?"
+
+With the conference around the corner, this will be your final say of how you want to manage this deal. 
 
 *["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
@@ -94,29 +125,39 @@ She takes a deep breath.
 
 Ivy: "Look, you don't even need to have Jensen do anything. Just say he was a co-author and I'll leave my offer on the table."
 
+With the conference around the corner, this will be your final say of how you want to manage this deal. 
+
 *["As long as I get something." #>> ChangeOpinion Ivy Bronislav ++]
 ->BI_RP_GetSomething
 
-*["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
+*["Definitely not." #>> ChangeOpinion Ivy Bronislav ---]
+->BI_RP_DefNot
+
+*{SwitchingOpinionsAccept}["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_DefNot
 
 === BI_RP_PlanningOnIt ===
+
+{DBInsert("BI_OfficiallyAccepted")}
+
 // TODO: selector based off of whether the player said Jensen would be on the paper or not
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
 
 // if Bronislav said Jensen would be on the paper
-// Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."
 
-// Ivy looks estatic hearing you say this.
+ {IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
 
-// Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."
+ {IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy looks estatic hearing you say this.}
+
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:  Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
+ 
 
 // if Bronislav said Jensen would not be on the paper
-Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."
+{IvyDealDenied | SwitchingOpinionsReject: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
 
-Ivy looks a bit confused, but estatic at the same time.
+{IvyDealDenied | SwitchingOpinionsReject: Ivy looks a bit confused, but estatic at the same time.}
 
-Ivy: "Wait, really? Oh! That's incredible news. I'll make sure to relay the good news to Jensen, and I'll work something out with my uncle. Keep me updated on how this all goes, and we'll meet once I get this all situated."
+{IvyDealDenied | SwitchingOpinionsReject: Ivy: "Wait, really? Oh! That's incredible news. I'll make sure to relay the good news to Jensen, and I'll work something out with my uncle. Keep me updated on how this all goes, and we'll meet once I get this all situated."}
 
 *["Thanks Ivy!"]
 ->BI_RP_ThanksIvy
@@ -125,22 +166,24 @@ Ivy: "Wait, really? Oh! That's incredible news. I'll make sure to relay the good
 ->BI_RP_TalkToYouLater
 
 === BI_RP_GetSomething ===
+
+{DBInsert("BI_OfficiallyAccepted")}
+
 // TODO: selector based off of whether the player said Jensen would be on the paper or not
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
 
-// if Bronislav said Jensen would be on the paper
-//Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
 
-//She smiles and nods.
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: She smiles and nods.} 
 
-//Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call the firm. After I do that I'll call you for a coffee and we can discuss details further."
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call the firm. After I do that I'll call you for a coffee and we can discuss details further."}
 
 // if Bronislav said Jensen would not be on the paper
-Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."
+{IvyDealDenied | SwitchingOpinionsReject: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
 
-Ivy's shock on her face quickly turns into a smile.
+{IvyDealDenied | SwitchingOpinionsReject: Ivy's shock on her face quickly turns into a smile.}
 
-Ivy: "Wait, really? What made you- Nevermind, nevermind. That's great to hear Bronislav! I'll make sure to tell Jensen, I know he'll be surprised! After that I'll see when I can talk with my uncle about getting you that position."
+{IvyDealDenied | SwitchingOpinionsReject: Ivy: "Wait, really? What made you- Nevermind, nevermind. That's great to hear Bronislav! I'll make sure to tell Jensen, I know he'll be surprised! After that I'll see when I can talk with my uncle about getting you that position."}
 
 *["Sounds great."]
 ->BI_RP_SoundsGreat
@@ -149,72 +192,87 @@ Ivy: "Wait, really? What made you- Nevermind, nevermind. That's great to hear Br
 ->BI_RP_TalkToYouLater
 
 === BI_RP_DontThinkSo ===
-// TODO: selector based off of whether the player said Jensen would be on the paper or not
-// NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
+
+{DBInsert("BI_OfficiallyRejected")}
 
 // if Bronislav said Jensen would be on the paper
-//Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."}
 
-//Ivy looks shocked.
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:Ivy looks shocked.}
 
-//Ivy: "Y-wh-you what? You... won't? Bronislav, what happened? What changed?"
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:Ivy: "Y-wh-you what? You... won't? Bronislav, what happened? What changed?"}
 
-//She struggles to find words for a moment.
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: She struggles to find words for a moment.}
 
-//Ivy: "So that's it? You just aren't now? You're letting all of these opportunities go because you're scared over a non-issue?"
+{SwitchingOpinionsAccept: Ivy: "First you say no, then you say yes, now you're saying no again?!"}
+
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "So that's it? You just aren't now? You're letting all of these opportunities go because you're scared over a non-issue?"}
 
 // if Bronislav said Jensen would not be on the paper
-Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."
+{IvyDealDenied | SwitchingOpinionsReject: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."}
 
-Ivy lets out a deep sigh.
+{IvyDealDenied | SwitchingOpinionsReject: Ivy lets out a deep sigh.}
 
-Ivy: "Bronislav, it really isn't that big of an issue I promise. Seems like I can't change your mind anyway. You should personally tell Jensen about it, he'll be upset but it'll be for the best."
+{IvyDealDenied | SwitchingOpinionsReject: Ivy: "Bronislav, it really isn't that big of an issue I promise. Seems like I can't change your mind anyway. You should personally tell Jensen about it, he'll be upset but it'll be for the best."}
 
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
 
 //if you said Jensen would be on the paper
-//*["It is an issue."]
-//->BI_RP_ItsAnIssue
+*{IvyDealAccepted}*["It is an issue."]
+->BI_RP_ItsAnIssue
+
+*{IvyDealConsidered}*["It is an issue."]
+->BI_RP_ItsAnIssue
+
+*{SwitchingOpinionsAccept}*["It is an issue."]
+->BI_RP_ItsAnIssue
 
 //if you said Jensen would not be on the paper
-*["I'll talk to him later."]
+*{IvyDealDenied}["I'll talk to him later."]
+->BI_RP_TalkToHimLater
+
+*{SwitchingOpinionsReject}["I'll talk to him later."]
 ->BI_RP_TalkToHimLater
 
 === BI_RP_DefNot ===
+
+{DBInsert("BI_OfficiallyRejected")}
 // TODO: selector based off of whether the player said Jensen would be on the paper or not
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
 
 // if Bronislav said Jensen would be on the paper
-//Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
 
-//Ivy looks betrayed.
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy looks betrayed.}
 
-//Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"}
 
-//She grumbles quietly to herself.
+{IvyDealAccepted | IvyDealConsidered: She grumbles quietly to herself.}
 
-//Ivy: "I cannot believe you right now Bronislav. We are going to talk later."
+{SwitchingOpinionsAccept: Ivy: "You keep switching on me, and frankly it's quite disrespectful of my time."}
 
-//She storms out.
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "I cannot believe you right now Bronislav. We are going to talk later."}
 
-//{HideCharacter("Ivy")}
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: She storms out.}
 
-//->DONE
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: {HideCharacter("Ivy")}}
+
+{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: ->DONE}
 
 // if Bronislav said Jensen would not be on the paper
-Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."
+{IvyDealDenied | SwitchingOpinionsReject:Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
 
-Ivy frowns.
+{IvyDealDenied | SwitchingOpinionsReject: Ivy frowns.}
 
-Ivy: "Bronislav he's still an undergrad. It's hard to be 'qualified' for something like this, but is it so hard to give him a chance? Well, I guess since you haven't already, it just might be."
+{IvyDealDenied | SwitchingOpinionsReject:Ivy: "Bronislav he's still an undergrad. It's hard to be 'qualified' for something like this, but is it so hard to give him a chance? Well, I guess since you haven't already, it just might be."}
 
-Ivy: "I really thought this would've been a great opportunity for all of us. Hard to say I'm not disappointed Bronislav."
+{IvyDealDenied | SwitchingOpinionsReject: Ivy: "I really thought this would've been a great opportunity for all of us. Hard to say I'm not disappointed Bronislav."}
 
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
 
-*["Disappointed in me?" #>> ChangeOpinion Ivy Bronislav ----]
+*["Disappointed in me?" #>> ChangeOpinion Ivy Bronislav --]
 ->BI_RP_Disappointed
 
 === BI_RP_ThanksIvy ===
@@ -290,6 +348,8 @@ She leaves promptly after saying this.
 ->DONE
 
 === BI_RP_Disappointed ===
+
+{DBInsert("BI_Blowup")}
 
 Bronislav: "Disappointed in what? In me? For saying to no to what is very obviously a trap? You have just been dangling my own visa issues in front of me to try an make me do what you want, and I'm tired of it."
 

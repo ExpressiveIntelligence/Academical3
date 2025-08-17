@@ -3,7 +3,7 @@ VAR apology = true
 
 === BI_S6_SceneStart ===
 # ---
-# choiceLabel: Console Ivy at her desk
+# choiceLabel: Console Ivy 
 # hidden: true
 # @query
 # date.day!6
@@ -39,6 +39,16 @@ Ivy lifts her head to look back at you silently, returning to her original posit
 === WhatsWrong ===
 // TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
 //if positive relationship
+
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+
+{
+    - ivyOpinion >= OpinionState.Good: -> PositiveConsole
+    - ivyOpinion >= OpinionState.Neutral: -> NeutralConsole
+    - ivyOpinion <= OpinionState.Bad: -> BadConsole
+} 
+
+===PositiveConsole===
 Bronislav: "What's wrong Ivy?"
 
 Ivy sighs, and you can tell she is very upset.
@@ -58,49 +68,49 @@ Ivy: "I took advantage of you, and for that I am truly sorry."
 *[Say nothing.]
 ->SayNothing
 
-//if neutral relationship
-// Bronislav: "What's wrong Ivy?"
+===NeutralConsole===
+Bronislav: "What's wrong Ivy?"
 
-// Ivy sighs, and you can tell she is very upset.
+Ivy sighs, and you can tell she is very upset.
 
-// Ivy: "I.. uh.. would like to apologize. I pressured you into helping Jensen because I so desperately wanted to help him. But, it was so wrong for me to put you in that type of situation, and I feel awful for it."
+Ivy: "I.. uh.. would like to apologize. I pressured you into helping Jensen because I so desperately wanted to help him. But, it was so wrong for me to put you in that type of situation, and I feel awful for it."
 
-// She shakes her hed sadly.
+She shakes her hed sadly.
 
-// Ivy: "I tried to leverage my knowledge of your situation and my connections to force you to help, and for that I am truly sorry."
+Ivy: "I tried to leverage my knowledge of your situation and my connections to force you to help, and for that I am truly sorry."
 
-// *["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav ++]
-// ->AppreciateYourApology
+*["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav ++]
+ ->AppreciateYourApology
 
-// *["You should be sorry." #>> ChangeOpinion Ivy Bronislav --]
-// ->YouShouldBe
+*["You should be sorry." #>> ChangeOpinion Ivy Bronislav --]
+ ->YouShouldBe
 
-// *[Say nothing.]
-// ->SayNothing
+ *[Say nothing.]
+ ->SayNothing
 
-//if negative relationship
-// Bronislav: "What's wrong Ivy?"
+===BadConsole===
+Bronislav: "What's wrong Ivy?"
 
-// Ivy glares at you, and you can tell your question has struck a nerve.
+Ivy glares at you, and you can tell your question has struck a nerve.
 
-// Ivy: "Don't act like you care all of a sudden."
+Ivy: "Don't act like you care all of a sudden."
 
-// She bites her lip, regreting her harshness.
+She bites her lip, regreting her harshness.
 
-// Ivy: "Sorry, uh... Bronislav, I..."
+Ivy: "Sorry, uh... Bronislav, I..."
 
-// She sighs as she gathers her thoughts.
+She sighs as she gathers her thoughts.
 
-// Ivy: "Look, I want to apologize. I know we aren't close or anything, but that was no excuse to pressure you like I did to try and help Jensen. I used my knowledge of your situation and problems to try and help him, and it was so wrong. I feel awful about what I did, and I am truly sorry, for all of it."
+Ivy: "Look, I want to apologize. I know we aren't close or anything, but that was no excuse to pressure you like I did to try and help Jensen. I used my knowledge of your situation and problems to try and help him, and it was so wrong. I feel awful about what I did, and I am truly sorry, for all of it."
 
-// *["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav ++]
-// ->AppreciateYourApology
+*["I appreciate your apology." #>> ChangeOpinion Ivy Bronislav ++]
+->AppreciateYourApology
 
-// *["You should be sorry." #>> ChangeOpinion Ivy Bronislav ---]
-// ->YouShouldBe
+*["You should be sorry." #>> ChangeOpinion Ivy Bronislav ---]
+->YouShouldBe
 
-// *[Say nothing.]
-// ->SayNothing
+*[Say nothing.]
+ ->SayNothing
 
 === AppreciateYourApology ===
 Bronislav: "I appreciate your apology."
@@ -203,24 +213,37 @@ Ivy: "Bronislav?"
 Bronislav: "Hey, how are you holding up?"
 
 Ivy shuffles uncomfortablly.
-//if positive relationship
+-> BI_HoldingUp_Branches 
+
+===BI_HoldingUp_Branches===
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+
+{
+    - ivyOpinion >= OpinionState.Good: -> PositiveHoldUp
+    - ivyOpinion >= OpinionState.Neutral: -> NeutralHoldUp
+    - ivyOpinion <= OpinionState.Bad: -> BadHoldUp
+} 
+
+===PositiveHoldUp===
 Ivy: "Terrible, if I'm honest. And I owe you a huge apology."
 
 ->WhatsWrong
 
+===NeutralHoldUp===
 //if neutral relationship
-//Ivy: "Not great. And I really have been meaning to talk to you."
+Ivy: "Not great. And I really have been meaning to talk to you."
 
-//->WhatsWrong
+->WhatsWrong
 
+===BadHoldUp===
 //if negative relationship
-//Ivy: "I'm fine."
+Ivy: "I'm fine."
 
-//Ivy sighs, staring at the floor.
+Ivy sighs, staring at the floor.
 
-//Ivy: "But, there is something I need to get off my chest."
+Ivy: "But, there is something I need to get off my chest."
 
-//->WhatsWrong
+->WhatsWrong
 
 
 === UhHi ===
