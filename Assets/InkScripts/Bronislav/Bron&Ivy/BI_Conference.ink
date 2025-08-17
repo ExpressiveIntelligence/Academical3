@@ -485,9 +485,11 @@ Ivy: "I'm so glad Bronislav. You really deserve it."
 
 Ivy notices as some other friends flag her down in the distance.
 
-Ivy: "Oh, looks like they're calling me. I gotta go for now but talk to you soon!"
+Ivy: "Oh, looks like they're calling me, let's grab a coffee later if you can!"
 
-Bronislav: "Yeah, see you Ivy."
+Bronislav: "Alright!"
+
+{DBInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -526,9 +528,11 @@ Bronislav: "You know, I had slightly mixed feelings about everything and going t
 
 Ivy smiles slightly and nods.
 
-Ivy: "I hope it all works out for you. I gotta go for now, but see you around."
+Ivy: "I hope it all works out for you. Hey! Let's grab coffee later if you have the time!"
 
-Bronislav: "Yeah, see you Ivy."
+Bronislav: "Yeah, sure."
+
+{DBInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -571,7 +575,11 @@ Ivy: "Yeah, I'm sorry I did. I'm just glad there's no hard feelings."
 
 Bronislav: "Well, it was good talking with you Ivy. I'm going to check out a few more presentations, but it was nice seeing you."
 
-Ivy: "Yeah you too Bronislav. Take care."
+Ivy: "Yeah you too Bronislav. Maybe we should grab a coffee later today if you're available."
+
+Bronislav: "Sounds good." 
+
+{DBInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -629,7 +637,7 @@ Ivy: "Oh... I guess I hadn't considered that."
 
 Bronislav: "I just would ask that we don't try to do any 'deals' in the future. It put me in a really uncomfortable position, but I think if we can maintain some boundaries, I don't really see us having another problem."
 
-Ivy: "Yeah, I'm sorry Bronislav. I got a bit wrapped up in helping a friend, and I dragged you into it. I can definitely try to respect your boundaries in the future."
+Ivy: "Yeah, I'm sorry Bronislav. I got a bit wrapped up in helping Jensen, and I dragged you into it. I can definitely try to respect your boundaries in the future."
 
 Bronislav: "Thanks, I appreciate that."
 
@@ -642,9 +650,11 @@ Ivy: "I'm realizing I misjudged you. I hope we can move past this at some point.
 
 Bronislav: "Me too."
 
-Ivy: "Alright, there's a talk I'm going to head off to now, but see you around Bronislav."
+Ivy: "Alright, there's a talk I'm going to head off to now, but maybe we can grab coffee later?"
 
-Bronislav: "Okay, see you."
+Bronislav: "Sounds good. I'll see you around."
+
+{DBInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -681,9 +691,11 @@ Bronislav: "Thanks, I really appreciate that."
 
 Ivy sighs.
 
-Ivy: "Sure Bronislav. Look, I'm going to go to a talk now, but I guess I'll see you around."
+Ivy: "Sure Bronislav. Look, I'm going to go to a talk now, but maybe we can grab coffee later?"
 
-Bronislav: "Okay, see you."
+Bronislav: "Maybe, I'll see you around."
+
+{DBInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
