@@ -1,3 +1,6 @@
+VAR IvyDealAccepted = false 
+VAR IvyDealConsidered = false
+VAR IvyDealDenied = false
 === BI_CONFERENCE_SceneStart ===
 # ---
 # choiceLabel: Talk with Ivy about the deal.
@@ -15,50 +18,99 @@
 
 {DbInsert("Seen_BI_CONF")}
 
-// TODO: Branching based off of previously saying you'd add Jensen or not
-While you are crunching away at your paper, Ivy approaches you.
-//if you said you would add Jensen
-Ivy: "Hey Bronislav. I know you said you'd put Jensen on the paper. If that's still on the table, allow me to explain my proposal."
+-> BI_Conference_Intro
 
-Ivy: "I've been talking to my uncle about you, and I could arrange a meeting with him as well as a recommendation if you put Jensen as first author on the paper." 
+=BI_Conference_Intro
+~IvyDealAccepted = DbAssert("IvyDealAccepted")
 
-Ivy: "I told him that you are an international student, and he said he would be more than happy to sponsor someone of your talents. He's excited to meet you, so please, think about it."
--> ChoiceOptionsForDeal
+~IvyDealConsidered = DbAssert("IvyDealConsidered")
 
-=ChoiceOptionsForDeal
-*[This could really help me...] -> internalReflectionAddJensen
-*[What has Jensen done for authorship...?] -> internalReflectionAddJensen2
+~IvyDealDenied = DbAssert ("IvyDealDenied") 
 
-*{internalReflectionAddJensen2}["Thanks Ivy." #>> ChangeOpinion Ivy Bronislav ++++]
-->ThanksIvy
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-*{internalReflectionAddJensen2}["I've changed my mind."]
-->ChangedMyMind
+{
+    - ivyOpinion >= OpinionState.Good:
 
-*{internalReflectionAddJensen2}["I'm not sure yet."]
-->NotSureYet
+        {IvyDealAccepted | IvyDealConsidered: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
 
-=internalReflectionAddJensen
+        {IvyDealAccepted | IvyDealConsidered: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+        
+        {IvyDealDenied: "Hey Bronislav, I know you weren't too keen on putting Jensen on the paper, but I've got an offer for you. If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+        -> BI_InternalReflectionChoices
+
+    - else:
+
+        Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed about Jensen."
+
+        She looks dejected.
+
+        Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you that job. Any thoughts?"
+
+        -> BI_InternalReflectionChoices
+}
+
+= BI_InternalReflectionChoices
+
+*[This could really help me...] -> BI_InternalReflection.internalReflection1
+*[What has Jensen done for authorship...?] -> BI_InternalReflection. internalReflection2
+
+==BI_InternalReflection==
+
+=internalReflection1
 If you take this offer, it could basically guarentee your job and help with your visa issues. 
 ->ChoiceOptionsForDeal
 
-=internalReflectionAddJensen2
-All he gave was that one piece of feedback, is that enough to be put as first author? 
+=internalReflection2
+All he gave was that one piece of feedback, is that enough to be put as first author?
 ->ChoiceOptionsForDeal
+        
+==ChoiceOptionsForDeal==
 
-=== ThanksIvy ===
-Bronislav: "That's really generous of you. Thank you Ivy. If I get this done in time, I'll be heavily considering putting him as first author."
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-Ivy: "Thank you, I just hope Jensen can get into grad school with this and a few more papers under his belt. It's really important to him."
+{
 
-{HideCharacter("Ivy")}
+ - ivyOpinion >= OpinionState.Good:
 
-->BHS3_Hint->
+    *{IvyDealAccepted} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+    
+    *{IvyDealConsidered}["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+    *{IvyDealDenied} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ++++] -> ChangedMyMindAccept
+    
+    *{IvyDealDenied}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
+        ->ThatsReallyHelpful
 
-->DONE
+    *{IvyDealDenied}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
+        ->YouSure
 
-=== ChangedMyMind ===
+    *[I'm not sure about this]
+        ->ImNotSure
+  
 
+ - ivyOpinion >= OpinionState.Neutral:
+
+    *{not IvyDealConsidered}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
+        ->ThatsReallyHelpful
+
+    *{not IvyDealConsidered}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
+        ->YouSure
+
+    *{not IvyDealConsidered}[I'm not sure about this]
+        ->ImNotSure
+        
+ - else:
+
+    *["I'm sorry about what I said." #>> ChangeOpinion Ivy Bronislav ++] ->SorryAbtThat
+
+    *["That won't help."]->ThatWontHelp
+
+    *["No way."] ->NoWay
+  
+ }
+ 
+ ===ChangedMyMindReject===
+ {DbInsert("BI_SwitchingOpinions")}
 Bronislav: "I'm actually not comfortable with this. I don't feel as though Jensen's feedback is enough, and with a generous offer from you on the table like this, I think it would be too risky for the both of us."
 
 Ivy: "Aw, c'mon Bronislav, you know how hard it is to get into grad school."
@@ -67,16 +119,16 @@ Ivy sighs.
 
 Ivy: "Jensen needs all the help he can get, wouldn't you have liked help like this back then?"
 
-*["You're right." #>> ChangeOpinion Ivy Bronislav ++++]
+*["You're right." #>> ChangeOpinion Ivy Bronislav ++]
 ->YouAreRight
 
-*["It's hard, but..."]
+*["It's hard, but..." #>> ChangeOpinion Ivy Bronislav -]
 ->ItsHardBut
 
-*["This is Jensen, not me."]
+*["This is Jensen, not me." #>> ChangeOpinion Ivy Bronislav --]
 ->JensenNotMe
 
-=== YouAreRight ===
+=YouAreRight
 Bronislav: "You're right, I would have liked this help back then. I'll think about it some more, Ivy. You had a rough time getting into grad school back when you were a student too, right? That's why you're sympathizing with Jensen?"
 
 Ivy starts to smile, relieved by this turn of events.
@@ -89,7 +141,7 @@ Ivy: "Yeah, back then it was a struggle getting onto papers, and I feel like Jen
 
 ->DONE
 
-=== ItsHardBut ===
+=ItsHardBut
 Bronislav: "It is hard, but I feel like Jensen really just isn't going to hold up to review. His feedback was basic, we'd get caught..."
 
 Ivy interrupts you, clearly you hit a nerve.
@@ -104,7 +156,7 @@ She walks off with a huff.
 
 ->DONE
 
-=== JensenNotMe ===
+=JensenNotMe
 Bronislav: "This is Jensen, not me, Ivy. I worked so hard to get in and he's nowhere near my level that I was when I was his age. The feedback I got from him was the most basic possible, I don't feel like it would hold up."
 
  Ivy frowns, looking peeved.
@@ -123,186 +175,128 @@ Ivy turns away, heading out.
 
 ->DONE
 
-=== NotSureYet ===
-Bronislav: "Look, I'm not sure yet Ivy..."
+===ChangedMyMindAccept===
+ {DbInsert("BI_SwitchingOpinions")}
+Bronislav: "I actually wanted to change my mind. I'm heavily considering taking this deal, cause it would be a great opportunity for both of us!"
 
-You hesitantly speak up.
-
-Ivy:"Not sure yet? We are right on the deadline, Bronislav."
-
-Ivy: "Look, you get Jensen on that paper and I'll see what I can do about getting you that recommendation. You get a visa sponsor, and Jensen gets into grad school, it's as simple as that."
-
-With that, Ivy waves goodbye to you and walks off.
+Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!" 
 
 {HideCharacter("Ivy")}
 
 ->BHS3_Hint->
 
 ->DONE
-
-// if you did not say you would add Jensen
-// TODO: WRITE SELECTORS BASED OFF OF POSITIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
-// if positive relationship
-Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."
-
-Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."
-
-=ChoiceOptionsForDealPositive
-*[This could really help me...] -> internalReflectionPositive
-*[What has Jensen done for authorship...?] -> internalReflectionPositive2
-
-*{internalReflectionPositive2}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
-->ThatsReallyHelpful
-
-*{internalReflectionPositive2}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
-->YouSure
-
-*{internalReflectionPositive2}[I'm not sure about this]
-->ImNotSure
-
-=internalReflectionPositive
-If you take this offer, it could basically guarentee your job and help with your visa issues. 
-->ChoiceOptionsForDealPositive
-
-=internalReflectionPositive2
-All he gave was that one piece of feedback, is that enough to be put as first author? 
-->ChoiceOptionsForDealPositive
 
 === ThatsReallyHelpful ===
-Bronislav: "That's really helpful, Ivy, I'll need to see how the paper turns out first but if I keep it together, I'm leaning towards putting Jensen on the paper."
+    Bronislav: "That's really helpful, Ivy, I'll need to see how the paper turns out first but if I keep it together, I'm leaning towards putting Jensen on the paper."
 
-Ivy smiles, pleased by this.
+    Ivy smiles, pleased by this.
 
-Ivy: "Thank you Bronislav, Jensen really needs the help getting into grad school, it's nice to see you being so supportive."
+    Ivy: "Thank you Bronislav, Jensen really needs the help getting into grad school, it's nice to see you being so supportive."
 
-Ivy: "I'll keep in touch, hope to see you again soon!"
+    Ivy: "I'll keep in touch, hope to see you again soon!"
 
-Ivy walks off with a pleased pep in her step.
+    Ivy walks off with a pleased pep in her step.
 
-{HideCharacter("Ivy")}
+    {HideCharacter("Ivy")}
 
-->BHS3_Hint->
+    ->BHS3_Hint->
 
-->DONE
+    ->DONE
 
 === YouSure ===
-Bronislav: "Thank you, Ivy, but are you sure? That's really generous of you but you're kind of sticking your neck out for me on this one."
+    Bronislav: "Thank you, Ivy, but are you sure? That's really generous of you but you're kind of sticking your neck out for me on this one."
 
-Ivy cracks a smile at that.
+    Ivy cracks a smile at that.
 
-Ivy: "I wouldn't be too worried, you're doing great. If you hold up your end of the bargain, it'll be worth it."
+    Ivy: "I wouldn't be too worried, you're doing great. If you hold up your end of the bargain, it'll be worth it."
 
-Ivy: "I'll keep in touch, hope to see you again soon!"
+    Ivy: "I'll keep in touch, hope to see you again soon!"
 
-Ivy walks off with a pleased pep in her step.
+    Ivy walks off with a pleased pep in her step.
 
-{HideCharacter("Ivy")}
+    {HideCharacter("Ivy")}
 
-->BHS3_Hint->
+    ->BHS3_Hint->
 
-->DONE
+    ->DONE
 
-=== ImNotSure ===
+    === ImNotSure ===
 
-Bronislav: "I'm not sure about this, Ivy. Now that there's an explicit deal on the table, it feels..."
+    Bronislav: "I'm not sure about this, Ivy. Now that there's an explicit deal on the table, it feels..."
 
-You try to come up with the words, your altruistic intentions to help Jensen feeling conflicted with your need for a job.
+    You try to come up with the words, your altruistic intentions to help Jensen feeling conflicted with your need for a job.
 
-Ivy: "Hey, no big deal. But I would like to remind you that you are running on tight deadline to get those visa issues of yours solved, and I just offered you a lifeline."
+    Ivy: "Hey, no big deal. But I would like to remind you that you are running on tight deadline to get those visa issues of yours solved, and I just offered you a lifeline."
 
-Ivy drops her tone.
+    Ivy drops her tone.
 
-Ivy: "Just think it over while you're working here, Bronislav."
+    Ivy: "Just think it over while you're working here, Bronislav."
 
-Ivy waves goodbye, taking her leave briskly.
+    Ivy waves goodbye, taking her leave briskly.
 
-{HideCharacter("Ivy")}
+    {HideCharacter("Ivy")}
 
-->BHS3_Hint->
+    ->BHS3_Hint->
 
-->DONE
+    ->DONE
+        
 
-// if neutral or negative relationship
-Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed about Jensen."
+    === SorryAbtThat ===
+    Bronislav: "I'm sorry about what I said regarding Jensen. I'm sure he's a fine guy, he just rubbed me wrong when we first met. I think I'll be putting him on the paper."
 
-She looks dejected.
+    Ivy looks slightly relieved.
 
-Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you that job. Any thoughts?"
+    Ivy: "That actually means a lot, Bronislav. Jensen really needs it, as you've clearly noticed."
 
-=ChoiceOptionsForDealNegative
-*[This could really help me...] -> internalReflectionNegative
-*[What has Jensen done for authorship...?] -> internalReflectionNegative2
+    With the slight bit of sass, she continues.
 
-*["I'm sorry about what I said."]
-->SorryAbtThat
+    Ivy: "For now, maybe try being a bit nicer to poor Jensen from now on."
 
-*["That won't help."]
-->ThatWontHelp
+    Ivy walks away, not even waving goodbye.
 
-*["No way."]
-->NoWay
+    {HideCharacter("Ivy")}
 
-=internalReflectionNegative
-If you take this offer, it could basically guarentee your job and help with your visa issues. 
-->ChoiceOptionsForDealNegative
+    ->BHS3_Hint->
 
-=internalReflectionNegative2
-All he gave was that one piece of feedback, is that enough to be put as an author? 
-->ChoiceOptionsForDealNegative
+    ->DONE
 
-=== SorryAbtThat ===
-Bronislav: "I'm sorry about what I said regarding Jensen. I'm sure he's a fine guy, he just rubbed me wrong when we first met. I think I'll be putting him on the paper."
+    === ThatWontHelp ===
+    Bronislav: "Look, it won't really help with the feedback he gave."
 
-Ivy looks slightly relieved.
+    You smile a little.
 
-Ivy: "That actually means a lot, Bronislav. Jensen really needs it, as you've clearly noticed."
+    Bronislav: "As enticing as a job recommendation is, Jensen's feedback is iffy."
 
-With the slight bit of sass, she continues.
+    Ivy frowns.
 
-Ivy: "For now, maybe try being a bit nicer to poor Jensen from now on."
+    Ivy: "Bronislav, you know how much help he needs. Please. Think about it."
 
-Ivy walks away, not even waving goodbye.
+    Ivy: "I know it might be hard, but you're struggling with getting a job. And we both know what could happen if you don't find anything. Think it over."
 
-{HideCharacter("Ivy")}
+    Ivy waves goodbye and leaves without another word.
 
-->BHS3_Hint->
+    {HideCharacter("Ivy")}
 
-->DONE
+    ->BHS3_Hint->
 
-=== ThatWontHelp ===
-Bronislav: "Look, it won't really help with the feedback he gave."
+    ->DONE
 
-You smile a little.
+    === NoWay ===
+    Bronislav: "No way. Jensen would need to step it up a notch if he wants my help. We would get caught instantly."
 
-Bronislav: "As enticing as a job recommendation is, Jensen's feedback is iffy."
+    Ivy: "C'mon Bronislav, this is a big opportunity for you, to secure something you really need, if you just add him to the paper. Think about what you're missing out on by saying no."
 
-Ivy frowns.
+    Ivy frowns and turns away.
 
-Ivy: "Bronislav, you know how much help he needs. Please. Think about it."
+    Ivy: "Think it over, okay?"
 
-Ivy: "I know it might be hard, but you're struggling with getting a job. And we both know what could happen if you don't find anything. Think it over."
+    Ivy leaves wordlessly.
 
-Ivy waves goodbye and leaves without another word.
+    {HideCharacter("Ivy")}
 
-{HideCharacter("Ivy")}
+    ->BHS3_Hint->
 
-->BHS3_Hint->
+    ->DONE
 
-->DONE
-
-=== NoWay ===
-Bronislav: "No way. Jensen would need to step it up a notch if he wants my help. We would get caught instantly."
-
-Ivy: "C'mon Bronislav, this is a big opportunity for you, to secure something you really need, if you just add him to the paper. Think about what you're missing out on by saying no."
-
-Ivy frowns and turns away.
-
-Ivy: "Think it over, okay?"
-
-Ivy leaves wordlessly.
-
-{HideCharacter("Ivy")}
-
-->BHS3_Hint->
-
-->DONE
+}

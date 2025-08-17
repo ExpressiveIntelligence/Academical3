@@ -10,16 +10,25 @@
 # ===
 # Summary: Brad confides in Bronislav about using pre-IRB data
 
+After submitting your paper you sit down and try to finally get a second of rest. You look around the room and see Brad across the room.
+
+{ShowCharacter("Brad", "left", "")}
+
 ~temp r = GetOpinionState("Brad", "Bronislav")
 {r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
+
+You wave at Brad to get his attention. 
+
+He briefly waves back and puts on his headphones.  
+
+Maybe he's upset and not in the mood to talk. 
+
+{HideCharacter("Brad")}
+
 ->DONE
 }
 
 {DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
-
-After submitting your paper you sit down and try to finally get a second of rest. However, you see Brad cautiously approach you.
-
-{ShowCharacter("Brad", "left", "")}
 
 Brad: "Hey Bronislav. Nice to see you! How've you been?" 
 

@@ -1,7 +1,5 @@
 === BP_EvilPlan_SceneStart ===
 #---
-# @query
-# date.day!5
 # @end
 # hidden: true
 # tags: action, student_cubes, auxiliary

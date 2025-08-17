@@ -15,13 +15,13 @@
 
 Ivy:"Hey Bronislav, how are you doing?"
 
-*["Pretty well."  #>> ChangeOpinion Ivy Bronislav +++]
+*["Pretty well."  #>> ChangeOpinion Ivy Bronislav +]
     ->PrettyWell
 
 *["Alright."]
     ->Alright
 
-*["Terrible." #>> ChangeOpinion Ivy Bronislav --]
+*["Terrible." #>> ChangeOpinion Ivy Bronislav -]
     ->BI_IRB_Terrible
 
 === PrettyWell ===
@@ -148,7 +148,7 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
 
     Ivy: "What do you mean?" 
 
-    *["You could talk to your Uncle for me." #>> ChangeOpinion Ivy Bronislav --]
+    *["You could talk to your Uncle for me?" #>> ChangeOpinion Ivy Bronislav --]
         ->YouCouldTalkToHim
 
     *["Do you know anything else about the position?" #>> ChangeOpinion Ivy Bronislav ++]
@@ -187,9 +187,9 @@ Ivy: "I mean...I guess I could."
 
 Bronislav: "Is something wrong?" 
 
-Ivy: "Oh, don't play dumb Bronislav. You haven't exactly been shy about your dislike for me."
+Ivy: "Oh, don't play dumb Bronislav, I know you don't look too highly upon me other than my work."
 
-Bronislav: "Oh..." You say, embarrassed.
+Bronislav: "Oh..." 
 
 Ivy sighs.
 
@@ -324,7 +324,7 @@ Ivy: "He's been really stressed. He's such a hard worker, but he's always worrie
 *["I hope he can figure that out."]
     ->HopeHeFiguresItOut
 
-*["That's rough." #>> ChangeOpinion Ivy Bronislav ----]
+*["That's rough." #>> ChangeOpinion Ivy Bronislav --]
     ->ThatsRough
 
 *["Everyone experiences that." #>> ChangeOpinion Ivy Bronislav ++++]
@@ -342,7 +342,7 @@ Ivy: "Yeah, I guess you do, huh."
 *["Jensen will figure it out."]
     ->JensensGotIt
 
-*["I wouldn't worry about him." #>> ChangeOpinion Ivy Bronislav ++++]
+*["I wouldn't worry about him." #>> ChangeOpinion Ivy Bronislav ++]
     ->IWouldntWorry
 
 *["He should be worried." #>> ChangeOpinion Ivy Bronislav ----]
@@ -506,6 +506,7 @@ The only thing Jensen did to participant on this paper was give that piece of fe
     ->HesInTrouble
 
 === PutHimOn ===
+{DbInsert("IvyDealConsidered")}
 
 Bronislav: "Maybe I could put him on my paper?"
 
@@ -551,17 +552,17 @@ Ivy looks as though she is considering asking you something, and decides to ask.
 
 === GiveQuidProQuo ===
 
-Ivy: "Do you think you'd be willing to put Jensen on your paper? If you do, I'll promise to give you a recommendation to my uncle."
+Ivy: "Do you think you'd be willing to put Jensen on your paper? If you do, I promise to give you a recommendation to my uncle."
 
 {DbInsert("givenQuidProQuo")}
 
 *["Probably." #>> ChangeOpinion Ivy Bronislav ++]
     ->Probably
 
-*["I'm not sure." #>> ChangeOpinion Ivy Bronislav --]
+*["I'm not sure." #>> ChangeOpinion Ivy Bronislav -]
     ->NotSure
 
-*["No."]
+*["No." #>> ChangeOpinion Ivy Bronislav --]
     ->No
 
 === Probably ===

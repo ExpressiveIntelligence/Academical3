@@ -7,7 +7,7 @@ VAR heardPraveenPlan = false
 #Seen_BBS4
 #@end.
 #repeatable: false
-#tags: action, student_cubicles, auxiliary 
+#tags: action, student_cubes, auxiliary 
 #===
 
 ~ heardPraveenPlan = DbAssert("Seen_BP_EvilPlan") 

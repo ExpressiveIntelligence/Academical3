@@ -3,6 +3,7 @@ VAR confided = false
 === BB_Socializing4_SceneStart ===
 # ---
 # choiceLabel: Wait for Brad.
+# hidden: true
 # @query
 # date.day!4
 # @end
