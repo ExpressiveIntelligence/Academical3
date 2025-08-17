@@ -22,6 +22,8 @@ VAR BI_FirstCoffee_InternationalMentioned = false
 
 {ShowCharacter("Ivy", "left", "")}
 
+This text shows that the inky files are being updated 
+
 You decide to catch up with one of your department's professors, Ivy. She sits down across the table from you, setting down her coffee and smiling.
 
 Ivy: "Hey Bronislav. Good to see you again." {ShowCharacter("Ivy", "left", "")}
