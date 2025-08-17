@@ -363,4 +363,6 @@ Ivy: "Excuse me for asking for a small something in return for my efforts. You r
 
 Ivy storms off, letting you finally reach your desk.
 
+{HideCharacter("Ivy")}
+
 -> DONE
