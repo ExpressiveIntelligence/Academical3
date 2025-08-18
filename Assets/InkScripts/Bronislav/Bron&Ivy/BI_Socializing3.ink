@@ -24,9 +24,9 @@ VAR SwitchingOpinionsAccept = false
 
 ~IvyDealDenied = DbAssert ("IvyDealDenied") 
 
-~SwitchingOpinionsReject = DBAssert ("BI_SwitchingOpinions_Reject")
+~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
 
-~SwitchingOpinionsAccept = DBAssert ("BI_SwitchingOpinions_Accept")
+~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
 
 
 As you walk towards your desk, you notice that Ivy steps into your path.

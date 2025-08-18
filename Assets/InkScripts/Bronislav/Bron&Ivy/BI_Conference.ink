@@ -30,11 +30,11 @@ VAR BI_C_negativeNelly = false
 
 ~IvyDeniedOfficial = DbAssert ("BI_OfficiallyRejected") 
 
-~SwitchingOpinionsReject = DBAssert ("BI_SwitchingOpinions_Reject")
+~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
 
-~SwitchingOpinionsAccept = DBAssert ("BI_SwitchingOpinions_Accept")
+~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
 
-~BlowUp = DBAssert ("BI_Blowup")
+~BlowUp = DbAssert ("BI_Blowup")
 
 You notice Ivy and decide to approach her.
 {ShowCharacter("Ivy", "left", "")}
@@ -56,10 +56,7 @@ Maybe it's best to leave her alone.
 -> DONE
 
 ===dealAccepted===
-
--> relationshipBranch
-
-=relationshipBranch
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 { 
     - ivyOpinion >= OpinionState.Good: -> goodAccept
     - else: 
@@ -489,7 +486,7 @@ Ivy: "Oh, looks like they're calling me, let's grab a coffee later if you can!"
 
 Bronislav: "Alright!"
 
-{DBInsert("BI_Coffee")}
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -532,7 +529,7 @@ Ivy: "I hope it all works out for you. Hey! Let's grab coffee later if you have 
 
 Bronislav: "Yeah, sure."
 
-{DBInsert("BI_Coffee")}
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -579,7 +576,7 @@ Ivy: "Yeah you too Bronislav. Maybe we should grab a coffee later today if you'r
 
 Bronislav: "Sounds good." 
 
-{DBInsert("BI_Coffee")}
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -654,7 +651,7 @@ Ivy: "Alright, there's a talk I'm going to head off to now, but maybe we can gra
 
 Bronislav: "Sounds good. I'll see you around."
 
-{DBInsert("BI_Coffee")}
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -695,7 +692,7 @@ Ivy: "Sure Bronislav. Look, I'm going to go to a talk now, but maybe we can grab
 
 Bronislav: "Maybe, I'll see you around."
 
-{DBInsert("BI_Coffee")}
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 

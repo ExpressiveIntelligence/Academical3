@@ -1,11 +1,13 @@
-VAR IvyDealAccepted = false 
-VAR IvyDealConsidered = false
-VAR IvyDealDenied = false
-VAR SwitchingOpinionsReject = false 
-VAR SwitchingOpinionsAccept = false
 
 
 === BI_ReviewPeriod_SceneStart ===
+
+//VAR IvyDealAccepted = false 
+//VAR IvyDealConsidered = false
+//VAR IvyDealDenied = false
+//VAR SwitchingOpinionsReject = false 
+//VAR SwitchingOpinionsAccept = false
+
 # ---
 # choiceLabel: Work on paper 
 # @query
@@ -23,9 +25,9 @@ VAR SwitchingOpinionsAccept = false
 
 ~IvyDealDenied = DbAssert ("IvyDealDenied") 
 
-~SwitchingOpinionsReject = DBAssert ("BI_SwitchingOpinions_Reject")
+~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
 
-~SwitchingOpinionsAccept = DBAssert ("BI_SwitchingOpinions_Accept")
+~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
 
 You sit down to go over the feedback. Ivy approaches you seeing you work on edits.
 
@@ -138,7 +140,7 @@ With the conference around the corner, this will be your final say of how you wa
 
 === BI_RP_PlanningOnIt ===
 
-{DBInsert("BI_OfficiallyAccepted")}
+{DbInsert("BI_OfficiallyAccepted")}
 
 // TODO: selector based off of whether the player said Jensen would be on the paper or not
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
@@ -167,7 +169,7 @@ With the conference around the corner, this will be your final say of how you wa
 
 === BI_RP_GetSomething ===
 
-{DBInsert("BI_OfficiallyAccepted")}
+{DbInsert("BI_OfficiallyAccepted")}
 
 // TODO: selector based off of whether the player said Jensen would be on the paper or not
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
@@ -193,7 +195,7 @@ With the conference around the corner, this will be your final say of how you wa
 
 === BI_RP_DontThinkSo ===
 
-{DBInsert("BI_OfficiallyRejected")}
+{DbInsert("BI_OfficiallyRejected")}
 
 // if Bronislav said Jensen would be on the paper
 {IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."}
@@ -237,7 +239,7 @@ With the conference around the corner, this will be your final say of how you wa
 
 === BI_RP_DefNot ===
 
-{DBInsert("BI_OfficiallyRejected")}
+{DbInsert("BI_OfficiallyRejected")}
 // TODO: selector based off of whether the player said Jensen would be on the paper or not
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
 
@@ -349,7 +351,7 @@ She leaves promptly after saying this.
 
 === BI_RP_Disappointed ===
 
-{DBInsert("BI_Blowup")}
+{DbInsert("BI_Blowup")}
 
 Bronislav: "Disappointed in what? In me? For saying to no to what is very obviously a trap? You have just been dangling my own visa issues in front of me to try an make me do what you want, and I'm tired of it."
 
