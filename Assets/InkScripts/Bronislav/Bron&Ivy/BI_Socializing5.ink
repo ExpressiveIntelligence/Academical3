@@ -22,9 +22,9 @@ VAR SwitchingOpinionsAccept = false
 
 ~IvyDeniedOfficial = DbAssert ("BI_OfficiallyRejected") 
 
-~SwitchingOpinionsReject = DBAssert ("BI_SwitchingOpinions_Reject")
+~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
 
-~SwitchingOpinionsAccept = DBAssert ("BI_SwitchingOpinions_Accept")
+~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
 
 //currently assumes Jensen was on the paper for both
 {ShowCharacter("Ivy", "left", "")}
