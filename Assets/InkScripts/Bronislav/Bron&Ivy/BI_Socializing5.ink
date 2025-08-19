@@ -1,8 +1,8 @@
 
-VAR IvyAcceptedOfficial = false 
-VAR IvyDeniedOfficial = false
-VAR SwitchingOpinionsReject = false 
-VAR SwitchingOpinionsAccept = false
+#VAR IvyAcceptedOfficial = false 
+#VAR IvyDeniedOfficial = false
+#VAR SwitchingOpinionsReject = false 
+#VAR SwitchingOpinionsAccept = false
 === BI_Socializing5_SceneStart ===
 # ---
 # choiceLabel: Meet with Ivy.
@@ -63,7 +63,7 @@ After the great news for Jensen, Ivy said that she wanted to congratulate both o
 //Jensen is not on the paper, Bronislav never had Jensen on the paper
 After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks a bit stressed with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
 
-*["Sorry about Jensen."]
+*["Sorry about Jensen." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_Socializing5_SorryAbtJensen
 
 *[Sit down.]
@@ -73,7 +73,7 @@ After the bad news for Jensen, Ivy said that she wanted to meet with you to have
 //Jensen is not on the paper, Bronislav had Jensen on the paper at one point.
 After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks stressed, with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
 
-*["Sorry about Jensen."]
+*["Sorry about Jensen." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_Socializing5_SorryAbtJensen2
 
 *[Sit down.]
@@ -385,7 +385,7 @@ Bronislav: "Hey Ivy, sorry about the Jensen. How's he doing?"
 
 Ivy lets out a grunt at you saying this.
 
-Ivy: "Not great.. not great. I've had to start finding our backup plan for Jensen, my class just had to submit a project, so I'm definitely a bit overwhelmed."
+Ivy: "Not great.. not great. I've had to start finding our backup plan for Jensen, so I'm definitely a bit overwhelmed."
 
 *["Wish I could help."]
 ->BI_Socializing5_WishICouldHelp

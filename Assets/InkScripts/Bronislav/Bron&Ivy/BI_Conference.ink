@@ -93,9 +93,7 @@ Ivy: "Oh, hi Bronislav. Wasn't expecting to run into you here."
 ->BI_C_HaveYouTalked
 
 ===dealDenied===
--> relationshipBranch
-
-=relationshipBranch
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 { 
     - ivyOpinion >= OpinionState.Good: -> goodDenied
     - else: 
@@ -310,10 +308,10 @@ As you stand near Ivy, your mind keeps wandering back to the deal. While it surp
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
 
 
-*["How are you holding up?"]
+*["How are you holding up?" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_HoldingUp
 
-*[Don't bring it up.]
+*[Don't bring it up. #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_DontBringUp
 
 === BI_C_PrettyStandard ===
@@ -329,10 +327,10 @@ As you stand near Ivy, your mind keeps wandering back to the deal. While it surp
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
 
 
-*["How are you holding up?"]
+*["How are you holding up?" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_HoldingUp
 
-*[Don't bring it up.]
+*[Don't bring it up. #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_DontBringUp
 
 === BI_C_Slow ===
@@ -355,10 +353,10 @@ As you stand near Ivy, your mind keeps wandering back to the deal. While it surp
 // TODO: did the player do optional dialogue in socalizing 4
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
 
-*["How are you holding up?"]
+*["How are you holding up?" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_HoldingUp
 
-*[Don't bring it up.]
+*[Don't bring it up. #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_DontBringUp
 
 

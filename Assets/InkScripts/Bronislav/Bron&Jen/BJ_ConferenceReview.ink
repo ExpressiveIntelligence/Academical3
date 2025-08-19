@@ -35,7 +35,7 @@ VAR thinking = false
     //if you declined Ivy's deal and told Jensen no
     //- else:
       ->BJS3_InoJno
-}
+
 
 ->DONE 
 
@@ -619,7 +619,7 @@ Jensen: "Hey Bronislav, I still have co-authorship... right? Ivy told me you tol
 ->BJS3_MayHaveReconsidered
 }
 
-=== BJS3_InoJno ===
+===BJS3_InoJno===
 ~ temp r = GetOpinionState("Jensen", "Bronislav")
 //if positive relationship
 {r == OpinionState.Good || r == OpinionState.Excellent:

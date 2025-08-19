@@ -51,7 +51,7 @@ Ivy: "Hey Bronislav. Got some helpful feedback?"
 ~ temp jensenOpinion = GetOpinionState("Jensen", "Bronislav")
 {
 - jensenOpinion <= OpinionState.Good:
-    *["Better than Jensen's." #>> ChangeOpinion Ivy Bronislav -]
+    *["Better than Jensen's." #>> ChangeOpinion Ivy Bronislav --]
     ->BI_RP_BetterThanJ
 }
 
@@ -221,20 +221,20 @@ With the conference around the corner, this will be your final say of how you wa
 ->BI_RP_SorryIvy
 
 //if you said Jensen would be on the paper
-*{IvyDealAccepted}*["It is an issue."]
+*{IvyDealAccepted}*["It is an issue." #>> ChangeOpinion Ivy Bronislav --]
 ->BI_RP_ItsAnIssue
 
-*{IvyDealConsidered}*["It is an issue."]
+*{IvyDealConsidered}*["It is an issue." #>> ChangeOpinion Ivy Bronislav --]
 ->BI_RP_ItsAnIssue
 
-*{SwitchingOpinionsAccept}*["It is an issue."]
+*{SwitchingOpinionsAccept}*["It is an issue." #>> ChangeOpinion Ivy Bronislav --]
 ->BI_RP_ItsAnIssue
 
 //if you said Jensen would not be on the paper
-*{IvyDealDenied}["I'll talk to him later."]
+*{IvyDealDenied}["I'll talk to him later." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_RP_TalkToHimLater
 
-*{SwitchingOpinionsReject}["I'll talk to him later."]
+*{SwitchingOpinionsReject}["I'll talk to him later." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_RP_TalkToHimLater
 
 === BI_RP_DefNot ===
@@ -274,7 +274,7 @@ With the conference around the corner, this will be your final say of how you wa
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
 
-*["Disappointed in me?" #>> ChangeOpinion Ivy Bronislav --]
+*["Disappointed in me?" #>> ChangeOpinion Ivy Bronislav ----]
 ->BI_RP_Disappointed
 
 === BI_RP_ThanksIvy ===

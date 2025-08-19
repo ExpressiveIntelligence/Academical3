@@ -1,8 +1,10 @@
-VAR IvyDealAccepted = false 
-VAR IvyDealConsidered = false
-VAR IvyDealDenied = false
-VAR SwitchingOpinionsReject = false 
-VAR SwitchingOpinionsAccept = false
+# ---
+#VAR IvyDealAccepted = false 
+#VAR IvyDealConsidered = false
+#VAR IvyDealDenied = false
+#VAR SwitchingOpinionsReject = false 
+#VAR SwitchingOpinionsAccept = false
+#===
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL
 
 === BIS3_SceneStart ===
@@ -50,7 +52,7 @@ Bronislav: "Hey Ivy."
 
 {IvyDealDenied | SwitchingOpinionsReject:: ->HelpJensen}
 
-*["Uh.. hi.. Ivy."] 
+*["Uh.. hi.. Ivy." #>> ChangeOpinion Ivy Bronislav -] 
 Bronislav: "Uh.. hi... Ivy."
 
 // TODO: decision indicator based off of whether Bronislav previously showed interest
@@ -110,7 +112,7 @@ Ivy: "Oh, sorry. I won't take up too much of your time then, I just thought abou
 
 ->WhyShouldIHelp
 
-*["I'm not sure I'm comfortable with talking."]
+*["I'm not sure I'm comfortable with talking." #>> ChangeOpinion Ivy Bronislav -]
 Bronislav: "I'm honestly not sure I'm comfortable talking with you right now. I know I said I was potentially interested in taking your offer, but my gut is telling me this is all a bad idea."
 
 Ivy: "Oh, well... I wasn't exactly expecting that..."
@@ -177,7 +179,7 @@ Ivy turns and leaves the room.
 
 ->DONE
 
-*["This is making me uncomfortable." #>> ChangeOpinion Ivy Bronislav ++]
+*["This is making me uncomfortable." #>> ChangeOpinion Ivy Bronislav +]
 Bronislav: "Okay, this is making me uncomfortable, Ivy."
 
 Ivy: "Oh, my bad. I didn't realize I was making this weird, I appreciate you being honest."
@@ -194,7 +196,7 @@ Ivy leaves you to your work.
 
 ->DONE
 
-*["You're trying too hard." #>> ChangeOpinion Ivy Bronislav --]
+*["You're trying too hard." #>> ChangeOpinion Ivy Bronislav ---]
 Bronislav: "You're trying too hard. Is there a reason you are this desperate for me to help Jensen?"
 
 Ivy: "Is there a reason you are so intent on being rude? Have you not been listening to a word I've been saying?"

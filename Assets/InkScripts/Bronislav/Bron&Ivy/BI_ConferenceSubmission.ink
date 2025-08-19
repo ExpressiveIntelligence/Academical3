@@ -84,7 +84,7 @@ All he gave was that one piece of feedback, is that enough to be put as first au
     *{IvyDealDenied}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
         ->YouSure
 
-    *[I'm not sure about this]
+    *[I'm not sure about this #>> ChangeOpinion Ivy Bronislav -]
         ->ImNotSure
   
 
@@ -105,7 +105,7 @@ All he gave was that one piece of feedback, is that enough to be put as first au
 
     *["That won't help."]->ThatWontHelp
 
-    *["No way."] ->NoWay
+    *["No way." #>> ChangeOpinion Ivy Bronislav --] ->NoWay
   
  }
  
