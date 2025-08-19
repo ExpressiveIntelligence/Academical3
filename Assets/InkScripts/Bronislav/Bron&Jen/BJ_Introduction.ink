@@ -25,13 +25,38 @@ As Bronislav, you must chose how to approach this situation.
 {UnlockAllLocations()}
 {DbInsert("Seen_BJ_INTRO")}
 
-Today you are presenting a practice paper talk at the weekly psychology department seminar.
+You nervously approach the podium. The room has filled up with what seems like the entire department - Professors, undergrads, grads, admins.
 
-You go to the front of the room and speak for about 45 minutes.
+You go to the front of the room and speak for about 45 minutes. It starts off a little shaky, but you quickly get into the flow and feel confident by the end.
 
-Surprisingly, your peers seemed to enjoy your work. A few tough questions, but nothing you couldn't handle.
+Your peers seemed to enjoy your work. A few tough questions, but nothing you couldn't handle. It's a major relief after so many months of hard research and writing.
 
-Afterward, while packing up your laptop, someone approaches you, eager to talk.
+Afterward, while packing up your laptop, a line forms of people in the department to give their congratulations.
+
+{ShowCharacter("Hendricks", "left", "")}
+Hendricks: "Congratulations Bronislav! That was great - I'm so lucky to have such a great advisee!" 
+{HideCharacter("Hendricks")}
+
+{ShowCharacter("Brad", "left", "")}
+Brad: "That was so cool buddy! Our work together on this is paying off. I'll finish up the IRB paperwork ASAP!"
+{HideCharacter("Brad")}
+
+{ShowCharacter("Ned", "left", "")}
+Ned: "Heh, Brad seems excited about our work. I think this is all but guaranteed to get into the conference."
+{HideCharacter("Ned")}
+
+{ShowCharacter("Praveen", "left", "")}
+Praveen: "Wow, great stuff! So many people involved - I hope I can one day match your networking skills!"
+{HideCharacter("Praveen")}
+
+{ShowCharacter("Ivy", "left", "")}
+Ivy: "Such an impressive presentation. The department could use more of this! My nephew-"
+Ivy: "...Ahem, oops! I meant to say undergrad mentee. Sorry about that! Anyways, they wanted to talk to you - keep an ear out!"
+{HideCharacter("Ivy")}
+
+<i>(You can learn more about any character using the "Characters" button at the top of the screen.)</i>
+
+The room clears out. A final person, likely an undergrad, approaches you nervously.
 
 Jensen: "Bronislav, right? Nice to meet you. I'm Jensen." {ShowCharacter("Jensen", "left", "")}
 

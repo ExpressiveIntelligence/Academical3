@@ -144,7 +144,7 @@ Brad: "It's just... it feels like the IRB has been taking a long time to approve
 *["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav 10]
+*["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 ==BB_S1_PaperExposition==
@@ -178,7 +178,7 @@ Brad: "Yeah, tell me about it. The IRB is taking forever to approve my research 
 *["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav 10]
+*["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 === BB_S1_CouldBeBetter ===
@@ -194,7 +194,7 @@ Brad: "It's just... it feels like the IRB has been taking a long time to approve
 *["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav 10]
+*["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 === BB_S1_SoundsStressful ===

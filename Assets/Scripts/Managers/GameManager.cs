@@ -43,6 +43,12 @@ namespace Academical
 		private SocialEngineController m_socialEngine;
 
 		/// <summary>
+		/// Manages when/how the background overlay is displayed.
+		/// </summary>
+		[SerializeField]
+		private GameObject m_backgroundOverlay;
+
+		/// <summary>
 		/// A reference to the script controlling the dialogue and story progression.
 		/// </summary>
 		[SerializeField]
@@ -246,9 +252,6 @@ namespace Academical
 		{
 			GameEvents.OnStoryStart?.Invoke();
 
-			// This should not be hard coded, but we only have one level.
-			DialogueEvents.CharacterShown?.Invoke( "Bronislav", "right", "" );
-
 			if ( DataPersistenceManager.SaveData == null )
 			{
 				if ( m_dialogueManager.Story.StoryletExists( "start" ) )
@@ -266,6 +269,13 @@ namespace Academical
 		/// <param name="tags"></param>
 		public void SetPlayerLocation(string locationID, bool runStorylets = true)
 		{
+			//TODO: This is a hacky fix to existing broken code. We should eventually refactor/design the overlay entirely.
+			//If this is the first time we are moving to a location, update alpha to 1. 
+			if ( m_backgroundOverlay.GetComponent<CanvasGroup>().alpha == 0 )
+			{
+				m_backgroundOverlay.GetComponent<CanvasGroup>().alpha = 1;
+			}
+
 			Location location = m_simulationController.GetLocation( locationID );
 
 			if ( m_Player.Location != location )
@@ -413,9 +423,28 @@ namespace Academical
 			int nextDayNum = m_simulationController.DateTime.Day + 1;
 			string dateLabel = DateLabelConstants.GetLabelForDay( nextDayNum );
 
-			m_simulationController.AdvanceToNextDay(dateLabel);
+			m_simulationController.AdvanceToNextDay( dateLabel );
 
 			GameEvents.OnDayAdvanced?.Invoke( m_simulationController.DateTime.Day );
+
+			//Auto-start next day of content
+			TriggerNextDayDialogue( nextDayNum );
+			
+		}
+
+		private void TriggerNextDayDialogue(int dayNum)
+		{
+			string storyletName = DateLabelConstants.GetStoryletForDayStart( dayNum );
+			if ( storyletName == null )
+			{
+				throw new Exception( "Invalid day/storylet provided for Day Start!" );
+			}
+			else
+			{
+				Storylet dayStartStorylet = m_dialogueManager.Story.GetStorylet( storyletName );
+				m_dialogueManager.RunStorylet( dayStartStorylet );
+			}
+
 		}
 
 
