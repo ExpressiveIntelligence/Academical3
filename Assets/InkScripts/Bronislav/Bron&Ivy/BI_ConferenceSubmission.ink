@@ -27,28 +27,32 @@ VAR IvyDealDenied = false
 
 ~IvyDealDenied = DbAssert ("IvyDealDenied") 
 
-~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+//~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-{
-    - ivyOpinion >= OpinionState.Good:
+//{
+    //- ivyOpinion >= OpinionState.Neutral:
 
-        {IvyDealAccepted | IvyDealConsidered: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
-
-        {IvyDealAccepted | IvyDealConsidered: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+        {IvyDealAccepted: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
         
-        {IvyDealDenied: "Hey Bronislav, I know you weren't too keen on putting Jensen on the paper, but I've got an offer for you. If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+        {IvyDealConsidered: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
+
+        {IvyDealConsidered: Ivy: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+        
+        {IvyDealAccepted: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+        
+        {IvyDealDenied: Ivy: "Hey Bronislav, I know you weren't too keen on putting Jensen on the paper, but I've got an offer for you. If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
         -> BI_InternalReflectionChoices
 
-    - else:
+    //- else:
 
-        Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed about Jensen."
+        //Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed about Jensen."
 
-        She looks dejected.
+        //She looks dejected.
 
-        Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you that job. Any thoughts?"
+        //Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you that job. Any thoughts?"
 
-        -> BI_InternalReflectionChoices
-}
+        //-> BI_InternalReflectionChoices
+//}
 
 = BI_InternalReflectionChoices
 
@@ -67,11 +71,11 @@ All he gave was that one piece of feedback, is that enough to be put as first au
         
 ==ChoiceOptionsForDeal==
 
-~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+//~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-{
+//{
 
- - ivyOpinion >= OpinionState.Good:
+ //- ivyOpinion >= OpinionState.Good:
 
     *{IvyDealAccepted} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
     
@@ -88,26 +92,26 @@ All he gave was that one piece of feedback, is that enough to be put as first au
         ->ImNotSure
   
 
- - ivyOpinion >= OpinionState.Neutral:
+ //- ivyOpinion >= OpinionState.Neutral:
 
-    *{not IvyDealConsidered}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
+    //*{not IvyDealConsidered}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
         ->ThatsReallyHelpful
 
-    *{not IvyDealConsidered}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
+    //*{not IvyDealConsidered}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
         ->YouSure
 
-    *{not IvyDealConsidered}[I'm not sure about this]
+    //*{not IvyDealConsidered}[I'm not sure about this]
         ->ImNotSure
         
- - else:
+ //- else:
 
-    *["I'm sorry about what I said." #>> ChangeOpinion Ivy Bronislav ++] ->SorryAbtThat
+    //*["I'm sorry about what I said." #>> ChangeOpinion Ivy Bronislav ++] ->SorryAbtThat
 
-    *["That won't help."]->ThatWontHelp
+    //*["That won't help."]->ThatWontHelp
 
-    *["No way." #>> ChangeOpinion Ivy Bronislav --] ->NoWay
+    //*["No way." #>> ChangeOpinion Ivy Bronislav --] ->NoWay
   
- }
+ //}
  
  ===ChangedMyMindReject===
  {DbInsert("BI_SwitchingOpinions")}
@@ -150,7 +154,7 @@ She walks off with a huff.
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint
+->BHS3_Hint-> DONE
 
 =JensenNotMe
 Bronislav: "This is Jensen, not me, Ivy. I worked so hard to get in and he's nowhere near my level that I was when I was his age. The feedback I got from him was the most basic possible, I don't feel like it would hold up."
@@ -167,7 +171,7 @@ Ivy turns away, heading out.
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint
+->BHS3_Hint-> DONE
 
 ===ChangedMyMindAccept===
  {DbInsert("BI_SwitchingOpinions")}
@@ -177,7 +181,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint
+->BHS3_Hint-> DONE
 
 === ThatsReallyHelpful ===
     Bronislav: "That's really helpful, Ivy, I'll need to see how the paper turns out first but if I keep it together, I'm leaning towards putting Jensen on the paper."
@@ -192,7 +196,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint
+    ->BHS3_Hint-> DONE
 
 === YouSure ===
     Bronislav: "Thank you, Ivy, but are you sure? That's really generous of you but you're kind of sticking your neck out for me on this one."
@@ -207,7 +211,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint
+    ->BHS3_Hint-> DONE
 
     === ImNotSure ===
 
@@ -225,7 +229,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint
+    ->BHS3_Hint-> DONE
         
 
     === SorryAbtThat ===
@@ -243,7 +247,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint
+    ->BHS3_Hint-> DONE
 
     === ThatWontHelp ===
     Bronislav: "Look, it won't really help with the feedback he gave."
@@ -262,7 +266,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    -> BHS3_Hint
+    -> BHS3_Hint-> DONE
 
     === NoWay ===
     Bronislav: "No way. Jensen would need to step it up a notch if he wants my help. We would get caught instantly."
@@ -277,7 +281,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint
+    ->BHS3_Hint-> DONE
 
  
 
