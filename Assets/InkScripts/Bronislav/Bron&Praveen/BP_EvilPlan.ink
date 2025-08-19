@@ -1,10 +1,4 @@
 === BP_EvilPlan_SceneStart ===
-#---
-# @end
-# hidden: true
-# tags: action, student_cubes, auxiliary
-# repeatable: false
-#===
 
 // Summary: Praveen spills his evil plan
 

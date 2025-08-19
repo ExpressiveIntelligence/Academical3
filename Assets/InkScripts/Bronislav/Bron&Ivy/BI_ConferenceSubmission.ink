@@ -137,9 +137,7 @@ Ivy: "Yeah, back then it was a struggle getting onto papers, and I feel like Jen
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint->
-
-->DONE
+->BHS3_Hint
 
 =ItsHardBut
 Bronislav: "It is hard, but I feel like Jensen really just isn't going to hold up to review. His feedback was basic, we'd get caught..."
@@ -152,9 +150,7 @@ She walks off with a huff.
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint->
-
-->DONE
+->BHS3_Hint
 
 =JensenNotMe
 Bronislav: "This is Jensen, not me, Ivy. I worked so hard to get in and he's nowhere near my level that I was when I was his age. The feedback I got from him was the most basic possible, I don't feel like it would hold up."
@@ -171,9 +167,7 @@ Ivy turns away, heading out.
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint->
-
-->DONE
+->BHS3_Hint
 
 ===ChangedMyMindAccept===
  {DbInsert("BI_SwitchingOpinions")}
@@ -183,9 +177,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint->
-
-->DONE
+->BHS3_Hint
 
 === ThatsReallyHelpful ===
     Bronislav: "That's really helpful, Ivy, I'll need to see how the paper turns out first but if I keep it together, I'm leaning towards putting Jensen on the paper."
@@ -200,9 +192,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint->
-
-    ->DONE
+    ->BHS3_Hint
 
 === YouSure ===
     Bronislav: "Thank you, Ivy, but are you sure? That's really generous of you but you're kind of sticking your neck out for me on this one."
@@ -217,9 +207,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint->
-
-    ->DONE
+    ->BHS3_Hint
 
     === ImNotSure ===
 
@@ -237,9 +225,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint->
-
-    ->DONE
+    ->BHS3_Hint
         
 
     === SorryAbtThat ===
@@ -257,9 +243,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint->
-
-    ->DONE
+    ->BHS3_Hint
 
     === ThatWontHelp ===
     Bronislav: "Look, it won't really help with the feedback he gave."
@@ -278,9 +262,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint->
-
-    ->DONE
+    -> BHS3_Hint
 
     === NoWay ===
     Bronislav: "No way. Jensen would need to step it up a notch if he wants my help. We would get caught instantly."
@@ -295,8 +277,9 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
 
     {HideCharacter("Ivy")}
 
-    ->BHS3_Hint->
+    ->BHS3_Hint
 
-    ->DONE
+ 
+
 
 }

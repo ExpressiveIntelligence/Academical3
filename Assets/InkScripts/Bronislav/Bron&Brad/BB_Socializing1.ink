@@ -24,13 +24,13 @@ You see your friend, Brad.
 
 Brad: "Just kidding!"
 
-*["They let anyone in the IRB."]
+*["They let anyone in the IRB." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_LetAnyoneIn
 
 *["Hey Brad."]
 ->BB_S1_HeyBrad
 
-*[Keep working.]
+*[Keep working. #>> ChangeOpinion Brad Bronislav -]
 ->BB_S1_KeepWorking
 
 === BB_S1_LetAnyoneIn ===
@@ -144,7 +144,7 @@ Brad: "It's just... it feels like the IRB has been taking a long time to approve
 *["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav 10]
+*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 ==BB_S1_PaperExposition==
@@ -178,7 +178,7 @@ Brad: "Yeah, tell me about it. The IRB is taking forever to approve my research 
 *["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav 10]
+*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 === BB_S1_CouldBeBetter ===
@@ -194,7 +194,7 @@ Brad: "It's just... it feels like the IRB has been taking a long time to approve
 *["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav 10]
+*["Stressed about that?" #>> DecrtRelationshipStatus Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 === BB_S1_SoundsStressful ===
@@ -233,7 +233,7 @@ Brad: "I-I guess so, doesn't make it any less stressful though."
 *["Fair."]
 ->BB_S1_Fair
 
-*["Whatever you say."]
+*["Whatever you say." #>> ChangeOpinion Brad Bronislav --]
 ->BB_S1_WhateverYouSay
 
 === BB_S1_OfCourse ===
@@ -320,10 +320,10 @@ Brad awkwardly laughs packing up his things.
 
 Brad: "Uhm... well I've got to go... See you Bronislav."
 
-He leaves without another word.
+He prepares to leave. 
 
-{HideCharacter("Brad")}
-->DONE
+*["I'm sorry if I'm a bit short today" #>> ChangeOpinion Brad Bronislav +++]-> BB_S1_BadEnd
+*[Let him leave] -> BB_S1_BadEnd
 
 === BB_S1_WhateverYouSay ===
 Bronislav: "Whatever you say."
@@ -338,8 +338,15 @@ Brad: "I'll... see you later Bronislav. Bye."
 
 He hastily leaves.
 
+*["I'm sorry if I'm a bit short today" #>> ChangeOpinion Brad Bronislav +++]-> BB_S1_BadEnd
+*[Let him leave] -> BB_S1_LetHimLeave 
+
+= BB_S1_LetHimLeave 
+
+Brad leaves the cubicles. 
 {HideCharacter("Brad")}
 ->DONE
+
 
 === BB_S1_Jensen ===
 {DbInsert("BronBradJensenDiscussion")}
@@ -349,13 +356,13 @@ Brad snaps his fingers.
 
 Brad: "Right, Jensen. Something about him really sets off some alarms. I don't have anything direct, but he also talked with me and...well, I hope you're not considering putting him on this paper. He doesn't seem fit for something like this."
 
-*["I wasn't planning on it."]
+*["I wasn't planning on it." #>> ChangeOpinion Brad Bronislav +]
 ->BB_S1_WasntPlanningOnIt
 
 *["He could be nervous."]
 ->BB_S1_CouldBeNervous
 
-*["Pretty harsh."]
+*["Pretty harsh." #>> ChangeOpinion Brad Bronislav -]
 ->BB_S1_PrettyHarsh
 
 === BB_S1_WasntPlanningOnIt ===
@@ -424,3 +431,34 @@ Brad gives a thumbs up and waves goodbye to you.
 
 {HideCharacter("Brad")}
 ->DONE
+
+===BB_S1_BadEnd===
+Brad: "Oh, it's alright. Seems like I caught you at a bad time. Let's chat when you're less...tired." 
+
+*["You can just say 'less grouchy'"#>> ChangeOpinion Brad Bronislav ++] -> BB_S1_JokeEnd
+
+*["Yeah...that will be nice" #>> ChangeOpinion Brad Bronislav +] -> BB_S1_OkEnd
+
+*[Remain quiet #>> ChangeOpinion Brad Bronislav -] -> BB_S1_OkEnd 
+
+=BB_S1_JokeEnd
+
+Brad: "Is 'less grouchy Bronislav' real? I thought it was a myth!" 
+
+Bronislav: "Oh shut it, don't you have somewhere to be?" 
+
+You both share a quick laugh. 
+
+Brad: "Alright, catch you later." 
+
+{HideCharacter("Brad")}
+
+-> DONE 
+
+=  BB_S1_OkEnd 
+
+Brad: "Alright, see you later." 
+
+{HideCharacter("Brad")}
+
+-> DONE
