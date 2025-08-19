@@ -39,18 +39,42 @@ Bronislav: "Hey Ivy."
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy smiles, still excited from your talk earlier.}
+{IvyDealAccepted: Ivy smiles, still excited from your talk earlier.}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."}
+{IvyDealConsidered: Ivy smiles, still excited from your talk earlier.}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: ->HelpJensen}
+{SwitchingOpinionsAccept: Ivy smiles, still excited from your talk earlier.}
+
+{IvyDealAccepted: Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."}
+
+{IvyDealConsidered: Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."}
+
+{SwitchingOpinionsAccept: Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."}
+
+
+{IvyDealAccepted: ->HelpJensen}
+
+{IvyDealConsidered: ->HelpJensen}
+
+{SwitchingOpinionsAccept: ->HelpJensen}
 
 // if you weren't receptive
 {IvyDealDenied | SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
 
-{IvyDealDenied | SwitchingOpinionsReject:: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."} 
+{IvyDealDenied: }
+{SwitchingOpinionsReject: }
 
-{IvyDealDenied | SwitchingOpinionsReject:: ->HelpJensen}
+{IvyDealDenied: Ivy smiles, a bit surprised.}
+{SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
+
+{IvyDealDenied: Ivy smiles, a bit surprised.}
+{SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
+
+{IvyDealDenied: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
+{SwitchingOpinionsReject: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
+
+{IvyDealDenied: ->HelpJensen}
+{SwitchingOpinionsReject: ->HelpJensen}
 
 *["Uh.. hi.. Ivy." #>> ChangeOpinion Ivy Bronislav -] 
 Bronislav: "Uh.. hi... Ivy."
@@ -58,22 +82,44 @@ Bronislav: "Uh.. hi... Ivy."
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 
 // if you were receptive of the offer
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "Oh?"}
+{IvyDealAccepted: Ivy: "Oh?"}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy seems surprised.}
+{IvyDealConsidered: Ivy: "Oh?"}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "Why so cold all of a sudden?"}
+{SwitchingOpinionsAccept: Ivy: "Oh?"}
 
-->SoCold
+{IvyDealAccepted: Ivy: Ivy seems surprised.}
+
+{IvyDealConsidered: Ivy: Ivy seems surprised.}
+
+{SwitchingOpinionsAccept: Ivy: Ivy seems surprised.}
+
+{IvyDealAccepted: Ivy: "Why so cold all of a sudden?"}
+
+{IvyDealConsidered: Ivy:  "Why so cold all of a sudden?"}
+
+{SwitchingOpinionsAccept: Ivy:  "Why so cold all of a sudden?"}
+
+{IvyDealAccepted: Ivy: ->SoCold}
+
+{IvyDealConsidered: Ivy:  ->SoCold}
+
+{SwitchingOpinionsAccept: Ivy: ->SoCold}
+
 
 // if you weren't receptive
-{IvyDealDenied | SwitchingOpinionsReject:Ivy: "Hi. I... uh... okay..."}
+{IvyDealDenied: Ivy: "Hi. I... uh... okay..."}
+{SwitchingOpinionsReject: Ivy: "Hi. I... uh... okay..."}
 
-{IvyDealDenied | SwitchingOpinionsReject: She looks like she is preparing herself for this conversation.}
+{IvyDealDenied: She looks like she is preparing herself for this conversation.}
+{SwitchingOpinionsReject: She looks like she is preparing herself for this conversation.}
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
+{IvyDealDenied: Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
+{SwitchingOpinionsReject: Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
 
-->WhyShouldIHelp
+{IvyDealDenied: ->WhyShouldIHelp}
+{SwitchingOpinionsReject: ->WhyShouldIHelp}
+
 
 *["Excuse me, Ivy." #>> ChangeOpinion Ivy Bronislav --] 
 Bronislav: "Excuse me, Ivy."
@@ -83,13 +129,29 @@ You try to deliberately move around her to your desk.
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 // if you were receptive of the offer
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "Oh?"}
+{IvyDealAccepted: Ivy: "Oh?"}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy seems surprised.}
+{IvyDealConsidered: Ivy: "Oh?"}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "Why so cold all of a sudden?"}
+{SwitchingOpinionsAccept: Ivy: "Oh?"}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: ->SoCold}
+{IvyDealAccepted: Ivy: Ivy seems surprised.}
+
+{IvyDealConsidered: Ivy: Ivy seems surprised.}
+
+{SwitchingOpinionsAccept: Ivy: Ivy seems surprised.}
+
+{IvyDealAccepted: Ivy: "Why so cold all of a sudden?"}
+
+{IvyDealConsidered: Ivy:  "Why so cold all of a sudden?"}
+
+{SwitchingOpinionsAccept: Ivy:  "Why so cold all of a sudden?"}
+
+{IvyDealAccepted: Ivy: ->SoCold}
+
+{IvyDealConsidered: Ivy:  ->SoCold}
+
+{SwitchingOpinionsAccept: Ivy: ->SoCold}
 
 // if you weren't receptive
 {IvyDealDenied | SwitchingOpinionsReject:Ivy looks annoyed.}

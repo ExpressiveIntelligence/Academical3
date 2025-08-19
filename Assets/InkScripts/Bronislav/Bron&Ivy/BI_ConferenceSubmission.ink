@@ -34,9 +34,9 @@ VAR IvyDealDenied = false
 
         {IvyDealAccepted: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
         
-        {IvyDealConsidered: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
+        {IvyDealConsidered: Ivy: "Hey Bronislav, last time we talked you seemed on the fence with Jensen's authorship, so I've got an offer for you."}
 
-        {IvyDealConsidered: Ivy: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+        {IvyDealConsidered: Ivy: "If you put Jensen on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
         
         {IvyDealAccepted: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
         
@@ -141,7 +141,7 @@ Ivy: "Yeah, back then it was a struggle getting onto papers, and I feel like Jen
 
 {HideCharacter("Ivy")}
 
-->BHS3_Hint
+->BHS3_Hint -> DONE
 
 =ItsHardBut
 Bronislav: "It is hard, but I feel like Jensen really just isn't going to hold up to review. His feedback was basic, we'd get caught..."

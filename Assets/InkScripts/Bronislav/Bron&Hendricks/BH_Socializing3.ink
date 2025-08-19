@@ -1,5 +1,5 @@
 // Author: Ivy Dudzik
-VAR metHendricksDay1 = false 
+//VAR metHendricksDay1 = false 
 
 === BHS3_Hint ===
 
@@ -10,7 +10,6 @@ It's a reminder of your meeting with Hendricks today.
 * [Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +]
     You will be meeting Hendricks in her office today. 
     {DbInsert("BHS3_unlocked")}
-    
     -> DONE
     
 * [Cancel meeting] 
@@ -19,7 +18,6 @@ It's a reminder of your meeting with Hendricks today.
 **[Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +] 
  You will be meeting Hendricks in her office today. 
     {DbInsert("BHS3_unlocked")}
-    
     -> DONE
 
 **[Still cancel meeting #>> ChangeOpinion Hendricks Bronislav --] 
@@ -30,7 +28,7 @@ You write a brief email saying that you can not make it to today's meeting. She 
 === BHS3_sceneStart ===
 //~metHendricksDay1 = DbAssert("Seen_BHS1") 
 # ---
-# choiceLabel: Find Hendricks in the Library
+# choiceLabel: Meet with Hendricks
 # @query
 # BHS3_unlocked
 # date.day!3
@@ -43,7 +41,7 @@ You write a brief email saying that you can not make it to today's meeting. She 
 
 {ShowCharacter("Hendricks", "left", "")}
 
-You take a seat across from Hendricks, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought. 
+You enter Hendricks' office, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought. 
 
 //{not metHendricksDay1: 
 //It's been a while since you've talked to her, and with everything going on it's hard to know what to say. 

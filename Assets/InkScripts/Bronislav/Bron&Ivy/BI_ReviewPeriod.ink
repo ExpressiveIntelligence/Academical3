@@ -147,19 +147,36 @@ With the conference around the corner, this will be your final say of how you wa
 
 // if Bronislav said Jensen would be on the paper
 
- {IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
 
- {IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy looks estatic hearing you say this.}
+{IvyDealAccepted: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
+{IvyDealConsidered: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
+{SwitchingOpinionsAccept: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:  Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
- 
+{IvyDealAccepted: Ivy looks estatic hearing you say this.}
+{IvyDealConsidered: Ivy looks estatic hearing you say this.}
+{SwitchingOpinionsAccept: Ivy looks estatic hearing you say this.}
+
+{IvyDealAccepted: Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
+{IvyDealConsidered: Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
+{SwitchingOpinionsAccept: Ivy: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
+
+{IvyDealAccepted: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
+{IvyDealConsidered: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
+{SwitchingOpinionsAccept: "Really!? That's great news Bronislav, you're such a lifesaver. I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."}
+
 
 // if Bronislav said Jensen would not be on the paper
-{IvyDealDenied | SwitchingOpinionsReject: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy looks a bit confused, but estatic at the same time.}
+{IvyDealDenied: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
+{SwitchingOpinionsReject: Bronislav: "I was planning on adding Jensen actually! He, and you, convinced me enough to add him to the paper."}
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy: "Wait, really? Oh! That's incredible news. I'll make sure to relay the good news to Jensen, and I'll work something out with my uncle. Keep me updated on how this all goes, and we'll meet once I get this all situated."}
+{IvyDealDenied: Ivy looks a bit confused, but estatic at the same time.}
+{SwitchingOpinionsReject: Ivy looks a bit confused, but estatic at the same time.}
+
+{IvyDealDenied: Ivy: "Wait, really? Oh! That's incredible news. I'll make sure to relay the good news to Jensen, and I'll work something out with my uncle. Keep me updated on how this all goes, and we'll meet once I get this all situated."}
+
+{SwitchingOpinionsReject: Ivy: "Wait, really? Oh! That's incredible news. I'll make sure to relay the good news to Jensen, and I'll work something out with my uncle. Keep me updated on how this all goes, and we'll meet once I get this all situated."}
+ 
 
 *["Thanks Ivy!"]
 ->BI_RP_ThanksIvy
@@ -174,18 +191,31 @@ With the conference around the corner, this will be your final say of how you wa
 // TODO: selector based off of whether the player said Jensen would be on the paper or not
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
+{IvyDealAccepted: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
+{IvyDealConsidered: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
+{SwitchingOpinionsAccept: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: She smiles and nods.} 
+{IvyDealAccepted: She smiles and nods. }
+{IvyDealConsidered: She smiles and nods.}
+{SwitchingOpinionsAccept: She smiles and nods.}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call the firm. After I do that I'll call you for a coffee and we can discuss details further."}
+{IvyDealAccepted: Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call the firm. After I do that I'll call you for a coffee and we can discuss details further."}
+{IvyDealConsidered: Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call the firm. After I do that I'll call you for a coffee and we can discuss details further." }
+{SwitchingOpinionsAccept: Ivy: "Of course. This is great news, I'll make sure to tell Jensen and call the firm. After I do that I'll call you for a coffee and we can discuss details further." }
+
 
 // if Bronislav said Jensen would not be on the paper
-{IvyDealDenied | SwitchingOpinionsReject: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy's shock on her face quickly turns into a smile.}
+{IvyDealDenied:  Bronislav: "As long as I get something out of it you've got yourself a deal Ivy."}
+{SwitchingOpinionsReject: Bronislav: "As long as I get something out of it you've got yourself a deal Ivy." }
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy: "Wait, really? What made you- Nevermind, nevermind. That's great to hear Bronislav! I'll make sure to tell Jensen, I know he'll be surprised! After that I'll see when I can talk with my uncle about getting you that position."}
+
+{IvyDealDenied: Ivy's shock on her face quickly turns into a smile. }
+{SwitchingOpinionsReject: Ivy's shock on her face quickly turns into a smile. }
+
+{IvyDealDenied:Ivy: "Wait, really? What made you- Nevermind, nevermind. That's great to hear Bronislav! I'll make sure to tell Jensen, I know he'll be surprised! After that I'll see when I can talk with my uncle about getting you that position." }
+{SwitchingOpinionsReject: Ivy: "Wait, really? What made you- Nevermind, nevermind. That's great to hear Bronislav! I'll make sure to tell Jensen, I know he'll be surprised! After that I'll see when I can talk with my uncle about getting you that position."}
+
 
 *["Sounds great."]
 ->BI_RP_SoundsGreat
@@ -198,24 +228,39 @@ With the conference around the corner, this will be your final say of how you wa
 {DbInsert("BI_OfficiallyRejected")}
 
 // if Bronislav said Jensen would be on the paper
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."}
+{IvyDealAccepted: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk." }
+{IvyDealConsidered: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk." }
+{SwitchingOpinionsAccept: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk." }
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:Ivy looks shocked.}
+{IvyDealAccepted: Ivy looks shocked.}
+{IvyDealConsidered: Ivy looks shocked.}
+{SwitchingOpinionsAccept: Ivy looks shocked.}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:Ivy: "Y-wh-you what? You... won't? Bronislav, what happened? What changed?"}
+{IvyDealAccepted: "Y-wh-you what? You... won't? Bronislav, what happened? What changed?"}
+{IvyDealConsidered: "Y-wh-you what? You... won't? Bronislav, what happened? What changed?"}
+{SwitchingOpinionsAccept: "Y-wh-you what? You... won't? Bronislav, what happened? What changed?"}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: She struggles to find words for a moment.}
+
+{IvyDealAccepted: She struggles to find words for a moment.}
+{IvyDealConsidered: She struggles to find words for a moment.}
+{SwitchingOpinionsAccept: She struggles to find words for a moment.}
 
 {SwitchingOpinionsAccept: Ivy: "First you say no, then you say yes, now you're saying no again?!"}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "So that's it? You just aren't now? You're letting all of these opportunities go because you're scared over a non-issue?"}
+{IvyDealAccepted: Ivy: "So that's it? You just aren't now? You're letting all of these opportunities go because you're scared over a non-issue?"}
+{IvyDealConsidered: Ivy: "So that's it? You just aren't now? You're letting all of these opportunities go because you're scared over a non-issue?"}
+{SwitchingOpinionsAccept: Ivy: "So that's it? You just aren't now? You're letting all of these opportunities go because you're scared over a non-issue?"}
+
 
 // if Bronislav said Jensen would not be on the paper
-{IvyDealDenied | SwitchingOpinionsReject: Bronislav: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."}
+{IvyDealDenied: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."}
+{SwitchingOpinionsReject: "I just don't think I will Ivy. There's a lot that can go wrong, and I don't want to put all of us at that risk."}
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy lets out a deep sigh.}
+{IvyDealDenied:Ivy lets out a deep sigh. }
+{SwitchingOpinionsReject:Ivy lets out a deep sigh. }
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy: "Bronislav, it really isn't that big of an issue I promise. Seems like I can't change your mind anyway. You should personally tell Jensen about it, he'll be upset but it'll be for the best."}
+{IvyDealDenied: Ivy: "Bronislav, it really isn't that big of an issue I promise. Seems like I can't change your mind anyway. You should personally tell Jensen about it, he'll be upset but it'll be for the best." }
+{SwitchingOpinionsReject: Ivy: "Bronislav, it really isn't that big of an issue I promise. Seems like I can't change your mind anyway. You should personally tell Jensen about it, he'll be upset but it'll be for the best."}
 
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
@@ -244,32 +289,46 @@ With the conference around the corner, this will be your final say of how you wa
 // NOTE: THIS CURRENTLY ASSUMES THEY SAID NO
 
 // if Bronislav said Jensen would be on the paper
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept:Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
+{IvyDealAccepted: Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
+{IvyDealConsidered: Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
+{SwitchingOpinionsAccept: Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy looks betrayed.}
+{IvyDealAccepted: Ivy looks betrayed.}
+{IvyDealConsidered: Ivy looks betrayed.}
+{SwitchingOpinionsAccept: Ivy looks betrayed.}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"}
+{IvyDealAccepted: Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"}
+{IvyDealConsidered: Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"}
+{SwitchingOpinionsAccept: Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"}
 
-{IvyDealAccepted | IvyDealConsidered: She grumbles quietly to herself.}
 
 {SwitchingOpinionsAccept: Ivy: "You keep switching on me, and frankly it's quite disrespectful of my time."}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: Ivy: "I cannot believe you right now Bronislav. We are going to talk later."}
+{IvyDealAccepted: Ivy: "I cannot believe you right now Bronislav."}
+{IvyDealConsidered: Ivy: "I cannot believe you right now Bronislav."}
+{SwitchingOpinionsAccept: Ivy: "I cannot believe you right now Bronislav."}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: She storms out.}
+{IvyDealAccepted: {HideCharacter("Ivy")}}
+{IvyDealConsidered: {HideCharacter("Ivy")}}
+{SwitchingOpinionsAccept: {HideCharacter("Ivy")}}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: {HideCharacter("Ivy")}}
+{IvyDealAccepted: She storms out. -> DONE}
+{IvyDealConsidered: She storms out. -> DONE}
+{SwitchingOpinionsAccept: She storms out. -> DONE}
 
-{IvyDealAccepted | IvyDealConsidered | SwitchingOpinionsAccept: ->DONE}
+
+
 
 // if Bronislav said Jensen would not be on the paper
-{IvyDealDenied | SwitchingOpinionsReject:Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
+{IvyDealDenied: Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
+{SwitchingOpinionsReject: Bronislav: "I'm definitely not putting Jensen on the paper. He just is not qualified for it."}
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy frowns.}
+{IvyDealDenied: Ivy: "Bronislav he's still an undergrad. It's hard to be 'qualified' for something like this, but is it so hard to give him a chance? Well, I guess since you haven't already, it just might be."}
+{SwitchingOpinionsReject: Ivy: "Bronislav he's still an undergrad. It's hard to be 'qualified' for something like this, but is it so hard to give him a chance? Well, I guess since you haven't already, it just might be."}
 
-{IvyDealDenied | SwitchingOpinionsReject:Ivy: "Bronislav he's still an undergrad. It's hard to be 'qualified' for something like this, but is it so hard to give him a chance? Well, I guess since you haven't already, it just might be."}
+{IvyDealDenied: Ivy: "I really thought this would've been a great opportunity for all of us. Hard to say I'm not disappointed Bronislav."}
+{SwitchingOpinionsReject: Ivy: "I really thought this would've been a great opportunity for all of us. Hard to say I'm not disappointed Bronislav."}
 
-{IvyDealDenied | SwitchingOpinionsReject: Ivy: "I really thought this would've been a great opportunity for all of us. Hard to say I'm not disappointed Bronislav."}
 
 *["Sorry Ivy."]
 ->BI_RP_SorryIvy
