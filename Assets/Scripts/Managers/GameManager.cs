@@ -423,9 +423,28 @@ namespace Academical
 			int nextDayNum = m_simulationController.DateTime.Day + 1;
 			string dateLabel = DateLabelConstants.GetLabelForDay( nextDayNum );
 
-			m_simulationController.AdvanceToNextDay(dateLabel);
+			m_simulationController.AdvanceToNextDay( dateLabel );
 
 			GameEvents.OnDayAdvanced?.Invoke( m_simulationController.DateTime.Day );
+
+			//Auto-start next day of content
+			TriggerNextDayDialogue( nextDayNum );
+			
+		}
+
+		private void TriggerNextDayDialogue(int dayNum)
+		{
+			string storyletName = DateLabelConstants.GetStoryletForDayStart( dayNum );
+			if ( storyletName == null )
+			{
+				throw new Exception( "Invalid day/storylet provided for Day Start!" );
+			}
+			else
+			{
+				Storylet dayStartStorylet = m_dialogueManager.Story.GetStorylet( storyletName );
+				m_dialogueManager.RunStorylet( dayStartStorylet );
+			}
+
 		}
 
 

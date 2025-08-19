@@ -68,6 +68,7 @@ INCLUDE ./Bron&Brad/BB_Socializing6.ink
 INCLUDE ./Bron&Brad/BB_Conference.ink
 
 INCLUDE ./DayIntros/day1.ink
+INCLUDE ./DayIntros/day2.ink
 
 EXTERNAL DbInsert(statement)
 EXTERNAL DbAssert(statement)

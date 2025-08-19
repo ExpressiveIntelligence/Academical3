@@ -20,6 +20,16 @@ namespace Academical
             {6, "Final Lab Meeting of Term"}
         };
 
+        public static readonly Dictionary<int, string> DayStartStorylets = new Dictionary<int, string>
+        {
+            {1, "day1"},
+            {2, "day2"},
+            {3, "day3"},
+            {4, "day4"},
+            {5, "day5"},
+            {6, "day6"}
+        };
+
         public static string GetLabelForDay(int dateNum)
         {
             string dateLabel = "No Label Found.";
@@ -27,7 +37,18 @@ namespace Academical
             {
                 dateLabel = DayLabels[dateNum];
             }
-            return dateLabel;    
+            return dateLabel;
+
+        }
+        
+        public static string GetStoryletForDayStart(int dateNum)
+        {
+            string storylet = null;
+            if ( DayStartStorylets.ContainsKey( dateNum ) )
+            {
+                storylet = DayStartStorylets[dateNum];
+            }
+            return storylet;
 
         }
     }
