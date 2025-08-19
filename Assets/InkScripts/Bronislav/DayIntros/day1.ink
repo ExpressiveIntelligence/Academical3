@@ -3,8 +3,6 @@
 # ---
 # ===
 
-//TODO: This always starts with Bronislav rendered when it really shouldn't.
-
 Welcome to the world of Academical!
 
 

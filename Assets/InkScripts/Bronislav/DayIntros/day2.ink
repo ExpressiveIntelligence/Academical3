@@ -3,6 +3,6 @@
 # ---
 # ===
 
-This is a test of the emergency broadcast system.
+This is the introduction to day 2.
 
 -> DONE
