@@ -1,5 +1,5 @@
 // Author: Ivy Dudzik
-VAR metHendricksDay1 = false 
+//VAR metHendricksDay1 = false 
 
 === BHS3_Hint ===
 
@@ -10,6 +10,7 @@ It's a reminder of your meeting with Hendricks today.
 * [Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +]
     You will be meeting Hendricks in her office today. 
     {DbInsert("BHS3_unlocked")}
+    -> DONE
     
 * [Cancel meeting] 
  You think about cancelling, but remember that it's been a while since you've updated her on any of your progress. Evenmoreso maybe you should get a second opinion on Ivy's offer? 
@@ -17,15 +18,17 @@ It's a reminder of your meeting with Hendricks today.
 **[Continue plans to meet with her #>> ChangeOpinion Hendricks Bronislav +] 
  You will be meeting Hendricks in her office today. 
     {DbInsert("BHS3_unlocked")}
+    -> DONE
 
 **[Still cancel meeting #>> ChangeOpinion Hendricks Bronislav --] 
 You write a brief email saying that you can not make it to today's meeting. She gives a short response. 
+-> DONE 
 
-->DONE
 
 === BHS3_sceneStart ===
+//~metHendricksDay1 = DbAssert("Seen_BHS1") 
 # ---
-# choiceLabel: Find Hendricks in the Library
+# choiceLabel: Meet with Hendricks
 # @query
 # BHS3_unlocked
 # date.day!3
@@ -38,34 +41,42 @@ You write a brief email saying that you can not make it to today's meeting. She 
 
 {ShowCharacter("Hendricks", "left", "")}
 
-You take a seat across from Hendricks, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought. 
+You enter Hendricks' office, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought. 
 
-~metHendricksDay1 = DbAssert("Seen_BHS1") 
+//{not metHendricksDay1: 
+//It's been a while since you've talked to her, and with everything going on it's hard to know what to say. 
+//}
 
-{not metHendricksDay1: 
-It's been a while since you've talked to her, and with everything going on it's hard to know what to say. 
-}
+*[Clear your throat.] -> clearThroat
 
-*[Clear your throat.]
+=clearThroat
 Bronislav: "Ahem."
-*["Hello professor."]
+-> continuedDialogue
+
+*["Hello professor."] -> helloProfessor 
+
+=helloProfessor
 Bronislav: "Hello professor."
 
-- Hendricks: "Bronislav!"
+->continuedDialogue
+
+=continuedDialogue
+
+Hendricks: "Bronislav!"
 
 She turns to you smiling.
 
 Hendricks: "I didn't see you there, take a seat!" 
 
-{not metHendricksDay1: 
-Hendricks: "It's been quite some time since we've talked." 
-}
+//{not metHendricksDay1: 
+//Hendricks: "It's been quite some time since we've talked." 
+//}
 
 Hendricks: "How are you doing?"
 
-{not metHendricksDay1: 
-Hendricks: "You seem like you have something on your mind." 
-}
+//{not metHendricksDay1: 
+//Hendricks: "You seem like you have something on your mind." 
+//}
 
 
 *["I'm fine, how are things with you?"]->BHS3_ImFine

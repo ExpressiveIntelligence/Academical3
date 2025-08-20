@@ -1,3 +1,10 @@
+# ---
+#VAR IvyDealAccepted = false 
+#VAR IvyDealConsidered = false
+#VAR IvyDealDenied = false
+#VAR SwitchingOpinionsReject = false 
+#VAR SwitchingOpinionsAccept = false
+#===
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL
 
 === BIS3_SceneStart ===
@@ -13,53 +20,108 @@
 # ===
 #Summary: Ivy continues pushing the deal. 
 
+~IvyDealAccepted = DbAssert("IvyDealAccepted")
+
+~IvyDealConsidered = DbAssert("IvyDealConsidered")
+
+~IvyDealDenied = DbAssert ("IvyDealDenied") 
+
+~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
+
+~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
+
+
 As you walk towards your desk, you notice that Ivy steps into your path.
 
-*["Hey Ivy." #>> ChangeOpinion Ivy Bronislav ++++]
+*["Hey Ivy." #>> ChangeOpinion Ivy Bronislav ++++] 
 Bronislav: "Hey Ivy."
-
-You say as you stop in front of her.
 
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 
-// if you were receptive of the offer
-Ivy smiles, still excited from your talk earlier.
 
-Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."
+{IvyDealAccepted: Ivy smiles, still excited from your talk earlier.}
 
-->HelpJensen
+{IvyDealConsidered: Ivy smiles, still excited from your talk earlier.}
+
+{SwitchingOpinionsAccept: Ivy smiles, still excited from your talk earlier.}
+
+{IvyDealAccepted: Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."}
+
+{IvyDealConsidered: Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."}
+
+{SwitchingOpinionsAccept: Ivy: "So actually, I've been thinking about it more, and I am realizing there is another good reason why you should definitely consider helping Jensen."}
+
+
+{IvyDealAccepted: ->HelpJensen}
+
+{IvyDealConsidered: ->HelpJensen}
+
+{SwitchingOpinionsAccept: ->HelpJensen}
 
 // if you weren't receptive
-//Ivy smiles, a bit surprised.
+{IvyDealDenied | SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
 
-//Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."
+{IvyDealDenied: }
+{SwitchingOpinionsReject: }
 
-->HelpJensen
+{IvyDealDenied: Ivy smiles, a bit surprised.}
+{SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
 
-*["Uh.. hi.. Ivy."]
+{IvyDealDenied: Ivy smiles, a bit surprised.}
+{SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
+
+{IvyDealDenied: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
+{SwitchingOpinionsReject: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
+
+{IvyDealDenied: ->HelpJensen}
+{SwitchingOpinionsReject: ->HelpJensen}
+
+*["Uh.. hi.. Ivy." #>> ChangeOpinion Ivy Bronislav -] 
 Bronislav: "Uh.. hi... Ivy."
 
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 
 // if you were receptive of the offer
-Ivy: "Oh?"
+{IvyDealAccepted: Ivy: "Oh?"}
 
-Ivy seems surprised.
+{IvyDealConsidered: Ivy: "Oh?"}
 
-Ivy: "Why so cold all of a sudden?"
+{SwitchingOpinionsAccept: Ivy: "Oh?"}
 
-->SoCold
+{IvyDealAccepted: Ivy: Ivy seems surprised.}
+
+{IvyDealConsidered: Ivy: Ivy seems surprised.}
+
+{SwitchingOpinionsAccept: Ivy: Ivy seems surprised.}
+
+{IvyDealAccepted: Ivy: "Why so cold all of a sudden?"}
+
+{IvyDealConsidered: Ivy:  "Why so cold all of a sudden?"}
+
+{SwitchingOpinionsAccept: Ivy:  "Why so cold all of a sudden?"}
+
+{IvyDealAccepted: Ivy: ->SoCold}
+
+{IvyDealConsidered: Ivy:  ->SoCold}
+
+{SwitchingOpinionsAccept: Ivy: ->SoCold}
+
 
 // if you weren't receptive
-//Ivy: "Hi. I... uh... okay..."
+{IvyDealDenied: Ivy: "Hi. I... uh... okay..."}
+{SwitchingOpinionsReject: Ivy: "Hi. I... uh... okay..."}
 
-//She looks like she is preparing herself for this conversation.
+{IvyDealDenied: She looks like she is preparing herself for this conversation.}
+{SwitchingOpinionsReject: She looks like she is preparing herself for this conversation.}
 
-//Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."
+{IvyDealDenied: Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
+{SwitchingOpinionsReject: Ivy: "I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
 
-->WhyShouldIHelp
+{IvyDealDenied: ->WhyShouldIHelp}
+{SwitchingOpinionsReject: ->WhyShouldIHelp}
 
-*["Excuse me, Ivy." #>> ChangeOpinion Ivy Bronislav --]
+
+*["Excuse me, Ivy." #>> ChangeOpinion Ivy Bronislav --] 
 Bronislav: "Excuse me, Ivy."
 
 You try to deliberately move around her to your desk.
@@ -67,24 +129,40 @@ You try to deliberately move around her to your desk.
 // TODO: decision indicator based off of whether Bronislav previously showed interest
 // if you were receptive of the offer
 
-Ivy: "Oh?"
+{IvyDealAccepted: Ivy: "Oh?"}
 
-Ivy seems surprised.
+{IvyDealConsidered: Ivy: "Oh?"}
 
-Ivy: "Why so cold all of a sudden?"
+{SwitchingOpinionsAccept: Ivy: "Oh?"}
 
-->SoCold
+{IvyDealAccepted: Ivy: Ivy seems surprised.}
+
+{IvyDealConsidered: Ivy: Ivy seems surprised.}
+
+{SwitchingOpinionsAccept: Ivy: Ivy seems surprised.}
+
+{IvyDealAccepted: Ivy: "Why so cold all of a sudden?"}
+
+{IvyDealConsidered: Ivy:  "Why so cold all of a sudden?"}
+
+{SwitchingOpinionsAccept: Ivy:  "Why so cold all of a sudden?"}
+
+{IvyDealAccepted: Ivy: ->SoCold}
+
+{IvyDealConsidered: Ivy:  ->SoCold}
+
+{SwitchingOpinionsAccept: Ivy: ->SoCold}
 
 // if you weren't receptive
-//Ivy looks annoyed.
+{IvyDealDenied | SwitchingOpinionsReject:Ivy looks annoyed.}
 
-//Ivy: "Real mature Bronislav."
+{IvyDealDenied | SwitchingOpinionsReject:Ivy: "Real mature Bronislav."}
 
-//Bronislav: "I'm just trying to go to my desk."
+{IvyDealDenied | SwitchingOpinionsReject:Bronislav: "I'm just trying to go to my desk."}
 
-//Ivy: "Yeah, well I'm just trying to talk to you. I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."
+{IvyDealDenied | SwitchingOpinionsReject:Ivy: "Yeah, well I'm just trying to talk to you. I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
 
-//->WhyShouldIHelp
+{IvyDealDenied | SwitchingOpinionsReject:->WhyShouldIHelp}
 
 
 === SoCold ===
@@ -96,7 +174,7 @@ Ivy: "Oh, sorry. I won't take up too much of your time then, I just thought abou
 
 ->WhyShouldIHelp
 
-*["I'm not sure I'm comfortable with talking."]
+*["I'm not sure I'm comfortable with talking." #>> ChangeOpinion Ivy Bronislav -]
 Bronislav: "I'm honestly not sure I'm comfortable talking with you right now. I know I said I was potentially interested in taking your offer, but my gut is telling me this is all a bad idea."
 
 Ivy: "Oh, well... I wasn't exactly expecting that..."
@@ -163,7 +241,7 @@ Ivy turns and leaves the room.
 
 ->DONE
 
-*["This is making me uncomfortable." #>> ChangeOpinion Ivy Bronislav ++]
+*["This is making me uncomfortable." #>> ChangeOpinion Ivy Bronislav +]
 Bronislav: "Okay, this is making me uncomfortable, Ivy."
 
 Ivy: "Oh, my bad. I didn't realize I was making this weird, I appreciate you being honest."
@@ -180,7 +258,7 @@ Ivy leaves you to your work.
 
 ->DONE
 
-*["You're trying too hard." #>> ChangeOpinion Ivy Bronislav --]
+*["You're trying too hard." #>> ChangeOpinion Ivy Bronislav ---]
 Bronislav: "You're trying too hard. Is there a reason you are this desperate for me to help Jensen?"
 
 Ivy: "Is there a reason you are so intent on being rude? Have you not been listening to a word I've been saying?"

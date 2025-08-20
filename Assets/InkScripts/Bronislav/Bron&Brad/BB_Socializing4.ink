@@ -3,6 +3,7 @@ VAR confided = false
 === BB_Socializing4_SceneStart ===
 # ---
 # choiceLabel: Wait for Brad.
+# hidden: true
 # @query
 # date.day!4
 # @end
@@ -208,7 +209,7 @@ Brad: "You know what Bronislav, I will do what I think is right. Because you cle
 He leaves without another word.
 
 {HideCharacter("Brad")}
--> BP_EvilPlan_SceneStart-> 
+-> BP_EvilPlan 
 
 === BB_Socializing4_NoWorries ===
 Bronislav: "No worries. Glad I could help."
@@ -220,7 +221,7 @@ Brad: "You've helped a ton, more than you know Bronislav. Thanks."
 He gets up and leaves with a friendly wave before he walks out.
 
 {HideCharacter("Brad")}
--> BP_EvilPlan_SceneStart-> 
+-> BP_EvilPlan 
 
 === BB_Socializing4_GoodLuck ===
 Bronislav: "Good luck to both you and Ned."
@@ -232,7 +233,7 @@ Bronislav: "Good luck on your paper too Bronislav. Thanks for all the help."
 He gets up and leaves with a friendly wave before he walks out.
 
 {HideCharacter("Brad")}
--> BP_EvilPlan_SceneStart-> 
+-> BP_EvilPlan 
 
 === BB_Socializing4_MakeSure ===
 // Brad will withdraw
@@ -248,4 +249,25 @@ He gets up awkwardly.
 Brad: "Th-thanks Bronislav."
 
 {HideCharacter("Brad")}
--> BP_EvilPlan_SceneStart-> 
+-> BP_EvilPlan
+
+===BP_EvilPlan===
+{DbInsert("Seen_BP_EvilPlan")}
+
+As you begin to head out, you overhear Praveen talking with another student.
+
+{ShowCharacter("Praveen", "left", "")}
+
+Praveen: "...and you know, now I'm reviewing his work."
+
+Praveen: "It's honestly pretty garbage. He starts at one point and then jumps between twenty different topics before hardly returning to his original point. Such a long paper to say nothing at all."
+
+Praveen: "But he did make a couple good points in some sections. I wasn't planning on giving a good review, so maybe I could take those points and write my own paper."
+
+Praveen: "But yeah it's overall going well. How about you? How's your work going?..."
+
+You walk away before listening to the rest of the conversation
+
+{HideCharacter("Praveen")}
+
+->DONE

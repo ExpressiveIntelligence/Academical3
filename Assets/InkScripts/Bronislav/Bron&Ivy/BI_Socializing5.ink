@@ -1,7 +1,13 @@
+
+#VAR IvyAcceptedOfficial = false 
+#VAR IvyDeniedOfficial = false
+#VAR SwitchingOpinionsReject = false 
+#VAR SwitchingOpinionsAccept = false
 === BI_Socializing5_SceneStart ===
 # ---
 # choiceLabel: Meet with Ivy.
 # @query
+# BI_Coffee
 # date.day!5
 # @end
 # repeatable: false
@@ -11,10 +17,28 @@
 // TODO: selection based off of whether Jensen was ever on the paper
 // TODO: selection based off of whether or not Jensen is currently on the paper
 
+
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
+
+~IvyDeniedOfficial = DbAssert ("BI_OfficiallyRejected") 
+
+~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
+
+~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
+
 //currently assumes Jensen was on the paper for both
 {ShowCharacter("Ivy", "left", "")}
 
+->BI_Socializing5_Branches
 
+===BI_Socializing5_Branches===
+
+{IvyAcceptedOfficial && not SwitchingOpinionsAccept: -> BI_Socializing5_AlwaysAccepted}
+{IvyAcceptedOfficial && SwitchingOpinionsAccept: -> BI_Socializing5_SwitchAccept}
+{IvyDeniedOfficial && not SwitchingOpinionsReject: -> BI_Socializing5_AlwaysDenied}
+{IvyDeniedOfficial && SwitchingOpinionsReject: -> BI_Socializing5_SwitchDenied} 
+
+===BI_Socializing5_AlwaysAccepted===
 // Jensen is on the paper, Bronislav always had him on the paper.
 After the great news for Jensen, Ivy said that she wanted to congratulate both of you and offered to meet you at the cafe. When you arrive, you see her sitting at a table with two cups.
 
@@ -24,32 +48,36 @@ After the great news for Jensen, Ivy said that she wanted to congratulate both o
 *[Sit Down.]
 ->BI_Socializing5_SitDown
 
+===BI_Socializing5_SwitchAccept===
 //Jensen is on the paper, Bronislav had declined to put Jensen on the paper at some point
-//After the great news for Jensen, Ivy said that she wanted to congratulate both of you and offered to meet you at the cafe. You see her sitting at the table with her coffee.
+After the great news for Jensen, Ivy said that she wanted to congratulate both of you and offered to meet you at the cafe. You see her sitting at the table with her coffee.
 
-//*["Nice to see you Ivy."]
-//->BI_Socializing5_NiceToSeeYou
+*["Nice to see you Ivy."]
+->BI_Socializing5_NiceToSeeYou
 
-//*[Sit down.]
-//->BI_Socializing5_SitDown2
+*[Sit down.]
+->BI_Socializing5_SitDown2
+
+===BI_Socializing5_AlwaysDenied===
 
 //Jensen is not on the paper, Bronislav never had Jensen on the paper
-//After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks a bit stressed with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
+After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks a bit stressed with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
 
-//*["Sorry about Jensen."]
-//->BI_Socializing5_SorryAbtJensen
+*["Sorry about Jensen." #>> ChangeOpinion Ivy Bronislav +]
+->BI_Socializing5_SorryAbtJensen
 
-//*[Sit down.]
-//->BI_Socializing5_SitDown3
+*[Sit down.]
+->BI_Socializing5_SitDown3
 
+=== BI_Socializing5_SwitchDenied===
 //Jensen is not on the paper, Bronislav had Jensen on the paper at one point.
-//After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks stressed, with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
+After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks stressed, with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
 
-//*["Sorry about Jensen."]
-//->BI_Socializing5_SorryAbtJensen2
+*["Sorry about Jensen." #>> ChangeOpinion Ivy Bronislav +]
+->BI_Socializing5_SorryAbtJensen2
 
-//*[Sit down.]
-//->BI_Socializing5_SitDown4
+*[Sit down.]
+->BI_Socializing5_SitDown4
 
 
 === BI_Socializing5_SomeoneSittingHere ===
@@ -357,7 +385,7 @@ Bronislav: "Hey Ivy, sorry about the Jensen. How's he doing?"
 
 Ivy lets out a grunt at you saying this.
 
-Ivy: "Not great.. not great. I've had to start finding our backup plan for Jensen, my class just had to submit a project, so I'm definitely a bit overwhelmed."
+Ivy: "Not great.. not great. I've had to start finding our backup plan for Jensen, so I'm definitely a bit overwhelmed."
 
 *["Wish I could help."]
 ->BI_Socializing5_WishICouldHelp

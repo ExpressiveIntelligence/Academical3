@@ -11,6 +11,7 @@
 # tags: action, cafe, required 
 #===
 VAR BI_FirstCoffee_InternationalMentioned = false
+VAR talkedWithBradAboutJensen = false
 
 # Summary: You meet with Ivy at a cafe to catch up. She mentions knowing Jensen and you can bring the relationship down by mentioning Brad's bad talk.
 
@@ -19,6 +20,8 @@ VAR BI_FirstCoffee_InternationalMentioned = false
 -> FirstCoffee
 
 === FirstCoffee ===
+
+~talkedWithBradAboutJensen = DbAssert("BronBradJensenDiscussion")
 
 {ShowCharacter("Ivy", "left", "")}
 
@@ -64,7 +67,6 @@ Ivy: "Oh how funny! That's my nephew! He's been having some problems transfering
 
 === BronislavSympathizes ===
 
-~ temp talkedWithBradAboutJensen = DbAssert("talkedWithBradAboutJensen")
 ~ BI_FirstCoffee_InternationalMentioned = true 
 
 Bronislav: "Getting into this program wasn't easy for me either, especially being an international student and all, so I see a bit of myself in him. I'll keep him in mind."
@@ -73,7 +75,11 @@ Ivy, while very cheerful about the good news, is also confused.
 
 Ivy: "Do you have some reservations about Jensen?"
 
-*{talkedWithBradAboutJensen} ["I talked with Brad about Jensen."]
+-> BronislavSympathizesChoices
+
+=BronislavSympathizesChoices
+
+*{talkedWithBradAboutJensen} ["I talked with Brad about Jensen." #>> ChangeOpinion Ivy Bronislav --]
     ->IvySpite
     
 *[It's not me who has reservations...] -> BradExpositionLoop
@@ -82,7 +88,7 @@ Ivy: "Do you have some reservations about Jensen?"
     ->TooSoon
     
 ==BradExpositionLoop==
-You recall hearing Brad's opinion of Jensen, calling him "shady" and "off". You're not sure why, but others seem to have the same opinion despite not being as vocal. -> BronislavSympathizes
+You recall hearing a common rumor in the lab of him being "shady" and "off". You're not sure why, or who is spreading this information. -> BronislavSympathizes.BronislavSympathizesChoices
 
 === IvySpite ===
 # Should bring down the relationship

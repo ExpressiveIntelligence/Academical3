@@ -1,9 +1,15 @@
+
 // Ivy Conference
 // [MANDATORY] Ivy:
 // Recommends or rejects Bronislav
 // Reflection of decisions up to this point
 // Questioning if what he did was right/wrong
 
+VAR IvyAcceptedOfficial = false 
+VAR IvyDeniedOfficial = false
+VAR SwitchingOpinionsReject = false 
+VAR SwitchingOpinionsAccept = false
+VAR BlowUp = false 
 VAR BI_C_negativeNelly = false
 
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL (positive relationship)
@@ -20,10 +26,45 @@ VAR BI_C_negativeNelly = false
 # ===
 #Summary: You confront Ivy at the conference and exchange apologies 
 
-You notice Ivy and decide to approach her.
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
 
-// if you accepted Ivy's Deal
-// positive relationship
+~IvyDeniedOfficial = DbAssert ("BI_OfficiallyRejected") 
+
+~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
+
+~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
+
+~BlowUp = DbAssert ("BI_Blowup")
+
+You notice Ivy and decide to approach her.
+{ShowCharacter("Ivy", "left", "")}
+
+===BI_Conference_Branches===
+{IvyAcceptedOfficial: -> dealAccepted} 
+{IvyDeniedOfficial: -> dealDenied} 
+{BlowUp: -> IvyIgnore} 
+
+===IvyIgnore===
+You make eye contact and wave, but she does not reciprocate. 
+
+Even as you approach her, she turns her back towards you as though you're not even there. 
+
+Maybe it's best to leave her alone. 
+
+{HideCharacter("Ivy")}
+
+-> DONE
+
+===dealAccepted===
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+{ 
+    - ivyOpinion >= OpinionState.Good: -> goodAccept
+    - else: 
+        -> badAccept 
+        
+}
+
+=goodAccept
 Ivy: "Hey Bronislav! Enjoying the conference so far?"
 
 *["Yeah I am."]
@@ -37,44 +78,57 @@ Ivy: "Hey Bronislav! Enjoying the conference so far?"
 
 ->BI_C_Ehhh
 
+=badAccept
 //neutral or negative relationship
 
-//Ivy: "Oh, hi Bronislav. Wasn't expecting to run into you here."
+Ivy: "Oh, hi Bronislav. Wasn't expecting to run into you here."
 
-//*["Neither was I."]
-//->BI_C_NeitherWasI
+*["Neither was I."]
+->BI_C_NeitherWasI
 
-//*["Good to see you too, Ivy." #>> ChangeOpinion Ivy Bronislav +]
-//->BI_C_GoodToSeeYouTooIvy
+*["Good to see you too, Ivy." #>> ChangeOpinion Ivy Bronislav +]
+->BI_C_GoodToSeeYouTooIvy
 
-//*["Have you talked to the firm yet?"  #>> ChangeOpinion Ivy Bronislav -]
-//->BI_C_HaveYouTalked
+*["Have you talked to the firm yet?"  #>> ChangeOpinion Ivy Bronislav -]
+->BI_C_HaveYouTalked
 
+===dealDenied===
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+{ 
+    - ivyOpinion >= OpinionState.Good: -> goodDenied
+    - else: 
+        -> badDenied  
+        
+}
+
+=goodDenied
 // if you didn't accept Ivy's Deal
 // positive relationship
 
-//Ivy: "Oh, uh, hey Bronislav. How's the conference treating you?"
+Ivy: "Oh, uh, hey Bronislav. How's the conference treating you?"
 
-//*["It's been good, actually."]
-//->BI_C_ItsBeenGood
+*["It's been good, actually."]
+->BI_C_ItsBeenGood
 
-//*["It's all been pretty standard."]
-//->BI_C_PrettyStandard
+*["It's all been pretty standard."]
+->BI_C_PrettyStandard
 
-//*["It's been pretty slow honestly." #>> ChangeOpinion Ivy Bronislav -]
-//->BI_C_Slow
+*["It's been pretty slow honestly." #>> ChangeOpinion Ivy Bronislav -]
+->BI_C_Slow
+
+= badDenied
 
 // neutral or negative relationship
-//Ivy: "Um, hi Bronislav. Is there a reason you came over here?"
+Ivy: "Um, hi Bronislav. Is there a reason you came over here?"
 
-//*["I wanted to say hi."  #>> ChangeOpinion Ivy Bronislav +]
-//->BI_C_WantedToSayHi
+*["I wanted to say hi."  #>> ChangeOpinion Ivy Bronislav +]
+->BI_C_WantedToSayHi
 
-//*["How are you doing?"  #>> ChangeOpinion Ivy Bronislav +]
-//->BI_C_HowAreYouDoing
+*["How are you doing?"  #>> ChangeOpinion Ivy Bronislav +]
+->BI_C_HowAreYouDoing
 
-//*["You know, I wish I hadn't."  #>> ChangeOpinion Ivy Bronislav --]
-//->BI_C_WishIHadnt
+*["You know, I wish I hadn't."  #>> ChangeOpinion Ivy Bronislav --]
+->BI_C_WishIHadnt
 
 === BI_C_YeahIAm ===
 Bronislav: "Yeah, I am so far, there's been some good talks that I've enjoyed for sure."
@@ -254,10 +308,10 @@ As you stand near Ivy, your mind keeps wandering back to the deal. While it surp
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
 
 
-*["How are you holding up?"]
+*["How are you holding up?" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_HoldingUp
 
-*[Don't bring it up.]
+*[Don't bring it up. #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_DontBringUp
 
 === BI_C_PrettyStandard ===
@@ -273,10 +327,10 @@ As you stand near Ivy, your mind keeps wandering back to the deal. While it surp
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
 
 
-*["How are you holding up?"]
+*["How are you holding up?" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_HoldingUp
 
-*[Don't bring it up.]
+*[Don't bring it up. #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_DontBringUp
 
 === BI_C_Slow ===
@@ -299,10 +353,10 @@ As you stand near Ivy, your mind keeps wandering back to the deal. While it surp
 // TODO: did the player do optional dialogue in socalizing 4
 // THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
 
-*["How are you holding up?"]
+*["How are you holding up?" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_HoldingUp
 
-*[Don't bring it up.]
+*[Don't bring it up. #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_DontBringUp
 
 
@@ -336,7 +390,7 @@ Ivy: "You clearly didn't like me very much before, but maybe you had a good reas
 *["You're not wrong, but I was trying to be polite."  #>> ChangeOpinion Ivy Bronislav --]
 ->BI_C_YoureNotWrong
 
-=== BI_WishIHadnt ===
+=== BI_C_WishIHadnt ===
 
 Bronislav: "You know, now I really wish I hadn't."
 
@@ -426,9 +480,11 @@ Ivy: "I'm so glad Bronislav. You really deserve it."
 
 Ivy notices as some other friends flag her down in the distance.
 
-Ivy: "Oh, looks like they're calling me. I gotta go for now but talk to you soon!"
+Ivy: "Oh, looks like they're calling me, let's grab a coffee later if you can!"
 
-Bronislav: "Yeah, see you Ivy."
+Bronislav: "Alright!"
+
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -467,9 +523,11 @@ Bronislav: "You know, I had slightly mixed feelings about everything and going t
 
 Ivy smiles slightly and nods.
 
-Ivy: "I hope it all works out for you. I gotta go for now, but see you around."
+Ivy: "I hope it all works out for you. Hey! Let's grab coffee later if you have the time!"
 
-Bronislav: "Yeah, see you Ivy."
+Bronislav: "Yeah, sure."
+
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -512,7 +570,11 @@ Ivy: "Yeah, I'm sorry I did. I'm just glad there's no hard feelings."
 
 Bronislav: "Well, it was good talking with you Ivy. I'm going to check out a few more presentations, but it was nice seeing you."
 
-Ivy: "Yeah you too Bronislav. Take care."
+Ivy: "Yeah you too Bronislav. Maybe we should grab a coffee later today if you're available."
+
+Bronislav: "Sounds good." 
+
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -570,7 +632,7 @@ Ivy: "Oh... I guess I hadn't considered that."
 
 Bronislav: "I just would ask that we don't try to do any 'deals' in the future. It put me in a really uncomfortable position, but I think if we can maintain some boundaries, I don't really see us having another problem."
 
-Ivy: "Yeah, I'm sorry Bronislav. I got a bit wrapped up in helping a friend, and I dragged you into it. I can definitely try to respect your boundaries in the future."
+Ivy: "Yeah, I'm sorry Bronislav. I got a bit wrapped up in helping Jensen, and I dragged you into it. I can definitely try to respect your boundaries in the future."
 
 Bronislav: "Thanks, I appreciate that."
 
@@ -583,9 +645,11 @@ Ivy: "I'm realizing I misjudged you. I hope we can move past this at some point.
 
 Bronislav: "Me too."
 
-Ivy: "Alright, there's a talk I'm going to head off to now, but see you around Bronislav."
+Ivy: "Alright, there's a talk I'm going to head off to now, but maybe we can grab coffee later?"
 
-Bronislav: "Okay, see you."
+Bronislav: "Sounds good. I'll see you around."
+
+{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
 
@@ -622,10 +686,13 @@ Bronislav: "Thanks, I really appreciate that."
 
 Ivy sighs.
 
-Ivy: "Sure Bronislav. Look, I'm going to go to a talk now, but I guess I'll see you around."
+Ivy: "Sure Bronislav. Look, I'm going to go to a talk now, but maybe we can grab coffee later?"
 
-Bronislav: "Okay, see you."
+Bronislav: "Maybe, I'll see you around."
 
+{DbInsert("BI_Coffee")}
+
+{HideCharacter("Ivy")}
 
 ->DONE
 

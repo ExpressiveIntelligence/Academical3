@@ -9,7 +9,7 @@ VAR thinking = false
 # date.day!4
 # @end
 # repeatable: false
-# tags: action, student_cubes
+# tags: action, student_cubes, auxiliary 
 #===
 # Summary: Jensen checks in to see if he is on the paper 
 
@@ -18,26 +18,26 @@ VAR thinking = false
 {DbInsert("Seen_BJS3")}
 
 // Check flags in the DB set in previous dialogue
-~ temp acceptedDeal = DbAssert("IvyDealAccepted")
-~ temp rejectedDeal = DbAssert("IvyDealRejected")
-~ temp toldJensenYes = DbAssert("")
+//~ temp acceptedDeal = DbAssert("IvyDealAccepted")
+//~ temp rejectedDeal = DbAssert("IvyDealRejected")
+//~ temp toldJensenYes = DbAssert("")
 
-{
+//{
     //if you accepted Ivy's deal and told Jensen no
-    -acceptedDeal && !toldJensenYes:
-        ->BJS3_IyesJno
+    //-acceptedDeal && !toldJensenYes:
+        //->BJS3_IyesJno
     //if you accepted Ivy's deal and told Jensen yes
-    -acceptedDeal && toldJensenYes:
-        ->BJS3_IyesJyes
+    //-acceptedDeal && toldJensenYes:
+        //->BJS3_IyesJyes
     //if you declined Ivy's deal and told Jensen yes
-    -rejectedDeal && toldJensenYes:
-        ->BJS3_InoJyes
+    //-rejectedDeal && toldJensenYes:
+        //->BJS3_InoJyes
     //if you declined Ivy's deal and told Jensen no
-    - else:
+    //- else:
       ->BJS3_InoJno
-}
 
-->DONE
+
+->DONE 
 
 === BJS3_IyesJno ===
 ~ temp r = GetOpinionState("Jensen", "Bronislav")
@@ -619,7 +619,7 @@ Jensen: "Hey Bronislav, I still have co-authorship... right? Ivy told me you tol
 ->BJS3_MayHaveReconsidered
 }
 
-=== BJS3_InoJno ===
+===BJS3_InoJno===
 ~ temp r = GetOpinionState("Jensen", "Bronislav")
 //if positive relationship
 {r == OpinionState.Good || r == OpinionState.Excellent:
