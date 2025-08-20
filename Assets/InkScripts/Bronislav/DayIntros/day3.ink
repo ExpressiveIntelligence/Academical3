@@ -8,5 +8,6 @@ After IRB reviews, the department students and faculty have been scrambling arou
 Your work with Brad and Ned seems to be progressing and nearly ready to submit, but Ivy and Jensen are still pushing to know more about how they can get involved.
 Your regular check-in with Hendricks is today - better be sure to stop by at some point. 
 Praveen wanted to hang out - he's been very upbeat lately, maybe you can learn more about why.
+Time to start the day!
 
 -> DONE
