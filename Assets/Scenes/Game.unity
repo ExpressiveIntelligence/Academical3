@@ -310,6 +310,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1165db2bee8ed4e828113077a4c2cd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &41045604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80492023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e6e69fdd4747469ec291832082955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Identifier: 4
 --- !u!1 &57251028
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +573,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155739990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319944395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e6e69fdd4747469ec291832082955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Identifier: 2
 --- !u!1 &163471014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1248,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0572269d57e61740aedc1b31f987636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &284654214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319944395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bbda618de3b1c4eb755a71eb6bcaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1825318057}
 --- !u!1 &286980074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1303,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &306346857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580168342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35418c3aa944ac94fb15ad23c110bd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: "<align=\"center\"><b>September 5<sup>th</sup> - First Lab Meeting of
+    Term:</align></b>\n\nIt's the first meeting of the term! The whole department
+    is back on campus, and students and faculty are starting to gather to plan out
+    the work and research they'll get up to in the next few months. You've been working
+    hard on a paper with <b>Brad</b>, <b>Ned</b>, and <b>Hendricks</b>, and are presenting
+    to the department today. Everyone is particularly excited this quarter - your
+    university is hosting the biggest conference in your field at the end of the
+    term, and many students and staff are desparate to get their work published at
+    it.\n\n<align=\"center\"><b>Notes for the Day:</b></align>\n\n\t- Give your presentation
+    to the department\n\t- Meet with <b>Ivy</b> about research paper\n\t- <b>Praveen</b>
+    wanted help with something\n\t- Do some work at your cubicle"
 --- !u!1 &313033278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,6 +1676,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7855485256165676254, guid: 057de04edd2c748609c89c2851f564f9, type: 3}
   m_PrefabInstance: {fileID: 5672539083802517590}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &467516257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608222996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e6e69fdd4747469ec291832082955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Identifier: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,8 +1812,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HideOnAwake: 1
   m_CloseButton: {fileID: 1825318050}
+  m_OpenButtonImage: {fileID: 574224233}
   m_AgendaDetailText: {fileID: 1825318051}
   m_GameManager: {fileID: 1075693841}
+  m_ActiveColor: {r: 0.34901962, g: 0.56078434, b: 0.5686275, a: 1}
+  m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DefaultDayShownButton: {fileID: 1825318052}
+  m_DayButtons:
+  - {fileID: 1825318052}
+  - {fileID: 1825318057}
+  - {fileID: 1825318056}
+  - {fileID: 1825318055}
+  - {fileID: 1825318054}
+  - {fileID: 1825318053}
+  m_SimulationController: {fileID: 369746412}
+  m_DayContentText: {fileID: 1825318051}
 --- !u!1 &564757131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,6 +3178,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1084057201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80492023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bbda618de3b1c4eb755a71eb6bcaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1825318055}
+--- !u!114 &1095757231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319944395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35418c3aa944ac94fb15ad23c110bd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: "<align=\"center\"><b>September 26<sup>th</sup> - IRB Submission Deadline:</align></b>\n\nIt's
+    the deadline for Institutional Review Board (IRB) applications! This is a crucial
+    step for research - it ensures that research performed involving people does
+    not do harm to them. It's based on three core principles - beneficence, justice,
+    and respect for persons. The work you are doing with <b>Brad</b> involves human
+    subject research, but he's assured you that he's got it under control. Meanwhile,
+    there are a lot of plates spinning on campus; everyone seems to be hustling for
+    the upcoming conference deadlines.\n\n<align=\"center\"><b>Notes for the Day:</b></align>\n\n\t-
+    Follow up with <b>Ivy</b> on work, research, and <b>Jensen</b>\n\t- Brad wants
+    to catch up over something important"
 --- !u!114 &1095809829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3576,6 +3699,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 986663463493600334, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
   m_PrefabInstance: {fileID: 3525302982658575579}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1544432955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608222996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35418c3aa944ac94fb15ad23c110bd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: "<align=\"center\"><b>November 28<sup>th</sup> - The Big Conference:</align></b>\n\nThe
+    Big Conference is finally here! A mixture of relief, excitement, and dejection
+    flows through campus. Some are excited to have their papers accepted, others
+    are saddened by their rejection, but all are relieved to have somewhat of a break
+    from the publishing grind. The conference will have everyone in the department
+    involved - it's a good chance to catch up with everyone and see where everyone
+    is at mentally and emotionally.\n\n<align=\"center\"><b>Notes for the Day:</b></align>\n\n\t-
+    Catch up with folks at the conference"
 --- !u!114 &1546442769 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5217837970553394324, guid: c92bc9f7abe3b0a4f8380ccb468ba9e0, type: 3}
@@ -3587,6 +3730,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa759884425be734bbe997f9926f6318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1573340634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80492023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35418c3aa944ac94fb15ad23c110bd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: "<align=\"center\"><b>November 7<sup>th</sup> - Conference Review Period:</align></b>\n\nWith
+    everything submitted, people are waiting with bated breath for their conference
+    acceptance (or rejection) decisions. There's a palpable anxiety in the air, but
+    there's not much anyone could do for their submissions at that point. The only
+    exception, perhaps, is withdrawing work for consideration entirely. It's a good
+    time to sync up with everyone in the department and see if you can help change
+    the mood at all. \n\n<align=\"center\"><b>Notes for the Day:</b></align>\n\n\t-
+    Have your regular check-in with <b>Hendricks</b>\n\t- Check in with <b>Brad</b>
+    on your work together\n\t- <b>Ivy</b> and <b>Jensen</b> will, no doubt, want
+    to talk again\n"
 --- !u!1 &1576401175
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,6 +4003,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1649306510}
+--- !u!114 &1692656351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580168342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e6e69fdd4747469ec291832082955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Identifier: 1
 --- !u!1001 &1697091669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4741,6 +4919,10 @@ PrefabInstance:
       value: 0.0627451
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
       value: 0.5686275
       objectReference: {fileID: 0}
@@ -4766,7 +4948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4779,7 +4961,7 @@ PrefabInstance:
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536506495}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -4790,7 +4972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowCharacter
+      value: ShowDayContent
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4798,7 +4980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Academical.ActorInfoPanel, Assembly-CSharp
+      value: Academical.AgendaInfoPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -4807,14 +4989,14 @@ PrefabInstance:
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 42002fa4b2c724c23a23829c563e15b7, type: 2}
+      objectReference: {fileID: 306346857}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1825318052}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Academical.CharacterSO, Assembly-CSharp
+      value: PanelTextContent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 196079748549249591, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5000,7 +5182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5013,7 +5195,7 @@ PrefabInstance:
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536506495}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -5028,7 +5210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowCharacter
+      value: ShowDayContent
       objectReference: {fileID: 0}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -5036,7 +5218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Academical.ActorInfoPanel, Assembly-CSharp
+      value: Academical.AgendaInfoPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -5045,14 +5227,14 @@ PrefabInstance:
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 65fd36352d572411fadd3826fdffeff3, type: 2}
+      objectReference: {fileID: 1544432955}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1825318054}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Academical.CharacterSO, Assembly-CSharp
+      value: PanelTextContent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 898700938956790463, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5220,7 +5402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5233,7 +5415,7 @@ PrefabInstance:
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536506495}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -5248,7 +5430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowCharacter
+      value: ShowDayContent
       objectReference: {fileID: 0}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -5256,7 +5438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Academical.ActorInfoPanel, Assembly-CSharp
+      value: Academical.AgendaInfoPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -5265,14 +5447,14 @@ PrefabInstance:
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 4efcecfe0d2304d11ba1a8651d697b63, type: 2}
+      objectReference: {fileID: 1095757231}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1825318057}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Academical.CharacterSO, Assembly-CSharp
+      value: PanelTextContent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1423587202864331498, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5478,7 +5660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5491,7 +5673,7 @@ PrefabInstance:
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536506495}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -5506,7 +5688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowCharacter
+      value: ShowDayContent
       objectReference: {fileID: 0}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -5514,7 +5696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Academical.ActorInfoPanel, Assembly-CSharp
+      value: Academical.AgendaInfoPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -5523,14 +5705,14 @@ PrefabInstance:
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 8fc8e837ebbee415f8fd269b723d7fe3, type: 2}
+      objectReference: {fileID: 1825318066}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1825318056}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Academical.CharacterSO, Assembly-CSharp
+      value: PanelTextContent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3092154267696481472, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6174,7 +6356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5907561759044684466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 876.0585
+      value: 1062.5
       objectReference: {fileID: 0}
     - target: {fileID: 5907561759044684466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6182,7 +6364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5907561759044684466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 438.0292
+      value: 531.2501
       objectReference: {fileID: 0}
     - target: {fileID: 5907561759044684466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6258,7 +6440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6271,7 +6453,7 @@ PrefabInstance:
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536506495}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -6286,7 +6468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowCharacter
+      value: ShowDayContent
       objectReference: {fileID: 0}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -6294,7 +6476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Academical.ActorInfoPanel, Assembly-CSharp
+      value: Academical.AgendaInfoPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -6303,14 +6485,14 @@ PrefabInstance:
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 64e40de61a2f94767bdd5ddda63c9086, type: 2}
+      objectReference: {fileID: 2012245803}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1825318053}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Academical.CharacterSO, Assembly-CSharp
+      value: PanelTextContent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6051884953849961909, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6376,7 +6558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6389,7 +6571,7 @@ PrefabInstance:
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536506495}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -6404,7 +6586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowCharacter
+      value: ShowDayContent
       objectReference: {fileID: 0}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -6412,7 +6594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Academical.ActorInfoPanel, Assembly-CSharp
+      value: Academical.AgendaInfoPanel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -6421,14 +6603,14 @@ PrefabInstance:
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 51d01b4a00d3c4afaa201673f2acf1e8, type: 2}
+      objectReference: {fileID: 1573340634}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1825318055}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Academical.CharacterSO, Assembly-CSharp
+      value: PanelTextContent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6177878050963498466, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6460,19 +6642,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6669113990603044157, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1016.4512
+      value: 988.4182
       objectReference: {fileID: 0}
     - target: {fileID: 6669113990603044157, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 798.6234
+      value: 764.5833
       objectReference: {fileID: 0}
     - target: {fileID: 6669113990603044157, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 528.8859
+      value: 526.8836
       objectReference: {fileID: 0}
     - target: {fileID: 6669113990603044157, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -419.29626
+      value: -414.29037
       objectReference: {fileID: 0}
     - target: {fileID: 6673809991440523781, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6789,21 +6971,57 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6991773590084433362, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1095809829}
+    - targetCorrespondingSourceObject: {fileID: 6991773590084433362, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1692656351}
+    - targetCorrespondingSourceObject: {fileID: 6991773590084433362, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 306346857}
     - targetCorrespondingSourceObject: {fileID: 8967848266689786667, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1825318061}
+      addedObject: {fileID: 284654214}
+    - targetCorrespondingSourceObject: {fileID: 8967848266689786667, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 155739990}
+    - targetCorrespondingSourceObject: {fileID: 8967848266689786667, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1095757231}
     - targetCorrespondingSourceObject: {fileID: 3567277794530706876, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1825318064}
+    - targetCorrespondingSourceObject: {fileID: 3567277794530706876, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1825318065}
+    - targetCorrespondingSourceObject: {fileID: 3567277794530706876, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1825318066}
     - targetCorrespondingSourceObject: {fileID: 7004105684089270837, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1825318060}
+      addedObject: {fileID: 1084057201}
+    - targetCorrespondingSourceObject: {fileID: 7004105684089270837, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 41045604}
+    - targetCorrespondingSourceObject: {fileID: 7004105684089270837, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1573340634}
     - targetCorrespondingSourceObject: {fileID: 986663463493600334, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 975695238}
+    - targetCorrespondingSourceObject: {fileID: 986663463493600334, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 467516257}
+    - targetCorrespondingSourceObject: {fileID: 986663463493600334, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1544432955}
     - targetCorrespondingSourceObject: {fileID: 8782743869346663574, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2012245801}
+    - targetCorrespondingSourceObject: {fileID: 8782743869346663574, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2012245802}
+    - targetCorrespondingSourceObject: {fileID: 8782743869346663574, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2012245803}
   m_SourcePrefab: {fileID: 100100000, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
 --- !u!224 &1825318048 stripped
 RectTransform:
@@ -6921,32 +7139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1825318052}
---- !u!114 &1825318060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80492023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bbda618de3b1c4eb755a71eb6bcaa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 1825318055}
---- !u!114 &1825318061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319944395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bbda618de3b1c4eb755a71eb6bcaa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 1825318057}
 --- !u!114 &1825318064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6960,6 +7152,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1825318056}
+--- !u!114 &1825318065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422442915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e6e69fdd4747469ec291832082955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Identifier: 3
+--- !u!114 &1825318066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422442915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35418c3aa944ac94fb15ad23c110bd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: "<align=\"center\"><b>October 17<sup>th</sup> - Conference Submission
+    Deadline:</align></b>\n\nCrunch time! Everyone is rushing to get their work submitted
+    for the conference. Getting accepted at the conference means a publication, networking
+    opportunities, and chances for awards. Publishing at conferences can have major
+    impacts on career trajectory, so everyone takes it (perhaps a bit too) seriously.
+    Your work has been well-received by the department and seems ready to go with
+    the updated data from <b>Brad</b>. You should focus on tidying up any loose ends
+    and making sure everything is moving smoothly.\n\n<align=\"center\"><b>Notes
+    for the Day:</b></align>\n\n\t- <b>Ivy</b> and <b>Jensen</b> are eager to talk\n\t-
+    Recurring status meeting with <b>Hendricks</b>\n\t- <b>Praveen</b> has been wanting
+    to hang out recently"
 --- !u!1 &1856149862 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1647993303267811046, guid: 95ef3f02a11404b4dad24f802e5ec596, type: 3}
@@ -7234,6 +7462,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1825318053}
+--- !u!114 &2012245802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012245797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e6e69fdd4747469ec291832082955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Identifier: 6
+--- !u!114 &2012245803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012245797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35418c3aa944ac94fb15ad23c110bd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: "<align=\"center\"><b>December 5<sup>th</sup> - Last Lab Meeting of Term:</align></b>\n\nIt's
+    the final lab meeting of the term. It's always bittersweet, but you've had enough
+    years here to know that this meeting also brings excitement for the work and
+    research being performed next term. The conference was an exciting and dramatic
+    event for many in the department - it will be interesting to see how it's all
+    panned out. The end of a term is an excellent time to reflect on the work and
+    decisions made before and think about what can be improved in the future.\n\n<align=\"center\"><b>Notes
+    for the Day:</b></align>\n\n\t- Final check-in with <b>Hendricks</b>\n\t- Coffee
+    with <b>Brad</b>\n\t- Reflect on the term with the department"
 --- !u!1001 &2030514914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11124,6 +11386,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_ActiveColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_ActiveColor.b
+      value: 0.5686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_ActiveColor.g
+      value: 0.56078434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_ActiveColor.r
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_OpenButtonImage
+      value: 
+      objectReference: {fileID: 5672539083802517601}
+    - target: {fileID: 3197036210163297378, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_CharacterNameText
       value: 
       objectReference: {fileID: 0}
@@ -13977,6 +14275,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 5672539083802517594}
+--- !u!114 &5672539083802517601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8108097340421877398, guid: 057de04edd2c748609c89c2851f564f9, type: 3}
+  m_PrefabInstance: {fileID: 5672539083802517590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5672539083802517593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6109827516426572515
 GameObject:
   m_ObjectHideFlags: 0

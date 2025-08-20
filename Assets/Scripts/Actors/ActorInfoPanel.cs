@@ -40,6 +40,15 @@ namespace Academical
 		[SerializeField]
 		private SocialEngineController m_SocialEngineController;
 
+		[SerializeField]
+		private Image m_OpenButtonImage;
+
+		[SerializeField]
+		private Color m_ActiveColor;
+
+		[SerializeField]
+		private Color m_NormalColor;
+
 		protected override void SubscribeToEvents()
 		{
 			base.SubscribeToEvents();
@@ -54,9 +63,16 @@ namespace Academical
 
 		public override void Show()
 		{
+			m_OpenButtonImage.color = m_ActiveColor;
 			base.Show();
 			EventSystem.current.SetSelectedGameObject( m_DefaultCharacterShownButton.gameObject );
 			ShowCharacter( m_DefaultCharacterShown );
+		}
+
+		public override void Hide()
+		{
+			m_OpenButtonImage.color = m_NormalColor;
+			base.Hide();
 		}
 
 		/// <summary>
