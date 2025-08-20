@@ -26,9 +26,6 @@ namespace Academical
 		private TMP_Text m_CharacterBioText;
 
 		[SerializeField]
-		private TensionMeter m_TensionMeter;
-
-		[SerializeField]
 		private RelationshipMeter m_RelationshipMeter;
 
 		[SerializeField]
@@ -42,6 +39,15 @@ namespace Academical
 
 		[SerializeField]
 		private SocialEngineController m_SocialEngineController;
+
+		[SerializeField]
+		private Image m_OpenButtonImage;
+
+		[SerializeField]
+		private Color m_ActiveColor;
+
+		[SerializeField]
+		private Color m_NormalColor;
 
 		protected override void SubscribeToEvents()
 		{
@@ -57,9 +63,16 @@ namespace Academical
 
 		public override void Show()
 		{
+			m_OpenButtonImage.color = m_ActiveColor;
 			base.Show();
 			EventSystem.current.SetSelectedGameObject( m_DefaultCharacterShownButton.gameObject );
 			ShowCharacter( m_DefaultCharacterShown );
+		}
+
+		public override void Hide()
+		{
+			m_OpenButtonImage.color = m_NormalColor;
+			base.Hide();
 		}
 
 		/// <summary>
@@ -84,7 +97,6 @@ namespace Academical
 			if ( characterData.uid == m_GameManager.Player.UniqueID )
 			{
 				m_RelationshipMeter.gameObject.SetActive( false );
-				m_TensionMeter.gameObject.SetActive( false );
 			}
 			else
 			{
@@ -100,13 +112,10 @@ namespace Academical
 
 
 				m_RelationshipMeter.gameObject.SetActive( true );
-				m_TensionMeter.gameObject.SetActive( true );
 
 				m_RelationshipMeter.SetValueLabel( opinion );
 				m_RelationshipMeter.FillAmount = (float)opinion / 255f;
 
-				m_TensionMeter.SetValueLabel( tension );
-				m_TensionMeter.FillAmount = (float)tension / 100f;
 			}
 
 		}

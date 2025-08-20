@@ -27,12 +27,19 @@ namespace Academical
 
 		public void UpdateDate()
 		{
-			m_DateTextMesh.text = $"Day {m_GameManager.CurrentDate.Day}";
+			m_DateTextMesh.text = $"{m_GameManager.CurrentDate.DayEventLabel}";
 		}
 
 		public void UpdateLocation()
 		{
-			m_LocationTextMesh.text = m_GameManager.Player.Location.DisplayName;
+			if ( m_GameManager.Player.Location != null )
+			{
+				m_LocationTextMesh.text = m_GameManager.Player.Location.DisplayName;
+			}
+			else
+			{ 
+				m_LocationTextMesh.text = "";
+			}
 		}
 	}
 }

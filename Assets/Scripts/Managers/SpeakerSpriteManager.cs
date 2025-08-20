@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Anansi;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Academical
@@ -79,6 +80,17 @@ namespace Academical
 				Debug.LogWarning( $"Failed to show character {name}. Character already showing" );
 				return;
 			}
+
+			//Because this is an async, we need to guarantee all other characters in the position are hidden.
+			foreach ( KeyValuePair<string, CharacterSprite> otherCharacter in m_Characters )
+			{
+				if ( otherCharacter.Value.Position == position && otherCharacter.Key != characterName )
+				{
+					otherCharacter.Value.Hide();
+				}
+			}
+			
+
 
 			character.SetSprite( spriteTags );
 			character.Show( position );

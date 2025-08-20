@@ -67,6 +67,12 @@ INCLUDE ./Bron&Brad/BB_Socializing4.ink
 INCLUDE ./Bron&Brad/BB_Socializing6.ink
 INCLUDE ./Bron&Brad/BB_Conference.ink
 
+INCLUDE ./DayIntros/day1.ink
+INCLUDE ./DayIntros/day2.ink
+INCLUDE ./DayIntros/day3.ink
+INCLUDE ./DayIntros/day4.ink
+INCLUDE ./DayIntros/day5.ink
+INCLUDE ./DayIntros/day6.ink
 
 EXTERNAL DbInsert(statement)
 EXTERNAL DbAssert(statement)
@@ -90,10 +96,4 @@ EXTERNAL SetPlayerLocation(locationID)
 # ---
 # ===
 
-// Show the current player character on screen
-// (even when not in dialogue)
-{ShowCharacter("Bronislav", "right", "")}
-
-{SetPlayerLocation("lecture_hall")}
-
--> DONE
+-> day1

@@ -48,6 +48,14 @@ namespace Academical
 		[SerializeField]
 		private Button m_AdvanceDialogueButton;
 
+		private bool m_AdvanceDialogueButtonEnabled;
+
+		[SerializeField]
+		private DialogueManager m_DialogueManager;
+
+		[SerializeField]
+		private GameObject m_AdvanceDialogueButtonGO;
+
 		[SerializeField]
 		private Image m_SpeakerImage;
 
@@ -121,7 +129,10 @@ namespace Academical
 
 		public void SetAdvanceDialogueButtonEnabled(bool isEnabled)
 		{
-			m_AdvanceDialogueButton.interactable = isEnabled;
+			//m_AdvanceDialogueButton.interactable = isEnabled;
+			m_AdvanceDialogueButtonGO.SetActive( isEnabled );
+			m_AdvanceDialogueButtonEnabled = isEnabled;
+
 		}
 
 		#endregion
