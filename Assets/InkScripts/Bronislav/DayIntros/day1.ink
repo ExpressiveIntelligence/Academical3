@@ -27,8 +27,7 @@ Do you need a quick tutorial on how to play before we get started?
 
 Great! Academical is straightforward to play. We'll go over the interface first.
 The top of the screen has a row of buttons to help you manage your time in this world.
-The <i><b>"Pause"</b></i> button lets you change settings and take a break from the story.
-The <i><b>"Save"</b></i> button lets you save your progress so you can return at a later time.
+The <i><b>"Pause"</b></i> button lets you change settings and take a break from the story. You can also save the game from this menu.
 The <i><b>"History"</b></i> button shows a history of past dialogue you've encountered in the story.
 The <i><b>"Characters"</b></i> button shows information about each character as well as your current relationship status with them.
 The <i><b>"Dilemmas"</b></i> button shows what moral and relationship issues have arisen.

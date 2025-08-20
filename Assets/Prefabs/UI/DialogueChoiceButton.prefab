@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 4303594477445821721}
   - component: {fileID: 6345774045227931627}
   - component: {fileID: 6529255484924613780}
+  - component: {fileID: 4376282280988643071}
   m_Layer: 5
   m_Name: DialogueChoiceButton
   m_TagString: Untagged
@@ -382,3 +383,16 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &4376282280988643071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721128907326757101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bbda618de3b1c4eb755a71eb6bcaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1141450844600112449}

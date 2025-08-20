@@ -26,6 +26,12 @@ namespace Academical
 		/// </summary>
 		private List<DialogueChoiceButton> m_ChoiceButtons = new List<DialogueChoiceButton>();
 
+		/// <summary>
+		/// A reference to the advance button. If we're showing choices, we need to disable this button.
+		/// </summary>
+		[SerializeField]
+		private DialogueUIController m_DialogueUIController;
+
 		#endregion
 
 		#region Protected Methods
@@ -61,11 +67,13 @@ namespace Academical
 
 				m_ChoiceButtons.Add( button );
 			}
+			m_DialogueUIController.SetAdvanceDialogueButtonEnabled( false );
 		}
 
 		private void OnChoicesHidden()
 		{
 			Hide();
+			m_DialogueUIController.SetAdvanceDialogueButtonEnabled( true );
 		}
 
 		private void ClearChoices()
