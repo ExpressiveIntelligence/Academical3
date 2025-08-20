@@ -58,10 +58,13 @@ namespace Academical
 
 		private void UpdateAdvanceDayButton()
 		{
-			// Check if the player has required content they need to visit
-			bool unseenContentPresent =
-				GameManager.Instance.ExistsUnseenRequiredContentForDay();
-
+			bool unseenContentPresent = false;
+			// Check if we are in a debug mode that ignores requirments
+			if ( EnvironmentConstants.DayRequirementsEnabled )
+			{
+				// Check if the player has required content they need to visit
+				unseenContentPresent = GameManager.Instance.ExistsUnseenRequiredContentForDay();
+			}
 			m_AdvanceDayButton.SetButtonLocked( unseenContentPresent );
 		}
 
