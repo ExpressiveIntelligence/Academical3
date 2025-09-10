@@ -114,7 +114,7 @@ namespace Academical
 				m_RelationshipMeter.gameObject.SetActive( true );
 
 				m_RelationshipMeter.SetValueLabel( opinion );
-				m_RelationshipMeter.FillAmount = (float)opinion / 255f;
+				m_RelationshipMeter.FillAmount = (float)opinion / 100f;
 
 			}
 
