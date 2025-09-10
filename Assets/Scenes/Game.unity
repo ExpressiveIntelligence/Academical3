@@ -11983,6 +11983,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6899449985027323750, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6922713424950150139, guid: 37c3aa3e96b034d4d85c1e3ebfe9c7f6, type: 3}
       propertyPath: m_Name
       value: Praveen

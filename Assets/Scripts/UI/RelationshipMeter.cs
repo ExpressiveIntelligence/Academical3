@@ -18,11 +18,12 @@ namespace Academical
 		[SerializeField]
 		private Color m_GoodColor = Color.green;
 
+		//NOTE: THESE DEFAULTS GET OVERRIDDEN BY EDITOR. LOOK THERE FOR TRUE VALUES.
 		[SerializeField]
-		private float m_NeutralThreshold = 0.3f;
+		private float m_NeutralThreshold = 0.4f;
 
 		[SerializeField]
-		private float m_GoodThreshold = 0.7f;
+		private float m_GoodThreshold = 0.6f;
 
 		[SerializeField]
 		[Range(0.0f, 1.0f)]
@@ -50,15 +51,19 @@ namespace Academical
 
 		private void UpdateFillAndColor()
 		{
-			Color fillColor = m_BadColor;
+			Color fillColor;
 
-			if (m_FillAmount >= m_GoodThreshold)
+			if ( m_FillAmount >= m_GoodThreshold )
 			{
 				fillColor = m_GoodColor;
 			}
-			else if (m_FillAmount >= m_NeutralThreshold)
+			else if ( m_FillAmount >= m_NeutralThreshold )
 			{
 				fillColor = m_NeutralColor;
+			}
+			else
+			{
+				fillColor = m_BadColor;
 			}
 
 			m_FillBar.color = fillColor;
