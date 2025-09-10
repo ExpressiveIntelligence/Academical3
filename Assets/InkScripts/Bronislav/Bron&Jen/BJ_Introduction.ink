@@ -82,6 +82,8 @@ Jensen: "I liked how you presented your information for the first half, but I be
 
 Jensen: "I also thought that you could have presented your evidence better, and had a stronger conclusion."
 
+{GetOpinionState("Brad", "Bronislav")}
+
 *["Yes, of course." #>> ChangeOpinion Jensen Bronislav ++]
     ->BJIntro_WriteDown
 
@@ -95,7 +97,11 @@ Jensen: "I also thought that you could have presented your evidence better, and 
 {ShowCharacter("Jensen", "left", "hopeful")}
 Bronislav: "Yes, of course. Thanks for letting me know."
 
+{GetOpinionState("Brad", "Bronislav")}
+
 You write down his feedback in your notebook. He smiles happily, and walks off.
+
+
 
 {HideCharacter("Jensen")}
 
