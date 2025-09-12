@@ -18,16 +18,10 @@ namespace Academical
 		[SerializeField] private Button m_SettingsButton;
 		[SerializeField] private Button m_CreditsButton;
 		[SerializeField] private Button m_ExitButton;
-		[SerializeField] private TMP_Text m_VersionText;
 
 		#endregion
 
 		#region Protected Methods
-
-		private void Start()
-		{
-			m_VersionText.text = $"Version: {Application.version}";
-		}
 
 		protected override void SubscribeToEvents()
 		{

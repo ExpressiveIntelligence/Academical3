@@ -3,6 +3,9 @@
 # ---
 # ===
 
+{SetPlayerLocation("student_cubes")}
+{ShowCharacter("Bronislav", "right", "")}
+
 It's a stressful time - we're now about halfway through the term, papers are done, and it's time to submit to the big conference.
 After IRB reviews, the department students and faculty have been scrambling around to finish their studies and process their data so that they are ready for this week's conference submission deadline.
 Your work with Brad and Ned seems to be progressing and nearly ready to submit, but Ivy and Jensen are still pushing to know more about how they can get involved.

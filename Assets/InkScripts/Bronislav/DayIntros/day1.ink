@@ -17,10 +17,10 @@ Your job is to navigate through conversations and meetings with characters in th
 
 Do you need a quick tutorial on how to play before we get started?
 
-*[Yes please!] 
++ [Yes please!] 
     ->Tutorial
 
-*[I know how to play.]
++ [I know how to play.]
     ->Day1_Continue
 
 === Tutorial ===
@@ -39,10 +39,10 @@ Certain options may positively or negatively impact your relationship with a cha
 
 Did you get all of that?
 
-*[Yup, let's play!]
++ [Yup, let's play!]
     ->Day1_Continue
 
-+[I need to hear it again.]
++ [I need to hear it again.]
     ->Tutorial
 
 === Day1_Continue ===
