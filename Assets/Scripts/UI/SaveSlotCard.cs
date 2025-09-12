@@ -29,9 +29,6 @@ namespace Academical
 		private TMP_Text m_TotalPlayTime;
 
 		[SerializeField]
-		private GameObject m_AutoSaveIndicator;
-
-		[SerializeField]
 		private Button m_PlayButton;
 
 		[SerializeField]
@@ -63,7 +60,6 @@ namespace Academical
 			string levelName = GameStateManager.Instance.LevelData.displayName;
 			m_LevelName.text = $"<b>{levelName}</b>";
 			m_SaveTimeStamp.text = $"<b>Save Date:</b> {timestamp}";
-			m_AutoSaveIndicator.SetActive( saveSlotData.isAutoSave );
 
 			LocationData locationData = m_LocationDb.GetLocationData( saveSlotData.currentLocationId );
 
