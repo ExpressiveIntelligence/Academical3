@@ -269,11 +269,8 @@ namespace Academical
 			}
 			else
 			{
-				//If we don't have a location, we are on a narration step at the beginning of a day.
-				if ( !m_CurrentLocation )
-				{
-					TriggerDayIntroDialogue( m_simulationController.DateTime.Day );
-				}
+				//If we are loading from a save file, we replay the start-of-day narration for a player refresher.
+				TriggerDayIntroDialogue( m_simulationController.DateTime.Day );
 			}
 		}
 
@@ -724,6 +721,7 @@ namespace Academical
 
 		public void NavigateToMainMenu()
 		{
+			DataPersistenceManager.ClearSaveData();
 			SceneManager.LoadScene( "Scenes/MainMenu" );
 		}
 
@@ -1028,12 +1026,12 @@ namespace Academical
 		{
 			if ( result.success )
 			{
-				NotificationManager.Instance.QueueNotification( "Game saved!" );
+				NotificationManager.Instance.QueueNotification( "Game Saved!" );
 			}
 			else
 			{
-				NotificationManager.Instance.QueueNotification( "Save failed: " + result.message );
-				Debug.LogError( "Save failed: " + result.message );
+				NotificationManager.Instance.QueueNotification( "Save Failed: " + result.message );
+				Debug.LogError( "Save Failed: " + result.message );
 			}
 		}
 	}

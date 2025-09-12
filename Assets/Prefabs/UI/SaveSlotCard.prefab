@@ -233,7 +233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HideOnAwake: 0
   m_LocationPreview: {fileID: 1196501070513885283}
-  m_LevelName: {fileID: 5151843876201062366}
   m_LocationName: {fileID: 1517589334425799488}
   m_SaveTimeStamp: {fileID: 1635885819023645184}
   m_Date: {fileID: 6534733632122537420}
@@ -1276,7 +1275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scenario Name
+  m_text: Bronislav
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

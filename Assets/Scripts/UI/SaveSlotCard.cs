@@ -14,9 +14,6 @@ namespace Academical
 		private Image m_LocationPreview;
 
 		[SerializeField]
-		private TMP_Text m_LevelName;
-
-		[SerializeField]
 		private TMP_Text m_LocationName;
 
 		[SerializeField]
@@ -57,8 +54,6 @@ namespace Academical
 		{
 
 			var timestamp = System.DateTime.Parse( saveSlotData.saveTimeStamp ).ToString();
-			string levelName = GameStateManager.Instance.LevelData.displayName;
-			m_LevelName.text = $"<b>{levelName}</b>";
 			m_SaveTimeStamp.text = $"<b>Save Date:</b> {timestamp}";
 
 			LocationData locationData = m_LocationDb.GetLocationData( saveSlotData.currentLocationId );
