@@ -3,6 +3,9 @@
 # ---
 # ===
 
+{SetPlayerLocation("student_cubes")}
+{ShowCharacter("Bronislav", "right", "")}
+
 It's been a while since conference submissions, and the anxiety of waiting on acceptance and rejection decisions is thick in the air.
 People are re-reading their work nervously, finding a range of mistakes that they hope won't diminish their chances of getting published.
 Hendricks wants to meet as normal; I should probably stay abreast with her and what's going on.

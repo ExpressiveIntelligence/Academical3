@@ -1,5 +1,6 @@
 using System;
 using Academical.Persistence;
+using Newtonsoft.Json.Schema;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,12 +67,20 @@ namespace Academical
 
 			LocationData locationData = m_LocationDb.GetLocationData( saveSlotData.currentLocationId );
 
-			m_LocationName.text = $"<b>Current Location:</b> {locationData.displayName}";
+			//handle unassigned location (e.g. narration scenes)
+			if ( locationData != null )
+			{
+				m_LocationName.text = $"<b>Current Location:</b> {locationData.displayName}";
+				m_LocationPreview.sprite = locationData.sprite;
+			}
+			else
+			{
+				m_LocationName.text = "";
+			}
 			m_Date.text = $"<b>Current Date:</b> {saveSlotData.currentTimeOfDay}, Day {saveSlotData.currentDay}";
 			m_TotalPlayTime.text = $"<b>Play Time:</b> {saveSlotData.totalPlaytime / 60} minutes"
 				+ $", {saveSlotData.totalPlaytime % 60} seconds";
 
-			m_LocationPreview.sprite = locationData.sprite;
 		}
 
 		private void PlayButtonClicked()

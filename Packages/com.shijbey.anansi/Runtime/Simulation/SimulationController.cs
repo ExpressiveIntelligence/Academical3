@@ -95,8 +95,14 @@ namespace Anansi
 			{
 				return location;
 			}
+			else
+			{
+				//We have to allow no location specified - returning null and specifying in console.
+				Debug.Log( "No location found - setting as null location." );
+				return null;
+			}
 
-			throw new KeyNotFoundException( $"Could not find location with ID: {locationID}" );
+			//throw new KeyNotFoundException( $"Could not find location with ID: {locationID}" );
 		}
 
 		/// <summary>

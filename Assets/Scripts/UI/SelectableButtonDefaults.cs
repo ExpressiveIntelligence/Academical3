@@ -15,7 +15,6 @@ public class SelectableButtonDefaults : MonoBehaviour
         if ( button != null )
         {
             EventSystem.current.SetSelectedGameObject( button.gameObject );
-            Debug.Log( "reached" );
         }
     }
 
