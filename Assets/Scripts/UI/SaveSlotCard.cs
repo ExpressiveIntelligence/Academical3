@@ -1,5 +1,6 @@
 using System;
 using Academical.Persistence;
+using Newtonsoft.Json.Schema;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +14,6 @@ namespace Academical
 		private Image m_LocationPreview;
 
 		[SerializeField]
-		private TMP_Text m_LevelName;
-
-		[SerializeField]
 		private TMP_Text m_LocationName;
 
 		[SerializeField]
@@ -26,9 +24,6 @@ namespace Academical
 
 		[SerializeField]
 		private TMP_Text m_TotalPlayTime;
-
-		[SerializeField]
-		private GameObject m_AutoSaveIndicator;
 
 		[SerializeField]
 		private Button m_PlayButton;
@@ -59,19 +54,24 @@ namespace Academical
 		{
 
 			var timestamp = System.DateTime.Parse( saveSlotData.saveTimeStamp ).ToString();
-			string levelName = GameStateManager.Instance.LevelData.displayName;
-			m_LevelName.text = $"<b>{levelName}</b>";
 			m_SaveTimeStamp.text = $"<b>Save Date:</b> {timestamp}";
-			m_AutoSaveIndicator.SetActive( saveSlotData.isAutoSave );
 
 			LocationData locationData = m_LocationDb.GetLocationData( saveSlotData.currentLocationId );
 
-			m_LocationName.text = $"<b>Current Location:</b> {locationData.displayName}";
+			//handle unassigned location (e.g. narration scenes)
+			if ( locationData != null )
+			{
+				m_LocationName.text = $"<b>Current Location:</b> {locationData.displayName}";
+				m_LocationPreview.sprite = locationData.sprite;
+			}
+			else
+			{
+				m_LocationName.text = "";
+			}
 			m_Date.text = $"<b>Current Date:</b> {saveSlotData.currentTimeOfDay}, Day {saveSlotData.currentDay}";
 			m_TotalPlayTime.text = $"<b>Play Time:</b> {saveSlotData.totalPlaytime / 60} minutes"
 				+ $", {saveSlotData.totalPlaytime % 60} seconds";
 
-			m_LocationPreview.sprite = locationData.sprite;
 		}
 
 		private void PlayButtonClicked()

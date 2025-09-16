@@ -142,9 +142,7 @@ namespace Academical
 			SocialEngineController.Instance.Initialize();
 			SocialEngineController.Instance.RegisterAgentsAndRelationships();
 			m_simulationController.Initialize();
-			//Set day label here, as Anansi doesn't natively support day labels.
-			m_simulationController.DateTime.DayEventLabel = DateLabelConstants.GetLabelForDay(m_simulationController.DateTime.Day);
-			m_dialogueManager.Story.DB = SocialEngineController.Instance.DB;
+
 			m_dialogueManager.Initialize();
 
 
@@ -165,12 +163,21 @@ namespace Academical
 			if ( saveData != null )
 			{
 				PlayTimeTracker.Instance.SetTotalPlayTime( saveData.totalPlaytime );
-				SetPlayerLocation( saveData.currentLocationId );
+				m_simulationController.DateTime = new SimDateTime( saveData.currentDay, Enum.Parse<TimeOfDay>( saveData.currentTimeOfDay ) );
+				//if we don't have a location, it means we are at a narration point at the beginning of the day
+				//This is a hacky solution, but we don't need extensibility for the time being.
+				if ( saveData.currentLocationId != null || saveData.currentLocationId != "Undefined" )
+				{
+					SetPlayerLocation( saveData.currentLocationId );
+				}
 				LoadDatabaseSave( saveData );
 				LoadStoryState( saveData );
 				LoadSocialEngineState( saveData );
-				m_simulationController.DateTime = new SimDateTime( saveData.currentDay, Enum.Parse<TimeOfDay>( saveData.currentTimeOfDay ) );
 			}
+
+			//Set day label here, as Anansi doesn't natively support day labels.
+			m_simulationController.DateTime.DayEventLabel = DateLabelConstants.GetLabelForDay( m_simulationController.DateTime.Day );
+			m_dialogueManager.Story.DB = SocialEngineController.Instance.DB;
 
 			StartStory();
 		}
@@ -259,6 +266,11 @@ namespace Academical
 					Storylet startStorylet = m_dialogueManager.Story.GetStorylet( "start" );
 					m_dialogueManager.RunStorylet( startStorylet );
 				}
+			}
+			else
+			{
+				//If we are loading from a save file, we replay the start-of-day narration for a player refresher.
+				TriggerDayIntroDialogue( m_simulationController.DateTime.Day );
 			}
 		}
 
@@ -428,11 +440,11 @@ namespace Academical
 			GameEvents.OnDayAdvanced?.Invoke( m_simulationController.DateTime.Day );
 
 			//Auto-start next day of content
-			TriggerNextDayDialogue( nextDayNum );
-			
+			TriggerDayIntroDialogue( nextDayNum );
+
 		}
 
-		private void TriggerNextDayDialogue(int dayNum)
+		private void TriggerDayIntroDialogue(int dayNum)
 		{
 			string storyletName = DateLabelConstants.GetStoryletForDayStart( dayNum );
 			if ( storyletName == null )
@@ -709,6 +721,7 @@ namespace Academical
 
 		public void NavigateToMainMenu()
 		{
+			DataPersistenceManager.ClearSaveData();
 			SceneManager.LoadScene( "Scenes/MainMenu" );
 		}
 
@@ -944,6 +957,12 @@ namespace Academical
 			return entryList.ToArray();
 		}
 
+		//Overloaded save game for default calls from button listeners.
+		public void SaveGame()
+		{
+			SaveGame( m_AutoSaveEnabled );
+		}
+
 		public void SaveGame(bool isAutoSave)
 		{
 			GameState gameState = GameStateManager.GetGameState();
@@ -959,7 +978,17 @@ namespace Academical
 			saveData.levelId = gameState.levelId;
 			saveData.currentDay = m_simulationController.DateTime.Day;
 			saveData.currentTimeOfDay = m_simulationController.DateTime.TimeOfDay.ToString();
-			saveData.currentLocationId = m_Player.Location.UniqueID;
+			//TODO: Hacky, should probably fix this by adding a "purgatory" location. For now, if a character hasn't been put in a spot yet, we'll slap undefined on there.
+			if ( m_Player.Location )
+			{
+				saveData.currentLocationId = m_Player.Location.UniqueID;
+			}
+			else
+			{
+				saveData.currentLocationId = "Undefined";
+			}
+
+
 			saveData.isAutoSave = isAutoSave;
 			saveData.totalPlaytime = (int)PlayTimeTracker.Instance.GetTotalPlayTime();
 			saveData.databaseEntries = SerializeDatabase();
@@ -997,12 +1026,12 @@ namespace Academical
 		{
 			if ( result.success )
 			{
-				NotificationManager.Instance.QueueNotification( "Game saved!" );
+				NotificationManager.Instance.QueueNotification( "Game Saved!" );
 			}
 			else
 			{
-				NotificationManager.Instance.QueueNotification( "Save failed: " + result.message );
-				Debug.LogError( "Save failed: " + result.message );
+				NotificationManager.Instance.QueueNotification( "Save Failed: " + result.message );
+				Debug.LogError( "Save Failed: " + result.message );
 			}
 		}
 	}

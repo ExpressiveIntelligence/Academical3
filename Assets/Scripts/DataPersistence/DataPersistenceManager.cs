@@ -66,6 +66,12 @@ namespace Academical
 			return manifest;
 		}
 
+		//We need to clear the persistence manager if we exit the game so we don't unintentionally overwrite saves.
+		public static void ClearSaveData()
+		{
+			SaveData = null;
+		}
+
 		/// <summary>
 		/// Saves game data to a save slot.
 		/// </summary>
