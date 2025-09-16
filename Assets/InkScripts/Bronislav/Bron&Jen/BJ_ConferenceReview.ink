@@ -1,47 +1,31 @@
-@ -1,655 +0,0 @@
 VAR badidea = false
 VAR thinking = false
-
-
 === BJ_CONF_Start ===
 #---
 # choiceLabel: Talk to Jensen
 # @query
 # date.day!4
+# Seen_BI_ReviewPeriod
 # @end
 # repeatable: false
 # tags: action, student_cubes, auxiliary 
 #===
 # Summary: Jensen checks in to see if he is on the paper 
 
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
+
+~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
+
+~BlowUp = DbAssert ("BI_Blowup")
+
+
 {ShowCharacter("Jensen", "left", "")}
 
 {DbInsert("Seen_BJS3")}
 
-// Check flags in the DB set in previous dialogue
-//~ temp acceptedDeal = DbAssert("IvyDealAccepted")
-//~ temp rejectedDeal = DbAssert("IvyDealRejected")
-//~ temp toldJensenYes = DbAssert("")
-
-//{
-    //if you accepted Ivy's deal and told Jensen no
-    //-acceptedDeal && !toldJensenYes:
-        //->BJS3_IyesJno
-    //if you accepted Ivy's deal and told Jensen yes
-    //-acceptedDeal && toldJensenYes:
-        //->BJS3_IyesJyes
-    //if you declined Ivy's deal and told Jensen yes
-    //-rejectedDeal && toldJensenYes:
-        //->BJS3_InoJyes
-    //if you declined Ivy's deal and told Jensen no
-    //- else:
-      //->BJS3_InoJno
-
-
-//->DONE 
 
 {IvyAcceptedOfficial: -> BJCR_accepted} 
-{IvyDeniedOfficial: -> BJCR_accepted} 
+{IvyDeniedOfficial: -> BJCR_denied} 
 {BlowUp: -> JensenGhosted} 
 
 ===BJCR_accepted===

@@ -1,3 +1,4 @@
+@ -1,181 +0,2 @@
 
 === BJ_CONF_IncludedStart ===
 # ---
@@ -177,3 +178,4 @@ He sighs and walks away.
 {HideCharacter("Jensen")}
 
 ->DONE
+

@@ -25,6 +25,8 @@ VAR SwitchingOpinionsAccept = false
 # tags: action, required, student_cubes
 # ===
 
+{DbInsert("Seen_BI_ReviewPeriod")}
+
 ~IvyDealAccepted = DbAssert("IvyDealAccepted")
 
 ~IvyDealConsidered = DbAssert("IvyDealConsidered")
