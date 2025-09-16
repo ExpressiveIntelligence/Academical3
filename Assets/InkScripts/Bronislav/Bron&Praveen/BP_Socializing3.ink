@@ -47,7 +47,7 @@ Praveen: "Oh, you know, the latest and greatest submitted for peer review. I swe
 *["Sure, maybe their wording is clunky, but is the content actually any good?"]
 ->BP_Socializing3_ContentActually
 
-*["Are you supposed to be sharing other people's stuff with me?"]
+*["Are you supposed to be sharing other people's stuff with me?" #>>ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_SharingPeerReview
 
 === BP_Socializing3_LetMeGuess ===
@@ -76,7 +76,7 @@ Praveen gives you a half hearted sneer.
 *["Okay sure, maybe their wording is clunky, but is the content actually any good?"]
 ->BP_Socializing3_ContentActually
 
-*["Are you supposed to be sharing peer review stuff with me?"]
+*["Are you supposed to be sharing peer review stuff with me?" #>>ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_SharingPeerReview
 
 === BP_Socializing3_ExceptforJensen ===
@@ -89,7 +89,7 @@ Praveen: "Really, Bronislav? Who am I kidding, of course you would say something
 *["Interesting choice in friends." #>>ChangeOpinion Praveen Bronislav ---]
 ->BP_Socializing3_InterestingChoice
 
-*["Sorry, I didn't know."]
+*["Sorry, I didn't know." #>>ChangeOpinion Praveen Bronislav +]
 ->BP_Socializing3_IDidntKnow
 
 === BP_Socializing3_ContentActually ===
@@ -128,7 +128,7 @@ Praveen: "This steaming pile of garbage is the lovely paper Hendricks assigned m
 *["Okay sure, maybe their wording is clunky, but is the content actually any good?"]
 ->BP_Socializing3_ContentActually
 
-*["Are you supposed to be sharing peer review stuff with me?"]
+*["Are you supposed to be sharing peer review stuff with me?" #>>ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_SharingPeerReview
 
 === BP_Socializing3_ProbsAFreshman ===
@@ -149,7 +149,7 @@ Praveen: "Just because I wanted to do this job doesn't mean I need to be happy a
 *["Okay sure, maybe their wording is clunky, but is the content actually any good?"]
 ->BP_Socializing3_ContentActually
 
-*["Are you supposed to be sharing peer review stuff with me?"]
+*["Are you supposed to be sharing peer review stuff with me?" #>>ChangeOpinion Praveen Bronislav -]
 ->BP_Socializing3_SharingPeerReview
 
 === BP_Socializing3_InterestingChoice ===
@@ -192,7 +192,7 @@ Praveen: "So the wording of this paper is a mess, we've established that. But in
 *["I'm not sure, I think there are rules against it."]
 ->BP_Socializing3_IThinkTheresRules
 
-*["You really shouldn't be sharing it."] 
+*["You really shouldn't be sharing it." #>>ChangeOpinion Praveen Bronislav +] 
 ->BP_Socializing3_YouShouldntBe
 
 === BP_Socializing3_YouShouldntBe ===
