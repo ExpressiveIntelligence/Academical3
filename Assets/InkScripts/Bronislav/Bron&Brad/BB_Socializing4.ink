@@ -286,11 +286,11 @@ As you begin to head out, you overhear Praveen talking with another student.
 
 {ShowCharacter("Praveen", "left", "")}
 
-Praveen: "...and you know, now I'm reviewing his work."
+Praveen: "...and you know, now I'm reviewing her work."
 
-Praveen: "It's honestly pretty garbage. He starts at one point and then jumps between twenty different topics before hardly returning to his original point. Such a long paper to say nothing at all."
+Praveen: "It's honestly pretty garbage. She starts at one point and then jumps between twenty different topics before hardly returning to his original point. Such a long paper to say nothing at all."
 
-Praveen: "But he did make a couple good points in some sections. I wasn't planning on giving a good review, so maybe I could take those points and write my own paper."
+Praveen: "But she did make a couple good points in some sections. I wasn't planning on giving a good review, so maybe I could take those points and write my own paper."
 
 Praveen: "But yeah it's overall going well. How about you? How's your work going?..."
 
