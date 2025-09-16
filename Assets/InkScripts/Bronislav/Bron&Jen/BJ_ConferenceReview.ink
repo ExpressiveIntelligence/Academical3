@@ -1,3 +1,4 @@
+@ -1,655 +0,0 @@
 VAR badidea = false
 VAR thinking = false
 
@@ -34,43 +35,30 @@ VAR thinking = false
         //->BJS3_InoJyes
     //if you declined Ivy's deal and told Jensen no
     //- else:
-      ->BJS3_InoJno
+      //->BJS3_InoJno
 
 
-->DONE 
+//->DONE 
 
-=== BJS3_IyesJno ===
-~ temp r = GetOpinionState("Jensen", "Bronislav")
-//if positive relationship
-{r == OpinionState.Good || r == OpinionState.Excellent:
-Jensen approaches you with a bit of excitement in his step.
+{IvyAcceptedOfficial: -> BJCR_accepted} 
+{IvyDeniedOfficial: -> BJCR_accepted} 
+{BlowUp: -> JensenGhosted} 
 
-Jensen: "Hey Bronislav, great to see you. If you have a second, there’s something I want to ask you."
-}
+===BJCR_accepted===
 
-//if netural relationship
-{r == OpinionState.Neutral:
-Jensen approaches you, looking slightly nervous.
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{JenOpinionSocial3 >= OpinionState.Good: -> GoodJensenBeginningAccepted} 
+{JenOpinionSocial3 >= OpinionState.Neutral && JenOpinionSocial3 < OpinionState.Good: -> NeutralJensenBeginningAccepted} 
+{JenOpinionSocial3 <= OpinionState.Neutral: -> BadJensenBeginningAccepted} 
 
-Jensen: "Hey Bronislav. If you have a second, there’s something I would like to ask you."
-}
-//if negative relationship
-{r == OpinionState.Terrible || r == OpinionState.Bad:
-Jensen looks over to you nervously, as though he is debating something. He appears to muster up the courage to talk to you.
 
-Jensen: "Hi Bronislav, I uh… would like to ask you something, if that’s okay."
-}
-*["Sure, what's up? #>> ChangeOpinion Jensen Bronislav ++]
+===BJCR_denied===
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{JenOpinionSocial3 >= OpinionState.Good: -> GoodJensenBeginningDenied} 
+{JenOpinionSocial3 >= OpinionState.Neutral && JenOpinionSocial3 < OpinionState.Good: -> NeutralJensenBeginningDenied} 
+{JenOpinionSocial3 <= OpinionState.Neutral: -> BadJensenBeginningDenied} 
 
-->BJS3_SureWhat
 
-*["Yeah, I guess."]
-
-->BJS3_YeahIG
-
-*["I'm kind of busy, actually." #>> ChangeOpinion Jensen Bronislav --]
-
-->BJS3_KindaBusy
 
 === BJS3_SureWhat ===
 Bronislav: "Sure, what’s up?" You prompt back, with a smile.
@@ -361,10 +349,7 @@ Jensen hangs his head, utterly ashamed, and leaves as quickly as he can. You are
 // TODO: LOCK GOOD TIMELINE
 ->DONE
 
-=== BJS3_IyesJyes ===
-~ temp r = GetOpinionState("Jensen", "Bronislav")
-//if positive relationship
-{r == OpinionState.Good || r == OpinionState.Excellent:
+=== GoodJensenBeginningAccepted ===
 Jensen approaches you with a bright smile.
 
 Jensen: "Hey Bronislav, just checking in! You put me as co-author, right?"
@@ -382,10 +367,10 @@ Jensen: "Hey Bronislav, just checking in! You put me as co-author, right?"
 *["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
-}
 
-//if netural relationship
-{r == OpinionState.Neutral:
+
+===NeutralJensenBeginningAccepted===
+
 Jensen sees you in the distance and starts walking over to your table.
 
 Jensen: "Bronislav! Glad I caught up with you, I just had some questions about the paper."
@@ -403,10 +388,9 @@ Jensen: "Bronislav! Glad I caught up with you, I just had some questions about t
 *["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
-}
 
-//if negative relationship
-{r == OpinionState.Terrible || r == OpinionState.Bad:
+
+===BadJensenBeginningAccepted===
 Jensen walks up to you tightly clutching one of his bag's shoulder straps.
 
 Jensen: "Hey Bronislav, I still have co-authorship... right?"
@@ -424,7 +408,7 @@ Jensen: "Hey Bronislav, I still have co-authorship... right?"
 *["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
 // Jensen: Ashamed
 ->BJS3_MayHaveReconsidered
-}
+
 
 === BJS3_OfCourse ===
 Bronislav: "Of course Jensen!"
@@ -554,93 +538,46 @@ Bronislav: "Jensen, be honest with yourself and people that you work with and yo
 
 ->DONE
 
-=== BJS3_InoJyes ===
-~ temp r = GetOpinionState("Jensen", "Bronislav")
-//if positive relationship
-{r == OpinionState.Good || r == OpinionState.Excellent:
-Jensen approaches you with a bright smile.
-
-Jensen: "Hey Bronislav, just checking in! You put me as co-author, right? Ivy mentioned you told her that you weren't interested in having me, but I know you said before that you did so I just want to make sure that you still want to add me."
-
-*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
-// Jensen: Hopeful
-// Bronislav: Bad Advisor
-->BJS3_OfCourse
-
-*["I don't see why not."]
-// Jensen: Hopeful
-// Bronislav: Bad Advisor
-->BJS3_DontSeeWhyNot
-
-*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
-// Jensen: Ashamed
-->BJS3_MayHaveReconsidered
-}
-
-//if netural relationship
-{r == OpinionState.Neutral:
-Jensen sees you in the distance and starts walking over to your table.
-
-Jensen: "Bronislav! Glad I caught up with you, I just had some questions about the paper. Ivy mentioned that you told her something different than me about having me on the paper, so I just want to double check that you do want to have me still."
-
-*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
-// Jensen: Hopeful
-// Bronislav: Bad Advisor
-->BJS3_OfCourse
-
-*["I don't see why not."]
-// Jensen: Hopeful
-// Bronislav: Bad Advisor
-->BJS3_DontSeeWhyNot
-
-*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
-// Jensen: Ashamed
-->BJS3_MayHaveReconsidered
-}
-
-//if negative relationship
-{r == OpinionState.Terrible || r == OpinionState.Bad:
-Jensen walks up to you tightly clutching one of his bag's shoulder straps.
-
-Jensen: "Hey Bronislav, I still have co-authorship... right? Ivy told me you told her you weren't interested in having me on the paper, so now I am really confused, do you still plan on adding me?"
-
-*["Of course!" #>> ChangeOpinion Jensen Bronislav ++]
-// Jensen: Hopeful
-// Bronislav: Bad Advisor
-->BJS3_OfCourse
-
-*["I don't see why not."]
-// Jensen: Hopeful
-// Bronislav: Bad Advisor
-->BJS3_DontSeeWhyNot
-
-*["I may have reconsidered." #>> ChangeOpinion Jensen Bronislav --]
-// Jensen: Ashamed
-->BJS3_MayHaveReconsidered
-}
-
-===BJS3_InoJno===
-~ temp r = GetOpinionState("Jensen", "Bronislav")
-//if positive relationship
-{r == OpinionState.Good || r == OpinionState.Excellent:
+===GoodJensenBeginningDenied===
 Jensen approaches you with a bit of excitement in his step.
 
 Jensen: "Hey Bronislav, great to see you. If you have a second, there’s something I want to ask you."
-}
 
-//if netural relationship
-{r == OpinionState.Neutral:
+*["Sure, what's up? #>> ChangeOpinion Jensen Bronislav ++]
+
+->BJS3_SureWhat
+
+*["Yeah, I guess."]
+
+->BJS3_YeahIG
+
+*["I'm kind of busy, actually." #>> ChangeOpinion Jensen Bronislav --]
+
+->BJS3_KindaBusy
+
+===NeutralJensenBeginningDenied===
+
 Jensen approaches you, looking slightly nervous.
 
 Jensen: "Hey Bronislav. If you have a second, there’s something I would like to ask you."
-}
+*["Sure, what's up? #>> ChangeOpinion Jensen Bronislav ++]
 
-//if negative relationship
-{r == OpinionState.Terrible || r == OpinionState.Bad:
+->BJS3_SureWhat
+
+*["Yeah, I guess."]
+
+->BJS3_YeahIG
+
+*["I'm kind of busy, actually." #>> ChangeOpinion Jensen Bronislav --]
+
+->BJS3_KindaBusy
+
+=== BadJensenBeginningDenied===
+
 Jensen looks over to you nervously, as though he is debating something. He appears to muster up the courage to talk to you.
 
 Jensen: "Hi Bronislav, I uh… would like to ask you something, if that’s okay."
-}
+
 
 *["Sure, what's up? #>> ChangeOpinion Jensen Bronislav ++]
 

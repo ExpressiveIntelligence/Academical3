@@ -1,5 +1,4 @@
 VAR withdrew = false
-VAR HappyBrad = true
 
 === BB_Conference_SceneStart ===
 # ---
@@ -21,8 +20,8 @@ VAR HappyBrad = true
 
 ==HappyBrad==
 
-{Withdrew: -> withdraw}
-{not Withdrew: -> noWithdraw}
+{withdrew: -> withdraw}
+{not withdrew: ->notWithdraw}
 
 =withdraw
 You sit down and watch an interesting talk. It finishes and you get up to go talk to other people. To your surprise, you see Brad there. He also notices you and walks up.
@@ -43,7 +42,7 @@ Brad: "Bronislav! Just the guy I wanted to see."
 =notWithdraw 
 After the talk, you roam around to chat with other people, and are surprised to see Brad there. You don't see Ned with him and he awkwardly glances at you, takes a deep breath and slowly approaches you.
 
-{ShowCharacter("Brad")}
+{ShowCharacter("Brad", "left", "")}
 Brad: "Hey Bronislav..."
 
 *["You withdrew right?"]
@@ -57,8 +56,8 @@ Brad: "Hey Bronislav..."
 
 ==UpsetBrad==
 
-{Withdrew: -> withdraw}
-{not Withdrew: -> noWithdraw}
+{withdrew: -> withdraw}
+{not withdrew: ->notWithdraw}
 
 //{HappyBrad && !withdrew: //didnt tell him, good relationship
 

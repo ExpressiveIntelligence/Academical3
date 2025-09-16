@@ -79,7 +79,7 @@ Ned: "Hello Bronislav, have a seat. How are you today?"
             
             {IvyDeniedOfficial: Ned: "...but I'm proud of you for making the right choice, so thank you."}
             
-            {IvyAcceptedOfficial: Ned: "...but know that people understand why you made that choice." 
+            {IvyAcceptedOfficial: Ned: "...but know that people understand why you made that choice." }
             
             You give a small nod.
             

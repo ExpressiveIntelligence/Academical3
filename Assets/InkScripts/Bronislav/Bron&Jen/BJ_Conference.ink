@@ -1,3 +1,4 @@
+
 === BJ_CONF_IncludedStart ===
 # ---
 # choiceLabel: Talk to Jensen
@@ -12,7 +13,70 @@
 
 {ShowCharacter("Jensen", "left", "")}
 
+
 {DbInsert("Seen_BJ_CONF")}
+
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
+
+~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
+
+~SwitchingOpinionsReject = DbAssert("BI_SwitchingOpinions_Reject")
+
+~SwitchingOpinionsAccept = DbAssert("BI_SwitchingOpinions_Accept")
+
+~BlowUp = DbAssert ("BI_Blowup")
+
+{IvyAcceptedOfficial: -> JensenDealAccepted} 
+{IvyDeniedOfficial: -> JensenDealDenied} 
+{BlowUp: -> JensenIgnore} 
+
+===JensenIgnore===
+
+You wave at Jensen and make eye contact. 
+
+~ temp jensenOpinion = GetOpinionState("Jensen", "Bronislav")
+{jensenOpinion >= OpinionState.Good: -> goodBlowUp} 
+{jensenOpinion >= OpinionState.Neutral && jensenOpinion < OpinionState.Good: -> goodBlowUp} 
+{jensenOpinion < OpinionState.Neutral: -> badBlowUp} 
+
+=goodBlowUp
+Jensen: "Hey." 
+
+Bronislav: "Hey, how's the conference going?" 
+
+Jensen: "Fine...I guess." 
+
+Bronislav: "Is something wrong?" 
+
+Jensen: "Yeah something's wrong! You were so mean to my aunt the other day, I can't believe you." 
+
+Bronislav: "Jensen, I was just defending myse-" 
+
+Jensen: "I don't want to hear it. You've been so nice to me and all of the sudden you embarass my family memeber by accusing her of doing something so awful." 
+
+*["Jensen please listen to me." #>> ChangeOpinion Ivy Bronislav ----] 
+
+Jensen: "Leave me alone." 
+
+{HideCharacter("Jensen")}
+
+->DONE
+
+=badBlowUp
+
+Bronislav: "Hey." 
+
+Jensen: "Get away from me. I know what you said to my aunt, accusing her of something so awful." 
+
+Bronislav: "Woah hey, I know Ivy and I got into a heated conversation but-" 
+
+Jensen: "I don't want to hear it." 
+
+{HideCharacter("Jensen")}
+
+->DONE
+
+===JensenDealAccepted===
 
 You find Jensen on the phone with someone so you wait until he's done with the call.
 
@@ -61,7 +125,7 @@ He gives you a jokey salute, giggles a bit, then goes back to looking at his lap
 
 -> DONE
 
-=== BJ_CONF_UnincludedStart ===
+=== JensenDealDenied ===
 You find Jensen on the phone with someone so you wait to reveal yourself until he's done with the call.
 
 Jensen: "I appreciate the effort Ivy..."

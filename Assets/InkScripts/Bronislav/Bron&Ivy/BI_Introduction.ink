@@ -80,7 +80,7 @@ Ivy: "Do you have some reservations about Jensen?"
 *{talkedWithBradAboutJensen} ["I talked with Brad about Jensen." #>> ChangeOpinion Ivy Bronislav ---]
     ->IvySpite
     
-*[It's not me who has reservations...] -> BradExpositionLoop
+*{not talkedWithBradAboutJensen}[It's not me who has reservations...] -> BradExpositionLoop
 
 *["It's just too soon." #>> ChangeOpinion Ivy Bronislav -]
     ->TooSoon

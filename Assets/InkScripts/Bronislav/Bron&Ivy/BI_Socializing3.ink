@@ -4,6 +4,7 @@
 #VAR IvyDealDenied = false
 #VAR SwitchingOpinionsReject = false 
 #VAR SwitchingOpinionsAccept = false
+VAR JensenCrying = false
 #===
 // NOTE: CURRENT DEFAULT IS BRONISLAV WAS RECEPTIVE OF IVY'S DEAL
 
@@ -11,7 +12,7 @@
 # ---
 # choiceLabel: Go to your desk.
 # @query
-# Seen_BI_CONF
+# Seen_BJS3
 # date.day!3
 # @end
 # hidden: true
@@ -30,6 +31,9 @@
 
 ~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
 
+~JensenCrying = DbAssert("Jensen_Cry")
+
+{ShowCharacter("Ivy", "left", "")}
 
 As you walk towards your desk, you notice that Ivy steps into your path.
 
@@ -216,9 +220,12 @@ Ivy: "What I'm trying to say is that I think you should defintiely put Jensen on
 
 Bronislav: "Alright, I'll have to see. I've got some work I have to do now, but it was nice chatting."
 
+{JensenCrying: -> BI_Social3_CryingJensen}
+
 Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
+'
 
 {HideCharacter("Ivy")}
 {DbInsert("Seen_BI_Socializing3")}
@@ -235,6 +242,8 @@ Bronislav: "I just don't know Ivy."
 Ivy: "Well, you don't have to be sure just yet, but at least tell me you'll consider it."
 
 Bronislav: "Okay, I will. Now, I've got some work I have to do, but it was nice chatting."
+
+{JensenCrying: -> BI_Social3_CryingJensen}
 
 You move to sit down, and Ivy gets out of your way.
 
@@ -258,6 +267,8 @@ Bronislav: "Just give me some time to think about all this. I've got some work t
 
 Ivy: "Okay, no problem, I'll leave you to it. Just please think about it, because it could really help you both."
 
+{JensenCrying: -> BI_Social3_CryingJensen}
+
 Ivy leaves you to your work.
 
 {HideCharacter("Ivy")}
@@ -277,6 +288,8 @@ Ivy: "Okay, well, can I ask you to at least consider the more than generous offe
 Bronislav: "Okay, it's being considered. Now I have some work that I actually need to do, so can I use my desk please?"
 
 Ivy: "Mature, Bronislav, really mature."
+
+{JensenCrying: -> BI_Social3_CryingJensen}
 
 She shoots you an annoyed look as she walks past you out of the room.
 
@@ -299,6 +312,8 @@ Ivy: "Yeah, what I'm trying to say here is that I think you should defintiely pu
 
 Bronislav: "Alright, I'll have to see. I've got some work I have to do now, but it was nice chatting."
 
+{JensenCrying: -> BI_Social3_CryingJensen}
+
 Ivy: "Of course, I'll leave you to it."
 
 Ivy leaves with a pep in her step.
@@ -318,6 +333,8 @@ Bronislav: "Yeah, I guess so. I'll have to see about helping Jensen."
 You move to sit down at your desk.
 
 Bronislav: "I've got some work to do for now, but it was nice chatting."
+
+{JensenCrying: -> BI_Social3_CryingJensen}
 
 Ivy: "Of course, I'll leave you to it."
 
@@ -339,6 +356,8 @@ Ivy: "You are a reasonable person Bronislav, and its easy to do the right thing 
 
 Bronislav: "Okay, I will, but right now I've got some work to do."
 
+{JensenCrying: -> BI_Social3_CryingJensen}
+
 Ivy nods politely.
 
 Ivy:"Of course, I'll leave you to it."
@@ -355,7 +374,58 @@ Ivy: "All I was going to say was that I thought about our conversation earlier, 
 
 Ivy: "But clearly, you're more invested in whatever work is waiting for you at your desk, so I'll leave you to it. You're lucky Jensen needs my help, because it is ridiculous for you to treat me like this."
 
+{JensenCrying: -> BI_Social3_CryingJensen}
+
 Ivy walks out of the office before you can say anything else.
+
+{HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
+
+->DONE
+
+===BI_Social3_CryingJensen===
+Ivy: "By the way, I got a text from Jensen telling me that you told him you hate him? Or embarassed him in the cafe? What's that about?" 
+
+*["Yeah I said I didn't like him." #>> ChangeOpinion Ivy Bronislav ---] ->didntLikeHim
+*["That's being blown out of proportion." #>> ChangeOpinion Ivy Bronislav -] -> outOfProportion
+*["I'm sorry."  #>> ChangeOpinion Ivy Bronislav +] ->Apologize 
+
+==didntLikeHim==
+
+Bronislav: "Yeah I told him I didn't like him because I don't. He's been pestering me  for weeks now." 
+
+Ivy: "Well that was pretty rude because he's been crying in the bathroom." 
+
+Bronislav: "Well I'm not going to apologize for being honest." 
+
+Ivy: "Ok...I see how it is." 
+
+Ivy: "I need to go, but I'll see you around." 
+
+{HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
+
+->DONE
+
+==outOfProportion==
+
+Bronislav: "Woah, that's been blown way out of proportion. I said I didn't like him because I was stressed out and was feeling alot of pressure, but I didn't cause a scene or say I hate him." 
+
+Ivy: "I see..." 
+
+Ivy: "Well I need to go, but I'll see you around." 
+
+{HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
+
+->DONE
+
+==Apologize==
+Bronislav: "I'm sorry I didn't mean to hurt his feelings, please tell him I apologize" 
+
+Ivy: "Ok, I will." 
+
+Ivy: "Well I need to go, but I'll see you around." 
 
 {HideCharacter("Ivy")}
 {DbInsert("Seen_BI_Socializing3")}
