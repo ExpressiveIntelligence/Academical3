@@ -59,10 +59,6 @@ Bronislav: "Hey Ivy."
 {SwitchingOpinionsAccept: ->HelpJensen}
 
 // if you weren't receptive
-{IvyDealDenied | SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
-
-{IvyDealDenied: }
-{SwitchingOpinionsReject: }
 
 {IvyDealDenied: Ivy smiles, a bit surprised.}
 {SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
@@ -71,6 +67,7 @@ Bronislav: "Hey Ivy."
 {SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
 
 {IvyDealDenied: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
+
 {SwitchingOpinionsReject: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
 
 {IvyDealDenied: ->HelpJensen}
@@ -154,15 +151,22 @@ You try to deliberately move around her to your desk.
 {SwitchingOpinionsAccept: Ivy: ->SoCold}
 
 // if you weren't receptive
-{IvyDealDenied | SwitchingOpinionsReject:Ivy looks annoyed.}
+{IvyDealDenied: Ivy looks annoyed.}
+{SwitchingOpinionsReject: Ivy looks annoyed.}
 
-{IvyDealDenied | SwitchingOpinionsReject:Ivy: "Real mature Bronislav."}
+{IvyDealDenied: Ivy: "Real mature Bronislav."}
+{SwitchingOpinionsReject: Ivy: "Real mature Bronislav."}
 
-{IvyDealDenied | SwitchingOpinionsReject:Bronislav: "I'm just trying to go to my desk."}
+{IvyDealDenied: Bronislav: "I'm just trying to go to my desk."}
+{SwitchingOpinionsReject: Bronislav: "I'm just trying to go to my desk."}
 
-{IvyDealDenied | SwitchingOpinionsReject:Ivy: "Yeah, well I'm just trying to talk to you. I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
+{IvyDealDenied: Ivy: "Yeah, well I'm just trying to talk to you. I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
 
-{IvyDealDenied | SwitchingOpinionsReject:->WhyShouldIHelp}
+{SwitchingOpinionsReject: Ivy: "Yeah, well I'm just trying to talk to you. I know I kind of caught you off guard with our conversation earlier, but I thought about it bit more, and I thought of another reason why you should help Jensen."}
+
+{IvyDealDenied: -> WhyShouldIHelp}
+
+{SwitchingOpinionsReject: -> WhyShouldIHelp}
 
 
 === SoCold ===
@@ -217,6 +221,7 @@ Ivy: "Of course, I'll leave you to it."
 Ivy leaves with a pep in her step.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE
 
@@ -238,6 +243,7 @@ Ivy: "Of course, I'll leave you to it."
 Ivy turns and leaves the room.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE
 
@@ -255,6 +261,7 @@ Ivy: "Okay, no problem, I'll leave you to it. Just please think about it, becaus
 Ivy leaves you to your work.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE
 
@@ -274,6 +281,7 @@ Ivy: "Mature, Bronislav, really mature."
 She shoots you an annoyed look as she walks past you out of the room.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE
 
@@ -296,6 +304,7 @@ Ivy: "Of course, I'll leave you to it."
 Ivy leaves with a pep in her step.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE
 
@@ -315,6 +324,7 @@ Ivy: "Of course, I'll leave you to it."
 Ivy leaves with a pep in her step.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE
 
@@ -336,6 +346,7 @@ Ivy:"Of course, I'll leave you to it."
 She heads out of the office.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE
 
@@ -347,5 +358,6 @@ Ivy: "But clearly, you're more invested in whatever work is waiting for you at y
 Ivy walks out of the office before you can say anything else.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing3")}
 
 ->DONE

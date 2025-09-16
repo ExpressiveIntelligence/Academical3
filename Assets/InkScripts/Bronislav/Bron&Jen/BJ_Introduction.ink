@@ -56,13 +56,15 @@ Ivy: "...Ahem, oops! I meant to say undergrad mentee. Sorry about that! Anyways,
 
 <i>(You can learn more about any character using the "Characters" button at the top of the screen.)</i>
 
-The room clears out. A final person, likely an undergrad, approaches you nervously.
+The room clears out. A final person, an undergrad, approaches you nervously.
 
 Jensen: "Bronislav, right? Nice to meet you. I'm Jensen." {ShowCharacter("Jensen", "left", "")}
 
 {DbInsert("metJensen")}
 
 He extends his hand for you to shake.
+
+You've heard of Jensen before, but have never met him face-to-face. 
 
 *[Shake his hand.] Bronislav: "Nice to meet you too, Jensen."
     ->BJIntro_ShakeHand
@@ -82,8 +84,6 @@ Jensen: "I liked how you presented your information for the first half, but I be
 
 Jensen: "I also thought that you could have presented your evidence better, and had a stronger conclusion."
 
-{GetOpinionState("Brad", "Bronislav")}
-
 *["Yes, of course." #>> ChangeOpinion Jensen Bronislav ++]
     ->BJIntro_WriteDown
 
@@ -97,11 +97,7 @@ Jensen: "I also thought that you could have presented your evidence better, and 
 {ShowCharacter("Jensen", "left", "hopeful")}
 Bronislav: "Yes, of course. Thanks for letting me know."
 
-{GetOpinionState("Brad", "Bronislav")}
-
 You write down his feedback in your notebook. He smiles happily, and walks off.
-
-
 
 {HideCharacter("Jensen")}
 

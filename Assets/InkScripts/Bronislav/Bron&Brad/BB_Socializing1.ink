@@ -358,7 +358,7 @@ Bronislav: "Of course Brad. Anytime."
 Brad started packing up his things, but then looks back toward you.
 
 ~temp r = GetOpinion("Brad", "Bronislav")
-{r >= OpinionState.Good: -> BB_S1_JensenGossip} 
+{r >= OpinionState.Neutral: -> BB_S1_JensenGossip} 
 
 ->BB_S1_GoodByeOfc
 
@@ -378,8 +378,8 @@ Bronislav: "Glad I could help with that Brad."
 Brad smiles.
 
 ~temp r = GetOpinionState("Brad", "Bronislav")
-{r >= OpinionState.Good: -> BB_S1_JensenGossip} 
-{r <= OpinionState.Good: -> BB_S1_GoodByeGlad}
+{r >= OpinionState.Neutral: -> BB_S1_JensenGossip} 
+{r <= OpinionState.Neutral: -> BB_S1_GoodByeGlad}
 
 =BB_S1_GoodByeGlad
 
@@ -396,8 +396,8 @@ Bronislav: "I hope so too Brad."
 Brad started packing up his things, but then looks back toward you.
 
 ~temp r = GetOpinionState("Brad", "Bronislav")
-{r >= OpinionState.Good: -> BB_S1_JensenGossip} 
-{r <= OpinionState.Good: -> BB_S1_GoodbyeHope}
+{r >= OpinionState.Neutral: -> BB_S1_JensenGossip} 
+{r <= OpinionState.Neutral: -> BB_S1_GoodbyeHope}
 
 =BB_S1_GoodbyeHope
 
@@ -414,8 +414,8 @@ Brad: "Keep your fingers crossed they get back to me today. I've got to thead ba
 Bronislav: "Agreed. Never soon enough."
 
 ~temp r = GetOpinionState("Brad", "Bronislav")
-{r >= OpinionState.Good: -> BB_S1_JensenGossip} 
-{r <= OpinionState.Good: -> BB_S1_GoodByeAgreed}
+{r >= OpinionState.Neutral: -> BB_S1_JensenGossip} 
+{r <= OpinionState.Neutral: -> BB_S1_GoodByeAgreed}
 
 =BB_S1_GoodByeAgreed
 

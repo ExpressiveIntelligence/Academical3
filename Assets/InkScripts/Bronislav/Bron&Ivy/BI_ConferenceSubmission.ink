@@ -3,7 +3,7 @@ VAR IvyDealConsidered = false
 VAR IvyDealDenied = false
 === BI_CONFERENCE_SceneStart ===
 # ---
-# choiceLabel: Talk with Ivy about the deal.
+# choiceLabel: Talk with Ivy about the deal
 # hidden: true
 # @query
 # Seen_BI_IRB
@@ -27,32 +27,31 @@ VAR IvyDealDenied = false
 
 ~IvyDealDenied = DbAssert ("IvyDealDenied") 
 
-//~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+~ temp ivyOpinionCSD = GetOpinionState("Ivy", "Bronislav")
+{ivyOpinionCSD >= OpinionState.Neutral: -> IvyCSDGoodBegining} 
+{ivyOpinionCSD < OpinionState.Neutral: -> IvyCSDBadBeginning} 
 
-//{
-    //- ivyOpinion >= OpinionState.Neutral:
-
-        {IvyDealAccepted: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
+=IvyCSDGoodBegining
+    {IvyDealAccepted: Ivy: "Hey Bronislav, last time we talked you were really helpful with Jensen. I want to make sure you follow through on that, so I've got an offer for you."}
         
-        {IvyDealConsidered: Ivy: "Hey Bronislav, last time we talked you seemed on the fence with Jensen's authorship, so I've got an offer for you."}
+    {IvyDealConsidered: Ivy: "Hey Bronislav, last time we talked you seemed on the fence with Jensen's authorship, so I've got an offer for you."}
 
-        {IvyDealConsidered: Ivy: "If you put Jensen on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+    {IvyDealConsidered: Ivy: "If you put Jensen on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
         
-        {IvyDealAccepted: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+    {IvyDealAccepted: Ivy: "If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
         
-        {IvyDealDenied: Ivy: "Hey Bronislav, I know you weren't too keen on putting Jensen on the paper, but I've got an offer for you. If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
-        -> BI_InternalReflectionChoices
+    {IvyDealDenied: Ivy: "Hey Bronislav, I know you weren't too keen on putting Jensen on the paper, but I've got an offer for you. If you put Jensen as first author on the paper, I'll recommend you to the firm and see about getting my uncle to meet you."}
+    -> BI_InternalReflectionChoices
 
-    //- else:
+  =IvyCSDBadBeginning
 
-        //Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed about Jensen."
+    Ivy: "Hey, Bronislav. I know you were not having it last time when we discussed about Jensen."
 
-        //She looks dejected.
+    She looks dejected.
 
-        //Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you that job. Any thoughts?"
+    Ivy: "So, this time around, I've got a deal for you. You put Jensen on the paper, and I'll see about getting you that job. Any thoughts?"
 
-        //-> BI_InternalReflectionChoices
-//}
+    -> BI_InternalReflectionChoices
 
 = BI_InternalReflectionChoices
 
@@ -71,12 +70,14 @@ All he gave was that one piece of feedback, is that enough to be put as first au
         
 ==ChoiceOptionsForDeal==
 
-//~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+{ivyOpinion >= OpinionState.Good: -> DealGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> DealNeutral} 
+{ivyOpinion < OpinionState.Neutral: -> DealBad} 
 
-//{
 
- //- ivyOpinion >= OpinionState.Good:
 
+=DealGood
     *{IvyDealAccepted} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
     
     *{IvyDealConsidered}["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
@@ -92,32 +93,32 @@ All he gave was that one piece of feedback, is that enough to be put as first au
         ->ImNotSure
   
 
- //- ivyOpinion >= OpinionState.Neutral:
+=DealNeutral
+    *{IvyDealAccepted} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+    
+    *{IvyDealConsidered}["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+    
+    *{IvyDealDenied} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ++++] -> ChangedMyMindAccept
+    
+    *{IvyDealDenied}["That's really helpful...maybe"  #>> ChangeOpinion Ivy Bronislav ++++] ->ThatsReallyHelpful
 
-    //*{not IvyDealConsidered}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
-        ->ThatsReallyHelpful
+    *{IvyDealConsidered}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++] ->YouSure
 
-    //*{not IvyDealConsidered}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++]
-        ->YouSure
-
-    //*{not IvyDealConsidered}[I'm not sure about this]
-        ->ImNotSure
+    *{IvyDealDenied}[I'm not sure about this] ->ImNotSure
         
- //- else:
+=DealBad
 
-    //*["I'm sorry about what I said." #>> ChangeOpinion Ivy Bronislav ++] ->SorryAbtThat
+    *["Maybe I will...also I'm sorry." #>> ChangeOpinion Ivy Bronislav ++] ->SorryAbtThat
 
-    //*["That won't help."]->ThatWontHelp
+    *["That won't help."]->ThatWontHelp
 
-    //*["No way." #>> ChangeOpinion Ivy Bronislav --] ->NoWay
-  
- //}
+    *["No way." #>> ChangeOpinion Ivy Bronislav --] ->NoWay
  
  ===ChangedMyMindReject===
  {DbInsert("BI_SwitchingOpinions")}
 Bronislav: "I'm actually not comfortable with this. I don't feel as though Jensen's feedback is enough, and with a generous offer from you on the table like this, I think it would be too risky for the both of us."
 
-Ivy: "Aw, c'mon Bronislav, you know how hard it is to get into grad school."
+Ivy: "Aw, c'mon Bronislav, you seemed interested. Plus, you know how hard it is to get into grad school."
 
 Ivy sighs.
 
@@ -140,8 +141,11 @@ Ivy starts to smile, relieved by this turn of events.
 Ivy: "Yeah, back then it was a struggle getting onto papers, and I feel like Jensen needs the help. Thank you for thinking it over, Bronislav, I've got to go."
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_CONF")}
 
 ->BHS3_Hint -> DONE
+
+
 
 =ItsHardBut
 Bronislav: "It is hard, but I feel like Jensen really just isn't going to hold up to review. His feedback was basic, we'd get caught..."
@@ -153,6 +157,7 @@ Ivy: "Look, if you pull this off, I'll give you that recommendation. You and I k
 She walks off with a huff.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_CONF")}
 
 ->BHS3_Hint-> DONE
 
@@ -170,6 +175,7 @@ Ivy sighs, shaking her head.
 Ivy turns away, heading out.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_CONF")}
 
 ->BHS3_Hint-> DONE
 
@@ -180,6 +186,7 @@ Bronislav: "I actually wanted to change my mind. I'm heavily considering taking 
 Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!" 
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_CONF")}
 
 ->BHS3_Hint-> DONE
 
@@ -195,6 +202,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
     Ivy walks off with a pleased pep in her step.
 
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_CONF")}
 
     ->BHS3_Hint-> DONE
 
@@ -210,6 +218,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
     Ivy walks off with a pleased pep in her step.
 
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_CONF")}
 
     ->BHS3_Hint-> DONE
 
@@ -228,6 +237,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
     Ivy waves goodbye, taking her leave briskly.
 
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_CONF")}
 
     ->BHS3_Hint-> DONE
         
@@ -246,6 +256,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
     Ivy walks away, not even waving goodbye.
 
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_CONF")}
 
     ->BHS3_Hint-> DONE
 
@@ -280,10 +291,11 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
     Ivy leaves wordlessly.
 
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_CONF")}
 
     ->BHS3_Hint-> DONE
 
  
 
 
-}
+

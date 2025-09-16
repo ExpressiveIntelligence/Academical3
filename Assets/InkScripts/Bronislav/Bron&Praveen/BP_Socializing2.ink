@@ -22,7 +22,7 @@ VAR BP_S2_AskDirectly = false
 
 {DbInsert("Seen_BP_Socializing2")}
 
-You notice your friend Praveen working at his desk in the lab and decide to talk to him. It's been a while since you two have talked.
+You notice your friend Praveen working at his desk and decide to talk to him. It's been a while since you two have hung out.
 
 Bronislav: "Hey Praveen, what are you working on?"
 

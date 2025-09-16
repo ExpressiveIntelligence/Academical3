@@ -10,12 +10,16 @@
 # ===
 # Summary: Brad confides in Bronislav about using pre-IRB data
 
-After submitting your paper you sit down and try to finally get a second of rest. You look around the room and see Brad across the room.
+{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
+You sit down and try to finally get a second of rest, but see Brad across the room.
 
 {ShowCharacter("Brad", "left", "")}
 
-~temp r = GetOpinionState("Brad", "Bronislav")
-{r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
+~temp BradBrushOff = GetOpinionState("Brad", "Bronislav")
+{BradBrushOff <= OpinionState.Neutral: -> BB_CSD_BrushOff}
+{BradBrushOff > OpinionState.Neutral: -> BB_CSD_Normal}
+
+=BB_CSD_BrushOff
 
 You wave at Brad to get his attention. 
 
@@ -26,9 +30,8 @@ Maybe he's upset and not in the mood to talk.
 {HideCharacter("Brad")}
 
 ->DONE
-}
 
-{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
+===BB_CSD_Normal===
 
 Brad: "Hey Bronislav. Nice to see you! How've you been?" 
 
@@ -204,7 +207,7 @@ Brad thinks for a moment.
 
 Brad: "I probably should, but I don't want to waste all the research I did. I'll think on it."
 
-*["Should do it soon."  #>> ChangeOpinion Brad Bronislav -]
+*["You should do it soon."  #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_ShouldDoItSoon
 
 *["Definitely think on it."]
