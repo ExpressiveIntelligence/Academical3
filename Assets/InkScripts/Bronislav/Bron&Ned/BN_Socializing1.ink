@@ -3,6 +3,7 @@
 # choiceLabel: Meet with Ned.
 # @query
 # Seen_BJ_INTRO
+# Seen_BBS1
 # date.day!1
 # @end
 # hidden: true
@@ -14,7 +15,7 @@
 
 {ShowCharacter("Ned", "left", "")}
 
-While walking through the library searching for a quiet place to work, you notice your adviser Ned looking through the shelves.
+While walking through the library searching for a quiet place to work, you notice a department adviser, Ned, looking through the shelves.
 
 Bronislav: "Good afternoon Professor!"
 
@@ -42,7 +43,7 @@ Ned: "Oh hello there Bronislav, good to see you! How have you been?""
     Ned: "It's been pretty busy, but going relatively well, currently Brad is waiting on IRB approval."
     **["That's exciting."]->BNS1_ThatsExciting
     **["Has it been long?"]->BNS1_HasItBeenLong
-*[Shrug shoulders]
+*["Could be better"]
     Bronislav: "Eh, it could be going better, just a bit of work is all."
 
     Ned: "I'm sorry to hear that."
@@ -62,9 +63,9 @@ Ned: "Oh hello there Bronislav, good to see you! How have you been?""
     
     
 == BNS1_ThatsExciting ==
-Bronislav: "That's exciting news, my paper is almost ready for IRB review! How's it going?"
+Bronislav: "That's exciting news, my study is almost ready for review!"
 
-Ned: "Well, Brad can be a little impatient, but it usually takes a while for IRB approval to go through."
+Ned: "That's nice! Seems like you're keeping busy too. I know Brad can be a little impatient, but it usually takes a while for IRB approval to go through."
 
 Bronislav: "Yeah that makes sense."
 
