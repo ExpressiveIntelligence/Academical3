@@ -1,3 +1,4 @@
+@ -1,301 +0,0 @@
 VAR IvyDealAccepted = false 
 VAR IvyDealConsidered = false
 VAR IvyDealDenied = false

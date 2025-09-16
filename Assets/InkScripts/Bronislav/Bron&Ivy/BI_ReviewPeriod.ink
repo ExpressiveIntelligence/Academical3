@@ -7,10 +7,6 @@
 //VAR IvyDealDenied = false
 //VAR SwitchingOpinionsReject = false 
 //VAR SwitchingOpinionsAccept = false
-VAR IvyAcceptedOfficial = false 
-VAR IvyDeniedOfficial = false
-VAR SwitchingOpinionsReject = false 
-VAR SwitchingOpinionsAccept = false
 
 # ---
 # choiceLabel: Work on paper 
@@ -64,7 +60,7 @@ Bronislav: "Yep! Got some real helpful feedback that I'm editing to the paper ri
 
 Ivy gives a thumbs up.
 
-Ivy: "That's great to hear! I know that you are already getting feedback, but I just really want to push how helpful Jensen could be for the paper. He's really smart, and well-spoken, and you'd be helping him more than you know. Our deal is also on the table, have you had any thoughts about it?"
+Ivy: "That's great to hear! I know that you are already getting feedback, but I just really want to push how helpful Jensen could be for the paper. He's really smart, and well-spoken, and you'd be helping him more than you know."
 
 With the conference around the corner, this will be your final say of how you want to manage this deal. 
 
@@ -85,7 +81,7 @@ Bronislav: "It was alright, not too great, but there was some helpful feedback."
 
 Ivy shrugs sympathetically.
 
-Ivy: "I'm sorry to hear that. You know... if you need someone to bounce ideas and feedback off of Jensen is really good for it. All he needs is just a good mentor like yourself! And hey, my offer is still on the deal, did you make up your mind?"
+Ivy: "I'm sorry to hear that. You know... if you need someone to bounce ideas and feedback off of Jensen is really good for it. All he needs is just a good mentor like yourself!"
 
 With the conference around the corner, this will be your final say of how you want to manage this deal. 
 
@@ -99,7 +95,7 @@ With the conference around the corner, this will be your final say of how you wa
 ->BI_RP_DontThinkSo
 
 *["Definitely not." #>> ChangeOpinion Ivy Bronislav ----]
--> DONE
+-> BI_RP_DefNot
 
 === BI_RP_NotReally ===
 Bronislav: "Not really, I've been pretty uninterested in all the feedback I have gotten. Hasn't been especially helpful."
@@ -163,7 +159,7 @@ Ivy: "Really!? That's great news Bronislav, you're such a lifesaver."
 
 {SwitchingOpinionsAccept: Ivy: "I was worried you were going to switch your choice again."}
 
-Ivy: I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."
+I'll tell Jensen as soon as possible, and I'll talk to you about my uncle soon hopefully! I might even buy a coffee for you."
 
 *["Thanks Ivy!"]
 ->BI_RP_ThanksIvy
@@ -288,7 +284,7 @@ Bronislav: "I'm definitely not putting Jensen on the paper. He just is not quali
 
 Ivy looks betrayed.
 
- Ivy: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"
+ Bronislav: "Not qualified for it? Bronislav you said you'd have him on the paper! What's the big deal?"
 
 {SwitchingOpinionsAccept: Ivy: "You keep switching on me, and frankly it's quite disrespectful of my time."}
 
