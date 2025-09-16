@@ -1,3 +1,4 @@
+@ -1,199 +1,223 @@
 // Author: Ivy Dudzik
 //VAR metHendricksDay1 = false 
 
@@ -22,6 +23,7 @@ It's a reminder of your meeting with Hendricks today.
 
 **[Still cancel meeting #>> ChangeOpinion Hendricks Bronislav --] 
 You write a brief email saying that you can not make it to today's meeting. She gives a short response. 
+{DbInsert("BHS3_ignored")}
 -> DONE 
 
 
@@ -41,11 +43,14 @@ You write a brief email saying that you can not make it to today's meeting. She 
 
 {ShowCharacter("Hendricks", "left", "")}
 
+~ignoredHendricks = DbAssert("BHS1_ignored")
+
 You enter Hendricks' office, eyeing a meticulously organized stack of books next to her. The largest of the books lies open on the table in front of her, and she is lost in thought. 
 
 //{not metHendricksDay1: 
 //It's been a while since you've talked to her, and with everything going on it's hard to know what to say. 
 //}
+{ignoredHendricks: It's been a while since you've talked to her, and with everything going on it's hard to know what to say.}
 
 *[Clear your throat.] -> clearThroat
 
@@ -66,6 +71,8 @@ Hendricks: "Bronislav!"
 
 She turns to you smiling.
 
+{ignoredHendricks: Hendricks: "Long time no see!"} 
+
 Hendricks: "I didn't see you there, take a seat!" 
 
 //{not metHendricksDay1: 
@@ -77,11 +84,11 @@ Hendricks: "How are you doing?"
 //{not metHendricksDay1: 
 //Hendricks: "You seem like you have something on your mind." 
 //}
+{ignoredHendricks: Hendricks: "You seem like you have something on your mind."}
 
+*["I'm fine, how are things with you?" # >> ChangeOpinion Hendricks Bronislav -]->BHS3_ImFine
 
-*["I'm fine, how are things with you?"]->BHS3_ImFine
-
-*["Ivy offered to get me a job... if I add Jensen to my paper."]->BHS3_IvyOfferedMeJob
+*["Ivy offered to get me a job... if I add Jensen to my paper." # >> ChangeOpinion Hendricks Bronislav ++]->BHS3_IvyOfferedMeJob
 
 
 == BHS3_IvyOfferedMeJob ==
@@ -122,6 +129,8 @@ Bronislav: I see...
 == BHS3_HowDoYouMeanISee ==
 Hendricks: "For instance, would you have ever considered putting Jensen on your paper if not for this offer? Last time we spoke, you were frustrated with his feedback."
 
+{not ignoredHendricks: Hendricks: "Last time we spoke, you were frustrated with his feedback."}
+
 *["Of course I wouldn't have considered it."]
     Bronislav: "Of course I wouldn't have considered it."
 *["He's not so bad..."]
@@ -133,12 +142,20 @@ Hendricks: "This really is a problematic situation. I am going to let you decide
 
 Bronislav: "Thank you Hendricks, I always appreciate your insight."
 
+~ temp hendricksOpinionSocial3 = GetOpinionState("Hendricks", "Bronislav")
+{hendricksOpinionSocial3 >= OpinionState.Good: -> BradGossip} 
+{hendricksOpinionSocial3 < OpinionState.Good: -> goodbyeHendricks} 
+
+=BradGossip
+
 Hendricks: "It's odd... this isn't the only strange thing I've seen happen around a paper lately. Something must be in the air..."
 
 *["What do you mean?"]
     Bronislav: "What do you mean?"
 
 -Hendricks: "To speak candidly, something is not quite... adding up with Brad and his research. At least, according to what I've heard from Ned. Neither of us can quite put our finger on the problem, though."
+
+{DbInsert("HendricksKnowsBrad")}
 
 She seems to consider asking your opinion, but holds her tongue.
 
@@ -165,6 +182,19 @@ Bronislav: "Of course. Thank you for the advice. I hope the situation with Brad 
 
 ->BHS3_HideHenAndEnd
 
+=goodbyeHendricks
+Bronislav: "Should I let you get back to your book?"
+
+She laughs gently. 
+
+Hendricks: "Sure. Thank you for sharing about your situation with Ivy, I hope you can navigate it without too much stress. Make sure you are honoring your principles."
+
+Bronislav: "Of course. Thank you for the advice. I hope the situation with Brad works out well."
+
+ Maybe you should check in on your friend to get some clarification. 
+
+->BHS3_HideHenAndEnd
+
 == BHS3_ImFine ==
 Bronislav: "I'm fine, how are things with you?"
 
@@ -179,8 +209,9 @@ She seems to be telling half the truth, put off by your curtness.
     
     Hendricks: "Me too. Thank you Bronislav. There's really nothing bothering you?"
     
-    **["Ivy offered to get me a job... if I add Jensen to my paper."]->BHS3_IvyOfferedMeJob
-    **["No, I just wanted to say hello."]
+  
+    **["Ivy offered to get me a job... if I add Jensen to my paper." # >> ChangeOpinion Hendricks Bronislav ++]->BHS3_IvyOfferedMeJob
+    **["No, I just wanted to say hello." # >> ChangeOpinion Hendricks Bronislav --]
     Bronislav: "No, I just wanted to say hello."
         Hendricks: "Well, it was good to see you! I should probably get back to my reading. It was just getting good."
 

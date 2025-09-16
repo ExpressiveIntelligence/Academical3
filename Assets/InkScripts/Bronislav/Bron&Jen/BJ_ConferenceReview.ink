@@ -58,6 +58,23 @@ VAR thinking = false
 {JenOpinionSocial3 >= OpinionState.Neutral && JenOpinionSocial3 < OpinionState.Good: -> NeutralJensenBeginningDenied} 
 {JenOpinionSocial3 <= OpinionState.Neutral: -> BadJensenBeginningDenied} 
 
+===JensenGhosted===
+You got a message earlier today from Jensen to meet you here at this time, so you sit down and wait. 
+
+And wait...
+
+And wait....
+
+And wait......
+
+Did he ghost you? Why? Is it because you had that argument with Ivy? 
+
+You're not sure why, but it seems like he wont show up. 
+
+{HideCharacter("Jensen")}
+// TODO: LOCK BAD TIMELINE
+->DONE
+
 
 
 === BJS3_SureWhat ===

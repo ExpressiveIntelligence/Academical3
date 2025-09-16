@@ -22,17 +22,22 @@ DOUBLE in the wrong and will lose major opinion points with Hendricks.
 // This is a placeholder variable
 VAR hendricksOpinion = 0
 VAR BHS4_tension = 0
+VAR ignoredHendricksDay1 = false
+VAR ignoredHendricksDay3 = false
 
 === BH_S4_Start ===
 # ===
 # choiceLabel: Meet with Hendricks about paper with Jensen
 # hidden: true
 # @query
-# AcceptedIvyDeal
+# BI_OfficiallyAccepted
 # date.day!4
 # @end
 # tags: action, hendricks_office, auxiliary
 # ---
+
+~ignoredHendricksDay1 = DbAssert("BHS1_ignored")
+~ignoredHendricksDay3 = DbAssert("BHS3_ignored")
 
 You knock Hendricks' office door.
 
@@ -67,7 +72,9 @@ Hendricks: "You know why I called you in to meet today, right?"
 * ["I'm not sure"]
     ~ hendricksOpinion = hendricksOpinion - 5
 
-    Hendricks: "I called you in to talk about this authorship deal that you and Ivy have arranged."
+    Hendricks: "I called you in to talk about this authorship deal that you and Ivy have arranged. I recieved a report from a student who overheard your conversation this afternoon."
+    
+    {ignoredHendricksDay1 && ignoredHendricksDay3: Hendricks: "Is this why you have been avoiding me?"} 
 
     Hendricks: "Are you aware that this is wrong?"
 
@@ -75,6 +82,8 @@ Hendricks: "You know why I called you in to meet today, right?"
         ~ BHS4_tension = BHS4_tension + 1
 
         Hendricks looks at you with a stern expression. You can feel the tension rising.
+        
+         {ignoredHendricksDay1 && ignoredHendricksDay3: Hendricks: "Is this why you have been avoiding me?"} 
 
         Hendricks: "Bronislav, I want you to listen to me carefully."
 
@@ -84,6 +93,8 @@ Hendricks: "You know why I called you in to meet today, right?"
         ~ hendricksOpinion = hendricksOpinion - 5
 
         Bronislav: "No."
+        
+         {ignoredHendricksDay1 && ignoredHendricksDay3: Hendricks: "Is this why you have been avoiding me?"} 
 
         Hendricks: "Bronislav, I want you to listen to me carefully."
 
@@ -104,6 +115,8 @@ Hendricks: "You know why I called you in to meet today, right?"
     ** ["I guess ..."]
 
         Bronislav: "I guess"
+        
+        {ignoredHendricksDay1 && ignoredHendricksDay3: Hendricks: "Is this why you have been avoiding me?"} 
 
         Hendricks closes her eyes and take an slow deepth breath.
 
@@ -116,6 +129,8 @@ Hendricks: "You know why I called you in to meet today, right?"
     Bronislav: "It's about the authorship situation"
 
     Hendricks: "It is."
+    
+      {ignoredHendricksDay1 && ignoredHendricksDay3: Hendricks: "Is this why you have been avoiding me?"} 
 
     ->BH_S4_ExplainConsequences->
 

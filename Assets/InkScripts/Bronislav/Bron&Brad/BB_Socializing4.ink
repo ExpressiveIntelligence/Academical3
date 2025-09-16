@@ -12,8 +12,11 @@ VAR confided = false
 # ===
 #Summary: Brad is contemplating withdrawing paper
 
+VAR HendricksKnows = false
 
 {DbInsert("Seen_BBS4")}
+
+~HendricksKnows = DbAssert("HendricksKnowsBrad")
 
 // Check if Conference Submission Deadline Happened
 ~ confided = DbAssert("Seen_BB_ConferenceSubmissionDeadline")
@@ -133,9 +136,12 @@ Brad: "Noooo?"
 
 Brad says slowly.
 
-Bronislav: "No wonder you haven't withdrawn then."
+{not HendricksKnows: Bronislav: "No wonder you haven't withdrawn then."} 
+{HendricksKnows: Bronislav: "I'm going to be blunt, the other day Hendricks told me, according to Brad, something shady was going on in your research. He's already onto you."}
 
-Brad: "So this can still be salvaged?"
+{HendricksKnows: Brad: "...shoot."} 
+
+Brad: "So...do this can still be salvaged?"
 
 *["You really should withdraw." # >> ChangeOpinion Brad Bronislav +]
 ->BB_Socializing4_ShouldWithdraw
