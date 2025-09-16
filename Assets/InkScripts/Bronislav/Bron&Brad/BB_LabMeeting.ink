@@ -2,7 +2,7 @@ VAR withdrewPaper = false
 
 === BB_LabMeeting_SceneStart ===
 # ---
-# choiceLabel: Sit and relax.
+# choiceLabel: Check in with Brad.
 # @query
 # date.day!6
 # @end
@@ -18,9 +18,14 @@ VAR withdrewPaper = false
 
 {ShowCharacter("Brad", "left", "")}
 
-{withdrewPaper:
+{withdrewPaper: -> withdrewPaperOpening}
+{not withdrewPaper: -> notWithdrewPaperOpening} 
+
+=withdrewPaperOpening
 //paper was withdrawn
-At the lab meeting, you're approached by Brad. He seems happy to see you.
+You walk up to Brad. 
+
+Bronislav: "Hey!" 
 
 Brad: "Hey hey Bronislav! How's it going?"
 
@@ -32,12 +37,18 @@ Brad: "Hey hey Bronislav! How's it going?"
 
 *["It's complicated."]
 ->BB_LabMeeting_Complicated
-}
-{not withdrewPaper:
+
+
+=notWithdrewPaperOpening
 //paper was not withdrawn
 ~temp r = GetOpinionState("Brad", "Bronislav")
-{r == OpinionState.Good || r == OpinionState.Excellent:
-While at the lab meeting, Brad runs into you again.
+{r >= OpinionState.Neutral: -> goodOpinionNoWith}
+{r <= OpinionState.Neutral: -> badOpinionNowith} 
+
+=goodOpinionNoWith
+You walk up to Brad. 
+
+Bronislav: "Hey Brad." 
 
 Brad: "Hey Bronislav. Have you been doing good?"
 
@@ -49,19 +60,13 @@ Brad: "Hey Bronislav. Have you been doing good?"
 
 *["It's complicated."]
 ->BB_LabMeeting_Complicated
-}
 
-{r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
+=badOpinionNowith
 
-While at the lab meeting, Brad runs into you again.
-
-Brad: "Hey Bronislav."
+You walk up to Brad. 
 
 *["Hey Brad."]
 ->BB_LabMeeting_HeyBrad
-}
-
-}
 
 === BB_LabMeeting_GoingGreat ===
 Bronislav: "It's been going great! I'm curious with how you're doing Brad, you seem to be happy though."
@@ -84,9 +89,9 @@ Bronislav: "I've been pretty good, finally getting a break is much needed right 
 
 Brad thinks for a moment.
 
-// TODO: I think we're missing a choice option in here? This looks like it was written exclusively for brad ending bad
+{not withdrewPaper: Brad: "Well, on one hand I'm excited to work on a new paper next year,but this ethics training is going to be a sink into my freetime. Overall, not too bad though."}
 
-Brad: "Well, on one hand I'm excited to work on a new paper next year, but this ethics training is going to be a sink into my freetime. Overall, not too bad though."
+{withdrewPaper: Brad: "Well, I'm excited to work on a new paper next year, and I think I've learned my lesson on what not to do."}
 
 *["Glad to hear!"]
 ->BB_LabMeeting_GladtoHear
@@ -103,9 +108,9 @@ Bronislav: "It's a bit complicated right now, but it's not a big deal. How're yo
 Brad thinks for a moment.
 
 
-// TODO: I think we're missing a choice option in here? This looks like it was written exclusively for brad good ending
-{withdrewPaper:
-Brad: "Well, on one hand I'm excited to work on a new paper next year, but this ethics training is going to be a sink into my freetime. Overall, not too bad though."
+{not withdrewPaper: Brad: "Well, on one hand I'm excited to work on a new paper next year,but this ethics training is going to be a sink into my freetime. Overall, not too bad though."}
+
+{withdrewPaper: Brad: "Well, I'm excited to work on a new paper next year, and I think I've learned my lesson on what not to do."}
 
 *["Glad to hear!"]
 ->BB_LabMeeting_GladtoHear
@@ -115,12 +120,12 @@ Brad: "Well, on one hand I'm excited to work on a new paper next year, but this 
 
 *["Any ideas for next year?"]
 ->->BB_LabMeeting_AnyIdeas
-}
+
 
 === BB_LabMeeting_HeyBrad ===
 Bronislav: "Hey Brad, how's it going?"
 
-Brad: "Fine." Brad says coldly.
+Brad: "Fine." 
 
 Brad: "Busy with my ethics training recently, not much going on outside of that though now."
 
@@ -148,7 +153,7 @@ Bronislav: "Glad to hear you've been alright, and are looking forward to the fut
 
 Brad chuckles awkwardly.
 
-Brad: "He's definitely still not over everything, but I think that's understandable. I definitely feel like we're still on good terms. I do still feel like I disappointed him."
+Brad: "He's definitely still not over everything, but I think that's understandable. I definitely feel like we're still on good terms, but I disappointed him."
 
 *["Could be worse."]
 ->BB_LabMeeting_CouldbeWorse
@@ -215,7 +220,14 @@ Brad laughs.
 
 Brad: "I guess that's this whole situation in a nutshell isn't it?"
 
-"Well," Brad says after a brief pause, "If you're free later I'd love to talk a bit more. I'm going to head out to the cafe, hopefully see you later Bronislav."
+Brad: "Well..." 
+
+Brad: "If you're free later I'd love to talk a bit more. I'm going to head out to the cafe.
+
+Bronislav: "Yeah, I'd be happy to chat later." 
+
+Brad: "Alright, hopefully see you later then."
+
 
 {HideCharacter("Brad")}
 
@@ -235,7 +247,7 @@ Brad: "I am actually! I'd be happy to talk more at the cafe sometime after this.
 === BB_LabMeeting_WantToTalkMore ===
 Bronislav: "Do you want to talk more later? I'd love to chat over a coffee to talk about it more."
 
-"Yeah." Brad says with a full smile, "I would like that, hope to see you later then."
+Brad: "Yeah, I would like that, hope to see you later then."
 
 {HideCharacter("Brad")}
 
@@ -255,9 +267,15 @@ Brad: "Thanks Bronislav. If you want to talk more later, I'll be at the cafe. Do
 
 === BB_LabMeeting_MakesSense ===
 
-// TODO: Add content for this dialogue path
+Bronislav: "Yeah, that makes sense." 
 
-There is no content for this dialogue path.
+Brad: "But um...if you want to hang out later it would be nice." 
+
+Bronislav: "Sure!" 
+
+Brad: "Alright, well I'll be in the cafe if you want to chat." 
+
+Brad: "I'll see you later." 
 
 {HideCharacter("Brad")}
 

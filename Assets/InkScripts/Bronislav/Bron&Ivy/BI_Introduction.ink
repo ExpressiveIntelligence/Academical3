@@ -67,8 +67,6 @@ Ivy: "Oh how funny! That's my nephew! He's been having some problems transfering
 
 === BronislavSympathizes ===
 
-~ BI_FirstCoffee_InternationalMentioned = true 
-
 Bronislav: "Getting into this program wasn't easy for me either, especially being an international student and all, so I see a bit of myself in him. I'll keep him in mind."
 
 Ivy, while very cheerful about the good news, is also confused.
@@ -77,7 +75,7 @@ Ivy: "Do you have some reservations about Jensen?"
 
 -> BronislavSympathizesChoices
 
-=BronislavSympathizesChoices
+==BronislavSympathizesChoices==
 
 *{talkedWithBradAboutJensen} ["I talked with Brad about Jensen." #>> ChangeOpinion Ivy Bronislav ---]
     ->IvySpite
@@ -91,7 +89,7 @@ Ivy: "Do you have some reservations about Jensen?"
 You recall hearing a common rumor in the lab of him being "shady" and "off". 
 {talkedWithBradAboutJensen: You recall Brad being one of those people adding to the rumor, but who's to say this is really a "rumor"} 
 {not talkedWithBradAboutJensen: You're not sure why, or who is spreading this information.}
--> BronislavSympathizes.BronislavSympathizesChoices
+-> BronislavSympathizesChoices
 
 === IvySpite ===
 Bronislav: "I did also talk with Brad after my presentation, and he felt a bit put off by Jensen."
@@ -122,9 +120,9 @@ Bronislav:"It just is way too soon to make a call like that. I'd like to talk wi
 
 She takes a long sip of her drink.
 
-Ivy: "Well okay then, that is fair. At least consider him, ok?"
+Ivy: "Do you have some reservations about Jensen?"
 
--> Continue
+-> BronislavSympathizesChoices
 
 } 
 {BI_FirstCoffee_InternationalMentioned == false:
@@ -134,9 +132,9 @@ Bronislav: "I'd really like to talk with a few more people before I start adding
 
 She takes a long sip of her drink.
 
-Ivy: "Well okay then, that is fair. At least consider him, ok?"
+Ivy: "Do you have some reservations about Jensen?"
 
--> Continue
+-> BronislavSympathizesChoices
 }
 
 === MoreTime ===
@@ -144,9 +142,10 @@ Bronislav: "As much as I wish I could help right now, I'm really excited about b
 
 She takes a long sip of her drink.
 
-Ivy: "Well okay then, that is fair. Keep him in mind at least?"
+Ivy: "Do you have some reservations about Jensen?"
 
--> Continue
+-> BronislavSympathizesChoices
+
 
 === IvyRecommendsJensen ==
 Bronislav: "No, not yet."
@@ -155,10 +154,24 @@ Ivy stirs her coffee.
 
 Ivy: "Well, I thought I saw you talking to my nephew Jensen. He is having alot of trouble transferring from his masters into a Ph.D program. Getting on such a big paper would certainly help him."
 
-*["It is just too soon."]
-    -> TooSoon
+~ temp JensenOpinion = GetOpinionState("Jensen", "Bronislav")
+{JensenOpinion <= OpinionState.Neutral: Ivy: "But it looked like you seemed to have shrugged him off pretty quickly, he was a bit upset."} 
+
+Ivy: "Do you have some reservations about Jensen?"
+
+*{talkedWithBradAboutJensen} ["I talked with Brad about Jensen." #>> ChangeOpinion Ivy Bronislav ---]
+    ->IvySpite
+    
+*[It's not me who has reservations...] -> BradExpositionLoop
+
+*["It's just too soon." #>> ChangeOpinion Ivy Bronislav +]
+    ->Continue
 
 === Continue ===
+Bronislav:"It just is way too soon to make a call like that. This paper is very important to me, as it really helps the possibility of me getting a job and renewing my visa."
+
+Ivy: "I can respect that." 
+
 She looks down at her watch.
 
 Ivy: "Oh! I actually need to go to a meeting. Thanks for organizing this Bronislav, hope to hear from you again soon."
