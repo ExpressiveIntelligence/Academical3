@@ -8,6 +8,12 @@
 //VAR SwitchingOpinionsReject = false 
 //VAR SwitchingOpinionsAccept = false
 
+VAR IvyAcceptedOfficial = false 
+VAR IvyDeniedOfficial = false
+VAR SwitchingOpinionsReject = false 
+VAR SwitchingOpinionsAccept = false
+
+
 # ---
 # choiceLabel: Work on paper 
 # @query
