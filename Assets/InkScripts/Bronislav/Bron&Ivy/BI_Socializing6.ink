@@ -3,7 +3,7 @@ VAR apology = true
 
 === BI_S6_SceneStart ===
 # ---
-# choiceLabel: Console Ivy 
+# choiceLabel: Check in with Ivy 
 # hidden: true
 # @query
 # date.day!6
@@ -13,8 +13,6 @@ VAR apology = true
 # ===
 
 {ShowCharacter("Ivy", "left", "")}
-
-{DbInsert("Seen_BI_S6")}
 
 As you walk over to the cubicles, you notice Ivy is here too.
 
@@ -75,7 +73,7 @@ Ivy sighs, and you can tell she is very upset.
 
 Ivy: "I.. uh.. would like to apologize. I pressured you into helping Jensen because I so desperately wanted to help him. But, it was so wrong for me to put you in that type of situation, and I feel awful for it."
 
-She shakes her hed sadly.
+She shakes her head sadly.
 
 Ivy: "I tried to leverage my knowledge of your situation and my connections to force you to help, and for that I am truly sorry."
 
@@ -115,15 +113,16 @@ Ivy: "Look, I want to apologize. I know we aren't close or anything, but that wa
 === AppreciateYourApology ===
 Bronislav: "I appreciate your apology."
 
-You say with a small smile, as you see some of the stress lift off of Ivy's shoulders.
+You see some of the stress lift off of Ivy's shoulders.
 
-Bronislav: "I know you were coming from a good place, and just trying to help a friend. I can tell you feel guilty about everything."
+Bronislav: "I know you were coming from a good place, and just trying to help your family. I can tell you feel guilty about everything."
 
 Ivy: "I have no plans of doing it again, that's for certain."
 
 You both smile breifly, before you nod and continue on your way.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_S6")}
 
 ->DONE
 
@@ -143,15 +142,15 @@ Ivy: "I am sorry for everything, but you don't need to shove this in my face."
 Ivy pushes past you and walks out of the room before you can say another word.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_S6")}
 
 ->DONE
 
 === SayNothing ===
 
-You say nothing as you akwardly glance away from her.
-{apology == false:
-~apology = true
-Ivy: "I just, um... wanted to say that I'm sorry. To you, about... well a lot of things."
+You say nothing as you awkardly glance away from her.
+
+Ivy: "Please wait...just hear me out."
 
 *["I'm listening."]
 ->ImListening
@@ -159,20 +158,6 @@ Ivy: "I just, um... wanted to say that I'm sorry. To you, about... well a lot of
 *[Walk away. #>> ChangeOpinion Ivy Bronislav -]
 ->WalkAway
 
--else:
-Ivy: "I know this is a lot, and you don't need to accept my apology, but I just at least want you to know I feel guilty for everything I've put you through."
-
-You nod, acknowledging her.
-
-Bronislav: "Okay. I hear you."
-
-Ivy thinks about saying something else, but stops herself, turning back to her desk. You decide to continue on your way. It's not your job to entertain her any longer.
-
-{HideCharacter("Ivy")}
-
-->DONE
-
-}
 
 === ImListening ===
 Bronislav: "I'm listening."
@@ -192,11 +177,6 @@ You look back to find Ivy staring at the floor, her arms crossed as she shakes a
 ->WhatsWrong
 
 === KeepWalking ===
-{hello:
-Unsure of what to say, you turn to walk away. As you do so, you hear Ivy's voice faintly from behind you.
--else:
-As you continue to walk by the cubicles, you hear Ivy's voice faintly from behind you.
-}
 Ivy: "Bronislav?"
 
 *["Hey, how are you holding up?"]
@@ -206,7 +186,6 @@ Ivy: "Bronislav?"
 ->UhHi
 
 *[Say nothing.]
-~ apology = false
 ->SayNothing
 
 === HoldingUp ===

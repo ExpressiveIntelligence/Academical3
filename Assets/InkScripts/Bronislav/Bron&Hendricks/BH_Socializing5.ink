@@ -7,8 +7,14 @@
 # repeatable: false
 # tags: action, library, required
 # ===
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
 
-// current default is took the deal
+~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
+
+{IvyAcceptedOfficial: -> HendricksSocial5Accept} 
+{IvyDeniedOfficial: -> HendricksSocial5Denied} 
+
+===HendricksSocial5Accept===
 Today has been going incredibly well, and the excitement of your upcoming job came with a sense of accomplishment. 
 {ShowCharacter("Hendricks", "left", "")}
 Lost in thought, you notice Hendricks out of the corner of your eye.
@@ -16,10 +22,11 @@ Lost in thought, you notice Hendricks out of the corner of your eye.
 *["Hello, Hendricks!"]
 ->BH_Socializing5_HelloHen
 
-// TODO: switch based off of taking Ivy's deal
-//To clear your head, you decide to pass through the library. During your stroll, you notice Professor Hendricks sitting reading a book and decided to approach her to ask for advice.
-//*["Hi, Professor Hendricks."]
-//->BH_Socializing5_HiHen
+===HendricksSocial5Denied===
+To clear your head, you decide to pass through the library. During your stroll, you notice Professor Hendricks sitting reading a book and decided to approach her to ask for advice.
+{ShowCharacter("Hendricks", "left", "")}
+*["Hi, Professor Hendricks."]
+->BH_Socializing5_HiHen
 
 === BH_Socializing5_HelloHen ===
 Bronislav: "Hello, Hendricks, how are you today?"

@@ -19,22 +19,17 @@ VAR countBB6 = 0
 
 {DbInsert("Seen_BBS6")}
 
-You sit in the coffee shop, waiting for Brad to show up.
+You walk into the cafe and see Brad sitting down.
 {ShowCharacter("Brad", "left", "")}
-He walks in the door and sets his stuff down at the table.
 
-Brad: "I'm going to just leave this here for a moment, I'm going to grab a drink."
+Bronislav: "I'm going to just leave this here for a moment, I'm going to grab a drink."
 {HideCharacter("Brad")}
 
-*["Sounds good."]
-->BB_Socializing6_SoundsGood
+Brad: "Sounds good, I'll keep an eye on your stuff."
 
-=== BB_Socializing6_SoundsGood ===
-Bronislav: "Sounds good, I'll keep an eye on your stuff."
+You go up, order your coffee, and come back with it.
 
 {ShowCharacter("Brad", "left", "")}
-
-Brad eventually comes back with his drink and sits down.
 
 Brad: "Welp, time for a break huh?"
 
@@ -97,7 +92,7 @@ Brad: "Yeah, besides maybe submitting some applications for jobs, I'll be pretty
 
 }
 ~ countBB6 += 1
-*["How's Ned?"]
+*["Any other updates on Ned?"]
 ->BB_Socializing6_HowsNed
 
 {not withdrewPaperr:
@@ -139,8 +134,6 @@ Brad: "Seems fine, still relived that we withdrew the paper. Definitely seems li
 Bronislav: "I'd imagine that those trainings are keeping you pretty busy."
 
 Brad: "Definitely looking that way."
-
-Brad says as he takes another sip from his drink.
 
 {BreakFromWriting == true:
 ->BB_Socializing6_BreakfromWriting

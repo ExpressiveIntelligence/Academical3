@@ -10,12 +10,17 @@
 # ===
 # Summary: Brad confides in Bronislav about using pre-IRB data
 
-After submitting your paper you sit down and try to finally get a second of rest. You look around the room and see Brad across the room.
+VAR BradPraveenGossip = false 
+{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
+You sit down and try to finally get a second of rest, but see Brad across the room.
 
 {ShowCharacter("Brad", "left", "")}
 
-~temp r = GetOpinionState("Brad", "Bronislav")
-{r == OpinionState.Terrible || r == OpinionState.Bad || r == OpinionState.Neutral:
+~temp BradBrushOff = GetOpinionState("Brad", "Bronislav")
+{BradBrushOff <= OpinionState.Neutral: -> BB_CSD_BrushOff}
+{BradBrushOff > OpinionState.Neutral: -> BB_CSD_Normal}
+
+=BB_CSD_BrushOff
 
 You wave at Brad to get his attention. 
 
@@ -26,9 +31,8 @@ Maybe he's upset and not in the mood to talk.
 {HideCharacter("Brad")}
 
 ->DONE
-}
 
-{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
+===BB_CSD_Normal===
 
 Brad: "Hey Bronislav. Nice to see you! How've you been?" 
 
@@ -99,7 +103,7 @@ Brad: "I just need your input on something."
 ->BB_CSD_WhatDidYouDo
 
 === BB_CSD_AnywayICouldHelp ===
-Bronislav: "Is there some way I can help? I know the conference submission deadline is soon, but I'll help where I can."
+Bronislav: "Is there some way I can help? I know the conference submission deadline is soon, but you seem to be struggling on your paper with Ned."
 
 Brad shrugs.
 
@@ -135,7 +139,7 @@ He looks at you.
 
 Brad: "It shouldn't be that big of a deal though, right?"
 
-*["That's really bad."]
+*["That's really bad." #>> ChangeOpinion Brad Bronislav +]
 ->BB_CSD_ThatsReallyBad
 
 *["I'm not sure."]
@@ -155,7 +159,7 @@ He looks at you then snaps back to what he was saying.
 
 Brad: "I just really wanted to start on the paper, and didn't want to stress about the IRB anymore. I got their approval anyway, can't be that big of a problem."
 
-*["That's really bad."]
+*["That's really bad."  #>> ChangeOpinion Brad Bronislav +]
 ->BB_CSD_ThatsReallyBad
 
 *["I'm not sure."]
@@ -175,7 +179,7 @@ He pauses for a bit.
 
 Brad: "The only problem is I got the data before the IRB approved it. That can't be too big of a deal though right? They still approved my research, I just did it before they did."
 
-*["That's really bad."]
+*["That's really bad."  #>> ChangeOpinion Brad Bronislav +]
 ->BB_CSD_ThatsReallyBad
 
 *["I'm not sure."]
@@ -194,7 +198,7 @@ Brad: "They wouldn't know though, so what difference does it make?"
 *["It makes a huge difference." #>> ChangeOpinion Brad Bronislav +]
 ->BB_CSD_HugeDifference
 
-*["Don't be dumb Brad." #>> ChangeOpinion Brad Bronislav -]
+*["Don't be dumb Brad." #>> ChangeOpinion Brad Bronislav --]
 ->BB_CSD_DontBeDumb
 
 === BB_CSD_NotSure ===
@@ -204,7 +208,7 @@ Brad thinks for a moment.
 
 Brad: "I probably should, but I don't want to waste all the research I did. I'll think on it."
 
-*["Should do it soon."  #>> ChangeOpinion Brad Bronislav -]
+*["You should do it soon."  #>> ChangeOpinion Brad Bronislav -]
 ->BB_CSD_ShouldDoItSoon
 
 *["Definitely think on it."]
@@ -230,11 +234,11 @@ Brad looks upset, but understanding.
 
 Brad: "Thanks Bronislav. I'll consider withdrawing the paper."
 
-He packs up his things, and waves goodbye without another word.
+He packs up his things.
 
-{HideCharacter("Brad")}
-
-->DONE
+~temp BradOpinion = GetOpinionState("Brad", "Bronislav")
+{BradOpinion >= OpinionState.Good: -> BB_CSD_PraveenGossip}
+{BradOpinion <= OpinionState.Good: -> BB_CSD_NormalGoodbye}
 
 === BB_CSD_DontBeDumb ===
 Bronislav: "Brad you and I both know that the IRB has strict rules that we all need to follow for a reason. Don't be dumb."
@@ -245,11 +249,9 @@ Brad: "Bronislav I just wanted your opinion on something I wasn't sure of the an
 
 He starts walking away.
 
-Brad: "I'll talk to you some other time Bronislav, maybe when we can have a reasonable conversation."
-
-{HideCharacter("Brad")}
-
-->DONE
+~temp BradOpinion = GetOpinionState("Brad", "Bronislav")
+{BradOpinion >= OpinionState.Good: -> BB_CSD_PraveenGossip}
+{BradOpinion <= OpinionState.Good: -> BB_CSD_NormalGoodbye}
 
 === BB_CSD_ShouldDoItSoon ===
 Bronislav: "You should definitely check with them sooner rather than later. I feel like that's something that should be disclosed early."
@@ -260,11 +262,9 @@ Brad: "That definitely sounds like a good plan."
 
 Brad looks back up while packing up his things.
 
-Brad: "I'll let you know when I hear back. Thanks Bronislav!"
-
-{HideCharacter("Brad")}
-
-->DONE
+~temp BradOpinion = GetOpinionState("Brad", "Bronislav")
+{BradOpinion >= OpinionState.Good: -> BB_CSD_PraveenGossip}
+{BradOpinion <= OpinionState.Good: -> BB_CSD_NormalGoodbye}
 
 === BB_CSD_ShouldDefThinkOnIt ===
 Bronislav: "It's definitely something you should think on Brad, let me know whenever that works out."
@@ -273,11 +273,9 @@ Brad gives you a thumbs up.
 
 Brad: "Thanks Bronislav. I will let you know!"
 
-He waves you goodbye as he leaves.
-
-{HideCharacter("Brad")}
-
-->DONE
+~temp BradOpinion = GetOpinionState("Brad", "Bronislav")
+{BradOpinion >= OpinionState.Good: -> BB_CSD_PraveenGossip}
+{BradOpinion <= OpinionState.Good: -> BB_CSD_NormalGoodbye}
 
 === BB_CSD_OfCourse ===
 Bronislav: "Of course, happy to help in any way I can Brad."
@@ -288,18 +286,45 @@ Brad: "Feels like a big weight just got taken off my shoulders."
 
 He packs up his things.
 
-Brad: "Think I'm going to take a lesson from you and take a chance to relax. See ya Bronislav!"
-
-{HideCharacter("Brad")}
-
-->DONE
+~temp BradOpinion = GetOpinionState("Brad", "Bronislav")
+{BradOpinion >= OpinionState.Good: -> BB_CSD_PraveenGossip}
+{BradOpinion <= OpinionState.Good: -> BB_CSD_NormalGoodbye}
 
 === BB_CSD_AnythingElse ===
 Bronislav: "Is there anything else you needed, Brad?"
+
+~temp BradOpinion = GetOpinionState("Brad", "Bronislav")
+{BradOpinion >= OpinionState.Good: -> BB_CSD_PraveenGossip}
+{BradOpinion <= OpinionState.Good: -> BB_CSD_NormalGoodbye}
+
+==BB_CSD_PraveenGossip==
+{DbInsert("BradPraveenGossip")}
+Brad: "Well there is one more thing..." 
+
+Brad: "I finally got to talking to Jensen some more, he seems chill but definately looking to ride off of someone's work." 
+
+Bronislav: "I see..." 
+
+Brad: "But for a moment he talked about Praveen being kind of mean to him, he didn't want to go into much detail but maybe you can learn more since he seems to like you more." 
+
+Bronislav: "Hm...I'll see what I can figure out." 
+
+Brad: "Alright, I'll catch you later!" 
+
+{HideCharacter("Brad")}
+->DONE
+
+==BB_CSD_NormalGoodbye==
 
 Brad shakes his head.
 
 Brad: "Nope, that's all I really had! Thanks a ton Bronislav. Time for me to have a chance to relax."
 
+{HideCharacter("Brad")}
+->DONE
+
+=BB_CSD_Goodbye 
+
+Brad: "Alright, well I'll catch you later." 
 {HideCharacter("Brad")}
 ->DONE

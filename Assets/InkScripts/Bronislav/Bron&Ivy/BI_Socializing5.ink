@@ -5,7 +5,7 @@
 #VAR SwitchingOpinionsAccept = false
 === BI_Socializing5_SceneStart ===
 # ---
-# choiceLabel: Meet with Ivy.
+# choiceLabel: Meet with Ivy
 # @query
 # BI_Coffee
 # date.day!5

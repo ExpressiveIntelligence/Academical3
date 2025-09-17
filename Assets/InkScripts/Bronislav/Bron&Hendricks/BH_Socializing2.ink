@@ -1,3 +1,4 @@
+@ -1,103 +0,0 @@
 // Author: Ivy Dudzik
 === BHS2_sceneStart ===
 # ---

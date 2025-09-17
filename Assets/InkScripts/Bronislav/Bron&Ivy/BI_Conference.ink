@@ -1,3 +1,4 @@
+@ -1,754 +0,0 @@
 
 // Ivy Conference
 // [MANDATORY] Ivy:
@@ -5,10 +6,6 @@
 // Reflection of decisions up to this point
 // Questioning if what he did was right/wrong
 
-VAR IvyAcceptedOfficial = false 
-VAR IvyDeniedOfficial = false
-VAR SwitchingOpinionsReject = false 
-VAR SwitchingOpinionsAccept = false
 VAR BlowUp = false 
 VAR BI_C_negativeNelly = false
 
@@ -16,7 +13,7 @@ VAR BI_C_negativeNelly = false
 // TODO: Add decisions based on whether or not you accepted Ivy's deal, relationship status
 === BI_Conference_SceneStart ===
 # ---
-# choiceLabel: Ivy Conference
+# choiceLabel: Chat with Ivy
 # hidden: true
 # @query
 # date.day!5
@@ -28,21 +25,24 @@ VAR BI_C_negativeNelly = false
 
 ~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
 
-~IvyDeniedOfficial = DbAssert ("BI_OfficiallyRejected") 
+~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
 
-~SwitchingOpinionsReject = DbAssert ("BI_SwitchingOpinions_Reject")
+~SwitchingOpinionsReject = DbAssert("BI_SwitchingOpinions_Reject")
 
-~SwitchingOpinionsAccept = DbAssert ("BI_SwitchingOpinions_Accept")
+~SwitchingOpinionsAccept = DbAssert("BI_SwitchingOpinions_Accept")
 
 ~BlowUp = DbAssert ("BI_Blowup")
 
 You notice Ivy and decide to approach her.
 {ShowCharacter("Ivy", "left", "")}
+-> BI_Conference_Branches
 
 ===BI_Conference_Branches===
 {IvyAcceptedOfficial: -> dealAccepted} 
 {IvyDeniedOfficial: -> dealDenied} 
 {BlowUp: -> IvyIgnore} 
+
+->dealAccepted 
 
 ===IvyIgnore===
 You make eye contact and wave, but she does not reciprocate. 
@@ -57,12 +57,9 @@ Maybe it's best to leave her alone.
 
 ===dealAccepted===
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
-{ 
-    - ivyOpinion >= OpinionState.Good: -> goodAccept
-    - else: 
-        -> badAccept 
-        
-}
+{ivyOpinion >= OpinionState.Good: -> goodAccept} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> goodAccept} 
+{ivyOpinion < OpinionState.Neutral: -> badAccept} 
 
 =goodAccept
 Ivy: "Hey Bronislav! Enjoying the conference so far?"
@@ -94,12 +91,10 @@ Ivy: "Oh, hi Bronislav. Wasn't expecting to run into you here."
 
 ===dealDenied===
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
-{ 
-    - ivyOpinion >= OpinionState.Good: -> goodDenied
-    - else: 
-        -> badDenied  
-        
-}
+
+{ivyOpinion >= OpinionState.Good: -> goodDenied} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> goodDenied} 
+{ivyOpinion < OpinionState.Neutral: -> badDenied} 
 
 =goodDenied
 // if you didn't accept Ivy's Deal

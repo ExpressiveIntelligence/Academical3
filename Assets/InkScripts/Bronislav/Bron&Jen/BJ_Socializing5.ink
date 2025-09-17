@@ -9,7 +9,7 @@ library after ... <TODO:: WHEN DOES THIS HAPPEN??>.
 
 === BJS5_Start ===
 # ---
-# choiceLabel: Meet with Jensen
+# choiceLabel: Talk to Jensen
 # @query
 # IvyDealAccepted
 # Seen_BJS3
@@ -22,6 +22,33 @@ library after ... <TODO:: WHEN DOES THIS HAPPEN??>.
 
 {DbInsert("Seen_BJS5")}
 
+{ShowCharacter("Jensen", "left", "")}
+
+{DbInsert("Seen_BJ_CONF")}
+
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
+
+~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
+
+~SwitchingOpinionsReject = DbAssert("BI_SwitchingOpinions_Reject")
+
+~SwitchingOpinionsAccept = DbAssert("BI_SwitchingOpinions_Accept")
+
+~BlowUp = DbAssert ("BI_Blowup")
+
+{IvyAcceptedOfficial: -> JensenNormalRoute} 
+{IvyDeniedOfficial: -> BJS5_Start_Alt_1} 
+{BlowUp: -> JensenIgnore_Social5}
+
+===JensenIgnore_Social5===
+You wave at Jensen from across the room, but he doesn't even acknowledge you. 
+
+{HideCharacter("Jensen")}
+
+->DONE
+
+===JensenNormalRoute===
+
 Jensen texted you earlier today saying he wanted to talk to you about something.
 
 You walk up you see him on his phone. He quickly puts it away once he sees you, waving briefly.
@@ -30,7 +57,7 @@ You walk up you see him on his phone. He quickly puts it away once he sees you, 
 
 Jensen: "Hey, Bronislav! Glad you you could come here on pretty short notice. How's your day been?"
 
-* {DbAssert("HasIvyRec")}["It's been good"]
+* {IvyAcceptedOfficial}["It's been good"]
     -> BJS5_ItsBeenGood
 * ["Could be better"]
 
@@ -424,7 +451,5 @@ Maybe you'll get the chance to talk to him one more time.
 {HideCharacter("Jensen")}
 
 Jensen walks away.
-
-Will you ever see him again?
 
 -> DONE

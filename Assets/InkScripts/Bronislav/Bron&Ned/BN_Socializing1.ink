@@ -3,6 +3,7 @@
 # choiceLabel: Meet with Ned.
 # @query
 # Seen_BJ_INTRO
+# Seen_BBS1
 # date.day!1
 # @end
 # hidden: true
@@ -14,7 +15,7 @@
 
 {ShowCharacter("Ned", "left", "")}
 
-While walking through the library searching for a quiet place to work, you notice your adviser Ned looking through the shelves.
+While walking through the library searching for a quiet place to work, you notice a department adviser, Ned, looking through the shelves.
 
 Bronislav: "Good afternoon Professor!"
 
@@ -42,7 +43,7 @@ Ned: "Oh hello there Bronislav, good to see you! How have you been?""
     Ned: "It's been pretty busy, but going relatively well, currently Brad is waiting on IRB approval."
     **["That's exciting."]->BNS1_ThatsExciting
     **["Has it been long?"]->BNS1_HasItBeenLong
-*[Shrug shoulders]
+*["Could be better"]
     Bronislav: "Eh, it could be going better, just a bit of work is all."
 
     Ned: "I'm sorry to hear that."
@@ -62,9 +63,9 @@ Ned: "Oh hello there Bronislav, good to see you! How have you been?""
     
     
 == BNS1_ThatsExciting ==
-Bronislav: "That's exciting news, my paper is almost ready for IRB review! How's it going?"
+Bronislav: "That's exciting news, my study is almost ready for review!"
 
-Ned: "Well, Brad can be a little impatient, but it usually takes a while for IRB approval to go through."
+Ned: "That's nice! Seems like you're keeping busy too. I know Brad can be a little impatient, but it usually takes a while for IRB approval to go through."
 
 Bronislav: "Yeah that makes sense."
 
@@ -75,11 +76,12 @@ Ned: "But it should come through pretty soon, he just needs to hold out a little
 == BNS1_HasItBeenLong ==
 Bronislav: "Has it been long since he submitted it?"
 
-Ned: "In theory not too long, it usually takes a while for approval to arrive. Shouldn't be too long from now."
+Ned: "In theory not too long, it usually takes a while for them to approve."
 
 Bronislav: "Yeah, you know Brad, he can get a little impatient."
 
-Ned: "Indeed." 
+Ned: "Indeed, but the approval should arrive shortly." 
+
 *["That's good to hear."]->BNS1_ThatsGoodToHear
 *["I bet you're excited for him."]->BNS1_IBetYoureExcitedForHim 
 
@@ -91,7 +93,7 @@ Ned: "Yes, I'm excited for Brad, this is a big step and I want him to succeed."
 Bronislav: "Just one more hurdle."
 
 Ned: "Yes, I'm sure it will get approved I looked it over and all looked good to go."
-*["Does he have preparations?"]->BNS1_DoesHeHavePreparations
+*["I'm guessing he has his survey questions?"]->BNS1_DoesHeHavePreparations
 *["It was nice running into you."]->BNS1_ItWasNiceRunningIntoYou
 
 == BNS1_IBetYoureExcitedForHim ==
@@ -99,13 +101,13 @@ Ned: "Yes, I'm sure it will get approved I looked it over and all looked good to
 Bronislav: "I can see you're excited for him."
 
 Ned: "Yes, this is a big step and I look forward to his success."
-*["Does he have preparations?"]->BNS1_DoesHeHavePreparations
+*["I'm guessing he has his survey questions?"]->BNS1_DoesHeHavePreparations
 *["It was nice running into you."]->BNS1_ItWasNiceRunningIntoYou
 
 == BNS1_DoesHeHavePreparations ==
-Bronislav: "I'm sure Brad already has some preparations in place and ready?"
+Bronislav: "I'm guessing he has his survey questions?"
 
-Ned: "Yes, he's told me he has some surveys in mind and is ready to go once approval arrives."
+Ned: "Yes, he's told me he has them ready and is good to go once approval arrives."
 
 *["I bet he's anxious to get them done."]->BNS1_IBetHesAnxious
 *["As prepared as ever."]->BNS1_AsPreparedAsEver
