@@ -1,6 +1,6 @@
 === BI_IRB_SceneStart ===
 #---
-# choiceLabel: Talk with Ivy about the IRB review.
+# choiceLabel: Chat with Ivy.
 # @query
 # date.day!2
 # @end
@@ -26,7 +26,7 @@ Ivy:"Hey Bronislav, how are you doing?"
 
 === PrettyWell ===
 
-Bronislav: "I'm doing pretty well. I feel like I should be more nervous about the IRB review but I'm actually feeling pretty confident about it at this point."
+Bronislav: "I'm doing pretty well. I feel like I should be more nervous but I'm actually feeling pretty confident about it at this point."
 
 Ivy: "That's great to hear! I know the anticipation can definitely be overwhelming sometimes. Actually, that reminds me..."
 
@@ -35,7 +35,7 @@ Ivy: "That's great to hear! I know the anticipation can definitely be overwhelmi
 
 === Alright ===
 
-Bronislav: "I'm alright, I've just been a bit preoccupied while waiting on the IRB ."
+Bronislav: "I'm alright, I've just been a bit preoccupied while waiting on the IRB."
 
 Ivy: "That's fair, I can understand why that would be daunting. Actually, that reminds me..."
 
@@ -61,8 +61,7 @@ Ivy: "You remember the firm I work at with my uncle, right?"
 
 *[Is she finally going to offer me a job?] -> offerAJobThought
 *[This could help with my visa issues.] -> VisaIssues
-*["Yeah!"]
-    ->WaitReally
+*["Yeah!"] -> WaitReally
 
 = offerAJobThought
 I've been wanting a job at her uncle's firm for months, is she finally going to offer me a job? I'd do anything to work there. -> TrapDoorResearchFirm
@@ -85,30 +84,35 @@ Ivy: "Yeah, I totally can send you the job listing."
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-{
-    - ivyOpinion >= OpinionState.Good:
+{ivyOpinion >= OpinionState.Good: -> ThatWouldBeGreatGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> ThatWouldBeGreatNeutral} 
+{ivyOpinion < OpinionState.Neutral: -> ThatWouldBeGreatBad} 
 
-    Bronislav: "That would be great Ivy! I really appreciate it!" # >> ChangeOpinion Ivy Bronislav ++
+=ThatWouldBeGreatGood
+Bronislav: "That would be great Ivy! I really appreciate it!" 
 
-    Ivy: "Of course, I am happy to help a student out!" 
+Ivy: "Of course, I am happy to help a student out!" 
 
-    - ivyOpinion == OpinionState.Neutral:
+->ThatWouldBeGreatChoices 
 
-    Bronislav: "That would be great Ivy! I really appreciate it!"
+=ThatWouldBeGreatNeutral
 
-    Ivy: "Don't mention it. I figured it might be something to look into while you wait to hear about your paper."
+Bronislav: "That would be great Ivy! I really appreciate it!"
 
-    Bronislav: "Yeah, definitely!" 
+Ivy: "Don't mention it. I figured it might be something to look into while you wait to hear about your paper."
 
-    - else:
+Bronislav: "Yeah, definitely!" 
+->ThatWouldBeGreatChoices 
 
-    Bronislav: "That would be great Ivy! I really appreciate it!"
+=ThatWouldBeGreatBad
+ Bronislav: "That would be great Ivy! I really appreciate it!"
 
-    Ivy:  "Yeah, sure. I figured you'd want to know about the job all the same."
+Ivy:  "Yeah, sure. I figured you'd want to know about the job all the same."
 
-    Bronislav: "Yes, definitely, I appreciate it." 
-}
+Bronislav: "Yes, definitely, I appreciate it." 
+->ThatWouldBeGreatChoices 
 
+=ThatWouldBeGreatChoices 
 You wonder if you should ask her if there's a way to get an edge on the application.
 
 *[Ask]
@@ -121,39 +125,38 @@ You wonder if you should ask her if there's a way to get an edge on the applicat
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-{
-    - ivyOpinion >= OpinionState.Good:
+{ivyOpinion >= OpinionState.Good: -> AskGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> AskNeutral}
+{ivyOpinion < OpinionState.Neutral: -> AskBad} 
+
+=AskGood
 
     Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
 
     Ivy: "Maybe...I suppose it would be possible for me to talk to my uncle about you a bit."
 
-    ["Really? You would do that?"]
-        ->ReallyYouWould
+ *["Really? You would do that?"]->ReallyYouWould
 
-    - ivyOpinion == OpinionState.Neutral:
+=AskNeutral
 
-    Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
+Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
 
-    Ivy: "Possibly..."
+Ivy: "Possibly..."
 
-    Ivy: "I could ask my Uncle about it more, and let you know what he says."
+Ivy: "I could ask my Uncle about it more, and let you know what he says."
 
-    *["I would appreciate that."]
-        ->IWouldAppreciate
+*["I would appreciate that."] ->IWouldAppreciate
 
-    - else:
+=AskBad
+Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
+Ivy: "What do you mean?" 
 
-    Bronislav: "Actually, do you know if there's a way to get a leg up on the application?"
+*["You could talk to your Uncle for me?" #>> ChangeOpinion Ivy Bronislav --]
+->YouCouldTalkToHim
 
-    Ivy: "What do you mean?" 
-
-    *["You could talk to your Uncle for me?" #>> ChangeOpinion Ivy Bronislav --]
-        ->YouCouldTalkToHim
-
-    *["Do you know anything else about the position?" #>> ChangeOpinion Ivy Bronislav ++]
+*["Do you know anything else about the position?" #>> ChangeOpinion Ivy Bronislav ++]
         ->DoYouKnowAnythingElse
-}
+
 
 === ReallyYouWould ===
 
@@ -173,9 +176,9 @@ Bronislav: "I would appreciate that."
 
 Ivy: "I didn't ask him for too many details, he just said to pass off the info to anyone who I knew that might be interested. I can maybe ask him next time for more details if I talk to him about it again."
 
-"I would definitely appreciate that if you could."
+Bronislav: "I would definitely appreciate that if you could."
 
-"I'll try to remember to ask for you." 
+Ivy: "I'll try to remember to ask for you." 
 
 ->ShiftToJensen
 
@@ -193,7 +196,7 @@ Bronislav: "Oh..."
 
 Ivy sighs.
 
-Ivy: "Look, I brought up the job as a way to make amends. I figured it would be of interest to you, but I am not super interested in leveraging my relationship with my uncle on your behalf."
+Ivy: "Look, I figured it would be of interest to you, but I am not super interested in leveraging my relationship with my uncle on your behalf."
 
 Bronislav: "I suppose I can understand that. I appreciate you mentioning the job least."
 
@@ -215,9 +218,11 @@ Ivy: "I'll try to remember to ask for you."
 === DontAsk ===
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+{ivyOpinion >= OpinionState.Good: -> DontAskGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> DontAskNeutral}
+{ivyOpinion < OpinionState.Neutral: -> DontAskBad} 
 
-{
-    - ivyOpinion >= OpinionState.Good:
+=DontAskGood
 
     You decide not to push your luck, especially since you would hate for her to feel like you are overstepping when she is already being so generous.
 
@@ -232,43 +237,40 @@ Ivy: "I'll try to remember to ask for you."
     Bronislav: "Thank you so much Ivy! I really appreciate it."
 
     Ivy: "Mhm." 
+->ShiftToJensen
 
-    ->ShiftToJensen
+=DontAskNeutral
 
-    - ivyOpinion == OpinionState.Neutral:
+You decide not to push you luck, especially since you don't want to come off as ungrateful.
 
-    You decide not to push you luck, especially since you don't want to come off as ungrateful.
-
-    Bronislav: "Now I have something to look into while I wait for this"
+Bronislav: "Now I have something to look into while I wait for this"
     
-    Ivy: "Actually, I could probably mention you to my uncle to help with your application."
+Ivy: "Actually, I could probably mention you to my uncle to help with your application."
 
-    Bronislav: "Wait, really?"
+Bronislav: "Wait, really?"
 
-    Ivy: "Yeah I could definitely do that. Well, as long as I remember to." 
+Ivy: "Yeah I could definitely do that. Well, as long as I remember to." 
 
-    Bronislav: "Heh, anything you feel comfortable doing I would definitely be grateful for." 
+Bronislav: "I mean...anything you feel comfortable doing I would definitely be grateful for." 
 
     Ivy: "Okay..." 
 
-    ->ShiftToJensen
+->ShiftToJensen
 
-    -else:
+=DontAskBad
 
-    You decide not to push your luck, especially since you and Ivy are not the closest.
+You decide not to push your luck, especially since you and Ivy are not the closest.
 
-    Bronislav: "I definitely now have something to look into while I wait for IRB approval." 
+Bronislav: "I definitely now have something to look into while I wait for IRB approval." 
 
-    Ivy nods.
+Ivy nods.
 
-    Ivy: "I could maybe even put in a good word for you if I talk to my uncle about it again."
+Bronislav: "But...anything that would help me get the position would be super helpful." 
 
-    Bronislav: "Anything that would help me get the position would be super helpful." 
-
-    Ivy: "Yeah..." 
+    Ivy: "Ok..." 
 
     ->ShiftToJensen
-}
+
 
 === ShiftToJensen ===
 
@@ -280,9 +282,11 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
 === AreYouAlright ===
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+{ivyOpinion >= OpinionState.Good: -> AlrightGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> AlrightNeutral}
+{ivyOpinion < OpinionState.Neutral: -> AlrightBad} 
 
-{
-    - ivyOpinion >= OpinionState.Good:
+=AlrightGood
 
     Ivy: "Sorry, yeah."
 
@@ -293,7 +297,7 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
     *["What's going on with him?"]
         ->WhatsUpWithHim
 
-    - ivyOpinion == OpinionState.Neutral:
+=AlrightNeutral
 
     Ivy: "Huh?" 
 
@@ -302,7 +306,7 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
     *["What's going on with him?"]
         ->WhatsUpWithHim
 
-    - else:
+=AlrightBad
 
     Ivy stops and looks towards you, a bit surprised by your question.
 
@@ -310,7 +314,7 @@ She starts to absent mindedly twist her hair, as she appears to be lost in thoug
 
     *["What's going on with him?"]
         ->WhatsUpWithHim
-}
+
 
 === WhatsUpWithHim ===
 
@@ -606,9 +610,11 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 {DbInsert("IvyDealAccepted")}
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+{ivyOpinion >= OpinionState.Good: -> AcceptedGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> AcceptedNeutral} 
+{ivyOpinion < OpinionState.Neutral: -> AcceptedBad} 
 
-{
-    - ivyOpinion >= OpinionState.Good:
+=AcceptedGood
 
         Ivy: "I'm really glad that you're willing to help Jensen." 
 
@@ -620,7 +626,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
         ->ContinueOutro
 
-    - ivyOpinion == OpinionState.Neutral:
+=AcceptedNeutral
 
         Ivy: "That's really nice of you to be willing to help Jensen. It certainly will not go unappreciated."
 
@@ -630,7 +636,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
         ->ContinueOutro
 
-    - else:
+=AcceptedBad
 
         Ivy: "I'm a little surprised you're so willing to help Jensen, but I'm very happy that you are."
 
@@ -639,33 +645,35 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
         Ivy: "Thank you, Bronislav, I know this is going to mean a lot to Jensen."
 
         ->ContinueOutro
-}
+
 
 === ContinueMAYBE ===
 
 {DbInsert("IvyDealConsidered")}
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
+{ivyOpinion >= OpinionState.Good: -> MaybeGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> MaybeNeutral} 
+{ivyOpinion < OpinionState.Neutral: -> MaybeBad} 
 
-{
-    - ivyOpinion >= OpinionState.Good:
+=MaybeGood
 
         Ivy: "I appreciate it, Bronislav. I hope you'll come to see that this a great way to help out your friends."
 
         ->ContinueOutro
 
-    - ivyOpinion == OpinionState.Neutral:
+=MaybeNeutral
 
         Ivy: "I hope that you consider adding him, you and I both know it would really help a lot."
 
         ->ContinueOutro
 
-    - else:
+=MaybeBad
 
         Ivy: "I know you have mixed feelings, but at least consider adding him. I know it would mean a lot to Jensen."
 
         ->ContinueOutro
-}
+
 
 === ContinueNO ===
 
@@ -673,55 +681,65 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-{
-    - ivyOpinion >= OpinionState.Good:
+{ivyOpinion >= OpinionState.Good: -> NoGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> NoNeutral} 
+{ivyOpinion < OpinionState.Neutral: -> NoBad} 
+
+=NoGood
 
         Ivy: "While I respect where you are coming from Bronislav, I really hope you reconsider."
 
         ->ContinueOutro
 
-    - ivyOpinion == OpinionState.Neutral:
+=NoNeutral
 
         Ivy: "I know you have concerns, but I hope you reconsider for Jensen's sake. It would do a lot to settle his nerves."
 
         ->ContinueOutro
 
-    - else:
+=NoBad
 
         Ivy: "I know you're insistent on being stubborn, but I really hope you'll come around." 
 
         ->ContinueOutro
-}
+
 
 === ContinueOutro ===
 
 ~ temp ivyOpinion = GetOpinionState("Ivy", "Bronislav")
 
-{
-    - ivyOpinion >= OpinionState.Good:
+{ivyOpinion >= OpinionState.Good: -> OutGood} 
+{ivyOpinion >= OpinionState.Neutral && ivyOpinion < OpinionState.Good: -> OutNeutral}
+{ivyOpinion < OpinionState.Neutral: -> OutBad} 
+
+=OutGood
 
         Ivy looks down to her watch.
 
         Ivy: "Wow. I really got swept up in this conversation. I've gotta go for now Bronislav, but it was nice chatting."
 
         Bronislav: "Yeah, always a pleasure."
+    {HideCharacter("Ivy")}
+    ->DONE 
 
-    - ivyOpinion == OpinionState.Neutral:
+=OutNeutral
 
-        Ivy looks down to her watch.
+    Ivy looks down to her watch.
 
-        Ivy: "Wow. I really got swept up in the conversation. I've gotta go for now Bronislav, but we'll chat again soon."
+    Ivy: "Wow. I really got swept up in the conversation. I've gotta go for now Bronislav, but we'll chat again soon."
 
-        Bronislav: "Alright, bye Ivy."
+    Bronislav: "Alright, bye Ivy."
 
-    - else:
+    {HideCharacter("Ivy")}
+    ->DONE 
+
+=OutBad
 
         Ivy looks down at her watch.
 
         Ivy: "Wow. I really got swept up in this conversation. I've gotta got Bronislav, but see you around, I guess?"
 
         Bronislav: "Yeah, I guess."
-}
 
 {HideCharacter("Ivy")}
 -> DONE

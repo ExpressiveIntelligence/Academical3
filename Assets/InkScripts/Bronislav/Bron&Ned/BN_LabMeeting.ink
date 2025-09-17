@@ -1,8 +1,7 @@
 === Seen_BNLM_SceneStart ===
 # ---
-# choiceLabel: Meet with Ned in the Lab
+# choiceLabel: Get advice from Ned 
 # @query
-# Seen_BNS1
 # date.day!6
 # @end
 # hidden: true
@@ -10,15 +9,21 @@
 # tags: action, neds_office, required
 # ===
 
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
+
+~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
+
 {DbInsert("Seen_BNLM")}
 
 {ShowCharacter("Ned", "left", "")}
 
-Earlier in the day I received an email from Ned to come to his office, giving a knock on the door I heard Ned respond.
+
+
+You decide to check Ned's office, maybe getting a second opinion on your situation would be a good idea. 
 
 Ned: "Come in."
 
-Creaking open the door I step into the office as Ned motions for me to have a seat.
+Creaking open the door you step into the office as Ned motions for you to have a seat.
 
 Ned: "Hello Bronislav, have a seat. How are you today?" 
 
@@ -37,7 +42,7 @@ Ned: "Hello Bronislav, have a seat. How are you today?"
 *["Could be better"]
     Bronislav: "It could be better. I'm going through a lot right now."
 
-    Ned: "I know it hasn't been long since we last talked, and I told you about the publication ethics. How has your paper worked out?"
+    Ned: "I know it hasn't been long since we last talked, but...I'll be honest I have heard that you've been in a hard situation lately. Do you want to talk about it?"
     
 -->BNLM_SECONDPOOLOFQUESTIONS
     
@@ -70,7 +75,11 @@ Ned: "Hello Bronislav, have a seat. How are you today?"
         ***["I do have some regrets."]
             Bronislav: "I do have some regrets, I just wish things could've gone better with Ivy and Jensen."
             
-            Ned: "I understand, but I'm proud of you for making the right choice, so thank you."
+            Ned: "I understand..."
+            
+            {IvyDeniedOfficial: Ned: "...but I'm proud of you for making the right choice, so thank you."}
+            
+            {IvyAcceptedOfficial: Ned: "...but know that people understand why you made that choice." }
             
             You give a small nod.
             
@@ -120,7 +129,7 @@ Ned: "Hello Bronislav, have a seat. How are you today?"
 == BNLM_RuinedRelationship ==
 Bronislav: "I feel as if I ruined my relationship with Ivy after everything."
 
-Ned: "I understand that. But I want you to understand we are all adults here, and boundaries are important especially when they involve your work and future. True friendship involves these boundaries and the respect of them."
+Ned: "I understand that. But I want you to understand we are all adults here, and boundaries are important especially when they involve your work and future. Relationships involves these boundaries and the respect of them."
 *["Yeah, you're right."]
     Bronislav: "Yeah, you're right..." 
     
@@ -146,9 +155,11 @@ Ned: "It'll all work out."
 == BNLM_CantTellIfIDidRightThing ==
 Bronislav: "I'm not sure if I ended up making the right choice." 
 
-Ned: "Take a look at it this way, because of your decision you can submit your project without fault. Also, you have successfully dodged a bad mark on your track record."
+{IvyDeniedOfficial: Ned: "Take a look at it this way, because of your decision you can submit your project without fault. Also, you have successfully dodged a bad mark on your track record."}
 
-Bronislav: "I guess you're right. It wouldn't help me get a job, instead would've hindered my application."  
+{IvyAcceptedOfficial: Ned: "Take a look at it this way, you are in a hard stance because someone took advantage of your visa situation to get what they wanted. But, you can recover from this, it will just take time."}
+
+Bronislav: "I guess you're right. It wouldn't help me get a job. Besides, this would've hindered my application."  
 
 Ned: "Indeed." 
 ->BNLM_SECONDPOOLOFQUESTIONS
@@ -160,7 +171,9 @@ Ned: "The process of getting a job is hard and not a simple and easy process. Yo
 
 Bronislav: "Yeah in a way you're right, I was just hopeful at the opportunity."
 
-Ned: "Anyone could have been tempted by that opportunity, but the fact that you turned it down shows your confidence in yourself, just keep at it." 
+{IvyDeniedOfficial: Ned: "Anyone could have been tempted by that opportunity, but the fact that you turned it down shows your confidence in yourself, just keep at it."}
+
+{IvyAcceptedOfficial: Ned: "Anyone could have been tempted by that opportunity, expecially someone in your shoes. Don't beat yourself up over this mistake, just keep at it."}
 
 Bronislav: "Understood." ->BNLM_SECONDPOOLOFQUESTIONS
 

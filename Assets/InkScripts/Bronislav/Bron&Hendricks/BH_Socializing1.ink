@@ -1,3 +1,4 @@
+@ -1,297 +0,0 @@
 VAR ignoredHendricks = false 
 
 === BHS1_Hint ===
@@ -13,6 +14,7 @@ She wants to talk about your research progress.
     {DbInsert("BHS1_unlocked")}
 * [Ignore the email #>> ChangeOpinion Hendricks Bronislav -]
     You put your phone back in your pocket.
+     {DbInsert("BHS1_ignored")}
 -
 
 ->DONE

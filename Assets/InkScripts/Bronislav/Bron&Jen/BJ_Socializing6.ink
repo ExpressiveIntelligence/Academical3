@@ -1,3 +1,4 @@
+@ -1,211 +0,0 @@
 === BJ_S6_SceneStart ===
 # ---
 # choiceLabel: Meet with Jensen
@@ -19,6 +20,19 @@
 //if Jensen worked on the paper
 // TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
 //if positive relationship
+
+{IvyAcceptedOfficial: -> JensenDealAcceptedSocial6} 
+{IvyDeniedOfficial: -> JensenDealDeniedSocial6} 
+
+===JensenDealAcceptedSocial6===
+
+~ temp jensenOpinion = GetOpinionState("Jensen", "Bronislav")
+{jensenOpinion >= OpinionState.Good: -> goodJensenAcceptedSocial6} 
+{jensenOpinion >= OpinionState.Neutral && jensenOpinion < OpinionState.Good: -> neutralJensenAcceptedSocial6} 
+{jensenOpinion < OpinionState.Neutral: -> badJensenAcceptedSocial6}
+
+===goodJensenAcceptedSocial6===
+
 You run into Jensen grabbing a coffee. He sees you and gives you a quick wave, but looks down at the floor.
 
 *["Are you doing okay?"]
@@ -27,7 +41,7 @@ You run into Jensen grabbing a coffee. He sees you and gives you a quick wave, b
 *["We should have expected this." #>> ChangeOpinion Jensen Bronislav --]
 ->WeShouldHaveExpected
 
-//if neutral relationship
+===neutralJensenAcceptedSocial6===
 You run into Jensen grabbing a coffee. He sees you and looks back down at the floor quickly.
 *["How are you doing?"]
 ->HowAreYou
@@ -35,7 +49,7 @@ You run into Jensen grabbing a coffee. He sees you and looks back down at the fl
 *["We should have expected this."]
 ->WeShouldHaveExpected
 
-//if negative relationship
+===badJensenAcceptedSocial6===
 You run into Jensen grabbing a coffee. He sees you, grimaces, and then looks down at the floor.
 
 *[Can we talk?]
@@ -155,8 +169,11 @@ He walks out of the cafe without another word, or wave.
 
 // if Jensen was not on the paper
 // TODO: WRITE SELECTORS BASED OFF OF POSTIVE/NEUTRAL/NEGATIVE IVY RELATIONSHIP
+
+===JensenDealDeniedSocial6===
+
 You walk around and see Jensen typing away at his laptop.
-//if positive relationship
+
 He looks up and notices you as well, waving at you.
 
 *["What are you up to?"]

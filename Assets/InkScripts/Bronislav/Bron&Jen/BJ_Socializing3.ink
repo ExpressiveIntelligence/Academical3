@@ -1,6 +1,6 @@
 === BJS3_start ===
 # ---
-# choiceLabel: Talk to Jensen
+# choiceLabel: Grab a coffee
 # @query
 # Seen_BI_CONF
 # date.day!3
@@ -10,19 +10,42 @@
 # ===
 # Summary: Jensen asks if he's on the paper/updates 
 
-{ShowCharacter("Jensen", "left", "")}
-
 {DbInsert("Seen_BJS3")}
+
+~IvyDealAccepted = DbAssert("IvyDealAccepted")
+
+~IvyDealConsidered = DbAssert("IvyDealConsidered")
+
+~IvyDealDenied = DbAssert ("IvyDealDenied") 
 
 // Coffee Shop
 // TODO: CONNECT RELATIONSHIP MODIFIERS HERE FOR SCENE STARTS
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{JenOpinionSocial3 >= OpinionState.Good: -> GoodJensenBeginning} 
+{JenOpinionSocial3 >= OpinionState.Neutral && JenOpinionSocial3 < OpinionState.Good: -> NeutralJensenBeginning} 
+{JenOpinionSocial3 <= OpinionState.Neutral: -> BadJensenBeginning} 
+
+=GoodJensenBeginning
+{IvyDealAccepted: ->BJS3_scenePositive} 
+{IvyDealConsidered: -> BJS3_scenePositiveIvy}
+{IvyDealDenied: ->BJS3_scenePositiveNo}
+
+=NeutralJensenBeginning
+{IvyDealAccepted: -> BJS3_sceneNeutralIvy}
+{IvyDealConsidered: -> BJS3_sceneNeutralIvy}
+{IvyDealDenied: -> BJS3_sceneNeutralNo} 
+
+=BadJensenBeginning 
+{IvyDealAccepted: -> BJS3_sceneNegative} 
+{IvyDealConsidered: -> BJS3_sceneNegative} 
+{IvyDealDenied: -> BJS3_sceneNegativeNo}
 // if positive relationship
     // if accepted ivy's deal
         //->scenePositiveIvy
     // if rejected ivy's deal
         //->scenePositiveIvyNo
     // else (considered ivy's deal)
-    ->BJS3_scenePositive
+    //->BJS3_scenePositive
 // if neutral relationship
     // if accepted ivy's deal
         //->sceneNeutralIvy
@@ -38,41 +61,51 @@
     // else (considered ivy's deal)
     //->sceneNegative
 
-{HideCharacter("Jensen")}
-
--> DONE
-
 === BJS3_scenePositive ===
 
-Jensen: "Bronislav!"
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-Jensen says as he walks up to you.
+???: "Bronislav!"
+
+You turn your attention over. 
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey!" 
+
+Jensen abruptly sits at your table. 
 
 Jensen: "I heard that my feedback on your presentation got me co-authorship."
 
 *["Keep on hustling." #>> ChangeOpinion Jensen Bronislav ++]
-// Jensen: +Hopeful
-// Bronislav: +Bad Advisor
 ->BJS3_KeepOnHustling
 
 *["Here's how you author."]
-// Jensen: + Growth Mindset
-// Bronsilav: + Supportive
 ->BJS3_HeresHowYouAuthor
 
 *["Only doing it for the job." #>> ChangeOpinion Jensen Bronislav --]
-// Jensen: + Ashamed
-// Bronislav: + Petty
 ->BJS3_OnlyDoingItForTheJob
 
 === BJS3_scenePositiveIvy ===
-Jensen sits down at your table quietly, then eventually speaks up with a smile,
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
+
+???: "Bronislav!"
+
+You turn your attention over. 
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey Bronislav, how's your paper going?" 
+
+Bronislav: "Oh hey, it's been good." 
+
+Jensen: "Awesome!" 
 
 Jensen: "I hope my feedback is helping the paper come along well."
 
+Jensen: "...And Ivy's been telling me that you're considering me for authorship?" 
+
 *["There's a good chance." #>> ChangeOpinion Jensen Bronislav ++]
-// Jensen: +Hopeful
-// Bronislav: +Bad Advisor
 ->BJS3_GoodChance
 
 *["It's already done."]
@@ -80,14 +113,24 @@ Jensen: "I hope my feedback is helping the paper come along well."
 ->BJS3_AlreadyDone
 
 *["It doesn't feel right." #>> ChangeOpinion Jensen Bronislav --]
-// Jensen: + Ashamed
-// Bronislav: + Petty
 ->BJS3_DoesntFeelRight
 
 === BJS3_scenePositiveNo ===
-Jensen sits down at your table, and smiles.
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-Jensen: "Hey Bronislav, I just wanted to catch up with you. As much as I hope you change your mind on my inclusion on the paper, I can understand your position."
+???: "Bronislav!"
+
+You turn your attention over.
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey Bronislav, how's your paper going?" 
+
+Bronislav: "Oh hey, it's been good." 
+
+Jensen: "Awesome!"
+
+Jensen: "I just wanted to catch up with you. I heard from Ivy that you don't want me as an author on the paper, but as much as I hope you change your mind, I can understand your position."
 
 *["I'll consider changing." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
@@ -105,20 +148,46 @@ Jensen: "Hey Bronislav, I just wanted to catch up with you. As much as I hope yo
 
 === BJS3_sceneNeutral ===
 
-Jensen walks up to you happily.
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-Jensen: "Thank you so much for the advice and opportunity for co-authorship Bronislav. Happy I could help."
+???: "Bronislav!"
 
-*["Keep on hustling."]
+You turn your attention over.
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey Bronislav, how's your paper going?" 
+
+Bronislav: "Oh hey, it's been good." 
+
+Jensen: "Awesome!"
+
+Jensen: "I heard from Ivy that you're considering putting me on the paper.Thank you so much for the opportunity, I'm just happy I could help."
+
+*["Keep on hustling." #>> ChangeOpinion Jensen Bronislav ++]
 ->BJS3_KeepOnHustling
 
-*["Here's how you author."]
+*["Here's how you author." #>> ChangeOpinion Jensen Bronislav +++]
 ->BJS3_HeresHowYouAuthor
 
-*["Only doing it for the job."]
+*["Only doing it for the job." #>> ChangeOpinion Jensen Bronislav --]
 ->BJS3_OnlyDoingItForTheJob
 
 === BJS3_sceneNeutralIvy ===
+
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
+
+???: "Bronislav!"
+
+You turn your attention over.
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey Bronislav, how's your paper going?" 
+
+Bronislav: "Oh hey, it's been good." 
+
+Jensen: "Awesome!"
 
 Jensen: "Hey, Bronislav, I was wondering, am I joining the paper?"
 
@@ -138,6 +207,21 @@ He looks at you with an attempt at puppy-eyes.
 ->BJS3_DoesntFeelRight
 
 === BJS3_sceneNeutralNo ===
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
+
+???: "Bronislav!"
+
+You turn your attention over.
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey Bronislav, how's your paper going?" 
+
+Bronislav: "Oh hey, it's been good." 
+
+Jensen: "Awesome!"
+
+Jensen: "I just wanted to catch up with you. I heard from Ivy that you don't want me as an author on the paper, but as much as I hope you change your mind. It would really help me out."
 
 
 *["I'll consider changing." #>> ChangeOpinion Jensen Bronislav ++]
@@ -155,9 +239,27 @@ He looks at you with an attempt at puppy-eyes.
 ->BJS3_MadeUpMyMind
 
 === BJS3_sceneNegative ===
-Jensen sits down across the table from you, setting down his coffee and smiling.
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that you decided to include me as a co-author on your paper."
+???: "Bronislav!"
+
+You turn your attention over.
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey!!! Bronislav!!" 
+
+You fake an awkward smile and wave, hoping he would go away. 
+
+Instead he abruptly pulls the seat in front of you and sits down at your table.
+
+Jensen: "How's your paper going?" 
+
+Bronislav: "Oh uh hey, yeah it's been good." 
+
+Jensen: "Awesome!"
+
+Jensen: "I know we got off on the wrong foot, but I'm happy that you decided to include me as a co-author on your paper."
 
 *["Keep on hustling." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
@@ -176,6 +278,28 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 
 === BJS3_sceneNegativeNo ===
 
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
+
+???: "Bronislav!"
+
+You turn your attention over.
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey!!! Bronislav!!" 
+
+You fake an awkward smile and wave, hoping he would go away. 
+
+Instead he abruptly pulls the seat in front of you and sits down at your table.
+
+Jensen: "How's your paper going?" 
+
+Bronislav: "Oh uh hey, yeah it's been good." 
+
+Jensen: "Awesome!"
+
+Jensen: "I know we got off on the wrong foot, but I know I have and could contribute more to this paper...and yeah the research is already done but I could proof read. Wasn't my feedback good? It helped you on your presentation!"
+
 
 *["I'll consider changing." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
@@ -192,6 +316,28 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 ->BJS3_MadeUpMyMind
 
 === BJS3_sceneNegativeIvy ===
+
+It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
+
+???: "Bronislav!"
+
+You turn your attention over.
+
+{ShowCharacter("Jensen", "left", "")}
+
+Jensen: "Hey!!! Bronislav!!" 
+
+You fake an awkward smile and wave, hoping he would go away. 
+
+Instead he abruptly pulls the seat in front of you and sits down at your table.
+
+Jensen: "How's your paper going?" 
+
+Bronislav: "Oh uh hey, yeah it's been good." 
+
+Jensen: "Awesome!"
+
+Jensen: "I know we got off on the wrong foot, but I know I have and could contribute more to this paper...and yeah the research is already done but I could proof read. Wasn't my feedback good? It helped you on your presentation!"
 
 *["There's a good chance." #>> ChangeOpinion Jensen Bronislav ++]
 // Jensen: +Hopeful
@@ -210,24 +356,111 @@ Jensen: "Hey Bronislav, I know we got off on the wrong foot, but I'm happy that 
 {ShowCharacter("Jensen", "left", "hopeful")}
 Bronislav: "Keep on hustling Jensen, as long as you put in the work like you have been you'll go far."
 
-*[Shake his hand and leave.]
+Jensen: "Thanks Bronislav! I appreciate it!!" 
+
+Jensen: "Alright I need to run to class, I'll see you later!" 
+
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{JenOpinionSocial3 >= OpinionState.Good: Bronislav: "Yeah! See you later!" } 
+{JenOpinionSocial3 >= OpinionState.Neutral && JenOpinionSocial3 < OpinionState.Good: Bronislav: "Ok!" }
+{JenOpinionSocial3 <= OpinionState.Neutral: Bronislav: "Sure." } 
+
+
+
+*[Shake his hand]
 ->BJS3_ShakeHandLeave
 
 === BJS3_HeresHowYouAuthor ===
 
 Bronislav: "While you certainly have some room to grow Jensen, I'd be happy to show you how to author. Let me know some time you are free and we can organize a meeting."
 
+Jensen: "Really?! Oh that would be great!! Thank you!!" 
 
-*["Start working on your paper again."]
+*[Exchange contact information]
 
 ->BJS3_StartWorkingAgain
 
 === BJS3_OnlyDoingItForTheJob ===
 {ShowCharacter("Jensen", "left", "ashamed")}
-Bronislav: "Look Jensen, you seem like a nice guy so I'll just tell you. Ivy offered me a job opportunity if I put you as a co-author. I'm putting you on here strictly for that job."
 
-*[Get up and leave.]
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{JenOpinionSocial3 >= OpinionState.Good: Bronislav: "Look Jensen, you seem like a nice guy so I'll just tell you. Ivy offered me a job opportunity if I put you as a co-author. I'm putting you on here strictly for that job."} 
+{JenOpinionSocial3 >= OpinionState.Neutral && JenOpinionSocial3 < OpinionState.Good: Bronislav: "Look Jensen, you seem like a nice guy so I'll just tell you. Ivy offered me a job opportunity if I put you as a co-author. I'm putting you on here strictly for that job."}
+{JenOpinionSocial3 <= OpinionState.Neutral: -> BJS3_notLikeMe } 
+
+Jensen: "Oh...I see." 
+
+Jensen: "Well...it would still help I guess?" 
+
+Jensen: "I'll leave then, bye Bronislav." 
+
+*["Bye."]
 ->BJS3_GetUpAndLeave
+
+=== BJS3_notLikeMe===
+
+Bronislav: "Look Jensen, Ivy offered me a job opportunity if I put you as a co-author. I'm only doing this for the job." 
+
+Jensen: "Oh...I see. So I'm not working with you?" 
+
+Bronislav: "No, I'm just putting your name down for credit and that's it." 
+
+Jensen: "Ok...gotcha." 
+
+Jensen: "..."
+
+Jensen: "Do you not like me or something? You're really short with me in meetings lately and just...I don't know." 
+
+->notLikeMeChoices
+
+=notLikeMeChoices
+
+*[What is my opinion on Jensen?] ->thoughtExposition
+*["Yeah I don't like you." #>> ChangeOpinion Jensen Bronislav ---]->BJS3_jensenSad
+*["It's not like that." #>> ChangeOpinion Jensen Bronislav +] -> BJS3_jensenOk
+
+=thoughtExposition 
+
+His aunt has been dangling your visa issues over your head to get you to do this. It's been causing you alot of anxiety and pressure, but is Jensen at fault for this too? He's been nonstop pestering you about it, it's beginning to get to you.
+
+->notLikeMeChoices
+
+=BJS3_jensenSad
+ 
+{DbInsert("Jensen_cry")}
+  
+Jensen: "Oh..." 
+
+Jensen: "Ok Bronislav." 
+
+You see his eyes turn slightly red from holding back tears. 
+
+Jensen: "I guess I'll leave you alone." 
+
+Jensen: "Bye."
+
+{HideCharacter("Jensen")}
+
+He runs out before you can say anything else 
+
+->DONE 
+
+=BJS3_jensenOk
+
+Bronislav: "No, it's not like that. I'm just really stressed, and sorry for taking it out on you." 
+
+Jensen: "Oh, I understand!" 
+
+Jensen: "Sometimes it feels like people hate me cause they keep talking behind my back and don't think I notice." 
+
+Jensen: "Expecially Brad...he likes spreading rumors about me." 
+
+Jensen: "But it's ok, I'm glad to know you don't hate me." 
+
+Jensen: "Anyways, gotta go. I'll see you later." 
+
+{HideCharacter("Jensen")}
+->DONE 
 
 === BJS3_GoodChance ===
 {ShowCharacter("Jensen", "left", "hopeful")}
@@ -312,7 +545,7 @@ He gets up and leaves.
 
 === BJS3_MadeUpMyMind ===
 {ShowCharacter("Jensen", "left", "ashamed")}
-Bronislav: "I've made up my mind Jensen, you're not getting co-authorship and that's final."
+Bronislav: "I've made up my mind Jensen, you're not getting co-authorship."
 
 His gaze goes from disappointment to guilt.
 

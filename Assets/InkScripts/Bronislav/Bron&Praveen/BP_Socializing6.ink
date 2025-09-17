@@ -1,6 +1,6 @@
 === Seen_BPS6_SceneStart ===
 # ---
-# choiceLabel: Visit the Cafe and see Praveen
+# choiceLabel: Approach Praveen 
 # @query
 # Seen_BPS3
 # date.day!6
@@ -13,9 +13,7 @@
 
 {ShowCharacter("Praveen", "left", "")}
 
-You decided a break was well needed, so you make your way over to the Cafe.
-
-Upon arrival, you spot a familiar pretentious fellow who seems more gloomy than confident. 
+You spot Praveen, who seems more gloomy than confident. 
 
 Bronislav: "Hey Praveen, why the long face?"
 
@@ -35,12 +33,24 @@ You pull up a chair raising an eyebrow.
 
 Praveen: "Alright alright, I'll stop kidding around. Long story short I'm no longer an editor."
 
+~ temp PraveenOpinion = GetOpinionState("Praveen", "Bronislav")
+
+{
+    - PraveenOpinion >= OpinionState.Good: -> PositiveChoices
+    - PraveenOpinion >= OpinionState.Neutral: -> NeutralChoices
+    - PraveenOpinion <= OpinionState.Bad: -> BadChoices
+} 
+
+=PositiveChoices
 *["What happened?"]->BPS6_WhatHappened
-// TODO (If high relationship)
 *["Oh wow..."] ->BPS6_OhWowPos
-// TODO (If neutral relationship)
+
+=NeutralChoices
+*["What happened?"]->BPS6_WhatHappened
 *["Oh wow..."] ->BPS6_OhWowNeut
-// TODO (If low relationship)
+
+=BadChoices
+*["What happened?"]->BPS6_WhatHappened
 *["Oh wow..."] ->BPS6_OhWowNeg
 
 == BPS6_What ==
@@ -52,14 +62,29 @@ You pull up a chair nodding your head for him to continue.
 
 Praveen: "Alright, I got you...in a more serious tone, the power got to my head a little."
 
-*["So you let your ego take over again..."]->BPS6_SoYouLetEgo
 
-*["I'm sorry to hear that..."]->BPS6_SorryToHearThat// TODO RELATIONSHIP -20
-// TODO (If high relationship)
+
+~ temp PraveenOpinion = GetOpinionState("Praveen", "Bronislav")
+
+{
+    - PraveenOpinion >= OpinionState.Good: -> PositiveChoices
+    - PraveenOpinion >= OpinionState.Neutral: -> NeutralChoices
+    - PraveenOpinion <= OpinionState.Bad: -> BadChoices
+} 
+
+=PositiveChoices
+*["So you let your ego take over again..." #>> ChangeOpinion Praveen Bronislav ---]->BPS6_SoYouLetEgo
+*["I'm sorry to hear that..." #>> ChangeOpinion Praveen Bronislav +]->BPS6_SorryToHearThat
 *["Oh wow..."] ->BPS6_OhWowPos
-// TODO (If neutral relationship)
+
+=NeutralChoices
+*["So you let your ego take over again..." #>> ChangeOpinion Praveen Bronislav ---]->BPS6_SoYouLetEgo
+*["I'm sorry to hear that..." #>> ChangeOpinion Praveen Bronislav + ]->BPS6_SorryToHearThat
 *["Oh wow..."] ->BPS6_OhWowNeut
-// TODO (If low relationship)
+
+=BadChoices
+*["So you let your ego take over again..." #>> ChangeOpinion Praveen Bronislav ---]->BPS6_SoYouLetEgo
+*["I'm sorry to hear that..." #>> ChangeOpinion Praveen Bronislav +]->BPS6_SorryToHearThat
 *["Oh wow..."] ->BPS6_OhWowNeg
 
 == BPS6_SoYouLetEgo ==
@@ -88,12 +113,26 @@ Bronislav: "What happened?"
 
 Praveen: "Well...I messed up, and Hendricks took me off the editing job."
 
-// TODO (If high relationship)
+~ temp PraveenOpinion = GetOpinionState("Praveen", "Bronislav")
+
+{
+    - PraveenOpinion >= OpinionState.Good: -> PositiveChoices
+    - PraveenOpinion >= OpinionState.Neutral: -> NeutralChoices
+    - PraveenOpinion <= OpinionState.Bad: -> BadChoices
+} 
+
+=PositiveChoices
+*["I'm sorry to hear that..." #>> ChangeOpinion Praveen Bronislav +]->BPS6_SorryToHearThat
 *["Oh wow..."] ->BPS6_OhWowPos
-// TODO (If neutral relationship)
+
+=NeutralChoices
+*["I'm sorry to hear that..." #>> ChangeOpinion Praveen Bronislav + ]->BPS6_SorryToHearThat
 *["Oh wow..."] ->BPS6_OhWowNeut
-// TODO (If low relationship)
+
+=BadChoices
+*["I'm sorry to hear that..." #>> ChangeOpinion Praveen Bronislav +]->BPS6_SorryToHearThat
 *["Oh wow..."] ->BPS6_OhWowNeg
+
 
 
 == BPS6_OhWowPos ==

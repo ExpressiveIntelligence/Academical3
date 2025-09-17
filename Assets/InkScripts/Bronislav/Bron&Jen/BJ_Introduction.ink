@@ -1,3 +1,4 @@
+@ -1,156 +0,2 @@
 /*
 
 This file contains dialogue for the initial interaction
@@ -56,13 +57,15 @@ Ivy: "...Ahem, oops! I meant to say undergrad mentee. Sorry about that! Anyways,
 
 <i>(You can learn more about any character using the "Characters" button at the top of the screen.)</i>
 
-The room clears out. A final person, likely an undergrad, approaches you nervously.
+The room clears out. A final person, an undergrad, approaches you nervously.
 
 Jensen: "Bronislav, right? Nice to meet you. I'm Jensen." {ShowCharacter("Jensen", "left", "")}
 
 {DbInsert("metJensen")}
 
 He extends his hand for you to shake.
+
+You've heard of Jensen before, but have never met him face-to-face. 
 
 *[Shake his hand.] Bronislav: "Nice to meet you too, Jensen."
     ->BJIntro_ShakeHand
@@ -150,3 +153,4 @@ You check the time on your phone. You promised to meet Professor Ivy for coffee 
 ->BHS1_Hint->
 
 -> DONE
+

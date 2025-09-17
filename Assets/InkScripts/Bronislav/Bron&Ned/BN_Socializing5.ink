@@ -43,7 +43,7 @@ Bronislav: "What's going on?"
 
 Ned: "I'm not sure I can discuss... actually, how much has Brad told you about his work with me?"
 
-*["You know, I don't really recall him mentioning anything." #>> ChangeOpinion Ned Bronislav -]
+*["I don't really recall him mentioning anything." #>> ChangeOpinion Ned Bronislav -]
 ->BN_Socializing5_DontReallyRecall
 
 *["Oh, just the basics."]
@@ -65,10 +65,10 @@ Ned: "I find that really interesting Bronislav, because he did mention talking t
 
 Ned: "I understand you are trying to be a good friend to Brad and not say anything that might get him in trouble, but lying to me is not a good idea."
 
-*["Sorry, Ned."]
+*["Sorry, Ned." #>> ChangeOpinion Ned Bronislav +]
 ->BN_Socializing5_SorryNed
 
-*["I didn't realize Brad had said anything to you."]
+*["I didn't realize Brad had said anything to you." #>> ChangeOpinion Ned Bronislav -]
 ->BN_Socializing5_IDidntRealize
 
 === BN_Socializing5_JustTheBasics ===

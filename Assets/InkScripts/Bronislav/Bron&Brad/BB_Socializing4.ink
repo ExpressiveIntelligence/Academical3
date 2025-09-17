@@ -12,8 +12,11 @@ VAR confided = false
 # ===
 #Summary: Brad is contemplating withdrawing paper
 
+VAR HendricksKnows = false
 
 {DbInsert("Seen_BBS4")}
+
+~HendricksKnows = DbAssert("HendricksKnowsBrad")
 
 // Check if Conference Submission Deadline Happened
 ~ confided = DbAssert("Seen_BB_ConferenceSubmissionDeadline")
@@ -46,25 +49,49 @@ Bronislav: "No problem Brad. How's the paper coming along?"
 
 Brad sighs.
 
-Brad: "It's coming along, but it doesn't feel right. I don't want to keep Ned in the dark on this, but I also don't want to waste both of our hard work."
+Brad: "It's coming along, but it doesn't feel right. I don't want to keep Ned in the dark on this, but I also don't want to waste my hard work."
+
+Brad: "I just dont know if you're in the mood to hear this..."
 }
 
-*["You really should withdraw." #>>ChangeOpinion Brad Bronislav +]
+*{confided}["You really should withdraw." #>>ChangeOpinion Brad Bronislav +]
 ->BB_Socializing4_ShouldWithdraw
 
-*["Ned still doesn't know?"]
+*{confided}["Ned still doesn't know?"  # >> ChangeOpinion Brad Bronislav --]
 ->BB_Socializing4_NedStillDoesntKnow
 
-{confided:
-*["You've got to do something soon."]
+*{confided}["You've got to do something soon."]
 ->BB_Socializing4_YouveGottaDoSomething
 
-- else:
-
-*["That seems unnecessary."]
+*{confided}["That seems unnecessary." # >> ChangeOpinion Brad Bronislav +]
 ->BB_Socializing4_SeemsUnnecessary
 
-}
+*{not confided}["What's going on?"] -> BB_Socializing4_Explination 
+
+*{not confided}["Well now I'm worried"  # >> ChangeOpinion Brad Bronislav -] -> BB_Socializing4_Worried 
+
+===BB_Socializing4_Explination=== 
+Brad: "OKSOYOUWEREINABADMOODANDIDIDNTWANTTOMAKEYOUMADBUTBUTBUT-"
+
+Bronislav: "Brad! Slow down! I don't know what you're saying!"
+
+Brad: "I used unapproved IRB Data!" 
+
+Bronislav: "What?!" 
+
+Brad: "I was so worried I wasn't going to get the approval in time and ran the survey, and the approval DID come in but after I ran the survey!" 
+
+Bronislav: "Does Ned know?" 
+
+Brad: "No but I don't know if I did something bad or not. Should I withdraw?" 
+-> BB_Socializing4_TookYourTime.choices
+
+===BB_Socializing4_Worried==
+Brad: "...I knew you would say something like that." 
+
+Bronislav: "Well spill already, what's going on?!" 
+
+->BB_Socializing4_Explination
 
 === BB_Socializing4_TookYourTime ===
 Bronislav: "You definitely took your time for something that sounded so urgent. What are your plans with the paper?"
@@ -72,6 +99,10 @@ Bronislav: "You definitely took your time for something that sounded so urgent. 
 Brad is taken aback before regathering himself.
 
 Brad: "Oh, I was... going to tell someone, or at least withdraw the paper. It's just really, really hard to throw away all that work Ned and I did."
+
+->choices
+
+=choices
 
 *["Just withdraw."]
 ->BB_Socializing4_JustWithdraw
@@ -105,11 +136,14 @@ Brad: "Noooo?"
 
 Brad says slowly.
 
-Bronislav: "No wonder you haven't withdrawn then."
+{not HendricksKnows: Bronislav: "No wonder you haven't withdrawn then."} 
+{HendricksKnows: Bronislav: "I'm going to be blunt, the other day Hendricks told me, according to Brad, something shady was going on in your research. He's already onto you."}
 
-Brad: "So this can still be salvaged?"
+{HendricksKnows: Brad: "...shoot."} 
 
-*["You really should withdraw." #>>ChangeOpinion Brad Bronislav +]
+Brad: "So...do this can still be salvaged?"
+
+*["You really should withdraw." # >> ChangeOpinion Brad Bronislav +]
 ->BB_Socializing4_ShouldWithdraw
 
 *["You shouldn't withdraw." #>>ChangeOpinion Brad Bronislav ++]
@@ -258,11 +292,11 @@ As you begin to head out, you overhear Praveen talking with another student.
 
 {ShowCharacter("Praveen", "left", "")}
 
-Praveen: "...and you know, now I'm reviewing his work."
+Praveen: "...and you know, now I'm reviewing her work."
 
-Praveen: "It's honestly pretty garbage. He starts at one point and then jumps between twenty different topics before hardly returning to his original point. Such a long paper to say nothing at all."
+Praveen: "It's honestly pretty garbage. She starts at one point and then jumps between twenty different topics before hardly returning to his original point. Such a long paper to say nothing at all."
 
-Praveen: "But he did make a couple good points in some sections. I wasn't planning on giving a good review, so maybe I could take those points and write my own paper."
+Praveen: "But she did make a couple good points in some sections. I wasn't planning on giving a good review, so maybe I could take those points and write my own paper."
 
 Praveen: "But yeah it's overall going well. How about you? How's your work going?..."
 

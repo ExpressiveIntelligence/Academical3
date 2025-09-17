@@ -50,19 +50,31 @@ Brad: "And they really let anyone submit a paper to us too! How's it going Bronn
 ->BB_S1_CouldHaveBeenBetter
 
 === BB_S1_HeyBrad ===
-Bronislav: "Hey Brad. It's been a while, how did the lab meeting go for you?"
+Bronislav: "Hey Brad!"
 
 Brad takes a chair and sits down in your cubicle.
 
-Brad: "It went alright, I've been a bit stressed about the paper so I really only half absorbed the feedback we got."
+Brad: "Seems like the presentation went well!" 
 
-*[Did something go wrong with our paper?]
-->BB_S1_PaperExposition
+Bronislav: "Yeah, just working on annotations right now. While I do this, could you look at the feedback notes and see what we need to fix?" 
 
-*["Stressed about what?"]
+Brad: "You got it!" 
+
+Bronislav: "By the way, how's your paper with Ned going?" 
+
+Brad: "It's alright, I've been pretty stressed so I really only half absorbed the feedback I got."
+
+*{not BB_S1_PaperExposition} [Did something go wrong with his paper?]
+->BB_S1_PaperExposition -> BB_S1_HeyBrad_Choices
+
+{BB_S1_PaperExposition: -> BB_S1_HeyBrad_Choices}
+
+= BB_S1_HeyBrad_Choices
+
+*{BB_S1_PaperExposition}["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
 
-*["Sorry to hear." #>> ChangeOpinion Brad Bronislav +]
+*{BB_S1_PaperExposition}["Sorry to hear." #>> ChangeOpinion Brad Bronislav +]
 ->BB_S1_SorryToHear
 
 === BB_S1_KeepWorking ===
@@ -70,21 +82,21 @@ You just keep working.
 
 Brad rolls his eyes and brings a chair into your cubicle.
 
-Brad: "Always a hard worker, Bronislav. How was the lab meeting for you?"
+Brad: "Always a hard worker, Bronislav. Seems like the presentation went well though!"
 
-*["Going good."]
+*["It went pretty well."]
 ->BB_S1_GoingGood
-*["Fine." #>> ChangeOpinion Brad Bronislav -]
+*["It was fine." #>> ChangeOpinion Brad Bronislav -]
 ->BB_S1_Fine
 *["Could have gone better."]
 ->BB_S1_CouldHaveBeenBetter
 
 === BB_S1_GoingGood ===
-Bronislav: "I'd say it went pretty well. Good to always get some fresh eyes on what I've been up to. How about you Brad?"
+Bronislav: "I'd say it went pretty well. Good to get some fresh eyes on what we've been up to. How about you? How's your paper with Ned going?"
 
 Brad shrugs.
 
-Brad: "I mean it felt like it went fine, I've been a bit distracted recently. Pretty stressful."
+Brad: "I mean it's fine, I've been a bit distracted recently. Pretty stressful."
 
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
@@ -93,11 +105,15 @@ Brad: "I mean it felt like it went fine, I've been a bit distracted recently. Pr
 ->BB_S1_SorryToHear
 
 === BB_S1_Alright ===
-Bronislav: "It was alright, some helpful, some unhelpful. Did it go any better for you?"
+Bronislav: "It was alright, some helpful, some unhelpful. At this rate, we should just take what we get." 
+
+Brad: "Hey, anything helps!" 
+
+Bronislav: "Yeah, I guess you're right. How's your paper with Ned going?"
 
 Brad thinks on it for a moment.
 
-Brad: "I'd say it went about the same for me. I've just been stressed recently, and I feel like that might have taken my attention away from it."
+Brad: "I'd say it's been ok. I've just been stressed recently, and I feel like that might have taken my attention away from it."
 
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
@@ -106,11 +122,15 @@ Brad: "I'd say it went about the same for me. I've just been stressed recently, 
 ->BB_S1_SorryToHear
 
 === BB_S1_CouldHaveBeenBetter ===
-Bronislav: "It really could have gone better, not much to take note of personally. How about you? Get anything helpful out of it?"
+Bronislav: "It really could have gone better, not much to take note of personally."
+
+Brad: "Well I'll look over the feedback to see what we can take from it." 
+
+Bronislav: "Alright. Well, how's your paper with Ned going?" 
 
 Brad laughs.
 
-Brad: "I also didn't get much out of it. To be fair, I've had something kind of stressing me recently so this whole thing was in the back of my mind."
+Brad: "Eh, it's going ok. To be fair, I've had something kind of stressing me recently so this whole thing was in the back of my mind."
 
 *["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
@@ -123,7 +143,7 @@ Bronislav: "Fine."
 
 Brad raises an eyebrow.
 
-Brad: "Went... well for me too... Sorry Bronislav, did I come in at a bad time?"
+Brad: "Well... my paper with Ned is also doing "fine" I guess... Sorry Bronislav, did I come in at a bad time?"
 
 *["Just a bit stressed."]
 ->BB_S1_JustABitStressed
@@ -138,20 +158,30 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
-*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
+*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
+->BB_S1_PaperExposition -> BB_S1_StressedAbtWhat_Choices
+
+{BB_S1_PaperExposition: -> BB_S1_StressedAbtWhat_Choices}
+
+= BB_S1_StressedAbtWhat_Choices
+
+*{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
-*["They do take a bit."]
+*{BB_S1_PaperExposition}["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
 
-*["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
+*{BB_S1_PaperExposition}["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 ==BB_S1_PaperExposition==
-You and Brad have been working on a paper together for the past couple of weeks, but recently you've been so busy with other things that Brad has been the primary author. The survey is expected to receive IRB approval soon, but with deadlines approaching, it has been a source of stress for both of you. 
+You and Brad have been working on a paper together for the past couple of weeks, but it seems like his paper with Ned has been taking his priority lately. 
 
--> BB_S1_HeyBrad
+In order to conduct a survey, Brad must first get IRB approval. The survey is expected to receive approval soon, but with deadlines approaching, it has been a source of stress for him. 
+
+->->
+
 
 === BB_S1_SorryToHear ===
 Bronislav: "I'm sorry to hear that Brad. What's going on?"
@@ -160,10 +190,17 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
-*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
+*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
+->BB_S1_PaperExposition -> BB_S1_SorryToHear_Choices
+
+{BB_S1_PaperExposition: -> BB_S1_SorryToHear_Choices}
+
+=BB_S1_SorryToHear_Choices
+
+*{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
-*["They do take a bit."]
+*{BB_S1_PaperExposition}["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
 === BB_S1_JustABitStressed ===
@@ -173,13 +210,20 @@ Brad smiles.
 
 Brad: "Yeah, tell me about it. The IRB is taking forever to approve my research and it's just been this looming cloud over me."
 
-*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
+*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
+->BB_S1_PaperExposition->BB_S1_JustABitStressed_Choices
+
+{BB_S1_PaperExposition: -> BB_S1_JustABitStressed_Choices}
+
+=BB_S1_JustABitStressed_Choices
+
+*{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
-*["They do take a bit."]
+*{BB_S1_PaperExposition}["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
+*{BB_S1_PaperExposition}["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 === BB_S1_CouldBeBetter ===
@@ -187,15 +231,22 @@ Bronislav: "There definitely was a better time, but it's really fine. What's up?
 
 He lets out a deep sigh.
 
-Brad: "It's just... it feels like the IRB has been taking a long time to approve my research. I feel like I'm really starting to fall behind, and I'm not sure what to do."
+Brad: "It's just... it feels like the IRB has been taking a long time to approve my research. I feel like I'm really starting to fall behind, and I'm not sure what to do." 
 
-*["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
+*{not BB_S1_PaperExposition} [Did something go wrong with his survey?]
+->BB_S1_PaperExposition -> BB_S1_CouldBeBetter_Choices
+
+{BB_S1_PaperExposition: -> BB_S1_CouldBeBetter_Choices}
+
+=BB_S1_CouldBeBetter_Choices
+
+*{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
 
-*["They do take a bit."]
+*{BB_S1_PaperExposition}["They do take a bit."]
 ->BB_S1_TheyDoTakeABit
 
-*["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
+*{BB_S1_PaperExposition}["Stressed about that?" #>> ChangeOpinion Brad Bronislav --]
 ->BB_S1_StressedAbtThat
 
 === BB_S1_SoundsStressful ===
@@ -231,90 +282,11 @@ Brad shuffles in his seat.
 
 Brad: "I-I guess so, doesn't make it any less stressful though."
 
-*["Fair."]
-->BB_S1_Fair
+*["Fair."]->BB_S1_Fair
 
-*["Whatever you say." #>> ChangeOpinion Brad Bronislav --]
-->BB_S1_WhateverYouSay
+*["Whatever you say." #>> ChangeOpinion Brad Bronislav --]->BB_S1_WhateverYouSay
 
-=== BB_S1_OfCourse ===
-
-Bronislav: "Of course Brad. Anytime."
-
-Brad started packing up his things, but then looks back toward you.
-
-Brad: "Hey Bronislav, I saw that you were talking with a person during the lab meeting. Johnson? Jeremy?"
-
-*["Jensen?"]
-->BB_S1_Jensen
-
-=== BB_S1_GladICould ===
-Bronislav: "Glad I could help with that Brad."
-
-Brad smiles.
-
-Brad: "I'm glad too. Oh! Also, I saw that you were talking with a person during the lab meeting. Johnson? Jeremy?"
-
-*["Jensen?"]
-->BB_S1_Jensen
-
-=== BB_S1_HopeSoToo ===
-~temp status = GetOpinionState("Brad", "Bronislav")
-{status == OpinionState.Excellent || status == OpinionState.Good :
-Bronislav: "I hope so too Brad."
-
-Brad started packing up his things, but then looks back toward you.
-
-Brad: "Hey Bronislav, I saw that you were talking with a person during the lab meeting. Johnson? Jeremy?"
-
-*["Jensen?"]
-->BB_S1_Jensen
-
-- else:
-
-Bronislav: "I hope so too Brad."
-
-Brad starts packing up his things.
-
-Brad: "Keep your fingers crossed they get back to me today. I've got to thead back home now, but thanks for talking with me. I'll hopefully have better news next time we talk."
-
-*["See you later Brad."]
-->BB_S1_SeeYouLaterBrad
-
-*["Good luck."]
-->BB_S1_GoodLuck
-
-}
-
-=== BB_S1_Agreed ===
-~temp status = GetOpinionState("Brad", "Bronislav")
-{status == OpinionState.Excellent || status == OpinionState.Good :
-Bronislav: "Agreed. Never soon enough."
-
-Brad laughs while packing up his things, but then looks back toward you.
-
-Brad: "Hey Bronislav, I saw that you were talking with a person during the lab meeting. Johnson? Jeremy?"
-
-*["Jensen?"]
-->BB_S1_Jensen
-
-- else:
-
-Bronislav: "Agreed. Never soon enough."
-
-Brad laughs while packing up his things.
-
-Brad: "Ain't that the truth. I've got to head out now, but thanks for talking with me. I'll hopefully have better news next time we talk."
-
-*["See you later Brad."]
-->BB_S1_SeeYouLaterBrad
-
-*["Good luck."]
-->BB_S1_GoodLuck
-
-}
-
-=== BB_S1_Fair ===
+===BB_S1_Fair===
 Bronislav: "Fair."
 
 Brad awkwardly laughs packing up his things.
@@ -326,7 +298,7 @@ He prepares to leave.
 *["I'm sorry if I'm a bit short today" #>> ChangeOpinion Brad Bronislav +++]-> BB_S1_BadEnd
 *[Let him leave] -> BB_S1_BadEnd
 
-=== BB_S1_WhateverYouSay ===
+===BB_S1_WhateverYouSay ===
 Bronislav: "Whatever you say."
 
 Brad looks very confused.
@@ -348,6 +320,125 @@ Brad leaves the cubicles.
 {HideCharacter("Brad")}
 ->DONE
 
+===BB_S1_BadEnd===
+Brad: "Oh, it's alright. Seems like I caught you at a bad time. Let's chat when you're less...tired." 
+
+*["You can just say 'less grouchy'"#>> ChangeOpinion Brad Bronislav ++] -> BB_S1_JokeEnd
+
+*["Yeah...that will be nice" #>> ChangeOpinion Brad Bronislav +] -> BB_S1_OkEnd
+
+*[Remain quiet #>> ChangeOpinion Brad Bronislav -] -> BB_S1_OkEnd 
+
+=BB_S1_JokeEnd
+
+Brad: "Is 'less grouchy Bronislav' real? I thought it was a myth!" 
+
+Bronislav: "Oh shut it, don't you have somewhere to be?" 
+
+You both share a quick laugh. 
+
+Brad: "Alright, catch you later." 
+
+{HideCharacter("Brad")}
+
+-> DONE 
+
+=  BB_S1_OkEnd 
+
+Brad: "Alright, see you later." 
+
+{HideCharacter("Brad")}
+
+-> DONE
+
+=== BB_S1_OfCourse ===
+
+Bronislav: "Of course Brad. Anytime."
+
+Brad started packing up his things, but then looks back toward you.
+
+~temp r = GetOpinionState("Brad", "Bronislav")
+{r >= OpinionState.Neutral: -> BB_S1_JensenGossip} 
+{r <= OpinionState.Neutral: -> BB_S1_GoodByeOfc}
+
+
+=BB_S1_GoodByeOfc
+
+Brad: "Alright, I'll see you around!" 
+
+Bronislav: "Bye!" 
+{HideCharacter("Brad")}
+
+-> DONE
+
+=== BB_S1_GladICould ===
+Bronislav: "Glad I could help with that Brad."
+
+Brad smiles.
+
+~temp r = GetOpinionState("Brad", "Bronislav")
+{r >= OpinionState.Neutral: -> BB_S1_JensenGossip} 
+{r <= OpinionState.Neutral: -> BB_S1_GoodByeGlad}
+
+=BB_S1_GoodByeGlad
+
+Brad: "Alright, I'll see you around!" 
+
+Bronislav: "Bye!" 
+{HideCharacter("Brad")}
+
+-> DONE
+
+=== BB_S1_HopeSoToo ===
+Bronislav: "I hope so too Brad."
+
+Brad started packing up his things, but then looks back toward you.
+
+~temp r = GetOpinionState("Brad", "Bronislav")
+{r >= OpinionState.Neutral: -> BB_S1_JensenGossip} 
+{r <= OpinionState.Neutral: -> BB_S1_GoodbyeHope}
+
+=BB_S1_GoodbyeHope
+
+Brad: "Keep your fingers crossed they get back to me today. I've got to thead back home now, but thanks for talking with me. I'll hopefully have better news next time we talk."
+
+*["See you later Brad."]
+->BB_S1_SeeYouLaterBrad
+
+*["Good luck."]
+->BB_S1_GoodLuck
+
+
+=== BB_S1_Agreed ===
+Bronislav: "Agreed. Never soon enough."
+
+~temp r = GetOpinionState("Brad", "Bronislav")
+{r > OpinionState.Neutral: -> BB_S1_JensenGossip} 
+{r <= OpinionState.Neutral: -> BB_S1_GoodByeAgreed}
+
+=BB_S1_GoodByeAgreed
+
+Bronislav: "Agreed. Never soon enough."
+
+Brad laughs while packing up his things.
+
+Brad: "Ain't that the truth. I've got to head out now, but thanks for talking with me. I'll hopefully have better news next time we talk."
+
+*["See you later Brad."]
+->BB_S1_SeeYouLaterBrad
+
+*["Good luck."]
+->BB_S1_GoodLuck
+
+
+
+
+===BB_S1_JensenGossip===
+
+Brad: "Hey Bronislav, I saw that you were talking with a person during the lab meeting. Johnson? Jeremy?"
+
+*["Jensen?"]
+->BB_S1_Jensen
 
 === BB_S1_Jensen ===
 {DbInsert("BronBradJensenDiscussion")}
@@ -433,33 +524,3 @@ Brad gives a thumbs up and waves goodbye to you.
 {HideCharacter("Brad")}
 ->DONE
 
-===BB_S1_BadEnd===
-Brad: "Oh, it's alright. Seems like I caught you at a bad time. Let's chat when you're less...tired." 
-
-*["You can just say 'less grouchy'"#>> ChangeOpinion Brad Bronislav ++] -> BB_S1_JokeEnd
-
-*["Yeah...that will be nice" #>> ChangeOpinion Brad Bronislav +] -> BB_S1_OkEnd
-
-*[Remain quiet #>> ChangeOpinion Brad Bronislav -] -> BB_S1_OkEnd 
-
-=BB_S1_JokeEnd
-
-Brad: "Is 'less grouchy Bronislav' real? I thought it was a myth!" 
-
-Bronislav: "Oh shut it, don't you have somewhere to be?" 
-
-You both share a quick laugh. 
-
-Brad: "Alright, catch you later." 
-
-{HideCharacter("Brad")}
-
--> DONE 
-
-=  BB_S1_OkEnd 
-
-Brad: "Alright, see you later." 
-
-{HideCharacter("Brad")}
-
--> DONE

@@ -1,3 +1,4 @@
+@ -1,309 +0,0 @@
 === BH_Socializing6_SceneStart ===
 # ---
 # choiceLabel: Speak with Hendricks.
@@ -20,7 +21,9 @@ VAR appreciate_honesty = true
 {ShowCharacter("Hendricks", "left", "")}
 {DbInsert("Seen_BH_Socializing6")}
 
+~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
 
+~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
 
 
 Hendricks: "Thank you for coming to my office, Bronislav."
@@ -33,11 +36,9 @@ Hendricks: "Yes, I had some things I wanted to discuss with you."
 
 *[Take a seat.]
 
-// TODO: CHECK quid pro quo deal, this currently assumes it happened
-->BH_Socializing6_QuidProQuo
+{IvyAcceptedOfficial: ->BH_Socializing6_QuidProQuo}
 
-//else do non-quid pro quo
-//->BH_Socializing6_NO_QuidProQuo
+{IvyDeniedOfficial: ->BH_Socializing6_NO_QuidProQuo}
 
 === BH_Socializing6_NO_QuidProQuo ===
 You take a seat in the chair in front of Hendricks' desk before she crosses her hands on her desk. 
