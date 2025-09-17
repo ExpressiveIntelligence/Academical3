@@ -79,9 +79,14 @@ All he gave was that one piece of feedback, is that enough to be put as first au
 
 
 =DealGood
-    *{IvyDealAccepted} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+    *{IvyDealAccepted} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject
+    
+     *{IvyDealAccepted}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++] ->YouSure
     
     *{IvyDealConsidered}["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+    
+    *{IvyDealConsidered}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++] ->YouSure
+    
     *{IvyDealDenied} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ++++] -> ChangedMyMindAccept
     
     *{IvyDealDenied}["That's really helpful."  #>> ChangeOpinion Ivy Bronislav ++++]
@@ -96,8 +101,12 @@ All he gave was that one piece of feedback, is that enough to be put as first au
 
 =DealNeutral
     *{IvyDealAccepted} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+     
+     *{IvyDealAccepted}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++] ->YouSure
     
     *{IvyDealConsidered}["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ----] -> ChangedMyMindReject 
+    
+    *{IvyDealConsidered}["Thanks, but are you sure?" #>> ChangeOpinion Ivy Bronislav ++] ->YouSure
     
     *{IvyDealDenied} ["I changed my mind."  #>> ChangeOpinion Ivy Bronislav ++++] -> ChangedMyMindAccept
     
