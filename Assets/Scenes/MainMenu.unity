@@ -400,6 +400,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_PersistAcrossScenes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 32b16dd1247b2694daed7fa8efe1c1c2, type: 3}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba5a127725460954aaddc8028cc409cd, type: 3}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 55d22804a8cdcc34fa99856d86b71c80, type: 3}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70a7ec18a00c7fe44929a5761c8678fd, type: 3}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: fedaf30bfe8016147800d18751b558e7, type: 3}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 40e5cec61bd52ba49b49234e3028b811, type: 3}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ead43762f4d9e647aa31fa9658ed94d, type: 3}
+    - target: {fileID: 7300998668778966119, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
+      propertyPath: m_MusicClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: dc3baa938245f004d84b7e4384028551, type: 3}
     - target: {fileID: 8671969876397939287, guid: 0df961fa980a0480bad090e65311ea03, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
