@@ -64,12 +64,12 @@ Bronislav: "By the way, how's your paper with Ned going?"
 
 Brad: "It's alright, I've been pretty stressed so I really only half absorbed the feedback I got."
 
-*{not BB_S1_PaperExposition} [Did something go wrong with his paper?]
-->BB_S1_PaperExposition -> BB_S1_HeyBrad_Choices
-
-{BB_S1_PaperExposition: -> BB_S1_HeyBrad_Choices}
+-> BB_S1_HeyBrad_Choices
 
 = BB_S1_HeyBrad_Choices
+
+*{not BB_S1_PaperExposition} [Did something go wrong with his paper?]
+->BB_S1_PaperExposition -> BB_S1_HeyBrad_Choices
 
 *{BB_S1_PaperExposition}["Stressed about what?"]
 ->BB_S1_StressedAbtWhat
@@ -158,12 +158,12 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
-*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
-->BB_S1_PaperExposition -> BB_S1_StressedAbtWhat_Choices
-
-{BB_S1_PaperExposition: -> BB_S1_StressedAbtWhat_Choices}
+-> BB_S1_StressedAbtWhat_Choices
 
 = BB_S1_StressedAbtWhat_Choices
+
+*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
+->BB_S1_PaperExposition -> BB_S1_StressedAbtWhat_Choices
 
 *{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
@@ -182,7 +182,6 @@ In order to conduct a survey, Brad must first get IRB approval. The survey is ex
 
 ->->
 
-
 === BB_S1_SorryToHear ===
 Bronislav: "I'm sorry to hear that Brad. What's going on?"
 
@@ -190,12 +189,12 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my survey. I feel like I'm really starting to fall behind, and I'm not sure what to do."
 
-*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
-->BB_S1_PaperExposition -> BB_S1_SorryToHear_Choices
-
-{BB_S1_PaperExposition: -> BB_S1_SorryToHear_Choices}
+-> BB_S1_SorryToHear_Choices
 
 =BB_S1_SorryToHear_Choices
+
+*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
+->BB_S1_PaperExposition -> BB_S1_SorryToHear_Choices
 
 *{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
@@ -210,12 +209,12 @@ Brad smiles.
 
 Brad: "Yeah, tell me about it. The IRB is taking forever to approve my research and it's just been this looming cloud over me."
 
-*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
-->BB_S1_PaperExposition->BB_S1_JustABitStressed_Choices
-
-{BB_S1_PaperExposition: -> BB_S1_JustABitStressed_Choices}
+->BB_S1_JustABitStressed_Choices
 
 =BB_S1_JustABitStressed_Choices
+
+*{not BB_S1_PaperExposition}[Did something go wrong with his survey?]
+->BB_S1_PaperExposition->BB_S1_JustABitStressed_Choices
 
 *{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
@@ -233,12 +232,13 @@ He lets out a deep sigh.
 
 Brad: "It's just... it feels like the IRB has been taking a long time to approve my research. I feel like I'm really starting to fall behind, and I'm not sure what to do." 
 
-*{not BB_S1_PaperExposition} [Did something go wrong with his survey?]
-->BB_S1_PaperExposition -> BB_S1_CouldBeBetter_Choices
+-> BB_S1_CouldBeBetter_Choices
 
-{BB_S1_PaperExposition: -> BB_S1_CouldBeBetter_Choices}
 
 =BB_S1_CouldBeBetter_Choices
+
+*{not BB_S1_PaperExposition} [Did something go wrong with his survey?]
+->BB_S1_PaperExposition -> BB_S1_CouldBeBetter_Choices
 
 *{BB_S1_PaperExposition}["Sounds stressful." #>> ChangeOpinion Brad Bronislav ++]
 ->BB_S1_SoundsStressful
