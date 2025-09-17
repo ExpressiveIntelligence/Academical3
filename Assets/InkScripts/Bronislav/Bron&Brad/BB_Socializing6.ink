@@ -118,8 +118,9 @@ Brad shrugs.
 
 {not withdrewPaperr:
 Brad: "Seems fine, if anyone needs a break it's definitely him so I think he's taking that break."
+}
 
--else:
+{withdrewPaperr:
 Brad: "Seems fine, still relived that we withdrew the paper. Definitely seems like if anyone needs a break, though, it's him."
 }
 

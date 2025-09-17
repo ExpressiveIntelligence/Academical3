@@ -345,8 +345,6 @@ Ivy: "You're lucky I think you're a good student, Bronislav."
 
 As you stand near Ivy, your mind keeps wandering back to the deal. While it surprised you that she was so adamant on you taking it, you genuinely hope that all of this hasn't messed too much of her perception of you. You aren't sure if you should even bring it up.
 
-// TODO: did the player do optional dialogue in socalizing 4
-// THIS DIALOUGE ASSUMES IT DIDN'T HAPPEN
 
 *["How are you holding up?" #>> ChangeOpinion Ivy Bronislav +]
 ->BI_C_HoldingUp
@@ -542,7 +540,7 @@ Ivy: "I genuinely don't want all of this to mess with us working together in the
 *["We definitely will."  #>> ChangeOpinion Ivy Bronislav ++++]
 ->BI_C_WeAreStillFriends
 
-*["I'm not sure anymore."  #>> ChangeOpinion Ivy -]
+*["I'm not sure anymore."  #>> ChangeOpinion Ivy Bronislav -]
 ->BI_C_NotSureAnymore
 
 === BI_C_DontBringUp ===
