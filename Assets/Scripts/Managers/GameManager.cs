@@ -441,11 +441,11 @@ namespace Academical
 
 		private IEnumerator AdvanceDayCoroutine()
 		{
-			GameEvents.OnFadeToBlack?.Invoke( 1.0f );
+			GameEvents.OnFadeToBlack?.Invoke( 2.0f );
 
-			yield return new WaitForSeconds( 1.1f );
+			yield return new WaitForSeconds( 1.0f );
 
-			GameEvents.OnFadeFromBlack?.Invoke( 1.0f );
+			GameEvents.OnFadeFromBlack?.Invoke( 2.0f );
 
 			//Fetch day event label based on our constants defintion.
 			int nextDayNum = m_simulationController.DateTime.Day + 1;
