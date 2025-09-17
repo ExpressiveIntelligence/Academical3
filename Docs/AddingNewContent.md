@@ -41,4 +41,5 @@ To add a day to the game, you must:
 #### Specifying Location
 
 #### Adding "required" Scenes
+
 Required scenes can be added by specifying the "required" tag in the header of an ink file.
