@@ -75,6 +75,7 @@ namespace Academical
 			base.Hide();
 		}
 
+
 		/// <summary>
 		/// Display information about a character.
 		/// </summary>

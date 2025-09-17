@@ -30,6 +30,8 @@ namespace Academical
 			}
 
 			Instance = this;
+
+			AudioManager.PlayMusicImmediate( "Lobby Time", loop: true, volume: 1f );
 		}
 
 		void OnEnable()
