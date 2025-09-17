@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using Academical.Persistence;
 using Anansi;
 using Ink.Parsed;
+using Newtonsoft.Json.Schema;
 using RePraxis;
 using TDRS;
 using TDRS.Serialization;
@@ -310,6 +311,14 @@ namespace Academical
 					)
 				);
 
+				//handle background audio - we have to use a lookup as Anansi doesn't allow assigning metadata (e.g. background music) to locations.
+				string backgroundMusicLabel = MusicLookup.GetMusicLabelForLocationID( locationID );
+				if ( backgroundMusicLabel != null)
+				{
+					AudioManager.CrossfadeMusicTo( backgroundMusicLabel, fadeSeconds: 1f, loop: true, volume: 1 );
+				}
+
+
 				GameEvents.OnLocationEnter?.Invoke( location );
 			}
 		}
@@ -360,6 +369,13 @@ namespace Academical
 				);
 
 			GameEvents.OnLocationEnter?.Invoke( location );
+
+			//handle background audio - we have to use a lookup as Anansi doesn't allow assigning metadata (e.g. background music) to locations.
+			string backgroundMusicLabel = MusicLookup.GetMusicLabelForLocationID( location.UniqueID );
+			if ( backgroundMusicLabel != null)
+			{
+				AudioManager.CrossfadeMusicTo( backgroundMusicLabel, fadeSeconds: 2f, loop: true, volume: 1 );
+			}
 
 			// Running an "OnLocationEnter" storylet ends execution too for the same reasons
 			// provided above for "OnLocationExit" storylets.

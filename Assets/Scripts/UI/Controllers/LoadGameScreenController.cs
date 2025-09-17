@@ -42,12 +42,14 @@ namespace Academical
 		{
 			ClearSaveSlotCards();
 			SaveSlotManifestFile saveSlotData = DataPersistenceManager.LoadSaveSlots();
+			List<SaveSlotData> saveSlots = saveSlotData.saves;
+			saveSlots.Reverse();
 
-			Debug.Log( "Save slot data: " + saveSlotData.saves.Count );
+			Debug.Log( "Save slot data: " + saveSlots.Count );
 
-			m_NoSavesPlaceholder.SetActive( saveSlotData.saves.Count == 0 );
+			m_NoSavesPlaceholder.SetActive( saveSlots.Count == 0 );
 
-			foreach ( SaveSlotData entry in saveSlotData.saves )
+			foreach ( SaveSlotData entry in saveSlots )
 			{
 				GameObject obj = Instantiate( m_SaveSlotCardPrefab, m_SaveSlotCardContainer );
 				SaveSlotCard saveSlotCard = obj.GetComponent<SaveSlotCard>();
