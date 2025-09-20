@@ -20,7 +20,7 @@ library after ... <TODO:: WHEN DOES THIS HAPPEN??>.
 # ===
 # Summary: Jensen asks to meet at the conference to talk about his feelings of the outcome. 
 
-{DbInsert("Seen_BJS5")}
+
 
 {ShowCharacter("Jensen", "left", "")}
 
@@ -44,7 +44,7 @@ library after ... <TODO:: WHEN DOES THIS HAPPEN??>.
 You wave at Jensen from across the room, but he doesn't even acknowledge you. 
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS5")}
 ->DONE
 
 ===JensenNormalRoute===
@@ -135,7 +135,7 @@ Jensen: "Thanks Bronislav! Well, I don't want to keep you too long!"
     Jensen: "Catch you later"
 
     {HideCharacter("Jensen")}
--
+{DbInsert("Seen_BJS5")}
 -> DONE
 
 
@@ -155,7 +155,7 @@ Jensen: "Bet he hates seeing me come this far, huh?"
     -> BJS5_NotSomethingYouShouldWorryAbout
 * ["I bet you're right."]
     -> BJS5_IBetYouAreRight
-
+{DbInsert("Seen_BJS5")}
 -> DONE
 
 
@@ -233,7 +233,7 @@ He begins to ask you questions about networking in a conference as an undergrad 
 Jensen: "Thanks! I really appreciate your help! I'll see you around!" 
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS5")}
 -> DONE
 
 
@@ -246,7 +246,7 @@ Bronislav: "Maybe another time, Jensen, I have to go."
 Jensen: "No worries, Bronislav. I'm sure we'll talk again soon."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS5")}
 -> END
 
 === BJS5_Start_Alt_1 ===
@@ -392,7 +392,7 @@ Jensen seems a bit unsettled by your answer, but awkwardly laughs it off.
 Jensen: "Well, I've got to go now ... See you, Bronislav."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS5")}
 -> DONE
 
 === BJS5_GladToHear ===
@@ -421,7 +421,7 @@ Bronislav: "I'll be pretty available after the paper is done. Just message me wh
 Jensen walks away with a thumbs up and a look of relief.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS5")}
 -> DONE
 
 === BJS5_WeWillSee ===
@@ -431,7 +431,7 @@ Bronislav: "I'll still be pretty busy afterward, but I'm sure we'll see if somet
 Jensen: "That's completely understandable. I guess we'll see!"
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS5")}
 -> DONE
 
 === BJS5_CallOutToJensen ===
@@ -444,6 +444,7 @@ He doesn't hear you and continues to walk off.
 
 Maybe you'll get the chance to talk to him one more time.
 
+{DbInsert("Seen_BJS5")}
 -> DONE
 
 === BJS5_LetJensenLeave ===
@@ -451,5 +452,5 @@ Maybe you'll get the chance to talk to him one more time.
 {HideCharacter("Jensen")}
 
 Jensen walks away.
-
+{DbInsert("Seen_BJS5")}
 -> DONE

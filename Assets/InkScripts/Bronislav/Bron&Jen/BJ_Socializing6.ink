@@ -12,7 +12,6 @@
 
 # Summary: You give a quick chat to Jensen about what he's currently doing. 
 
-{DbInsert("Seen_BJS6")}
 
 {ShowCharacter("Jensen", "left", "")}
 
@@ -83,7 +82,7 @@ You reach out your hand, and he shakes it firmly.
 Jensen: "I hope the same for you, Bronislav, I'll see you when I see you."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS6")}
 ->DONE
 
 === SeeYouLater ===
@@ -96,7 +95,7 @@ Jensen: "Yeah, whenever that is."
 You walk out of the cafe, waving goodbye and Jensen waves back.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS6")}
 ->DONE
 
 === CantBlameThem ===
@@ -113,7 +112,7 @@ Jensen: "Yeah, thanks Bronislav..."
 He takes his coffee and leaves begrudgingly.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS6")}
 ->DONE
 
 === HowAreYou ===
@@ -149,7 +148,7 @@ Bronislav: "I'll just leave you alone then. Hope you have a good rest of your da
 Jensen: "Right. Thanks, you too Bronislav..."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS6")}
 ->DONE
 
 === WeShouldHaveExpected ===
@@ -164,7 +163,7 @@ Jensen: "Not like we can change it now, my application is getting declined every
 He walks out of the cafe without another word, or wave.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS6")}
 ->DONE
 
 // if Jensen was not on the paper
@@ -205,7 +204,7 @@ He takes a sip of some coffee.
 Jennsen: "Alright, while I'd love to talk more I do need to finish this work for class, so I'll see you later Bronislav."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS6")}
 ->DONE
 
 === NowYouPutInTheWork ===
@@ -224,5 +223,5 @@ Jensen: "Well I've got to do my work now, I'll see you later Bronislav."
 He waves you goodbye before you can get another word out.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS6")}
 ->DONE

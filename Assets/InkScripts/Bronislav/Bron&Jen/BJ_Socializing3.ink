@@ -10,7 +10,7 @@
 # ===
 # Summary: Jensen asks if he's on the paper/updates 
 
-{DbInsert("Seen_BJS3")}
+
 
 ~IvyDealAccepted = DbAssert("IvyDealAccepted")
 
@@ -442,7 +442,7 @@ Jensen: "Bye."
 {HideCharacter("Jensen")}
 
 He runs out before you can say anything else 
-
+{DbInsert("Seen_BJS3")}
 ->DONE 
 
 =BJS3_jensenOk
@@ -460,6 +460,7 @@ Jensen: "But it's ok, I'm glad to know you don't hate me."
 Jensen: "Anyways, gotta go. I'll see you later." 
 
 {HideCharacter("Jensen")}
+{DbInsert("Seen_BJS3")}
 ->DONE 
 
 === BJS3_GoodChance ===
@@ -476,7 +477,7 @@ Jensen: "I appreciate you keeping me in mind at least, let me know if something 
 He leaves spilling a bit of coffee on the way out.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 -> DONE
 
 === BJS3_AlreadyDone ===
@@ -493,7 +494,7 @@ He smiles at you, then walks away.
 Jensen: "I hope you reconsider." 
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_DoesntFeelRight ===
@@ -511,7 +512,7 @@ Jensen: "I just really need to get on that paper Bronislav. Please? I hope to he
 He walks away calmly.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 -> DONE
 
 === BJS3_ConsiderChanging ===
@@ -529,7 +530,7 @@ Jensen: "Really Bronislav? You're the best! I've got to go now but please, keep 
 He gets up and coughs a bit more as he leaves.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_FiguringItOut ===
@@ -540,7 +541,7 @@ Jensen seems a bit disappointed, but happy that you're at least still somewhat c
 Jensen: "Thanks for letting me know, hope to talk to you again soon Bronislav."
 
 He gets up and leaves.
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_MadeUpMyMind ===
@@ -554,7 +555,7 @@ Jensen: "Oh, alright. I was really hoping on getting my name on a paper."
 He weakly picks up his bag and coffee, and slumps out of the cafe.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_StartWorkingAgain ===
@@ -565,7 +566,7 @@ Jensen: "That sounds great! I'll get out of your hair and let you get back to wo
 He gets up and leaves, waving goodbye with a smile.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 -> DONE
 
 === BJS3_YesIncluded ===
@@ -577,7 +578,7 @@ Jensen's expression shifts to a relieved smile.
 Jensen: "Oh, I can't thank you enough."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_NoIncluded ===
@@ -589,7 +590,7 @@ His innocent gaze contorts into a naive sadness.
 Jensen: "O-Oh, alright. I was really hoping on getting my name on a paper..."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_ShakeHandLeave ===
@@ -601,7 +602,7 @@ Jensen: "Of course, glad to have a mentor like you Bronislav."
 You grab your coffee and leave.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_GetUpAndLeave ===
@@ -609,5 +610,5 @@ You grab your coffee and leave.
 You abruptly get up and leave after telling Jensen this. He looks deeply ashamed hearing it.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE

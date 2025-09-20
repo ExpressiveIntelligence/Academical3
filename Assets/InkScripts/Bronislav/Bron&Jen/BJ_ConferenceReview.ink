@@ -21,7 +21,7 @@ VAR thinking = false
 
 {ShowCharacter("Jensen", "left", "")}
 
-{DbInsert("Seen_BJS3")}
+
 
 
 {IvyAcceptedOfficial: -> BJCR_accepted} 
@@ -57,6 +57,7 @@ You're not sure why, but it seems like he wont show up.
 
 {HideCharacter("Jensen")}
 // TODO: LOCK BAD TIMELINE
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 
@@ -285,6 +286,7 @@ Jensen: "Thank you, truly. I can’t wait to tell Ivy."
 
 {HideCharacter("Jensen")}
 // TODO: LOCK BAD TIMELINE
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_Reconsider ===
@@ -323,7 +325,7 @@ As he turns to leave, you can hear him say "I can’t wait to tell Ivy!" The amo
 {HideCharacter("Jensen")}
 // TODO: LOCK BAD TIMELINE
 }
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_FinalDecision ===
@@ -348,6 +350,7 @@ Jensen hangs his head, utterly ashamed, and leaves as quickly as he can. You are
 }
 
 // TODO: LOCK GOOD TIMELINE
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === GoodJensenBeginningAccepted ===
@@ -479,6 +482,7 @@ He does a little fist pump and leaves.
 
 {HideCharacter("Jensen")}
 // TODO: LOCK BAD TIMELINE
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_JustBeCareful ===
@@ -490,6 +494,7 @@ He smiles and leaves. It's nice to see Jensen happy, but you know that the risk 
 
 {HideCharacter("Jensen")}
 // TODO: LOCK BAD TIMELINE
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_WorkOnYourself ===
@@ -506,7 +511,7 @@ Jensen: "Well, thanks anyways Bronislav. Hope your paper goes well."
 He slumps his shoulders and walks out.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_WasntForYou ===
@@ -522,7 +527,7 @@ Jensen: "Thanks for even considering me a little bit Bronislav."
 As he leaves it isn't fun to see Jensen like that, but a choice like that had to be made for both of your reputations.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 === BJS3_Workarounds ===
@@ -536,7 +541,7 @@ Letting out a deep sigh, he picks up his stuff and starts to leave.
 Bronislav: "Jensen, be honest with yourself and people that you work with and you'll find a way to not need the workarounds."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJS3")}
 ->DONE
 
 ===GoodJensenBeginningDenied===

@@ -15,7 +15,7 @@
 {ShowCharacter("Jensen", "left", "")}
 
 
-{DbInsert("Seen_BJ_CONF")}
+
 
 ~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
 
@@ -60,7 +60,7 @@ Jensen: "I don't want to hear it. You've been so nice to me and all of the sudde
 Jensen: "Leave me alone." 
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJ_CONF")}
 ->DONE
 
 =badBlowUp
@@ -74,7 +74,7 @@ Bronislav: "Woah hey, I know Ivy and I got into a heated conversation but-"
 Jensen: "I don't want to hear it." 
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJ_CONF")}
 ->DONE
 
 ===JensenDealAccepted===
@@ -112,7 +112,7 @@ Bronislav: "Happy that I could help you Jensen. Keep it up and I know you'll get
 Jensen: "You really think so? Wow... I'm so glad I have an advisor like you Bronislav."
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJ_CONF")}
 ->DONE
 
 === BJ_CONF_DontMakeMeRegret ===
@@ -123,7 +123,7 @@ Jensen: "I promise I won't let you down Bronislav."
 He gives you a jokey salute, giggles a bit, then goes back to looking at his laptop.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJ_CONF")}
 -> DONE
 
 === JensenDealDenied ===
@@ -164,7 +164,7 @@ Jensen: "You're right, you're right. I'll keep trying. Thanks Bronislav."
 He sighs and walks away.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJ_CONF")}
 ->DONE
 
 === BJ_CONF_KnowYoullSucceed ===
@@ -176,6 +176,6 @@ Jensen: "Well Bronislav, I appreciate the kind words. I'll just... get back to w
 He sighs and walks away.
 
 {HideCharacter("Jensen")}
-
+{DbInsert("Seen_BJ_CONF")}
 ->DONE
 

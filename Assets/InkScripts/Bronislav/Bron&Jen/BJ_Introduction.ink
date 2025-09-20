@@ -24,7 +24,7 @@ As Bronislav, you must chose how to approach this situation.
 # Summary: Jensen gives not so great feedback on your presentation
 
 {UnlockAllLocations()}
-{DbInsert("Seen_BJ_INTRO")}
+
 
 You nervously approach the podium. The room has filled up with what seems like the entire department - Professors, undergrads, grads, admins.
 
@@ -103,7 +103,7 @@ You write down his feedback in your notebook. He smiles happily, and walks off.
 {HideCharacter("Jensen")}
 
 ->BJIntro_mention_cafe_with_ivy
-
+{DbInsert("Seen_BJ_INTRO")}
 ->DONE
 
 === BJIntro_MoreInfo ===
@@ -116,7 +116,7 @@ You write down his feedback in your notebook. He smiles happily, and walks off.
 {HideCharacter("Jensen")}
 
 ->BJIntro_mention_cafe_with_ivy
-
+{DbInsert("Seen_BJ_INTRO")}
 ->DONE
 
 === BJIntro_not_interested_bronislav_jensen ===
@@ -128,7 +128,7 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 {HideCharacter("Jensen")}
 
 ->BJIntro_mention_cafe_with_ivy
-
+{DbInsert("Seen_BJ_INTRO")}
 ->DONE
 
 === BJIntro_FirstTime ===
@@ -140,7 +140,7 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 {HideCharacter("Jensen")}
 
 ->BJIntro_mention_cafe_with_ivy
-
+{DbInsert("Seen_BJ_INTRO")}
 ->DONE
 
 
@@ -151,6 +151,6 @@ Bronislav: "Glad that's done."
 You check the time on your phone. You promised to meet Professor Ivy for coffee later at the cafe, but you may have a little time for something else.
 
 ->BHS1_Hint->
-
+{DbInsert("Seen_BJ_INTRO")}
 -> DONE
 
