@@ -141,7 +141,7 @@ Hendricks: "You know why I called you in to meet today, right?"
 Hendricks: "You can leave."
 
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS3")}
 -> DONE
 
 

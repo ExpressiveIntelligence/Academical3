@@ -39,7 +39,7 @@ You write a brief email saying that you can not make it to today's meeting. She 
 # repeatable: false
 # ===
 
-{DbInsert("Seen_BHS3")}
+
 
 {ShowCharacter("Hendricks", "left", "")}
 
@@ -225,5 +225,5 @@ She seems to be telling half the truth, put off by your curtness.
     ->BHS3_HideHenAndEnd
 == BHS3_HideHenAndEnd ==
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS3")}
 ->DONE

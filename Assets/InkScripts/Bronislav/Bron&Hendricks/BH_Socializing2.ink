@@ -11,7 +11,7 @@
 # repeatable: false
 # ===
 
-{DbInsert("Seen_BHS2")}
+
 
 {ShowCharacter("Hendricks", "left", "")}
 
@@ -100,5 +100,5 @@ Hendricks: "Sorry for the brief chat, but I have to make a meeting."
 
 == HideHenAndEnd ==
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS2")}
 ->DONE

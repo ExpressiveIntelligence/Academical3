@@ -19,7 +19,7 @@ VAR appreciate_honesty = true
 
 
 {ShowCharacter("Hendricks", "left", "")}
-{DbInsert("Seen_BH_Socializing6")}
+
 
 ~IvyAcceptedOfficial = DbAssert("BI_OfficiallyAccepted")
 
@@ -164,7 +164,7 @@ You nod your head, standing from your seat.
 Bronislav: "Of course." 
 
 With that you wave goodbye and head out. 
-
+{DbInsert("Seen_BH_Socializing6")}
 ->DONE
 
 === BH_Socializing6_DontHateIvy ===
@@ -272,7 +272,7 @@ Hendricks: "Everything will work out, even if it doesn't feel like it right now.
 Bronislav: "Okay I will."
 
 Hendricks gives a small nod as you stand from your seat and make your way out. 
-
+{DbInsert("Seen_BH_Socializing6")}
 ->DONE
 
 }
@@ -292,7 +292,7 @@ Bronislav: "No, thank you for all your help, Professor."
 Hendricks: "Anytime."
 
 Hendricks gives a small smile as you stand from your seat and make your way out of Hendricks' office. 
-
+{DbInsert("Seen_BH_Socializing6")}
 ->DONE
 
 //TODO: make a selector back in Socializing 5 to add this dialogue based on whether you confided in hendricks
@@ -306,5 +306,5 @@ Hendrick's words almost don't feel real. This is a job, a real job, that will ma
 Bronislav: "I don't know what to say, thank you so much Professor."
 
 Hendricks: "Of course! I am so happy that I could help you Bronislav. You deserve it, after everything you've been through."
-
+{DbInsert("Seen_BH_Socializing6")}
 ->DONE

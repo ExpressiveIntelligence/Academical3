@@ -32,7 +32,7 @@ She wants to talk about your research progress.
 
 // Summary: You meet with Hendricks and talk about Jensen not giving helpful feedback. Also first mentioning of Praveen.
 
-{DbInsert("Seen_BHS1")}
+
 
 She sits down at your table, setting down her bag next to her.
 
@@ -136,7 +136,7 @@ Hendricks: "You could say that again. Glad to hear everything's going well Broni
 She gets up from the table and leaves, waving at one of her students on the way out.
 
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS1")}
 -> DONE
 
 === BHS1_ForRightNow ===
@@ -160,7 +160,7 @@ Hendricks: "Any time Bronislav. I've got to head out now, but I'm sure we'll be 
 She gets up from the table and leaves, waving at one of her students on the way out.
 
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS1")}
 -> DONE
 
 === BHS1_DontThinkItsNecessary ===
@@ -171,7 +171,7 @@ Hendricks: "I see you haven't changed much Bronislav. Hope to talk to you later.
 She laughs kindly and leaves, waving at one of her students on the way out.
 
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS1")}
 ->DONE
 
 === BHS1_JustForNow ===
@@ -196,7 +196,7 @@ Hendricks: "You've got me there Bronislav. Then I suppose I shouldn't bother you
 She gets up from the table and leaves, waving at one of her students on the way out.
 
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS1")}
 -> DONE
 
 === BHS1_HisNameIsJensen ===
@@ -274,7 +274,7 @@ Bronislav: "Thank you, Hendricks"
 She gets up from the table and leaves, waving at one of her students on the way out.
 
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS1")}
 ->DONE
 
 === BHS1_OnlyAConsideration ===
@@ -295,5 +295,5 @@ Hendricks: "Alright, well if you need anything from me, feel free to reach out t
 She gets up from the table and leaves, waving at one of her students on the way out.
 
 {HideCharacter("Hendricks")}
-
+{DbInsert("Seen_BHS1")}
 ->DONE
