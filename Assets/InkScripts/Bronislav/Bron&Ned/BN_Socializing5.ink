@@ -18,7 +18,6 @@ VAR basics = false
 ~ basicsLie = DbAssert("Seen_BBS4")
 ~ BradWithdrew = DbAssert("BradWithdrawsData")
 
-{DbInsert("Seen_BN_Socializing5")}
 
 While you don't have a meeting scheduled with Ned, you decide to pop into his office to talk with him briefly. His door is open, and Ned is sitting at his desk as you walk in.
 {ShowCharacter("Ned", "left", "")}
@@ -254,5 +253,5 @@ Bronislav: "Sure thing."
 {HideCharacter("Ned")}
 
 You gently close the door as you leave Ned's office.
-
+{DbInsert("Seen_BN_Socializing5")}
 ->DONE

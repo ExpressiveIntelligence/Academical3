@@ -13,8 +13,6 @@
 
 ~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
 
-{DbInsert("Seen_BNLM")}
-
 {ShowCharacter("Ned", "left", "")}
 
 
@@ -179,5 +177,5 @@ Bronislav: "Understood." ->BNLM_SECONDPOOLOFQUESTIONS
 
 == BNLM_HideNedAndEnd ==
 {HideCharacter("Ned")}
-
+{DbInsert("Seen_BNLM")}
 ->DONE

@@ -11,7 +11,7 @@
 # tags: action, library, required
 # ===
 
-{DbInsert("Seen_BNS1")}
+
 
 {ShowCharacter("Ned", "left", "")}
 
@@ -185,5 +185,5 @@ You give Ned a wave as you take your leave.
 
 == HideNedAndEnd ==
 {HideCharacter("Ned")}
-
+{DbInsert("Seen_BNS1")}
 ->DONE
