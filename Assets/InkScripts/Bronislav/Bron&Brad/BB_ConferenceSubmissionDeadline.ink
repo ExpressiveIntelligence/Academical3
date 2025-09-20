@@ -11,7 +11,7 @@
 # Summary: Brad confides in Bronislav about using pre-IRB data
 
 VAR BradPraveenGossip = false 
-{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
+
 You sit down and try to finally get a second of rest, but see Brad across the room.
 
 {ShowCharacter("Brad", "left", "")}
@@ -29,7 +29,7 @@ He briefly waves back and puts on his headphones.
 Maybe he's upset and not in the mood to talk. 
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
 ->DONE
 
 ===BB_CSD_Normal===
@@ -312,6 +312,7 @@ Bronislav: "Hm...I'll see what I can figure out."
 Brad: "Alright, I'll catch you later!" 
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
 ->DONE
 
 ==BB_CSD_NormalGoodbye==
@@ -321,10 +322,12 @@ Brad shakes his head.
 Brad: "Nope, that's all I really had! Thanks a ton Bronislav. Time for me to have a chance to relax."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
 ->DONE
 
 =BB_CSD_Goodbye 
 
 Brad: "Alright, well I'll catch you later." 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
 ->DONE

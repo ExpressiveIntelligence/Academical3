@@ -14,7 +14,7 @@ VAR confided = false
 
 VAR HendricksKnows = false
 
-{DbInsert("Seen_BBS4")}
+
 
 ~HendricksKnows = DbAssert("HendricksKnowsBrad")
 
@@ -303,5 +303,5 @@ Praveen: "But yeah it's overall going well. How about you? How's your work going
 You walk away before listening to the rest of the conversation
 
 {HideCharacter("Praveen")}
-
+{DbInsert("Seen_BBS4")}
 ->DONE

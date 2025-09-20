@@ -12,7 +12,7 @@
 
 {ShowCharacter("Brad", "left", "")}
 
-{DbInsert("Seen_BBS1")}
+
 
 You go back to your cubicle and go over the presentation review with all of the feedback in mind.
 
@@ -318,6 +318,7 @@ He hastily leaves.
 
 Brad leaves the cubicles. 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BBS1")}
 ->DONE
 
 ===BB_S1_BadEnd===
@@ -340,7 +341,7 @@ You both share a quick laugh.
 Brad: "Alright, catch you later." 
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BBS1")}
 -> DONE 
 
 =  BB_S1_OkEnd 
@@ -348,7 +349,7 @@ Brad: "Alright, catch you later."
 Brad: "Alright, see you later." 
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BBS1")}
 -> DONE
 
 === BB_S1_OfCourse ===
@@ -368,7 +369,7 @@ Brad: "Alright, I'll see you around!"
 
 Bronislav: "Bye!" 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BBS1")}
 -> DONE
 
 === BB_S1_GladICould ===
@@ -386,7 +387,7 @@ Brad: "Alright, I'll see you around!"
 
 Bronislav: "Bye!" 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BBS1")}
 -> DONE
 
 === BB_S1_HopeSoToo ===
@@ -514,6 +515,7 @@ Bronislav: "I'll see you later Brad, talk soon!"
 Brad waves goodbye and walks out.
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BBS1")}
 ->DONE
 
 === BB_S1_GoodLuck ===
@@ -522,5 +524,6 @@ Bronislav: "Good luck Brad, hope you hear from them soon."
 Brad gives a thumbs up and waves goodbye to you.
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BBS1")}
 ->DONE
 

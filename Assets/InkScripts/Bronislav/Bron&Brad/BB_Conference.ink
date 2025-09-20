@@ -10,7 +10,7 @@ VAR withdrew = false
 # tags: action, lecture_hall, auxiliary
 # Summary: Brad discusses rejected paper/confronted about IRB stuff w/ Ned, talks to Bronislav about Jensen being on paper
 
-{DbInsert("Seen_BB_Conference")}
+
 
 ~withdrew = DbAssert("BradWithdrawsData")
 
@@ -341,6 +341,7 @@ Brad nods.
 Bronislav: "Not the best outcome, but it could've gone way worse. I've got to head out now, but just wanted to let you know about everything going on. Thanks!"
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_DontMentionIt ===
@@ -353,6 +354,7 @@ Brad: "Definitely in the same boat, but it's just how it goes. I'll see you late
 Bronislav: "No worries Brad, take care."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_WhatNow ===
@@ -365,6 +367,7 @@ Brad: "I'm... not really sure. I think, I just need to get some rest asap. With 
 Bronislav: "Rest well Brad."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_Anytime ===
@@ -377,6 +380,7 @@ Brad says and starts ot pack up to leave.
 Brad: "I've got somewhere to be now, I'll talk to you later then."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_WishYouTheBest ===
@@ -387,6 +391,7 @@ Brad: "I should just head home too, hope to see you later."
 Brad says as he waves goodbye.
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_GoodLuck ===
@@ -399,6 +404,7 @@ Brad says as he stands up.
 Brad: "Well, I'm going to head home now but thanks for talking. See you."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_WhateverYouSay ===
@@ -409,6 +415,7 @@ Brad turns his head.
 Brad: "What? Ok. Bronislav, I get it. I'll just leave then. Thanks for nothing."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_Sorry ===
@@ -417,6 +424,7 @@ Bronislav: "I'm sorry Brad, I should've said it differently. Sad things couldn't
 "It's fine." Brad says. "I'm going to head home now, but I'll probably talk to you later."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_ThoughtAbtIt ===
@@ -426,6 +434,7 @@ Brad groans. "Well, it did actually happen Bronislav. Thanks for not telling me.
 He silently packs his things up and leaves the conference hall.
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 === BB_Conference_InThePast ===
@@ -437,6 +446,7 @@ Brad seems to begrugingly agree.
 Brad: "Yeah, I guess that's true. Maybe talk with you later Bronislav, see you later."
 
 {HideCharacter("Brad")}
+{DbInsert("Seen_BB_Conference")}
 ->DONE
 
 

@@ -17,7 +17,7 @@ VAR BreakFromWriting = false
 VAR CouldNotAgreeMore = false
 VAR countBB6 = 0
 
-{DbInsert("Seen_BBS6")}
+
 
 You walk into the cafe and see Brad sitting down.
 {ShowCharacter("Brad", "left", "")}
@@ -180,4 +180,5 @@ Brad: "Yeah I look forward to it. Thanks again for setting this up, and I'm sure
 === BB_Socializing6_YouToo ===
 Bronislav: "You too Brad, see you later."
 {HideCharacter("Brad")}
+{DbInsert("Seen_BBS6")}
 ->DONE

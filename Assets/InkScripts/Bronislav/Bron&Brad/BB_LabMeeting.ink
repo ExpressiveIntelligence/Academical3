@@ -11,7 +11,6 @@ VAR withdrewPaper = false
 #===
 #Summary: Brad either goes to ethics training or shares excitement about next conference
 
-{DbInsert("Seen_BB_LabMeeting")}
 
 ~ withdrewPaper = DbAssert("BradWithdrawsData")
 
@@ -186,7 +185,7 @@ Brad: "I just wanted to talk, smooth things out. You know? It's alright if you d
 Brad turns and leaves.
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_LabMeeting")}
 ->DONE
 
 === BB_LabMeeting_SorrytoHear ===
@@ -210,7 +209,7 @@ Brad gives a nod.
 Brad: "That sounds like a plan to me, hope to see you then."
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_LabMeeting")}
 ->DONE
 
 === BB_LabMeeting_CouldbeWorse ===
@@ -230,7 +229,7 @@ Brad: "Alright, hopefully see you later then."
 
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_LabMeeting")}
 ->DONE
 
 === BB_LabMeeting_FreeLater ===
@@ -241,7 +240,7 @@ Brad looks excited.
 Brad: "I am actually! I'd be happy to talk more at the cafe sometime after this. Hope to see you there."
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_LabMeeting")}
 ->DONE
 
 === BB_LabMeeting_WantToTalkMore ===
@@ -250,7 +249,7 @@ Bronislav: "Do you want to talk more later? I'd love to chat over a coffee to ta
 Brad: "Yeah, I would like that, hope to see you later then."
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_LabMeeting")}
 ->DONE
 
 === BB_LabMeeting_HopeItGoeseWell ===
@@ -261,7 +260,7 @@ Brad lightly smiles.
 Brad: "Thanks Bronislav. If you want to talk more later, I'll be at the cafe. Don't want to take up more of your time."
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_LabMeeting")}
 ->DONE
 
 
@@ -278,5 +277,5 @@ Brad: "Alright, well I'll be in the cafe if you want to chat."
 Brad: "I'll see you later." 
 
 {HideCharacter("Brad")}
-
+{DbInsert("Seen_BB_LabMeeting")}
 -> DONE
