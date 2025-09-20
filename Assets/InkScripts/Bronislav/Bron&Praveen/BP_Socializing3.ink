@@ -10,7 +10,7 @@
 # ===
 
 
-{DbInsert("Seen_BP_Socializing3")}
+
 
 {ShowCharacter("Praveen", "left", "")}
 As you approach Praveen, he seems to be chuckling to himself at his desk.
@@ -165,6 +165,7 @@ Praveen turns back to his computer without another word. Perhaps it's better to 
 
 // TODO: cement Praveen yapping to the rest of the department
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing3")}
 ->DONE
 
 === BP_Socializing3_IDidntKnow ===
@@ -237,6 +238,7 @@ Praveen: "Well I guess that's all the more reason to pay as much attention to th
 Praveen turns back to his computer as you leave his cubicle.
 
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing3")}
 ->DONE
 
 === BP_Socializing3_IThinkTheresRules ===
@@ -264,6 +266,7 @@ Praveen: "Well, I guess I better get back to my silent slog through this paper. 
 Praveen turns back to his computer as you leave his cubicle.
 
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing3")}
 ->DONE
 
 === BP_Socializing3_WhatDoYouThink ===
@@ -275,6 +278,7 @@ Praveen: "Sheesh... alright I get it. No talking about the paper. A bit harsh if
 Praveen turns back to his computer as you leave his cubicle.
 
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing3")}
 ->DONE
 
 

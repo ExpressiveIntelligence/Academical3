@@ -14,7 +14,7 @@
 
 //TODO: QUERY FOR HENDRICKS CONVO
 
-{DbInsert("Seen_BP_ConferenceSubmissionDeadline")}
+
 {ShowCharacter("Praveen", "left", "")} 
 {DbAssert("metPraveen")}
 
@@ -52,7 +52,7 @@ Bronislav: "Alright sounds good, see you!"
 Praveen: "Buh-bye."
 
 {HideCharacter("Praveen")}
-
+{DbInsert("Seen_BP_ConferenceSubmissionDeadline")}
 ->DONE
 
 === BP_ConferenceSubmissionDeadline_IExpectFavor ===
@@ -70,7 +70,7 @@ Bronislav: "Alright sounds good, see you!"
 Praveen: "Buh-bye."
 
 {HideCharacter("Praveen")}
-
+{DbInsert("Seen_BP_ConferenceSubmissionDeadline")}
 ->DONE
 
 

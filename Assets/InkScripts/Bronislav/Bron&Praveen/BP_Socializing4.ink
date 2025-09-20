@@ -12,7 +12,7 @@ VAR heardPraveenPlan = false
 
 ~ heardPraveenPlan = DbAssert("Seen_BP_EvilPlan") 
 
-{DbInsert("Seen_BP_Socializing4")}
+
 
 {ShowCharacter("Praveen", "left", "")}
 Striding into the student cubicles you spot Praveen clacking away on his computer. He looks concentrated but has a prideful resting face. 
@@ -189,6 +189,7 @@ Praveen: "I had no idea, thank you for warning me Bronislav"
 Bronislav: "Of course." 
 
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing4")}
 ->DONE
 
 === BP_Socializing4_PointOfThis ===
@@ -205,6 +206,7 @@ Praveen: "I'm not sure what you mean. Look I need to get back to this, I'll talk
 Praveen turns back to the paper, ignoring you as his signal to leave. 
 
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing4")}
 ->DONE
 
 === BP_Socializing4_TotallyAgree ===
@@ -217,6 +219,7 @@ Bronislav: "Alright, good luck!."
 Praveen goes back to his work as you walk to settle and get some of your own work done. 
 
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing4")}
 ->DONE
 
 === BP_Different_Perspective ===
@@ -241,4 +244,5 @@ Praveen: "Well, thanks for stopping by, I gotta get back to work but I'll see yo
 Bronislav: "Sounds good, good luck with the rest of your work!"
 
 {HideCharacter("Praveen")}
+{DbInsert("Seen_BP_Socializing4")}
 ->DONE

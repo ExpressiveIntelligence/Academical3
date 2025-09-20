@@ -9,7 +9,7 @@
 # tags: action, cafe, required
 # ===
 
-{DbInsert("Seen_BPS6")}
+
 
 {ShowCharacter("Praveen", "left", "")}
 
@@ -258,5 +258,5 @@ Bronislav: "Bye Praveen, see ya."->BPS6_HidePravAndEnd
 
 == BPS6_HidePravAndEnd ==
 {HideCharacter("Praveen")}
-
+{DbInsert("Seen_BPS6")}
 ->DONE
