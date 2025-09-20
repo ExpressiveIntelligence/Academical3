@@ -195,6 +195,7 @@ She packs up, and waves goodbye.
 Ivy: "I'm sure we'll see each other again soon."
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_WillDo ===
@@ -205,6 +206,7 @@ Ivy: "Good to hear."
 She gives a wave goodbye as she leaves the cafe.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_WaveGoodbye ===
@@ -213,6 +215,7 @@ You wave Ivy goodbye.
 She does the same, and leaves the cafe.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_NiceToSeeYou ===
@@ -354,6 +357,7 @@ She packs up, and waves goodbye.
 Ivy: "I'm sure we'll see each other again soon."
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_WaveGoodbye2 ===
@@ -362,12 +366,14 @@ You wave Ivy goodbye.
 She does the same, and leaves the cafe.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_WaveHerGoodbye2 ===
 You attempt to wave Ivy goodbye, but she walks out seeming not to notice your wave goodbye.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_TalkToYouLater ===
@@ -378,6 +384,7 @@ You both exchange waves goodbye.
 Ivy: "I'll be in touch."
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_SorryAbtJensen ===
@@ -473,6 +480,7 @@ Ivy: "I've got to go. Bye."
 She quickly storms out of the cafe, slamming the door catching the attention of everyone.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 == BI_Socializing5_SorryIvy ===
@@ -540,6 +548,7 @@ She packs up, and waves goodbye.
 Ivy: "I'm sure we'll see each other again soon."
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_WaveGoodbye3 ===
@@ -548,12 +557,14 @@ You wave Ivy goodbye.
 She does the same, and leaves the cafe.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_WaveHerGoodbye3 ===
 You attempt to wave Ivy goodbye, but she walks out seeming not to notice your wave goodbye.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_SorryAbtJensen2 ===
@@ -597,6 +608,7 @@ Ivy: "Yet you still accepted at one point, so you understood where I was coming 
 She packs up her things quickly, and storms out of the cafe. Slamming the door behind her, catching the attention of everyone briefly.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_SorryIvy4 ===
@@ -610,6 +622,7 @@ Ivy: "Now I'm sorry because I've got to be... somewhere else. Bye."
 You attempt to wave Ivy goodbye, but she walks out seeming not to notice your wave goodbye.
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_Socializing5")}
 ->DONE
 
 === BI_Socializing5_IveMadeMyDecision4 ===

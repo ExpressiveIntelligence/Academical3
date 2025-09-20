@@ -52,7 +52,7 @@ Even as you approach her, she turns her back towards you as though you're not ev
 Maybe it's best to leave her alone. 
 
 {HideCharacter("Ivy")}
-
+{DbInsert("BI_Coffee")}
 -> DONE
 
 ===dealAccepted===
@@ -461,7 +461,7 @@ Bronislav: "I regret putting myself in this situation to begin with. That's wher
 You turn to walk away from Ivy, before she can say anything else.
 
 {HideCharacter("Ivy")}
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 === BI_C_DealOutro ===
@@ -520,10 +520,9 @@ Ivy: "I hope it all works out for you. Hey! Let's grab coffee later if you have 
 
 Bronislav: "Yeah, sure."
 
-{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 === BI_C_HoldingUp ===
@@ -567,10 +566,9 @@ Ivy: "Yeah you too Bronislav. Maybe we should grab a coffee later today if you'r
 
 Bronislav: "Sounds good." 
 
-{DbInsert("BI_Coffee")}
 
 {HideCharacter("Ivy")}
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 === BI_C_NotSureAnymore ===
@@ -587,6 +585,7 @@ Bronislav: "Well, I'm glad I could talk with you some more, Ivy. I'm going to ch
 Ivy: "Yeah, okay... take care."
 
 {HideCharacter("Ivy")}
+{DbInsert("BI_Coffee")}
 
 ->DONE
 
@@ -616,6 +615,7 @@ While this certainly hasn't been the cleanest resolution to the whole situation,
 
 With that on your mind, you return to the rest of the conference.
 
+{DbInsert("BI_Coffee")}
 ->DONE
 
 === BI_C_NoProblemWithYou ===
@@ -642,10 +642,8 @@ Ivy: "Alright, there's a talk I'm going to head off to now, but maybe we can gra
 
 Bronislav: "Sounds good. I'll see you around."
 
-{DbInsert("BI_Coffee")}
-
 {HideCharacter("Ivy")}
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 
@@ -661,7 +659,7 @@ Ivy: "Alright, there's a talk I'm going to head off to now, but see you around B
 Bronislav: "Okay, see you."
 
 {HideCharacter("Ivy")}
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 === BI_C_ApologyNotHate ===
@@ -683,10 +681,8 @@ Ivy: "Sure Bronislav. Look, I'm going to go to a talk now, but maybe we can grab
 
 Bronislav: "Maybe, I'll see you around."
 
-{DbInsert("BI_Coffee")}
-
 {HideCharacter("Ivy")}
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 === BI_C_YoureNotWrong ===
@@ -710,7 +706,7 @@ Bronislav: "Yeah, no problem, see you around."
 {HideCharacter("Ivy")}
 
 While this certainly hasn't been the cleanest resolution to the whole situation, the important thing is that you are setting boundaries with Ivy so you don't have go through something like this again in the future. You couldn't help Jensen, but maybe there's still some hope for both of your futures. For now, you just need to give the whole thing some space.
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 *[Don't apologize.#>> ChangeOpinion Ivy -]
@@ -725,7 +721,7 @@ Ivy turns and leaves without another word.
 {HideCharacter("Ivy")}
 
 While this certainly hasn't been the cleanest resolution to the whole situation, the important thing is that Ivy learns she can't force people to do things, even if she has an incentive. At this point, you're more concerned about preserving your integrity than associating with someone who wants to use your research for someone else's benefit like she tried to.
-
+{DbInsert("BI_Coffee")}
 ->DONE
 
 === BI_C_Integrity ===
@@ -744,4 +740,5 @@ Ivy turns and storms off before you can say another word.
 While she may have very much been in the wrong, maybe you shouldn't have treated her like that. The way people around you perceive you is just as important as your integrity, and while it might not matter if you and Ivy don't get along, it will matter if the other people in the lab think you are heartless too.
 
 A bit troubled by that interaction, you return your attention back to the conference.
+{DbInsert("BI_Coffee")}
 ->DONE

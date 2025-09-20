@@ -286,6 +286,7 @@ Ivy: "Glad to hear that! I'll keep you updated, talk to you soon!"
     Ivy waves goodbye and leaves without another word.
 
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_CONF")}
 
     -> BHS3_Hint-> DONE
 

@@ -9,7 +9,7 @@
 #===
 # Summary: Ivy introduces the idea of her and her uncle's research firm, Bronislav's visa issues is mentioned, Ivy asks if Jensen can be on the paper
 
-{DbInsert("Seen_BI_IRB")}
+
 
 {ShowCharacter("Ivy", "left", "")}
 
@@ -720,6 +720,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
 
         Bronislav: "Yeah, always a pleasure."
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_IRB")}
     ->DONE 
 
 =OutNeutral
@@ -731,6 +732,7 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
     Bronislav: "Alright, bye Ivy."
 
     {HideCharacter("Ivy")}
+    {DbInsert("Seen_BI_IRB")}
     ->DONE 
 
 =OutBad
@@ -742,4 +744,5 @@ Bronislav: "I understand where you're coming from, but I don't think I will be a
         Bronislav: "Yeah, I guess."
 
 {HideCharacter("Ivy")}
+{DbInsert("Seen_BI_IRB")}
 -> DONE
