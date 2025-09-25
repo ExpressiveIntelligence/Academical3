@@ -16,7 +16,6 @@
 
 
 {ShowCharacter("Praveen", "left", "")} 
-{DbAssert("metPraveen")}
 
 You approach Praveen, who is currently skimming what appears to be a textbook.
 
@@ -32,13 +31,6 @@ Bronislav: "Oh! For the upcoming conference?"
 
 Praveen: "No, it's not for the same one you and Brad are submitting to. It's a couple of months away. But I'm still quite glad!"
 
-*["I'm so happy for you!"]
-->BP_ConferenceSubmissionDeadline_GladICouldHelp
-
-*["Well, I expect I can call on you know if I need a favor."]
-->BP_ConferenceSubmissionDeadline_IExpectFavor
-
-=== BP_ConferenceSubmissionDeadline_GladICouldHelp ===
 Bronislav: "I'm so happy for you! I know you'll do great."
 
 Praveen: "Thank you Bronislav!" 
@@ -55,23 +47,7 @@ Praveen: "Buh-bye."
 {DbInsert("Seen_BP_ConferenceSubmissionDeadline")}
 ->DONE
 
-=== BP_ConferenceSubmissionDeadline_IExpectFavor ===
 
-Bronislav: "Well, since I helped you with this, I definitely expect that if I ever need help with something similar you'd be willing to help me."
-
-Praveen: "Oh yes, of course, whatever you need. Doing this was really important to me, so I'm happy to return the favor."
-
-Praveen closes his textbook as he smiles brightly.
-
-Praveen: "Well, I gotta head out, but I will be chatting more with you soon."
-
-Bronislav: "Alright sounds good, see you!"
-
-Praveen: "Buh-bye."
-
-{HideCharacter("Praveen")}
-{DbInsert("Seen_BP_ConferenceSubmissionDeadline")}
-->DONE
 
 
 

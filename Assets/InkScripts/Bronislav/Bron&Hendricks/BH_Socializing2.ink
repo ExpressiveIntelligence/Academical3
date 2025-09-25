@@ -51,30 +51,21 @@ Hendricks: "Is there anything I can do to help you succeed in this next stage of
 *["Would you be willing to give the paper feedback?"]
     Bronislav: "Would you be willing to give my paper feedback? I trust your judgement and would be very grateful."
     
-    Hendricks: "I would be more than happy to, but I worry that I might not be able to provide you an unbiased perspective. Maybe another one of my students could be a better fit?"
+    Hendricks: "I would be more than happy to! If you send over your draft I'd be happy to take a look."
     
-    Bronislav: "That would be wonderful! Do you have anyone in mind?"
-    
-*["Do you know anyone who could provide some feedback?"]
-    Bronislav: "Do you know anyone who could provide feedback? The paper is ready for it, and I would appreciate hearing from reviewers who I could trust."
-    
-    Hendricks: "Absolutely! I have some students who would love the opportunity to offer their experience and insight on a paper like yours."
-    
-    Bronislav: "Wonderful! Do you have someone in mind?"
+    Bronislav: "Thank you!"
 
 // Should this be conditional upon whether we have been introduced to Praveen?
 // Should she introduce Praveen or refer to him as a mutually known person?
-- Hendricks: "Yes! I have a student named Praveen who has an interest in the exact topic you are studying, and he has been looking for papers to pitch in on."
-*["Convenient."]
-    Bronislav: "Convenient."
+- Hendricks: "By the way, I spoke with your friend Praveen. He seemed to be interested in peer reviewing some work, so I gave him that opportunity."
 *["That's great!"]
     Bronislav: "That's great!"
 *["Do you think he will have good feedback?"]
     Bronislav: "Do you think he will have good feedback?"
 
-- Hendricks: "I think he will have great feedback. I'll send him your information so he can reach out to you in the next couple days."
+- Hendricks: "Yeah, I think he will have great feedback."
 
-Bronislav: "Thank you so much."
+Bronislav: "Me too! I'm happy for him."
 
 // Add mention that hendricks needs reviewers for conference
 // Add mention that Bronislav needs a job
@@ -86,15 +77,6 @@ Hendricks: "Sorry for the brief chat, but I have to make a meeting."
 *["Thank you again!"]
     Bronislav: "Thank you again!"
     She nods, gathers her things, and strides to the door.
-    
-*["Good luck!"]
-    Bronislav: "Good luck!"
-    
-    She smiles as she gathers her things
-    
-    Hendricks: "Thank you, Bronislav."
-    
-    And she turns decisively and strides to the door
 
 - ->HideHenAndEnd
 

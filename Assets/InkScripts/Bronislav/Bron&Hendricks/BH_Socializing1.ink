@@ -34,7 +34,7 @@ She wants to talk about your research progress.
 
 
 
-She sits down at your table, setting down her bag next to her.
+You enter her office, sitting down on the table and setting your bag aside. She greets you with a warm smile. 
 
 {ShowCharacter("Hendricks", "left", "")}
 
@@ -61,12 +61,12 @@ Hendricks: "Quite alright. Rather busy, but I was just interested in seeing how 
 
 Bronislav: "The paper's going well! I also got some feedback on it at the lab meeting, so I'm taking that into account while I continue to work on it."
 
-Hendricks: "Oh really? You're not working on all of this by yourself are you?"
+Hendricks: "Well, has anyone of interest crossed your path? Perhaps another author?"
 
-*["I'm thinking about it."]
+*["I was debating adding Jensen..."]
     ->BHS1_ThinkingAboutIt
 
-*["I am for right now."]
+*["Not really."]
     ->BHS1_ForRightNow
 
 === BHS1_CouldBeBetter ===
@@ -121,7 +121,7 @@ Hendricks: "I know Jensen pretty well. I can say I'm not too surprised to hear t
     ->BHS1_ISaidIWasUnsure
 
 === BHS1_IFeelLikeYouAre ===
-Bronislav: "I feel like I am being judged. It feels like it could be a good advising opportunity for myself, and I'm always trying to sharpen my skills."
+Bronislav: "I feel like I am being judged. It could be a good advising opportunity for myself, and I'm always trying to sharpen my skills."
 
 Bronislav: "Besides, but I think I have a pretty good judge of character. Like Praveen."
 
@@ -131,16 +131,20 @@ Hendricks silently looks at you with her "non-judgemental" stare.
 === BHS1_ISaidIWasUnsure ===
 Bronislav: "Exactly why I said I was unsure about it. Jensen's got promise, but maybe needs something more his speed."
 
-Hendricks: "You could say that again. Glad to hear everything's going well Bronislav, I've got to head out but I hope we can meet again soon."
+Hendricks: "You could say that again. Glad to hear everything's going well Bronislav, I do have another meeting, but I hope we can meet again soon."
 
-She gets up from the table and leaves, waving at one of her students on the way out.
+Bronislav: "I hope so too! Thanks for meeting with me." 
+
+Hendricks: "Of course, anytime! Feel free to reach out if you need any help, I'm here to support you." 
+
+You grab your bag and head out. 
 
 {HideCharacter("Hendricks")}
 {DbInsert("Seen_BHS1")}
 -> DONE
 
 === BHS1_ForRightNow ===
-Bronislav: "I am for right now. I've gotten some feedback but it was... less than helpful."
+Bronislav: "Not really. I've gotten some feedback but it was... less than helpful."
 
 She chuckles.
 
@@ -155,9 +159,13 @@ Hendricks: "Isn't that the truth. If you do find yourself needing some help you 
 === BHS1_IllKeepItInMind ===
 Bronislav: "Thanks professor, I'll make sure to keep that in mind."
 
-Hendricks: "Any time Bronislav. I've got to head out now, but I'm sure we'll be in touch."
+Hendricks: "Any time Bronislav. Glad to hear everything's going well. I do have another meeting, but I hope we can meet again soon."
 
-She gets up from the table and leaves, waving at one of her students on the way out.
+Bronislav: "I hope so too! Thanks for meeting with me." 
+
+Hendricks: "Of course, anytime! Feel free to reach out if you need any help, I'm here to support you." 
+
+You grab your bag and head out. 
 
 {HideCharacter("Hendricks")}
 {DbInsert("Seen_BHS1")}
@@ -166,9 +174,13 @@ She gets up from the table and leaves, waving at one of her students on the way 
 === BHS1_DontThinkItsNecessary ===
 Bronislav: "Thanks for the offer professor, but I don't think that will be necessary. I know you're busy and I can handle myself."
 
-Hendricks: "I see you haven't changed much Bronislav. Hope to talk to you later."
+Hendricks: "I see you haven't changed much Bronislav. Glad to hear everything's going well. I do have another meeting, but I hope we can meet again soon."
 
-She laughs kindly and leaves, waving at one of her students on the way out.
+Bronislav: "I hope so too! Thanks for meeting with me." 
+
+Hendricks: "Of course, anytime! Feel free to reach out if you need any help, I'm here to support you." 
+
+You grab your bag and head out. 
 
 {HideCharacter("Hendricks")}
 {DbInsert("Seen_BHS1")}
@@ -191,9 +203,13 @@ Bronislav: "That was the idea. You of all people should know that Professor."
 
 Hendricks: She laughs.
 
-Hendricks: "You've got me there Bronislav. Then I suppose I shouldn't bother you anymore, I'll keep in touch though. In case you do end up needing something."
+Hendricks: "You've got me there Bronislav. Overall, I'm glad to hear everything's going well. I do have another meeting, but I hope we can meet again soon."
 
-She gets up from the table and leaves, waving at one of her students on the way out.
+Bronislav: "I hope so too! Thanks for meeting with me." 
+
+Hendricks: "Of course, anytime! Feel free to reach out if you need any help, I'm here to support you." 
+
+You grab your bag and head out. 
 
 {HideCharacter("Hendricks")}
 {DbInsert("Seen_BHS1")}
@@ -271,7 +287,7 @@ Bronislav: "Thank you, Hendricks"
 
 ===BHS1_PraveenConvoEnding===
 
-She gets up from the table and leaves, waving at one of her students on the way out.
+You grab your bag and head out. 
 
 {HideCharacter("Hendricks")}
 {DbInsert("Seen_BHS1")}
@@ -290,9 +306,13 @@ Hendricks silently looks at you with her "non-judgemental" stare.
 === BHS1_ItsNotWorthIt ===
 Bronislav: "It wasn't all that important in all honesty."
 
-Hendricks: "Alright, well if you need anything from me, feel free to reach out to me."
+Hendricks: "Alright. Well overall, I'm glad to hear everything's going ok Bronislav. I do have another meeting, but I hope we can meet again soon."
 
-She gets up from the table and leaves, waving at one of her students on the way out.
+Bronislav: "I hope so too! Thanks for meeting with me." 
+
+Hendricks: "Of course, anytime! Feel free to reach out if you need any help, I'm here to support you." 
+
+You grab your bag and head out. 
 
 {HideCharacter("Hendricks")}
 {DbInsert("Seen_BHS1")}

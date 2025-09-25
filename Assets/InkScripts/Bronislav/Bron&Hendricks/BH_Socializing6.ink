@@ -59,7 +59,9 @@ Bronislav: "Oh, you did? What did you two talk about?"
 
 Hendricks: "I had to have a rather unfortunate discussion about her leveraging your situation for her benefit. You did the right thing in standing strong, but I can't imagine it was easy being approached by someone of her position with an offer like that."
 
-Hendricks: "As you well demonstrated, integrity is important. Academic integrity is essential to your life as a student, but out in the real world, maintaining your integrity is absolutely paramount to becoming respected and conducting valid research in your field. Ivy's manipulation cannot be tolerated, and I need to take serious measures to ensure something like this does not happen to another student.'
+Hendricks: "As you well demonstrated, integrity is important. Academic integrity is essential to your life as a student, but out in the real world, maintaining your integrity is absolutely paramount to becoming respected and conducting valid research in your field."
+
+Hendricks: "Ivy's manipulation cannot be tolerated, and I need to take serious measures to ensure something like this does not happen to another student."
 
 *["Yes, I understand."]
 ->BH_Socializing6_Understood
@@ -133,7 +135,9 @@ Hendricks: "I'm glad that you agree."
 
 Bronislav: "It was hard, I was very tempted for this job and didn't consider the full extent of what the consequences would be." 
 
-Hendricks: "We all make mistakes, and given your immigration status, it's very understandable that it made saying no to Ivy all the more difficult. In the end, however, you made the right decision, and I'm very proud of you for that. It not only speaks to your integrity, but how strongly you believe in protecting the validity of your work."
+Hendricks: "We all make mistakes, and given your immigration status, it's very understandable that it made saying no to Ivy all the more difficult." 
+
+Hendricks: "In the end, however, you made the right decision, and I'm very proud of you for that. It not only speaks to your integrity, but how strongly you believe in protecting the validity of your work."
 
 *["Thank you Professor."]
 ->BH_Socializing6_ThankYou
@@ -165,6 +169,7 @@ Bronislav: "Of course."
 
 With that you wave goodbye and head out. 
 {DbInsert("Seen_BH_Socializing6")}
+{HideCharacter("Hendricks")}
 ->DONE
 
 === BH_Socializing6_DontHateIvy ===
@@ -180,9 +185,11 @@ Hendricks: "Don't worry, Bronislav, I understand. Ivy will come around if she ha
 === BH_Socializing6_OutofLine ===
 Bronislav: "I understand what she did was out of line."
 
-Hendricks: "I can tell you were under a lot of stress, and I know it's hard being in a situation like that. But, because you made the right decision, you gained a lot of respect, and not just from me. In the meantime, we will be handling this situation on our end and make sure all students are aware of what qualifies as quid pro quo in academia, and how to spot signs of unfair power leverages. 
+Hendricks: "I can tell you were under a lot of stress, and I know it's hard being in a situation like that. But, because you made the right decision, you gained a lot of respect, and not just from me."
 
-Hendricks: But that's not something you need to worry about, you are still able to continue forward on your research." 
+Hendricks: "In the meantime, we will be handling this situation on our end and make sure all students are aware of what qualifies as quid pro quo in academia, and how to spot signs of unfair power leverages."
+
+Hendricks: "But that's not something you need to worry about, you are still able to continue forward on your research." 
 
 *["Thank you Professor."]
 ->BH_Socializing6_ThankYou
@@ -200,7 +207,9 @@ Bronislav: "Oh you did..."
 
 Hendricks: "Indeed, I had to have a rather unfortunate discussion about her leveraging your situation for her benefit. And it seems like you were coerced into playing along."
 
-Hendricks: "You need to understand, Bronislav, integrity is important. Academic integrity is essential to your life as a student, but out in the real world, maintaining your integrity is absolutely paramount to becoming respected and conducting valid research in your field. Ivy's manipulation cannot be tolerated, and I need to take serious measures to ensure something like this does not happen to another student."
+Hendricks: "You need to understand, Bronislav, integrity is important. Academic integrity is essential to your life as a student, but out in the real world, maintaining your integrity is absolutely paramount to becoming respected and conducting valid research in your field." 
+
+Hendricks: "Ivy's manipulation cannot be tolerated, and I need to take serious measures to ensure something like this does not happen to another student."
 
 *["Isn't all of that a little unnecessary?"] 
 ->BH_Socializing6_Unnecessary
@@ -214,9 +223,11 @@ Hendricks: "You need to understand, Bronislav, integrity is important. Academic 
 === BH_Socializing6_Unnecessary ===
 Bronislav: "Is all of that really necessary? It seemed like she was trying to help me, even if it benefitted her too."
 
-Hendricks: "Yes, Bronislav, it really is. Ivy has displayed a complete disregard for academic integrity for a person of her position, and took advantage of your immigration status being dependant on finding a work visa to create a quid pro quo that you would feel compelled to go along with. A chat from me is only the beginning of the reprocussions for her actions.
+Hendricks: "Yes, Bronislav, it really is. Ivy has displayed a complete disregard for academic integrity for a person of her position, and took advantage of your immigration status being dependant on finding a work visa to create a quid pro quo that you would feel compelled to go along with." 
 
-Hendricks: "But in terms of your part in the situation, I don't think taking action against you is necessary. That being said, it is incredibly important you understand the severity of this situation.
+Hendricks: "A chat from me is only the beginning of the reprocussions for her actions."
+
+Hendricks: "But in terms of your part in the situation, I don't think taking action against you is necessary. That being said, it is incredibly important you understand the severity of this situation."
 
 *["I see."]
 ->BH_Socializing6_ISee
@@ -273,6 +284,7 @@ Bronislav: "Okay I will."
 
 Hendricks gives a small nod as you stand from your seat and make your way out. 
 {DbInsert("Seen_BH_Socializing6")}
+{HideCharacter("Hendricks")}
 ->DONE
 
 }
@@ -292,6 +304,7 @@ Bronislav: "No, thank you for all your help, Professor."
 Hendricks: "Anytime."
 
 Hendricks gives a small smile as you stand from your seat and make your way out of Hendricks' office. 
+{HideCharacter("Hendricks")}
 {DbInsert("Seen_BH_Socializing6")}
 ->DONE
 
@@ -299,12 +312,16 @@ Hendricks gives a small smile as you stand from your seat and make your way out 
 === BH_Socializing6_JobOffer ===
 Bronislav: "Hendricks, I wanted to ask you if you had any updates on the visa situation. I know I confided in you about it the last time we talked, and you said you would let me know if you have any updates."
 
-Hendricks: "I do actually, Bronislav, thank you for reminding me! I talked to one of my contacts about your research and as it turns out, they have a recently opened position at their company that needs someone of your skillset. I talked with them, and they would love to have an interview with you, if you're open to it. And they told me to tell you, that without a doubt, they will sponsor your visa if that interview goes well."
+Hendricks: "I do actually, Bronislav, thank you for reminding me! I talked to one of my contacts about your research and as it turns out, they have a recently opened position at their company that needs someone of your skillset." 
+
+Hendricks: "I talked with them, and they would love to have an interview with you, if you're open to it. And they told me to tell you, that without a doubt, they will sponsor your visa if that interview goes well."
 
 Hendrick's words almost don't feel real. This is a job, a real job, that will make all of your visa worries disappear. And nobody is twisting your arm to do something in exchange for it. 
 
 Bronislav: "I don't know what to say, thank you so much Professor."
 
 Hendricks: "Of course! I am so happy that I could help you Bronislav. You deserve it, after everything you've been through."
+{HideCharacter("Hendricks")}
 {DbInsert("Seen_BH_Socializing6")}
+
 ->DONE

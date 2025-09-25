@@ -1,10 +1,6 @@
 // Wishes Hendricks would ask to help with conference
 // Tell Praveen he will put in a good word for him or not
 
-VAR BP_Suggestion = false
-VAR BP_S2_Pretentious = false
-VAR BP_S2_AskDirectly = false
-
 === BP_Socializing2_SceneStart ===
 #---
 # choiceLabel: Talk with Praveen.
@@ -18,9 +14,11 @@ VAR BP_S2_AskDirectly = false
 
 // Summary: Praveen asks you to help on getting Hendrick's approval
 
+VAR BP_Suggestion = false
+VAR BP_S2_Pretentious = false
+VAR BP_S2_AskDirectly = false
+
 {ShowCharacter("Praveen", "left", "")}
-
-
 
 You notice your friend Praveen working at his desk and decide to talk to him. It's been a while since you two have hung out.
 

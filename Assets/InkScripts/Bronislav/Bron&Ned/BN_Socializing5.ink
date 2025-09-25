@@ -122,7 +122,9 @@ Ned: "Well, I suppose this it might be a learning experience for you as well, so
 === BN_Socializing5_DidSomethingHappen ===
 Bronislav: "Did something happen with Brad?"
 
-Ned: "Yes, and unfortunately it is very serious. While I am willing to bet Brad will tell you about it in his own time, I suppose this it might be a learning experience for you as well, so I am going to impart upon you the same knowledge that I have been telling Brad ever since these details about our data came to light."
+Ned: "Yes, and unfortunately it is very serious. While I am willing to bet Brad will tell you about it in his own time, I suppose this it might be a learning experience for you as well."
+
+Ned: "I am going to impart upon you the same knowledge that I have been telling Brad ever since these details about our data came to light."
 
 ->BN_Socializing5_Explanation
 
@@ -139,14 +141,14 @@ Ned sighs.
 Ned: "You see, Brad did not wait for IRB approval before collecting data for our research. <>
 
 { honesty == true:
-<> Ned: "As I am sure you are well aware, Brad was likely more worried about making sure things went smoothly, so he was willing to overlook the ethicality of preemptively collecting data without proper IRB approval. <>
+<> Ned: "As I am sure you are well aware, Brad was likely more worried about making sure things went smoothly, so he was willing to overlook the ethicality of preemptively collecting data without proper IRB approval." <>
 }
 
 {not BradWithdrew:
 //if Brad did not withdraw data
-<> And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review.
+<> Ned: "And because he attempted to cover that fact up, he is not only going to need to take ethics training before he is allowed to participate in any more research at this university, but this project in particular has to be supervised now and is being placed under ethics review."
 
-Ned: This entire process has turned into a headache, where it would have been much simpler if Brad had come clean and told me the situation so I could have withdrawn the paper."
+Ned: "This entire process has turned into a headache, where it would have been much simpler if Brad had come clean and told me the situation so I could have withdrawn the paper."
 
 Ned: "If Brad would have just been honest about the situation, I could have helped mitigate the damage done by his reckless actions, but much of this is out of my hands at this point."
 
@@ -155,7 +157,7 @@ Ned: "What's important for you to remember is that it's never worth violating et
 
 {BradWithdrew:
 //if Brad withdrew data
-<> Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me.
+<> Ned: "Fortunately, Brad came clean to me about the situation, and I was able to withdraw the paper, and while it has been a slight headache for me trying to rework our timeline, it is far better than if he were to have withheld the fact that he had already conducted research from me.
 
 Ned: I am very glad he came forward, because the reprocussions had he not would have been severe."
 
