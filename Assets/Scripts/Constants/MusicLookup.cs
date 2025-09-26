@@ -13,7 +13,7 @@ namespace Academical
         public static readonly Dictionary<string, string> MusicLabels = new Dictionary<string, string>
         {
             {"cafe", "Samba Isobel"},
-            {"hendricks_office", "Airport Lounge"},
+            {"faculty_offices", "Airport Lounge"},
             {"lecture_hall", "Deuces"},
             {"library", "Cool Vibes"},
             {"neds_office", "George Street Shuffle"},

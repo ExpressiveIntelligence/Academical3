@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Academical
 {
-	public class MapLocationButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+	public class MapLocationButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 	{
 		[SerializeField]
 		private Location m_Location;
@@ -36,32 +36,42 @@ namespace Academical
 
 		public Location Location => m_Location;
 
+		//We need to add highlighting behavior to mask on hover
+		public Image Mask;
+		private Color m_HighlightColor;
+		private Color m_NormalColor;
+		private Color m_PressedColor;
+		private Color m_SelectedColor;
+
+		private bool m_IsPressed;
+		private bool m_IsInside;
+
 		private void Start()
 		{
 			m_Tooltip.SetActive( false );
 			SetButtonLocked( false );
 			SetMainStoryIconActive( false );
 			SetSideStoryIconActive( false );
+			m_HighlightColor = m_Button.colors.highlightedColor;
+			m_NormalColor = m_Button.colors.normalColor;
+			m_PressedColor = m_Button.colors.pressedColor;
+			m_SelectedColor = m_Button.colors.selectedColor;
+			m_IsPressed = false;
+			m_IsInside = false;
+
 		}
 
 		private void OnEnable()
 		{
-			m_Button.onClick.AddListener( HandleButtonClick );
-		}
-
-		private void OnDisable()
-		{
-			m_Button.onClick.RemoveListener( HandleButtonClick );
-		}
-
-		private void HandleButtonClick()
-		{
-			OnClick?.Invoke( m_Location );
+			Mask.color = m_NormalColor;
 		}
 
 		public void OnPointerEnter(PointerEventData eventData)
 		{
 			LeanTween.scale( gameObject, new Vector3( 1.05f, 1.05f, 1.05f ), 0.1f );
+			Mask.color = m_HighlightColor;
+			m_IsInside = true;
+
 			if ( m_IsLocked && Location.LockMessage != "" )
 			{
 				m_Tooltip.SetActive( true );
@@ -72,7 +82,32 @@ namespace Academical
 		public void OnPointerExit(PointerEventData eventData)
 		{
 			LeanTween.scale( gameObject, new Vector3( 1f, 1f, 1f ), 0.1f );
+			m_IsInside = false;
+			if ( !m_IsPressed )
+			{
+				Mask.color = m_NormalColor;
+			}
 			m_Tooltip.SetActive( false );
+		}
+
+
+		public void OnPointerDown(PointerEventData e)
+		{
+			Mask.color = m_PressedColor;
+			m_IsPressed = true;
+		}
+		public void OnPointerUp(PointerEventData e)
+		{
+			if ( m_IsInside )
+			{
+				Mask.color = m_SelectedColor;
+				OnClick?.Invoke( m_Location );
+			}
+			else
+			{
+				Mask.color = m_NormalColor;
+			}
+			m_IsPressed = false;
 		}
 
 		public void SetButtonLocked(bool isLocked)

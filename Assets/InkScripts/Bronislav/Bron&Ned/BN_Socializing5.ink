@@ -8,7 +8,7 @@ VAR BradWithdrew = false
 # date.day!5
 # @end
 # repeatable: false
-# tags: action, neds_office, auxiliary
+# tags: action, faculty_offices, auxiliary
 # ===
 # Summary: Confronting Bronislav on what he knows about Brad's work
 

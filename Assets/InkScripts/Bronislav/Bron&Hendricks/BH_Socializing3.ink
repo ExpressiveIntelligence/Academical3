@@ -35,7 +35,7 @@ You write a brief email saying that you can not make it to today's meeting. She 
 # BHS3_unlocked
 # date.day!3
 # @end
-# tags: action, hendricks_office, required
+# tags: action, faculty_offices, required
 # repeatable: false
 # ===
 
