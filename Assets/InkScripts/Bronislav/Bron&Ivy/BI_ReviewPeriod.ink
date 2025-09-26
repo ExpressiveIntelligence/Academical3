@@ -364,7 +364,9 @@ Ivy, dumbfounded, sits in silence for a moment.
 
 Ivy: "I actually don't know what to say. That's... that's just really low Bronislav."
 
-She leaves without another word.
+Despite your polite decline, she seems to be quite hurt by the outcome. 
+
+You try to say something else, but she leaves without another word.
 
 {HideCharacter("Ivy")}
 {DbInsert("Seen_BI_ReviewPeriod")}

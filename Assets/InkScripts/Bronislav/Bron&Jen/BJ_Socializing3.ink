@@ -10,13 +10,15 @@
 # ===
 # Summary: Jensen asks if he's on the paper/updates 
 
-
+VAR PraveenGossipConfirm = false
 
 ~IvyDealAccepted = DbAssert("IvyDealAccepted")
 
 ~IvyDealConsidered = DbAssert("IvyDealConsidered")
 
 ~IvyDealDenied = DbAssert ("IvyDealDenied") 
+
+~PraveenGossipConfirm = DbAssert("BradPraveenGossip")
 
 // Coffee Shop
 // TODO: CONNECT RELATIONSHIP MODIFIERS HERE FOR SCENE STARTS
@@ -65,7 +67,7 @@
 
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+"Bronislav!"
 
 You turn your attention over. 
 
@@ -89,7 +91,7 @@ Jensen: "I heard that my feedback on your presentation got me co-authorship."
 === BJS3_scenePositiveIvy ===
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+"Bronislav!"
 
 You turn your attention over. 
 
@@ -118,7 +120,7 @@ Jensen: "...And Ivy's been telling me that you're considering me for authorship?
 === BJS3_scenePositiveNo ===
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+"Bronislav!"
 
 You turn your attention over.
 
@@ -150,7 +152,7 @@ Jensen: "I just wanted to catch up with you. I heard from Ivy that you don't wan
 
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+"Bronislav!"
 
 You turn your attention over.
 
@@ -177,7 +179,7 @@ Jensen: "I heard from Ivy that you're considering putting me on the paper.Thank 
 
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+ "Bronislav!"
 
 You turn your attention over.
 
@@ -209,7 +211,7 @@ He looks at you with an attempt at puppy-eyes.
 === BJS3_sceneNeutralNo ===
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+ "Bronislav!"
 
 You turn your attention over.
 
@@ -241,7 +243,7 @@ Jensen: "I just wanted to catch up with you. I heard from Ivy that you don't wan
 === BJS3_sceneNegative ===
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+ "Bronislav!"
 
 You turn your attention over.
 
@@ -280,7 +282,7 @@ Jensen: "I know we got off on the wrong foot, but I'm happy that you decided to 
 
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+"Bronislav!"
 
 You turn your attention over.
 
@@ -319,7 +321,7 @@ Jensen: "I know we got off on the wrong foot, but I know I have and could contri
 
 It's time to finally take a break. As you sit down with your coffee, you suddenly hear someone call out to you. 
 
-???: "Bronislav!"
+ "Bronislav!"
 
 You turn your attention over.
 
@@ -361,6 +363,7 @@ Jensen: "Thanks Bronislav! I appreciate it!!"
 Jensen: "Alright I need to run to class, I'll see you later!" 
 
 ~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
 {JenOpinionSocial3 >= OpinionState.Good: Bronislav: "Yeah! See you later!" } 
 {JenOpinionSocial3 >= OpinionState.Neutral && JenOpinionSocial3 < OpinionState.Good: Bronislav: "Ok!" }
 {JenOpinionSocial3 <= OpinionState.Neutral: Bronislav: "Sure." } 
@@ -369,6 +372,7 @@ Jensen: "Alright I need to run to class, I'll see you later!"
 
 *[Shake his hand]
 ->BJS3_ShakeHandLeave
+
 
 === BJS3_HeresHowYouAuthor ===
 
@@ -466,6 +470,7 @@ Jensen: "Anyways, gotta go. I'll see you later."
 === BJS3_GoodChance ===
 {ShowCharacter("Jensen", "left", "hopeful")}
 Bronislav: "I'd say there's a good chance. I'll let you know if something changes."
+
 His expression turns to excitment.
 
 Jensen: "Wow, thanks Bronislav!"
@@ -473,6 +478,9 @@ Jensen: "Wow, thanks Bronislav!"
 He shakes your hand wildly.
 
 Jensen: "I appreciate you keeping me in mind at least, let me know if something gets set in stone."
+
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
 
 He leaves spilling a bit of coffee on the way out.
 
@@ -493,6 +501,9 @@ He smiles at you, then walks away.
 
 Jensen: "I hope you reconsider." 
 
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
+
 {HideCharacter("Jensen")}
 {DbInsert("Seen_BJS3")}
 ->DONE
@@ -511,6 +522,8 @@ Jensen: "I just really need to get on that paper Bronislav. Please? I hope to he
 
 He walks away calmly.
 
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
 {HideCharacter("Jensen")}
 {DbInsert("Seen_BJS3")}
 -> DONE
@@ -527,6 +540,9 @@ Jensen, taking a sip from his coffee as you say this, coughs for a bit but colle
 
 Jensen: "Really Bronislav? You're the best! I've got to go now but please, keep me updated."
 
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
+
 He gets up and coughs a bit more as he leaves.
 
 {HideCharacter("Jensen")}
@@ -540,6 +556,9 @@ Jensen seems a bit disappointed, but happy that you're at least still somewhat c
 
 Jensen: "Thanks for letting me know, hope to talk to you again soon Bronislav."
 
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
+
 He gets up and leaves.
 {DbInsert("Seen_BJS3")}
 ->DONE
@@ -552,6 +571,9 @@ His gaze goes from disappointment to guilt.
 
 Jensen: "Oh, alright. I was really hoping on getting my name on a paper."
 
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
+
 He weakly picks up his bag and coffee, and slumps out of the cafe.
 
 {HideCharacter("Jensen")}
@@ -562,6 +584,9 @@ He weakly picks up his bag and coffee, and slumps out of the cafe.
 You start working on your paper again.
 
 Jensen: "That sounds great! I'll get out of your hair and let you get back to work, but I'll be in contact." 
+
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
 
 He gets up and leaves, waving goodbye with a smile.
 
@@ -576,6 +601,8 @@ Bronislav: "Yes, you will be included."
 Jensen's expression shifts to a relieved smile.
 
 Jensen: "Oh, I can't thank you enough."
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
 
 {HideCharacter("Jensen")}
 {DbInsert("Seen_BJS3")}
@@ -589,6 +616,9 @@ His innocent gaze contorts into a naive sadness.
 
 Jensen: "O-Oh, alright. I was really hoping on getting my name on a paper..."
 
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
+
 {HideCharacter("Jensen")}
 {DbInsert("Seen_BJS3")}
 ->DONE
@@ -598,6 +628,9 @@ Jensen: "O-Oh, alright. I was really hoping on getting my name on a paper..."
 He shakes your hand with a big smile.
 
 Jensen: "Of course, glad to have a mentor like you Bronislav."
+
+~ temp JenOpinionSocial3 = GetOpinionState("Jensen", "Bronislav")
+{PraveenGossipConfirm && JenOpinionSocial3 >= OpinionState.Good: -> BJS3_PraveenClosure}
 
 You grab your coffee and leave.
 
@@ -612,3 +645,28 @@ You abruptly get up and leave after telling Jensen this. He looks deeply ashamed
 {HideCharacter("Jensen")}
 {DbInsert("Seen_BJS3")}
 ->DONE
+
+===BJS3_PraveenClosure===
+Bronislav: "Before you go..." 
+
+Jensen: "Hm?" 
+
+Bronislav: "I heard through the grapevine that Praveen was being mean to you? What's that about?" 
+
+Jensen: "Oh...yeah." 
+
+Jensen: "Well I was showing him something I'm working on and he didn't really give constructive criticism. He just...said everything wrong or weird about my idea. Just...tore into my work." 
+
+Jensen: "I mean I know I gotta take criticism as it comes but...I don't know it didn't feel constructive. Just like all he wanted to do was bring me down." 
+
+Bronislav: "I'm sorry to hear that Praveen, that's not ok. Yes, you should be able to take criticism, but there's a difference between trying to be helpful and just trashing someone." 
+
+Jensen: "Yeah...but it's not that big of a deal. It's fine." 
+
+Bronislav: "Alright, I'll keep a look out to see if he's still doing this. Thanks for confiding in me." 
+
+Jensen: "Of course, thanks for listening!" 
+
+{HideCharacter("Jensen")}
+{DbInsert("Seen_BJS3")}
+-> DONE 

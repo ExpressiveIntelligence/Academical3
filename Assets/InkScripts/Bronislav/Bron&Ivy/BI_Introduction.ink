@@ -2,10 +2,7 @@
 #---
 # choiceLabel: Have coffee with Ivy.
 # @query
-# not givenQuidProQuo
-# metJensen
 # date.day!1
-# Seen_BJ_INTRO
 # @end
 # repeatable: false
 # tags: action, cafe, required 
@@ -33,7 +30,11 @@ Ivy: "Hey Bronislav. Good to see you again." {ShowCharacter("Ivy", "left", "")}
     ->IvyCatchesUp
 
 === IvyCatchesUp ===
-Ivy: "I've been pretty busy, but keeping up with all of it pretty well. How'd the presentation go? Did you meet anyone who could help you on your paper?"
+Ivy: "I've been pretty busy, but keeping up with all of it pretty well. How'd you feel about the presentation?" 
+
+Bronislav: "It went pretty well, all things considered!" 
+
+Ivy: "That's great! Did you meet anyone who could help you on your paper?"
 
 *["Yes! I talked with someone." #>> ChangeOpinion Ivy Bronislav +]
     ->InterestInPaper

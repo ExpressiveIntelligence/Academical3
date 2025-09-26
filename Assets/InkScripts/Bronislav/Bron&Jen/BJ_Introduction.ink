@@ -30,7 +30,7 @@ You nervously approach the podium. The room has filled up with what seems like t
 
 You go to the front of the room and speak for about 45 minutes. It starts off a little shaky, but you quickly get into the flow and feel confident by the end.
 
-Your peers seemed to enjoy your work. A few tough questions, but nothing you couldn't handle. It's a major relief after so many months of hard research and writing.
+They seemed to enjoy your work. A few tough questions, but nothing you couldn't handle. It's a major relief after so many months of hard research and writing.
 
 Afterward, while packing up your laptop, a line forms of people in the department to give their congratulations.
 
@@ -39,7 +39,7 @@ Hendricks: "Congratulations Bronislav! That was great - I'm so lucky to have suc
 {HideCharacter("Hendricks")}
 
 {ShowCharacter("Brad", "left", "")}
-Brad: "That was so cool buddy! Our work together on this is paying off. I'll finish up the IRB paperwork ASAP!"
+Brad: "Awesome job up there! Our work together on this is paying off!"
 {HideCharacter("Brad")}
 
 {ShowCharacter("Ned", "left", "")}
@@ -51,13 +51,12 @@ Praveen: "Wow, great stuff! So many people involved - I hope I can one day match
 {HideCharacter("Praveen")}
 
 {ShowCharacter("Ivy", "left", "")}
-Ivy: "Such an impressive presentation. The department could use more of this! My nephew-"
-Ivy: "...Ahem, oops! I meant to say undergrad mentee. Sorry about that! Anyways, they wanted to talk to you - keep an ear out!"
+Ivy: "Such an impressive presentation. The department could use more of this! One of my mentees wanted to talk to you - keep an ear out!"
 {HideCharacter("Ivy")}
 
 <i>(You can learn more about any character using the "Characters" button at the top of the screen.)</i>
 
-The room clears out. A final person, an undergrad, approaches you nervously.
+The room clears out. A final person approaches you nervously.
 
 Jensen: "Bronislav, right? Nice to meet you. I'm Jensen." {ShowCharacter("Jensen", "left", "")}
 
@@ -98,7 +97,13 @@ Jensen: "I also thought that you could have presented your evidence better, and 
 {ShowCharacter("Jensen", "left", "hopeful")}
 Bronislav: "Yes, of course. Thanks for letting me know."
 
-You write down his feedback in your notebook. He smiles happily, and walks off.
+You write down his feedback in your notebook.
+
+Jensen: "And hey, is there a chance of becoming a co-author on this paper? I think it's a really interesting topic and am looking into something similar. Maybe my feedback could be considered when editing?" 
+
+Bronislav: "I'll have to see." 
+
+He smiles happily, and walks off.
 
 {HideCharacter("Jensen")}
 
@@ -110,6 +115,10 @@ You write down his feedback in your notebook. He smiles happily, and walks off.
 Bronislav: "Could you tell me a little more about what did confuse you, and how I could present my evidence better?"
 
 Jensen explains his points. You zone out slightly, but remember to nod along to show you're listening.
+
+Jensen: "And hey, is there a chance of becoming a co-author on this paper? I think it's a really interesting topic and am looking into something similar. Maybe my feedback could be considered when editing?" 
+
+Bronislav: "um...I'll have to see." 
 
 You write down his feedback in your notebook. He smiles happily, and walks off.
 
@@ -123,6 +132,10 @@ You write down his feedback in your notebook. He smiles happily, and walks off.
 
 Bronislav: "Sorry, I'm not interested in receiving feedback from other students."
 
+Jensen: "Oh...ok. Um...is there a chance of becoming a co-author on this paper? I think it's a really interesting topic and am looking into something similar. Maybe my feedback could be considered when editing?" 
+
+Bronislav: "I'll have to see." 
+
 You put the pen and notebook back away. Jensen turns away ashamed by you mocking his input.
 
 {HideCharacter("Jensen")}
@@ -135,7 +148,15 @@ You put the pen and notebook back away. Jensen turns away ashamed by you mocking
 {ShowCharacter("Jensen", "left", "ashamed")}
 Bronislav: "This has to be your first time at a meeting like this isn't it?"
 
-You put the pen and notebook back away. Jensen turns away ashamed by you mocking his input.
+You put the pen and notebook back away. 
+
+Jensen: "Oh...uh yeah kinda. Well I did want to ask...is there a chance of becoming a co-author on this paper? I think it's a really interesting topic and am looking into something similar. Maybe my feedback could be considered when editing?" 
+
+Bronislav: "I'll have to see." 
+
+Jensen: "Ok!" 
+
+He walks away.
 
 {HideCharacter("Jensen")}
 

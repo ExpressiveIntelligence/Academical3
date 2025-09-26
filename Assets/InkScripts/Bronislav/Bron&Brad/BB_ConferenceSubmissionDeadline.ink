@@ -28,9 +28,48 @@ He briefly waves back and puts on his headphones.
 
 Maybe he's upset and not in the mood to talk. 
 
+*[Apologize #>> ChangeOpinion Brad Bronislav ++] -> BB_CSD_Apologize
+*[Walk away] -> BB_CSD_EndEarly
+
+===BB_CSD_EndEarly===
+
 {HideCharacter("Brad")}
 {DbInsert("Seen_BB_ConferenceSubmissionDeadline")}
 ->DONE
+
+===BB_CSD_Apologize===
+You tap him on the shoulder. He turns to you without saying a word. 
+
+Bronislav: "Hey...I'm sorry for being so short with you the other day. That was mean and I didn't mean to brush you off like that." 
+
+Brad: "Well glad to see you're in a better mood today." 
+
+Brad: "Let me guess, they fixed the coffee machine?" 
+
+Bronislav: "Yep, hopefully the triple expresso will keep me sane." 
+
+Brad: "Oh no tell me you're joking." 
+
+Bronislav: "I need to keep my mood up somehow, you saw what happened last time." 
+
+Brad: "Fair...don't want more evil Bronislav." 
+
+Bronislav: "Evil?!" 
+
+Brad: "Oh c'mon you looked like you wanted to slap me for saying 'hi'" 
+
+Bronislav: "Ok ok, you made your point." 
+
+Brad: "Well since it seems like you're less pissed today, how have you been?" 
+
+*["Relieved."]
+->BB_CSD_Relieved
+
+*["Pretty tired."]
+->BB_CSD_PrettyTired
+
+*["Alright."]
+->BB_CSD_Alright
 
 ===BB_CSD_Normal===
 

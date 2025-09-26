@@ -81,7 +81,7 @@ Jensen: "I don't want to hear it."
 
 You find Jensen on the phone with someone so you wait until he's done with the call.
 
-Jensen: "This will totally get me into grad school now! Thanks so much for your help Ivy."
+Jensen: "This will totally get me into a PhD program now! Thanks so much for your help Ivy."
 
 He pauses while Ivy is speaking presumably.
 
@@ -98,7 +98,7 @@ You walk in after he gets off the call.
 
 Bronislav: "Hey Jensen! Glad to see you so happy."
 
-Jensen: "How could I not be? There's no way they don't let me into grad school with this on my record! Thank you so much again Bronislav."
+Jensen: "How could I not be? There's no way they don't let me into the program now with this on my record! Thank you so much again Bronislav."
 
 *["Happy to help."]
 ->BJ_CONF_HappyToHelp
@@ -107,7 +107,7 @@ Jensen: "How could I not be? There's no way they don't let me into grad school w
 ->BJ_CONF_DontMakeMeRegret
 
 === BJ_CONF_HappyToHelp ===
-Bronislav: "Happy that I could help you Jensen. Keep it up and I know you'll get into grad school in no time."
+Bronislav: "Happy that I could help you Jensen. Keep it up and I know you'll get in."
 
 Jensen: "You really think so? Wow... I'm so glad I have an advisor like you Bronislav."
 
@@ -147,7 +147,7 @@ Bronislav: "Hey Jensen... Are you doing ok?"
 
 He rests his chin on his arms
 
-Jensen: "Could be doing better. Could be doing better..."
+Jensen: "Could be doing better. Could be doing better. I'm just...I don't know. Disappointed that it didn't work out."
 
 *["You can't rely on stuff like that."]
 ->BJ_CONF_CantRelyOnThat
