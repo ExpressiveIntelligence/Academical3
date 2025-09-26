@@ -166,8 +166,8 @@ You nod your head, standing from your seat.
 Bronislav: "Of course." 
 
 With that you wave goodbye and head out. 
-{DbInsert("Seen_BH_Socializing6")}
 {HideCharacter("Hendricks")}
+{DbInsert("Seen_BH_Socializing6")}
 ->DONE
 
 === BH_Socializing6_DontHateIvy ===
@@ -281,8 +281,8 @@ Hendricks: "Everything will work out, even if it doesn't feel like it right now.
 Bronislav: "Okay I will."
 
 Hendricks gives a small nod as you stand from your seat and make your way out. 
-{DbInsert("Seen_BH_Socializing6")}
 {HideCharacter("Hendricks")}
+{DbInsert("Seen_BH_Socializing6")}
 ->DONE
 
 }

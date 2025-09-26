@@ -61,7 +61,7 @@ After the great news for Jensen, Ivy said that she wanted to congratulate both o
 ===BI_Socializing5_AlwaysDenied===
 
 //Jensen is not on the paper, Bronislav never had Jensen on the paper
-After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks a bit stressed with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
+After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks a bit stressed with a completely empty cup of coffee with its lid off on the table. You see her give you a slight side eye.
 
 *["Sorry about Jensen." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_Socializing5_SorryAbtJensen
@@ -71,7 +71,7 @@ After the bad news for Jensen, Ivy said that she wanted to meet with you to have
 
 === BI_Socializing5_SwitchDenied===
 //Jensen is not on the paper, Bronislav had Jensen on the paper at one point.
-After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks stressed, with a completely empty cup of coffee with it's lid off on the table. You see her give you a slight side eye.
+After the bad news for Jensen, Ivy said that she wanted to meet with you to have a talk. You meet her at the cafe, she looks stressed, with a completely empty cup of coffee with its lid off on the table. You see her give you a slight side eye.
 
 *["Sorry about Jensen." #>> ChangeOpinion Ivy Bronislav +]
 ->BI_Socializing5_SorryAbtJensen2
@@ -127,7 +127,7 @@ Ivy: "Don't mention it, none of this could have happened without you Bronislav. 
 === BI_Socializing5_TakeARelievedSip ===
 Taking a sip of the coffee you finally feel relaxed for the first time in a while. Ivy's happy, Jensen is happy, and you won't have to stress about what you're going to do once you're out of school.
 
-Ivy: "Sorry if this all felt so spurred on you Bronislav. I just really wanted to see Jensen get into grad school, and thought this would be the perfect opportunity."
+Ivy: "Sorry if this all felt so spurred on you Bronislav. I just really wanted to see Jensen get into a program, and thought this would be the perfect opportunity."
 
 *["No Problem."]
 ->BI_Socializing5_NoProblem
@@ -136,7 +136,7 @@ Ivy: "Sorry if this all felt so spurred on you Bronislav. I just really wanted t
 ->BI_Socializing5_NotABigDeal
 
 === BI_Socializing5_IdFeelTheSame ===
-Bronislav: "When I was trying to get into grad school I had that same feeling, just glad it's all over now and we can just focus on the paper."
+Bronislav: "When I was trying to get into a PhD program I had that same feeling, just glad it's all over now and we can just focus on the paper."
 
 Ivy: "Seriously, even if it isn't guaranteed Jensen's CV will look so much better."
 
@@ -153,7 +153,7 @@ Bronislav: "So, what's next Ivy?"
 
 Ivy takes a deep breath.
 
-Ivy: "Well, you should keep in contact with Jensen to get to work on that paper first of all. While you two do that I'll talk with my uncle and get back to you on how that's going."
+Ivy: "Well, I'll talk with my uncle and get back to you on how that's going."
 
 
 Ivy: "I've got to head out now, glad we could do a little check in. Just make sure this stays between us three, and everything will go smoothly."
@@ -167,7 +167,7 @@ Ivy: "I've got to head out now, glad we could do a little check in. Just make su
 === BI_Socializing5_NoProblem ===
 Bronislav: "It's not a problem at all Ivy, you just wanted to make sure to take the opportunity when it presented itself. That's very respectable."
 
-Ivy: "Good to know that you understand." She says with a laugh after.
+Ivy: "Good to know that you understand." 
 
 Bronislav: "I've got somewhere to be, but glad to catch up with you so soon. I'll keep in contact with you and Jensen."
 
@@ -287,7 +287,7 @@ Ivy: "I know it was all spur of the moment, but I just wanted to make sure that 
 === BI_Socializing5_IdFeelTheSame2 ===
 Bronislav: "Yeah, being in the position Jensen was in at one point, I'd feel the same. Sorry about all that."
 
-Ivy: "Well it's all behind us now. Even if it isn't guaranteed that Jensen will get into grad school, this will look great on his CV."
+Ivy: "Well it's all behind us now. Even if it isn't guaranteed that Jensen will get into a PhD program, this will look great on his CV."
 
 Ivy: "Well I wish you two the best of luck on the paper, just happy to check in with you now that things are finally set in stone. I've got to head out, but I know we'll talk again."
 
@@ -304,7 +304,7 @@ She rolls her eyes.
 
 Ivy: "It's not that big of a deal. Just keep it between us and everything will go smoothly. Everyone gets what they wanted right?"
 
-She packs up her bag, "Well, I've got to run. I'm excited to see how the paper will go, I'll talk to you later Bronislav."
+Ivy: "Well, I've got to run. I'm excited to see how the paper will go, I'll talk to you later Bronislav."
 
 *["Talk to you later."]
 ->BI_Socializing5_TalkToYouLater
@@ -317,7 +317,7 @@ Bronislav: "So what now Ivy?"
 
 Ivy takes a deep breath.
 
-Ivy: "Well, you should keep in contact with Jensen to get to work on that paper first of all. While you two do that I'll see when I can talk with my uncle and get back to you on how that's going."
+Ivy: "Well, I'll see when I can talk with my uncle and get back to you on how that's going."
 
 Ivy: "I've got to head out now, glad we could do a little check in. I'll get back to you when I get back to you."
 
@@ -328,13 +328,13 @@ Ivy: "I've got to head out now, glad we could do a little check in. I'll get bac
 ->BI_Socializing5_WaveGoodbye2
 
 === BI_Socializing5_ClassicIvy ===
-Bronislav: "Classic Ivy." You chuckle to yourself.
+Bronislav: "Classic Ivy." 
 
 Ivy gives you a side-eye and fakely laughs with you.
 
 Ivy: "Yeah. Classic Ivy."
 
-Bronislav: "I've got to head out Bronislav. I'll see you again soon. Bye."
+Ivy: "I've got to head out Bronislav. I'll see you again soon. Bye."
 
 *[Wave goodbye.]
 ->BI_Socializing5_WaveHerGoodbye2
@@ -412,16 +412,16 @@ Ivy: "Nice to see you Bronislav. I know it might be a forgone conclusion, but...
 
 She pauses.
 
-*["I just can't."]
+*["I'm sorry I couldn't..."]
 ->BI_Socializing5_IJustCant
 
-*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
+*["You can't push me like this" #>>ChangeOpinion Ivy Bronislav ---]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_WishICouldHelp ===
-Bronislav: "I wish I could help more Ivy, he just isn't fit for the paper."
+Bronislav: "I wish I could help more Ivy, but he didn't do anything that would give him authorship."
 
-Ivy: "I know. He's just really struggling to get into grad school, and that's always been a dream for him. It'd be so sad to see him make it this far and not get in."
+Ivy: "I know. He's just really struggling to get into a PhD program, and that's always been a dream for him. It'd be so sad to see him make it this far and not get in."
 
 *["Sorry Ivy."]
 ->BI_Socializing5_SorryIvy
@@ -429,18 +429,18 @@ Ivy: "I know. He's just really struggling to get into grad school, and that's al
 *["I've made my decision."]
 ->BI_Socializing5_IveMadeMyDecision
 
-*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
+*["You can't push me like this" #>>ChangeOpinion Ivy Bronislav ---]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_JensenShouldDoThat ===
 Bronislav: "Ivy you really should have Jensen do that. He really needs to learn how to take up tasks for himself."
 
-Ivy: "I know, it's just never a bad thing to help a friend. Especially someone who really needs the help, because his future is really on the line."
+Ivy: "I know, it's just never a bad thing to help family. Especially someone who really needs the help, because his future is really on the line."
 
 *["I've made my decision."]
 ->BI_Socializing5_IveMadeMyDecision
 
-*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
+*["You can't push me like this" #>>ChangeOpinion Ivy Bronislav ---]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_ChangeYourApproach ===
@@ -458,18 +458,18 @@ Ivy: "Yeah I'll think about that Bronislav. Nothing wrong with helping a student
 ->BI_Socializing5_EvenIfSomethingBad
 
 === BI_Socializing5_IJustCant ===
-Bronislav: "I just can't Ivy. I can't have Jensen on the paper."
+Bronislav: "I'm sorry I couldn't do it. I just can't have Jensen on the paper."
 
-Ivy: "Mhm... just wish that Jensen had an easier time getting into grad school, this really could have helped him."
+Ivy: "Mhm... just wish that Jensen had an easier time getting into a program, this really could have helped him."
 
 *["I've made my decision."]
 ->BI_Socializing5_IveMadeMyDecision
 
-*["It's not happening." #>>ChangeOpinion Ivy Bronislav -]
+*["You can't push me like this" #>>ChangeOpinion Ivy Bronislav ---]
 ->BI_Socializing5_ItsNotHappening
 
 === BI_Socializing5_ItsNotHappening ===
-Bronislav: "It's not happening Ivy, and that's final. Jensen is not getting my help, no matter how many times you ask or dangle a job in front of me."
+Bronislav: "You can't push me around like this and expect me to do unethical practices for your family. You're not getting my help in the future, no matter how many times you ask or dangle a job in front of me."
 
 Ivy: "Fine Bronislav, have it your way. We'll both get out of your hair and figure something else out. Thanks a ton."
 
@@ -484,7 +484,7 @@ She quickly storms out of the cafe, slamming the door catching the attention of 
 ->DONE
 
 == BI_Socializing5_SorryIvy ===
-Bronislav: "I'm sorry Ivy, I've really tried to help as much as I can. I just can't risk it."
+Bronislav: "I'm sorry Ivy, I've really tried to help as much as I can. I just couldn't risk it."
 
 She groans.
 
@@ -499,7 +499,7 @@ Ivy: "Glad we could meet up so soon, I've got somewhere to be, though. I'll catc
 ->BI_Socializing5_WaveGoodbye3
 
 === BI_Socializing5_IveMadeMyDecision ===
-Bronislav: "I've made my decision, and I'm going to stick by it."
+Bronislav: "I've made my decision, and it's too late to go back on it."
 
 Ivy shrugs and lets out a tiredly disappointed sigh.
 
@@ -570,9 +570,9 @@ You attempt to wave Ivy goodbye, but she walks out seeming not to notice your wa
 === BI_Socializing5_SorryAbtJensen2 ===
 Bronislav: "Hey Ivy, I'm really sorry about Jensen. I just changed my mind, it didn't feel right."
 
-Ivy: "Didn't feel right? Jensen felt like he finally would have a good chance of getting into grad school, and you really just pulled the rug out from both of us. I expected better from you Bronislav."
+Ivy: "Didn't feel right? Jensen felt like he finally would have a good chance of getting into a PhD program, and you really just pulled the rug out from both of us. I expected better from you Bronislav."
 
-*["I just can't."]
+*["I just couldn't."]
 ->BI_Socializing5_IJustCant4
 
 *["I expected better from you."]
@@ -590,9 +590,9 @@ Ivy: "Well? We're not going to talk about it Bronislav? You really betrayed mine
 ->BI_Socializing5_IExpectedBetter
 
 === BI_Socializing5_IJustCant4 ===
-Bronislav: "I just can't Ivy. I can't have Jensen on the paper."
+Bronislav: "I just couldn't Ivy. I couldn't have Jensen on the paper."
 
-Ivy: "Mhm... just wish that Jensen had an easier time getting into grad school, this really could have helped him."
+Ivy: "Mhm... just wish that Jensen had an easier time getting into a PhD program, this really could have helped him."
 
 *["I've made my decision." #>>ChangeOpinion Ivy Bronislav -]
 ->BI_Socializing5_IveMadeMyDecision4
@@ -628,7 +628,7 @@ You attempt to wave Ivy goodbye, but she walks out seeming not to notice your wa
 === BI_Socializing5_IveMadeMyDecision4 ===
 Bronislav: "I've made my decision, and I'm going to stick by it."
 
-Ivy: "That's a first. Sorry we couldn't come to an agreement to meet your strandards. Sad to see someone like Jensen struggle this much to get into grad school."
+Ivy: "That's a first. Sorry we couldn't come to an agreement to meet your strandards. Sad to see someone like Jensen struggle this much to get into a PhD program."
 
 
 Ivy: "Well Bronislav. I'm going to head out now, I've got somewhere else to be."

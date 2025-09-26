@@ -144,7 +144,7 @@ Bronislav: "I believe things will work out. They have to, because I need them to
 
 Hendrick frowns, but it's hard to get a read on what she's thinking.
 
-Hendricks: "Alright then. I recently had to remove Praveen from editorial work, because of his own unethical behavior. I sincerely hope that this isn't something that happens to you."
+Hendricks: "Alright then. I recently had to remove Praveen from revision work, because of his own unethical behavior. I sincerely hope that this isn't something that happens to you."
 
 Bronislav: "Oh wow, I wish things went better for him. I appreciate the concern, but I can handle it. Oh, I gotta head out to finish an assignment. I'll see you later, Professor Hendricks."
 
@@ -233,7 +233,7 @@ Hendricks pinches the bridge of her nose.
 
 Bronislav: "Did something happen?"
 
-Hendricks: "Yes, actually, I unfortunately had to take Praveen off paper editing. I wouldn't say I'm not disappointed, I thought he'd know better. It is quite unfortunate."
+Hendricks: "Yes, actually, I unfortunately had to take Praveen off peer reviewing. I wouldn't say I'm not disappointed, I thought he'd know better. It is quite unfortunate."
 
 *["Glad I didnt end up in that boat."]
 ->BH_Socializing5_GladIDidntEndUp

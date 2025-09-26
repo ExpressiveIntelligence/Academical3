@@ -38,7 +38,7 @@ Bronislav: "Wow they really let anyone in the IRB nowadays, huh?"
 
 Brad whistles.
 
-Brad: "And they really let anyone submit a paper to us too! How's it going Bronny?"
+Brad: "And they really let anyone submit a conference paper too! How's it going Bronny?"
 
 *["Going good."]
 ->BB_S1_GoingGood
