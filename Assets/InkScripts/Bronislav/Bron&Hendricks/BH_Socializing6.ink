@@ -26,9 +26,7 @@ VAR appreciate_honesty = true
 ~IvyDeniedOfficial = DbAssert("BI_OfficiallyRejected") 
 
 
-Hendricks: "Thank you for coming to my office, Bronislav."
-
-Hendricks greets you as you open the door. 
+Hendricks: "Thank you for coming, Bronislav."
 
 Bronislav: "Of course, you wanted to see me."
 
@@ -61,7 +59,7 @@ Hendricks: "I had to have a rather unfortunate discussion about her leveraging y
 
 Hendricks: "As you well demonstrated, integrity is important. Academic integrity is essential to your life as a student, but out in the real world, maintaining your integrity is absolutely paramount to becoming respected and conducting valid research in your field."
 
-Hendricks: "Ivy's manipulation cannot be tolerated, and I need to take serious measures to ensure something like this does not happen to another student."
+Hendricks: "Ivy's manipulation cannot be tolerated, and she has been reported. Due to the situation, it sounds like serious measures will be taken to ensure something like this does not happen to another student."
 
 *["Yes, I understand."]
 ->BH_Socializing6_Understood
@@ -145,7 +143,7 @@ Hendricks: "In the end, however, you made the right decision, and I'm very proud
 === BH_Socializing6_WhatDidYouDiscuss ===
 Bronislav: "What did you two discuss?"
 
-Hendricks: "Well, for starters, I warned  her actions towards you will never be tolerated in an academic space. In simple terms, her attempt to dangle a job in front of you to get what she wanted was textbook quid pro quo."
+Hendricks: "Well, for starters, she has been reported and it seems as though serious actions will be taken due to the manner of the situation. Her actions towards you will never be tolerated in an academic space. In simple terms, her attempt to dangle a job in front of you to get what she wanted was textbook quid pro quo."
 
 Hendricks: "Academic integrity is important, especially when you all are so close to getting jobs. Everything you do here is reflected on your future in the industry. I know you've probably heard this quite a lot, but honesty is important."
 
@@ -177,7 +175,7 @@ Bronislav: "I don't hate Ivy..."
 
 Hendricks smiles.
 
-Hendricks: "Don't worry, Bronislav, I understand. Ivy will come around if she hasn't already. She's your friend after all."
+Hendricks: "Don't worry, Bronislav, I understand. Ivy will come around if she hasn't already."
 
 *["Thank you Professor."]
 ->BH_Socializing6_ThankYou
@@ -209,7 +207,7 @@ Hendricks: "Indeed, I had to have a rather unfortunate discussion about her leve
 
 Hendricks: "You need to understand, Bronislav, integrity is important. Academic integrity is essential to your life as a student, but out in the real world, maintaining your integrity is absolutely paramount to becoming respected and conducting valid research in your field." 
 
-Hendricks: "Ivy's manipulation cannot be tolerated, and I need to take serious measures to ensure something like this does not happen to another student."
+Hendricks: "Ivy's manipulation cannot be tolerated, and she has been reported. It seems as though serious measures will be taken to ensure something like this does not happen to another student."
 
 *["Isn't all of that a little unnecessary?"] 
 ->BH_Socializing6_Unnecessary
