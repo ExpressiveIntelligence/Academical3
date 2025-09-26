@@ -95,7 +95,7 @@ Bronislav: "Thanks, Professor."
 {appreciate_honesty == true:
 Bronislav: "Yes, I understand. In the end, I'm glad I made the right call. Although losing that job was frustrating, there will be more opportunities. Real ones."
 
-Hendricks: "Absolutely, I'm glad to see you're in a positive mindset. And, as I am sure you already know, your faculty advisors are here to help you, whether that's finding opportunities, resources, or just advice, thats our job."
+Hendricks: "Absolutely, I'm glad to see you're in a positive mindset. And, as I am sure you already know, your faculty advisors are here to help you, whether that's finding opportunities, resources, or just advice, that's our job."
 
 You nod your head.
 

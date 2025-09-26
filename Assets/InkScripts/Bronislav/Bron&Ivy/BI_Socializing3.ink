@@ -67,9 +67,6 @@ Bronislav: "Hey Ivy."
 {IvyDealDenied: Ivy smiles, a bit surprised.}
 {SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
 
-{IvyDealDenied: Ivy smiles, a bit surprised.}
-{SwitchingOpinionsReject: Ivy smiles, a bit surprised.}
-
 {IvyDealDenied: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
 
 {SwitchingOpinionsReject: Ivy: "Glad I caught you in a better mood. I've actually been thinking about our conversation earlier, and I realized there is another good reason why you should help Jensen."}
@@ -303,7 +300,7 @@ Bronislav: "Oh yeah? What other reason did you think of?"
 
 Ivy: "Well, you and I both know how hard it is to get into grad school, especially without taking part in research like you're engaged in, but I also thought about how hard it is to actually get a job in our field after school."
 
-Ivy: "Helping Jensen would really give you the secruity of having your life after school totally planned out, your visa totally secured, and all you would be doing would be giving him a leg-up for getting into school. It's a win-win situation no matter how you slice it."
+Ivy: "Helping Jensen would really give you the security of having your life after school totally planned out, your visa totally secured, and all you would be doing would be giving him a leg-up for getting into school. It's a win-win situation no matter how you slice it."
 
 *["I hadn't thought about it like that." #>> ChangeOpinion Ivy Bronislav +++]
 Bronislav: "Huh, I hadn't thought about it like that, Ivy."

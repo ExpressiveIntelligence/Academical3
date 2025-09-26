@@ -127,7 +127,7 @@ Bronislav: I see...
 ->BHS3_HowDoYouMeanISee
 
 == BHS3_HowDoYouMeanISee ==
-Hendricks: "For instance, would you have ever considered putting Jensen on your paper if not for this offer? Last time we spoke, you were frustrated with his feedback."
+Hendricks: "For instance, would you have ever considered putting Jensen on your paper if not for this offer?"
 
 {not ignoredHendricks: Hendricks: "Last time we spoke, you were frustrated with his feedback."}
 

@@ -44,7 +44,7 @@ Ivy: "That's fair, I can understand why that would be daunting. Actually, that r
 
 === BI_IRB_Terrible ===
 
-Bronislav: "I'm actually kind of wreck right now. I know I shouldn't be, but I'm pretty nervous about getting IRB approval."
+Bronislav: "I'm actually kind of a wreck right now. I know I shouldn't be, but I'm pretty nervous about getting IRB approval."
 
 Ivy: "Oh man Bronislav, I'm sorry! If I know anything about you, I'm sure you did everything that was required, so don't stress too much. Actually, that reminds me, I have something that might cheer you up."
 
@@ -243,7 +243,7 @@ Ivy: "I'll try to remember to ask for you."
 
 You decide not to push you luck, especially since you don't want to come off as ungrateful.
 
-Bronislav: "Now I have something to look into while I wait for this"
+Bronislav: "Now I have something to look into while I wait for this."
     
 Ivy: "Actually, I could probably mention you to my uncle to help with your application."
 
@@ -599,7 +599,7 @@ Bronislav: "No, I definitely can't. It would be very unethical for me to do some
 
 Ivy: "Well, I guess it was worth an ask." 
 
-Ivy: "You're one of the main people I know who has an active research paper, so it would be a big help if you could get him on it"
+Ivy: "You're one of the main people I know who has an active research paper, so it would be a big help if you could get him on it."
 
 Bronislav: "I understand where you're coming from, but I don't think I will be an option."
 

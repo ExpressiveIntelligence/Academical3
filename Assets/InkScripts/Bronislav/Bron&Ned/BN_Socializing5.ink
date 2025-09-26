@@ -161,7 +161,7 @@ Ned: "What's important for you to remember is that it's never worth violating et
 
 Ned: I am very glad he came forward, because the reprocussions had he not would have been severe."
 
-Ned: "While I know this is not something you were directly involved in, it's important to remember Brad's mistakes here, so that if you are ever in this situation, you come clean as soon as you realize you have made an ethics violation. Thankfully, Brad was honest and came forward about the situation early, and I was able to help mitigate the damage done bt his oversight."
+Ned: "While I know this is not something you were directly involved in, it's important to remember Brad's mistakes here, so that if you are ever in this situation, you come clean as soon as you realize you have made an ethics violation. Thankfully, Brad was honest and came forward about the situation early, and I was able to help mitigate the damage done by his oversight."
 
 Ned: "What's important for you to remember is that it's never worth violating ethics just to get a paper published. Not only is it morally wrong, but it can land you in a heap of trouble. I am proud of Brad for realizing what was problematic about his actions and taking ownership of his mistakes."
 
