@@ -11,8 +11,12 @@ Academical 3.0 is rendition of the experimental research game *Academical*, orig
 ### Local Environment
 
 1. Clone the repository into the folder of your choosing.
-2. Switch to the "MainMenu" scene (Assets/Scenes/MainMenu).
-3. Ensure that Ink has compiled. This can be done through the engine menu at Assets > Recompile Ink. You should see the file "main.json" appear under Assets/Resources/. If you do not see this file, your local environment will not run and you need to recompile Ink.
+2. Install [Git Large File Storage (LFS)](https://git-lfs.com). This is needed to load the game assets like images and music.
+3. Set up Git LFS for your system with `git lfs install`.
+4. Ensure assets are downloaded correctly with `git lfs pull`.
+5. Open the project in Unity. This will require downloading Unity version 2022.3.56f1 (this is handled automatically by Unity Hub when you open the project).
+6. Inside Unity, switch to the "MainMenu" scene (Assets/Scenes/MainMenu).
+7. Ensure that Ink has compiled. This can be done through the engine menu at Assets > Recompile Ink. You should see the file "main.json" appear under Assets/Resources/. If you do not see this file, your local environment will not run and you need to recompile Ink.
 
 ## Previous Academical Versions
 
